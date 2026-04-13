@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modules</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <nav>
+                <ul>
+                    <li><a href="index.html">Overview</a></li>
+                    <li><a href="architecture.html">Architecture</a></li>
+                    <li><a href="structure.html">Structure</a></li>
+                    <li><a href="flows.html">Flows</a></li>
+                    <li><a href="modules.html" class="active">Modules</a></li>
+                    <li><a href="evidence.html">Evidence</a></li>
+                    <li><a href="contributing.html">Contributing</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="content">
+            <h1>Modules</h1>
+
+            <section>
+                <h2>Dependencies</h2>
+                <ul>
+                    <li>Flask</li>
+                    <li>Flask-SQLAlchemy</li>
+                    <li>SQLAlchemy</li>
+                    <li>pytest</li>
+                    <li>requests</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>Key Modules</h2>
+                <dl>
+                    <dt><strong>app</strong> (app.py)</dt>
+                    <dd>Creates and configures the Flask application, initializes extensions, defines routes for books, members, and loans, and wires templates and models together.</dd>
+
+                    <dt><strong>models</strong> (models.py)</dt>
+                    <dd>Defines SQLAlchemy ORM models for core entities such as books, members, and loans, including fields and relationships used by the app.</dd>
+
+                    <dt><strong>extensions</strong> (extensions.py)</dt>
+                    <dd>Declares Flask extension instances (e.g., SQLAlchemy db object) for import into app.py and models.py.</dd>
+
+                    <dt><strong>tests.test_app</strong> (tests/test_app.py)</dt>
+                    <dd>Provides pytest-based tests that exercise the Flask routes and core library management workflows.</dd>
+                </dl>
+            </section>
+
+            <section>
+                <h2>Data Models</h2>
+                <ul>
+                    <li><strong>Book model:</strong> Defined in models.py via SQLAlchemy, used in book listing/detail/form templates.</li>
+                    <li><strong>Member model:</strong> Defined in models.py, used in member listing/detail/form templates.</li>
+                    <li><strong>Loan model:</strong> Defined in models.py, used in loan listing and borrow templates.</li>
+                </ul>
+            </section>
+        </main>
+    </div>
+</body>
+</html>
