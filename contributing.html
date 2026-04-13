@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contributing - LibManagement</title>
+    <title>Contributing</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -22,66 +22,54 @@
     </div>
     <div class="content">
         <h1>Contributing to LibManagement</h1>
-
         <section>
             <h2>Quick Setup</h2>
-            <p>To set up the project for development, follow these steps:</p>
-            <ol>
-                <li>Clone the repository:</li>
-                <pre><code>git clone https://github.com/iamenginerdsunio/LibManagement.git</code></pre>
-                <li>Navigate to the project directory:</li>
-                <pre><code>cd LibManagement</code></pre>
-                <li>Create a virtual environment and install dependencies:</li>
-                <pre><code>python -m venv venv
-source venv/bin/activate
+            <p>To set up the development environment, clone the repository and install the dependencies listed in <code>requirements.txt</code>:</p>
+            <pre><code>git clone https://github.com/iamenginerdsunio/LibManagement.git
+cd LibManagement
 pip install -r requirements.txt</code></pre>
-                <li>Run the Flask application:</li>
-                <pre><code>python app.py</code></pre>
-            </ol>
         </section>
-
         <section>
             <h2>Contribution Workflow</h2>
-            <p>We welcome contributions to improve the LibManagement project. Please follow these guidelines:</p>
-            <ul>
-                <li>Fork the repository on GitHub.</li>
-                <li>Create a new branch for your feature or bugfix:</li>
-                <pre><code>git checkout -b feature/your-feature-name</code></pre>
-                <li>Make your changes and commit them:</li>
-                <pre><code>git add .
-git commit -m "Description of your changes"</code></pre>
-                <li>Push your branch to your fork:</li>
-                <pre><code>git push origin feature/your-feature-name</code></pre>
-                <li>Submit a pull request to the <code>main</code> branch of this repository.</li>
-            </ul>
+            <p>Follow these steps to contribute:</p>
+            <ol>
+                <li>Fork the repository and create a new branch for your changes.</li>
+                <li>Make your modifications, ensuring they align with the project's code structure and style.</li>
+                <li>Write or update tests in <code>tests/test_app.py</code> to cover your changes.</li>
+                <li>Run all tests with <code>pytest</code> to validate functionality:</li>
+                <pre><code>pytest</code></pre>
+                <li>Submit a pull request with a clear description of your changes.</li>
+            </ol>
         </section>
-
         <section>
             <h2>Code Hygiene</h2>
-            <p>We maintain the following code hygiene standards:</p>
+            <p>Maintain clean and readable code by adhering to these guidelines:</p>
             <ul>
-                <li>Follow Python's PEP 8 guidelines for code formatting.</li>
-                <li>Write clear, concise commit messages.</li>
-                <li>Document new functions, classes, and modules with comments or docstrings.</li>
-                <li>Keep functions and methods small and focused.</li>
+                <li>Follow Python's PEP 8 coding standards.</li>
+                <li>Organize routes and views logically within <code>app.py</code>.</li>
+                <li>Use meaningful names for functions, variables, and models.</li>
+                <li>Keep templates structured and extend <code>base.html</code> where applicable.</li>
             </ul>
         </section>
-
         <section>
             <h2>Testing</h2>
-            <p>Automated tests are crucial for maintaining project stability. The project uses <code>pytest</code> and <code>pytest-flask</code> for testing. To run the tests:</p>
-            <pre><code>pytest</code></pre>
-            <p>Add tests for any new features or bug fixes in the <code>tests</code> directory. Ensure all tests pass before submitting a pull request.</p>
+            <p>Tests are located in <code>tests/test_app.py</code>. Ensure that:</p>
+            <ul>
+                <li>All routes and workflows (index, books, members, loans) are covered.</li>
+                <li>HTTP responses and expected behaviors are verified.</li>
+                <li>New features include corresponding tests.</li>
+            </ul>
         </section>
-
         <section>
             <h2>Operational Notes</h2>
-            <p>Key operational details to keep in mind:</p>
+            <p>The application uses these core technologies:</p>
             <ul>
-                <li>The entry point for the application is <code>app.py</code>.</li>
-                <li>Templates are organized by domain in the <code>templates</code> directory (e.g., <code>templates/books/</code>, <code>templates/members/</code>, <code>templates/loans/</code>).</li>
-                <li>Static assets are located in the <code>static</code> directory.</li>
+                <li><strong>Flask:</strong> For routing and template rendering.</li>
+                <li><strong>Flask-SQLAlchemy:</strong> For ORM-based database interactions.</li>
+                <li><strong>Flask-Migrate:</strong> To manage database migrations.</li>
+                <li><strong>pytest:</strong> For testing.</li>
             </ul>
+            <p>Ensure compatibility with these dependencies when making changes.</p>
         </section>
     </div>
 </body>
