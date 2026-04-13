@@ -1,18 +1,90 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Architecture</title>
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Architecture</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="sidebar">
-    <h2>Wiki</h2>
-    <a href="index.html">Overview</a>
-    <a href="architecture.html">Architecture</a>
-  </div>
-  <div class="content">
-    <h1>Architecture</h1>
-    <p>System architecture details go here.</p>
-  </div>
+    <div class="container">
+        <aside class="sidebar">
+            <nav>
+                <ul>
+                    <li><a href="index.html">Overview</a></li>
+                    <li><a href="architecture.html" class="active">Architecture</a></li>
+                    <li><a href="structure.html">Structure</a></li>
+                    <li><a href="flows.html">Flows</a></li>
+                    <li><a href="modules.html">Modules</a></li>
+                    <li><a href="evidence.html">Evidence</a></li>
+                    <li><a href="contributing.html">Contributing</a></li>
+                </ul>
+            </nav>
+        </aside>
+        <main class="content">
+            <h1>Architecture</h1>
+
+            <section>
+                <h2>Overview</h2>
+                <p>The <strong>LibManagement</strong> project is a Flask-based web application designed to manage books, members, and loans. It employs a modular architecture to separate concerns such as database models, application extensions, and templates. The project demonstrates CRUD operations and typical library workflows in a structured and maintainable way.</p>
+            </section>
+
+            <section>
+                <h2>Major Layers</h2>
+                <ul>
+                    <li><strong>Application Layer:</strong> The main application logic is in <code>app.py</code>, which initializes Flask, configures extensions, and defines routes for the key features.</li>
+                    <li><strong>Data Layer:</strong> Models are defined in <code>models.py</code> using SQLAlchemy ORM, representing entities like <em>Book</em>, <em>Member</em>, and <em>Loan</em>.</li>
+                    <li><strong>Presentation Layer:</strong> HTML templates are located under the <code>templates/</code> directory, organized by feature (e.g., books, members, loans) and include a shared base layout.</li>
+                    <li><strong>Testing Layer:</strong> A pytest-based test suite in <code>tests/</code> validates the application’s functionality, focusing on routes and workflows.</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>Framework Relationships</h2>
+                <ul>
+                    <li><strong>Flask:</strong> Provides the core web framework for routing, request handling, and template rendering.</li>
+                    <li><strong>Flask-SQLAlchemy:</strong> Manages database interactions through SQLAlchemy ORM, simplifying CRUD operations for the library’s entities.</li>
+                    <li><strong>Jinja2:</strong> Enables dynamic HTML rendering using templates with inheritance, loops, and conditionals.</li>
+                    <li><strong>pytest:</strong> Supports testing of routes and application workflows using a Flask test client.</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>Diagram</h2>
+                <p>The following diagram illustrates the high-level architecture of the application:</p>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 300" width="100%" height="auto">
+                    <rect x="10" y="10" width="480" height="280" fill="#f3f3f3" stroke="#ccc" />
+                    <text x="250" y="40" text-anchor="middle" font-size="18" font-family="Arial">LibManagement Architecture</text>
+                    
+                    <!-- Flask App -->
+                    <rect x="50" y="80" width="150" height="50" fill="#dff0d8" stroke="#ccc" />
+                    <text x="125" y="110" text-anchor="middle" font-size="14" font-family="Arial">Flask App (app.py)</text>
+
+                    <!-- Extensions -->
+                    <rect x="250" y="80" width="150" height="50" fill="#d9edf7" stroke="#ccc" />
+                    <text x="325" y="110" text-anchor="middle" font-size="14" font-family="Arial">Extensions (extensions.py)</text>
+
+                    <!-- Models -->
+                    <rect x="50" y="160" width="150" height="50" fill="#fcf8e3" stroke="#ccc" />
+                    <text x="125" y="190" text-anchor="middle" font-size="14" font-family="Arial">Models (models.py)</text>
+
+                    <!-- Templates -->
+                    <rect x="250" y="160" width="150" height="50" fill="#f2dede" stroke="#ccc" />
+                    <text x="325" y="190" text-anchor="middle" font-size="14" font-family="Arial">Templates (templates/)</text>
+
+                    <!-- Relationships -->
+                    <line x1="125" y1="130" x2="125" y2="160" stroke="#aaa" stroke-width="2" marker-end="url(#arrow)" />
+                    <line x1="325" y1="130" x2="325" y2="160" stroke="#aaa" stroke-width="2" marker-end="url(#arrow)" />
+
+                    <!-- Arrow Marker -->
+                    <defs>
+                        <marker id="arrow" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto">
+                            <path d="M0,0 L10,5 L0,10 Z" fill="#aaa" />
+                        </marker>
+                    </defs>
+                </svg>
+            </section>
+        </main>
+    </div>
 </body>
 </html>
