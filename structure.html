@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Structure - Library Management System</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="sidebar">
+        <nav>
+            <ul>
+                <li><a href="index.html">Overview</a></li>
+                <li><a href="architecture.html">Architecture</a></li>
+                <li><a href="structure.html">Structure</a></li>
+                <li><a href="flows.html">Flows</a></li>
+                <li><a href="modules.html">Modules</a></li>
+                <li><a href="evidence.html">Evidence</a></li>
+                <li><a href="contributing.html">Contributing</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="content">
+        <h1>Repository Structure</h1>
+
+        <section>
+            <h2>Root Files</h2>
+            <ul>
+                <li>.gitignore</li>
+                <li>README.md</li>
+                <li>app.py</li>
+                <li>extensions.py</li>
+                <li>models.py</li>
+                <li>requirements.txt</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Important Directories</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Path</th>
+                        <th>Purpose</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>templates</td>
+                        <td>Jinja2 HTML templates for the Flask UI, including base layout, home page, and feature-specific views for books, members, and loans</td>
+                    </tr>
+                    <tr>
+                        <td>templates/books</td>
+                        <td>Templates for book-related views such as listing books, viewing details, and creating/updating via forms</td>
+                    </tr>
+                    <tr>
+                        <td>templates/members</td>
+                        <td>Templates for member-related views such as listing members, viewing details, and member forms</td>
+                    </tr>
+                    <tr>
+                        <td>templates/loans</td>
+                        <td>Templates for loan-related views such as listing loans and borrowing books</td>
+                    </tr>
+                    <tr>
+                        <td>static</td>
+                        <td>Static assets such as CSS/JS (contents not inspected but inferred from Flask conventions and directory name)</td>
+                    </tr>
+                    <tr>
+                        <td>tests</td>
+                        <td>Automated tests for the Flask app in test_app.py</td>
+                    </tr>
+                    <tr>
+                        <td>docs</td>
+                        <td>Documentation artifacts (contents not inspected; purpose inferred from directory name)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section>
+            <h2>Entrypoints</h2>
+            <ul>
+                <li>app.py</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Configuration Files</h2>
+            <ul>
+                <li>requirements.txt</li>
+            </ul>
+        </section>
+    </div>
+</body>
+</html>
