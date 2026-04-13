@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Architecture - LibManagement</title>
+    <title>Architecture</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -11,7 +11,7 @@
         <nav>
             <ul>
                 <li><a href="index.html">Overview</a></li>
-                <li><a href="architecture.html" class="active">Architecture</a></li>
+                <li><a href="architecture.html">Architecture</a></li>
                 <li><a href="structure.html">Structure</a></li>
                 <li><a href="flows.html">Flows</a></li>
                 <li><a href="modules.html">Modules</a></li>
@@ -21,61 +21,36 @@
         </nav>
     </div>
     <div class="content">
-        <h1>Architecture</h1>
+        <h1>Application Architecture</h1>
         <section>
-            <h2>Overview</h2>
-            <p>The LibManagement application is a <strong>Flask-based web application</strong> designed for managing books, members, and loans. It demonstrates CRUD operations and core library workflows through a server-rendered web interface.</p>
+            <h2>Summary</h2>
+            <p>The application is a single-module Flask-based web application (app.py) designed as a library management system. It supports CRUD operations for books, members, and loans, including borrowing and return workflows. The project utilizes Flask extensions (Flask-SQLAlchemy, Flask-Migrate) for database management and pytest for automated testing.</p>
         </section>
-
         <section>
-            <h2>Key Architectural Features</h2>
+            <h2>Major Layers</h2>
             <ul>
-                <li><strong>Frameworks:</strong> Flask for routing and request handling, Flask-SQLAlchemy for ORM, and Flask-WTF for form handling.</li>
-                <li><strong>Structure:</strong> A single-module Flask app (<code>app.py</code>) with models defined in <code>models.py</code>, shared extensions in <code>extensions.py</code>, and Jinja2 templates grouped by domain under <code>templates/</code>.</li>
-                <li><strong>Testing:</strong> Routes and flows are validated using a pytest test suite in <code>tests/test_app.py</code>.</li>
+                <li><strong>Core Application:</strong> app.py initializes the Flask application, routes, and extensions.</li>
+                <li><strong>Data Models:</strong> SQLAlchemy models (Book, Member, Loan) defined in models.py represent the library entities and their relationships.</li>
+                <li><strong>Templates:</strong> Jinja2 templates grouped by domain (books, members, loans) with a shared base layout.</li>
+                <li><strong>Static Assets:</strong> CSS styling is centralized in static/css/style.css.</li>
+                <li><strong>Testing:</strong> A pytest-based test suite ensures route functionality and business workflows.</li>
             </ul>
         </section>
-
-        <section>
-            <h2>Layers</h2>
-            <ul>
-                <li><strong>Presentation:</strong> Jinja2 templates (e.g., <code>base.html</code>, <code>index.html</code>, and domain-specific templates under books, members, and loans directories).</li>
-                <li><strong>Application Logic:</strong> Flask routes in <code>app.py</code> manage CRUD operations and workflows for books, members, and loans.</li>
-                <li><strong>Persistence:</strong> SQLAlchemy ORM models defined in <code>models.py</code> handle database interaction and relationships between entities.</li>
-            </ul>
-        </section>
-
         <section>
             <h2>Framework Relationships</h2>
-            <p>The application integrates Flask for web requests and routing, Flask-SQLAlchemy for ORM functionality, and Flask-WTF for handling form validation and processing. These frameworks are configured centrally in <code>app.py</code> and <code>extensions.py</code>.</p>
+            <p>The application integrates Flask with Flask-SQLAlchemy for ORM functionality and Flask-Migrate for database migrations. Server-side rendering is achieved using Jinja2 templates. Automated tests leverage pytest for route validation and workflow testing.</p>
         </section>
-
         <section>
-            <h2>High-Level Architecture Diagram</h2>
-            <p>The following diagram illustrates the relationships between the main components:</p>
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 300" width="100%" height="auto">
-                <rect x="20" y="20" width="150" height="50" fill="#f4f4f4" stroke="#000" />
-                <text x="45" y="50" font-size="14">Flask (app.py)</text>
-
-                <rect x="200" y="20" width="150" height="50" fill="#f4f4f4" stroke="#000" />
-                <text x="225" y="50" font-size="14">Extensions (extensions.py)</text>
-
-                <rect x="380" y="20" width="150" height="50" fill="#f4f4f4" stroke="#000" />
-                <text x="400" y="50" font-size="14">Models (models.py)</text>
-
-                <line x1="170" y1="45" x2="200" y2="45" stroke="#000" stroke-width="2" />
-                <line x1="350" y1="45" x2="380" y2="45" stroke="#000" stroke-width="2" />
-
-                <rect x="120" y="100" width="260" height="50" fill="#f4f4f4" stroke="#000" />
-                <text x="140" y="130" font-size="14">Jinja2 Templates (templates/)</text>
-
-                <line x1="200" y1="70" x2="200" y2="100" stroke="#000" stroke-width="2" />
-                <line x1="300" y1="70" x2="300" y2="100" stroke="#000" stroke-width="2" />
-
-                <rect x="200" y="200" width="150" height="50" fill="#f4f4f4" stroke="#000" />
-                <text x="225" y="230" font-size="14">Database</text>
-
-                <line x1="275" y1="150" x2="275" y2="200" stroke="#000" stroke-width="2" />
+            <h2>Diagram</h2>
+            <svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300">
+                <rect x="150" y="20" width="100" height="50" fill="#4CAF50" />
+                <text x="155" y="50" font-size="14" fill="#fff">app.py</text>
+                <line x1="200" y1="70" x2="200" y2="120" stroke="#000" />
+                <rect x="150" y="120" width="100" height="50" fill="#2196F3" />
+                <text x="155" y="150" font-size="14" fill="#fff">models.py</text>
+                <line x1="200" y1="170" x2="200" y2="220" stroke="#000" />
+                <rect x="150" y="220" width="100" height="50" fill="#FF5722" />
+                <text x="155" y="250" font-size="14" fill="#fff">extensions.py</text>
             </svg>
         </section>
     </div>
