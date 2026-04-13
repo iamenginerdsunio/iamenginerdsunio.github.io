@@ -3,65 +3,98 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modules</title>
+    <title>Modules - LibManagement</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <aside class="sidebar">
-            <nav>
-                <ul>
-                    <li><a href="index.html">Overview</a></li>
-                    <li><a href="architecture.html">Architecture</a></li>
-                    <li><a href="structure.html">Structure</a></li>
-                    <li><a href="flows.html">Flows</a></li>
-                    <li><a href="modules.html" class="active">Modules</a></li>
-                    <li><a href="evidence.html">Evidence</a></li>
-                    <li><a href="contributing.html">Contributing</a></li>
-                </ul>
-            </nav>
-        </aside>
+    <div class="sidebar">
+        <nav>
+            <ul>
+                <li><a href="index.html">Overview</a></li>
+                <li><a href="architecture.html">Architecture</a></li>
+                <li><a href="structure.html">Structure</a></li>
+                <li><a href="flows.html">Flows</a></li>
+                <li><a href="modules.html" class="active">Modules</a></li>
+                <li><a href="evidence.html">Evidence</a></li>
+                <li><a href="contributing.html">Contributing</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div class="content">
+        <h1>Modules</h1>
+        <section>
+            <h2>Key Modules</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Module</th>
+                        <th>Path</th>
+                        <th>Responsibilities</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>app</strong></td>
+                        <td><code>app.py</code></td>
+                        <td>Creates and configures the Flask application, sets up database and extensions, defines routes for books, members, and loans, and renders templates.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>models</strong></td>
+                        <td><code>models.py</code></td>
+                        <td>Defines SQLAlchemy ORM models for key entities (e.g., Book, Member, Loan) and encodes their relationships and persistence logic.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>extensions</strong></td>
+                        <td><code>extensions.py</code></td>
+                        <td>Initializes shared Flask extensions like the SQLAlchemy database instance for reuse in app.py and models.py.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>tests.test_app</strong></td>
+                        <td><code>tests/test_app.py</code></td>
+                        <td>Contains pytest tests to validate routes, CRUD operations, and response behaviors using Flask’s test client.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>templates.base</strong></td>
+                        <td><code>templates/base.html</code></td>
+                        <td>Defines the base layout with shared structure and Jinja2 blocks for content, used by other templates via inheritance.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>templates.index</strong></td>
+                        <td><code>templates/index.html</code></td>
+                        <td>Implements the home page UI, summarizing library data and linking to management pages for books, members, and loans.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
 
-        <main class="content">
-            <h1>Modules</h1>
+        <section>
+            <h2>Dependencies</h2>
+            <ul>
+                <li><strong>Flask:</strong> Core web framework for routing, request handling, and response generation.</li>
+                <li><strong>Flask-SQLAlchemy:</strong> ORM library for database operations and model definitions.</li>
+                <li><strong>pytest:</strong> Testing framework used to validate application functionality.</li>
+                <li><strong>Other dependencies:</strong> Implied in <code>requirements.txt</code>, but not explicitly enumerated in the data.</li>
+            </ul>
+        </section>
 
-            <section>
-                <h2>Dependencies</h2>
-                <ul>
-                    <li>Flask</li>
-                    <li>Flask-SQLAlchemy</li>
-                    <li>SQLAlchemy</li>
-                    <li>pytest</li>
-                    <li>requests</li>
-                </ul>
-            </section>
+        <section>
+            <h2>Data Models</h2>
+            <dl>
+                <dt><strong>Book</strong></dt>
+                <dd>Represents books in the library. Details on fields and relationships are not explicitly provided.</dd>
 
-            <section>
-                <h2>Key Modules</h2>
-                <dl>
-                    <dt><strong>app</strong> (app.py)</dt>
-                    <dd>Creates and configures the Flask application, initializes extensions, defines routes for books, members, and loans, and wires templates and models together.</dd>
+                <dt><strong>Member</strong></dt>
+                <dd>Represents library members. Details on fields and relationships are not explicitly provided.</dd>
 
-                    <dt><strong>models</strong> (models.py)</dt>
-                    <dd>Defines SQLAlchemy ORM models for core entities such as books, members, and loans, including fields and relationships used by the app.</dd>
+                <dt><strong>Loan</strong></dt>
+                <dd>Represents loan records linking books and members, with metadata for borrowing and returning books. Details on fields and relationships are not explicitly provided.</dd>
+            </dl>
+        </section>
 
-                    <dt><strong>extensions</strong> (extensions.py)</dt>
-                    <dd>Declares Flask extension instances (e.g., SQLAlchemy db object) for import into app.py and models.py.</dd>
-
-                    <dt><strong>tests.test_app</strong> (tests/test_app.py)</dt>
-                    <dd>Provides pytest-based tests that exercise the Flask routes and core library management workflows.</dd>
-                </dl>
-            </section>
-
-            <section>
-                <h2>Data Models</h2>
-                <ul>
-                    <li><strong>Book model:</strong> Defined in models.py via SQLAlchemy, used in book listing/detail/form templates.</li>
-                    <li><strong>Member model:</strong> Defined in models.py, used in member listing/detail/form templates.</li>
-                    <li><strong>Loan model:</strong> Defined in models.py, used in loan listing and borrow templates.</li>
-                </ul>
-            </section>
-        </main>
+        <section>
+            <h2>Notes</h2>
+            <p>While the repository provides a clear structure, detailed field definitions for data models and specific route URLs are not fully enumerated in the evidence.</p>
+        </section>
     </div>
 </body>
 </html>
