@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contributing</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="sidebar">
+        <ul>
+            <li><a href="index.html">Overview</a></li>
+            <li><a href="architecture.html">Architecture</a></li>
+            <li><a href="structure.html">Structure</a></li>
+            <li><a href="flows.html">Flows</a></li>
+            <li><a href="modules.html">Modules</a></li>
+            <li><a href="evidence.html">Evidence</a></li>
+            <li><a href="contributing.html">Contributing</a></li>
+        </ul>
+    </div>
+    <div class="content">
+        <h1>Contributing Guide</h1>
+
+        <h2>Quick Setup</h2>
+        <p>To set up the project locally, follow these steps:</p>
+        <ol>
+            <li>Clone the repository: <code>git clone https://github.com/iamenginerdsunio/LibManagement.git</code></li>
+            <li>Navigate to the project directory: <code>cd LibManagement</code></li>
+            <li>Create a virtual environment: <code>python -m venv venv</code></li>
+            <li>Activate the virtual environment:</li>
+            <ul>
+                <li>On Windows: <code>venv\Scripts\activate</code></li>
+                <li>On macOS/Linux: <code>source venv/bin/activate</code></li>
+            </ul>
+            <li>Install dependencies: <code>pip install -r requirements.txt</code></li>
+            <li>Run the Flask application: <code>python app.py</code></li>
+        </ol>
+
+        <h2>Contribution Workflow</h2>
+        <p>To contribute to the project, follow this workflow:</p>
+        <ol>
+            <li>Fork the repository to your GitHub account.</li>
+            <li>Create a new branch for your feature or fix: <code>git checkout -b feature-name</code></li>
+            <li>Make your changes in the codebase.</li>
+            <li>Ensure the application runs successfully and passes all tests.</li>
+            <li>Commit your changes with a clear message: <code>git commit -m "Add feature description"</code></li>
+            <li>Push the changes to your fork: <code>git push origin feature-name</code></li>
+            <li>Create a pull request against the main branch of the original repository.</li>
+        </ol>
+
+        <h2>Code Hygiene</h2>
+        <p>When contributing, ensure the following:</p>
+        <ul>
+            <li>Follow PEP 8 standards for Python code.</li>
+            <li>Write clear and descriptive commit messages.</li>
+            <li>Remove any commented-out or unused code.</li>
+            <li>Use meaningful names for functions, variables, and classes.</li>
+        </ul>
+
+        <h2>Testing Cues</h2>
+        <p>Before submitting a contribution, ensure the following tests pass:</p>
+        <ol>
+            <li>Run the automated tests located in <code>tests/test_app.py</code> using pytest: <code>pytest tests</code></li>
+            <li>Test all routes (books, members, loans) for expected behavior and verify CRUD workflows.</li>
+            <li>Manually verify that templates render correctly and display appropriate data.</li>
+        </ol>
+
+        <h2>Operational Notes</h2>
+        <p>Keep in mind the following operational considerations:</p>
+        <ul>
+            <li>Ensure any new dependencies are added to <code>requirements.txt</code>.</li>
+            <li>Document any new routes, models, or features in the appropriate Markdown files within the <code>docs</code> directory (contents not detected).</li>
+            <li>Maintain consistency with existing routes and templates.</li>
+            <li>Check compatibility with the existing Flask-SQLAlchemy and pytest setups.</li>
+        </ul>
+    </div>
+</body>
+</html>
