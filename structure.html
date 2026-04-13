@@ -3,86 +3,102 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project Structure</title>
+    <title>Structure</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="sidebar">
-        <nav>
-            <ul>
-                <li><a href="index.html">Overview</a></li>
-                <li><a href="architecture.html">Architecture</a></li>
-                <li><a href="structure.html">Structure</a></li>
-                <li><a href="flows.html">Flows</a></li>
-                <li><a href="modules.html">Modules</a></li>
-                <li><a href="evidence.html">Evidence</a></li>
-                <li><a href="contributing.html">Contributing</a></li>
-            </ul>
-        </nav>
-    </div>
-    <div class="content">
-        <h1>Project Structure</h1>
-
-        <h2>Root Files</h2>
-        <ul>
-            <li>.gitignore</li>
-            <li>README.md</li>
-            <li>app.py</li>
-            <li>extensions.py</li>
-            <li>models.py</li>
-            <li>requirements.txt</li>
-        </ul>
-
-        <h2>Important Directories</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>Directory</th>
-                    <th>Purpose</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>templates</td>
-                    <td>Holds Jinja2 HTML templates for the Flask UI, including the shared layout (base.html), the main index page (index.html), and section-specific templates grouped under books/, loans/, and members/.</td>
-                </tr>
-                <tr>
-                    <td>templates/books</td>
-                    <td>Templates related to book management views (e.g., listing, creating, updating, deleting books).</td>
-                </tr>
-                <tr>
-                    <td>templates/loans</td>
-                    <td>Templates for managing loan-related views such as borrowing and returning books.</td>
-                </tr>
-                <tr>
-                    <td>templates/members</td>
-                    <td>Templates for managing library members (e.g., registering and editing member details).</td>
-                </tr>
-                <tr>
-                    <td>static</td>
-                    <td>Container for static assets such as CSS, JavaScript, and images served by Flask; specific files not listed in the snapshot.</td>
-                </tr>
-                <tr>
-                    <td>tests</td>
-                    <td>pytest-based test suite validating the Flask application behavior, with test_app.py exercising routes and core flows.</td>
-                </tr>
-                <tr>
-                    <td>docs</td>
-                    <td>Documentation artifacts, currently including newfile.md as a placeholder or example doc.</td>
-                </tr>
-            </tbody>
-        </table>
-
-        <h2>Entrypoints</h2>
-        <ul>
-            <li>app.py</li>
-        </ul>
-
-        <h2>Configuration Files</h2>
-        <ul>
-            <li>requirements.txt</li>
-            <li>.gitignore</li>
-        </ul>
+    <div class="container">
+        <aside class="sidebar">
+            <nav>
+                <ul>
+                    <li><a href="index.html">Overview</a></li>
+                    <li><a href="architecture.html">Architecture</a></li>
+                    <li><a href="structure.html" class="active">Structure</a></li>
+                    <li><a href="flows.html">Flows</a></li>
+                    <li><a href="modules.html">Modules</a></li>
+                    <li><a href="evidence.html">Evidence</a></li>
+                    <li><a href="contributing.html">Contributing</a></li>
+                </ul>
+            </nav>
+        </aside>
+        <main class="content">
+            <h1>Repository Structure</h1>
+            <section>
+                <h2>Root Files</h2>
+                <ul>
+                    <li><code>.gitignore</code>: Specifies files and directories ignored by Git.</li>
+                    <li><code>README.md</code>: Provides an overview and basic setup instructions for the project.</li>
+                    <li><code>app.py</code>: Main entry point for the Flask application, defining routes and initializing the app.</li>
+                    <li><code>extensions.py</code>: Contains shared extensions (e.g., SQLAlchemy instance).</li>
+                    <li><code>models.py</code>: Defines the SQLAlchemy ORM models for the application.</li>
+                    <li><code>requirements.txt</code>: Lists required Python dependencies for the project.</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Important Directories</h2>
+                <ul>
+                    <li>
+                        <code>templates/</code>
+                        <p>Holds all Jinja2 templates for rendering the UI, including:</p>
+                        <ul>
+                            <li><code>base.html</code>: Shared base layout for all templates.</li>
+                            <li><code>index.html</code>: Main landing page template.</li>
+                            <li>
+                                <code>books/</code>: Templates for book-related CRUD operations.
+                                <ul>
+                                    <li><code>list.html</code>: Displays a list of books.</li>
+                                    <li><code>form.html</code>: Form for creating/editing books.</li>
+                                    <li><code>detail.html</code>: Displays details of a specific book.</li>
+                                </ul>
+                            </li>
+                            <li>
+                                <code>members/</code>: Templates for member-related CRUD operations.
+                                <ul>
+                                    <li><code>list.html</code>: Displays a list of members.</li>
+                                    <li><code>form.html</code>: Form for creating/editing members.</li>
+                                    <li><code>detail.html</code>: Displays details of a specific member.</li>
+                                </ul>
+                            </li>
+                            <li>
+                                <code>loans/</code>: Templates for loan-related workflows.
+                                <ul>
+                                    <li><code>list.html</code>: Displays a list of loans.</li>
+                                    <li><code>borrow.html</code>: Form for borrowing books.</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <code>static/</code>
+                        <p>Contains static assets like CSS, JavaScript, and images used by the templates. Specific files were not inspected.</p>
+                    </li>
+                    <li>
+                        <code>tests/</code>
+                        <p>Includes automated tests for validating application functionality. Key file:</p>
+                        <ul>
+                            <li><code>test_app.py</code>: Contains tests for routes and flows using pytest.</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <code>docs/</code>
+                        <p>Holds project documentation artifacts. Currently includes placeholder files like <code>newfile.md</code>.</p>
+                    </li>
+                </ul>
+            </section>
+            <section>
+                <h2>Entry Points</h2>
+                <ul>
+                    <li><code>app.py</code>: Main entry point for starting the Flask application.</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Configuration Files</h2>
+                <ul>
+                    <li><code>requirements.txt</code>: Specifies Python dependencies for the project.</li>
+                    <li><code>.gitignore</code>: Defines files and directories to be ignored by version control.</li>
+                </ul>
+            </section>
+        </main>
     </div>
 </body>
 </html>
