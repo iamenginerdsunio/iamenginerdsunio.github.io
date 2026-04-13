@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Library Management System - Overview</title>
+    <title>Library Management System</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -24,33 +24,41 @@
         <h1>Library Management System</h1>
         <section>
             <h2>Project Purpose</h2>
-            <p>A simple library management system to manage books, members, and loans with CRUD views and borrowing/return workflows.</p>
+            <p>A minimal library management system to manage books, members, and loans with CRUD operations and borrowing workflows.</p>
         </section>
         <section>
             <h2>Project Type</h2>
-            <p>Flask-based web application with HTML templates and CSS assets.</p>
+            <p>Flask-based web application with HTML templates, CSS assets, and automated tests.</p>
         </section>
         <section>
-            <h2>Primary Languages and Frameworks</h2>
+            <h2>Primary Languages</h2>
             <ul>
-                <li>Languages: Python, HTML, CSS</li>
-                <li>Frameworks: Flask, Flask-SQLAlchemy, Flask-Migrate</li>
+                <li>Python</li>
+                <li>HTML</li>
+                <li>CSS</li>
+            </ul>
+        </section>
+        <section>
+            <h2>Frameworks</h2>
+            <ul>
+                <li>Flask</li>
+                <li>Flask-SQLAlchemy</li>
+                <li>Flask-Migrate</li>
+                <li>pytest</li>
+                <li>pytest-flask</li>
             </ul>
         </section>
         <section>
             <h2>Architecture Summary</h2>
-            <p>Single Flask application module (<code>app.py</code>) using SQLAlchemy models (<code>models.py</code>), application-wide extensions (<code>extensions.py</code>), Jinja2 templates organized by domain, and pytest-based tests.</p>
+            <p>Single Flask application module (<code>app.py</code>) with SQLAlchemy models (<code>models.py</code>), shared extensions (<code>extensions.py</code>), Jinja2 templates grouped by domain (books, members, loans), static CSS, and pytest tests.</p>
         </section>
         <section>
             <h2>Quick Setup</h2>
-            <ol>
-                <li>Install dependencies from <code>requirements.txt</code>.</li>
-                <li>Run the Flask application using <code>app.py</code>.</li>
-            </ol>
+            <p>Dependencies are listed in <code>requirements.txt</code>. Install them using <code>pip</code>, set up environment variables, initialize database migrations, and run the Flask application.</p>
         </section>
         <section>
-            <h2>Getting Started Notes</h2>
-            <p>Follow the setup steps to initialize the app. Templates for books, members, and loans are available under the <code>templates</code> directory for quick customization.</p>
+            <h2>Getting Started</h2>
+            <p>Start by exploring <code>app.py</code> for routes and <code>models.py</code> for core entity definitions. Jinja2 templates in <code>templates</code> provide the UI structure, while tests in <code>tests/test_app.py</code> validate functionality.</p>
         </section>
     </main>
 </body>
