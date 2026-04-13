@@ -7,76 +7,62 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <aside class="sidebar">
-            <nav>
-                <ul>
-                    <li><a href="index.html">Overview</a></li>
-                    <li><a href="architecture.html">Architecture</a></li>
-                    <li><a href="structure.html">Structure</a></li>
-                    <li><a href="flows.html">Flows</a></li>
-                    <li><a href="modules.html" class="active">Modules</a></li>
-                    <li><a href="evidence.html">Evidence</a></li>
-                    <li><a href="contributing.html">Contributing</a></li>
-                </ul>
-            </nav>
-        </aside>
+    <div class="sidebar">
+        <nav>
+            <ul>
+                <li><a href="index.html">Overview</a></li>
+                <li><a href="architecture.html">Architecture</a></li>
+                <li><a href="structure.html">Structure</a></li>
+                <li><a href="flows.html">Flows</a></li>
+                <li><a href="modules.html">Modules</a></li>
+                <li><a href="evidence.html">Evidence</a></li>
+                <li><a href="contributing.html">Contributing</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div class="content">
+        <h1>Modules</h1>
 
-        <main class="content">
-            <h1>Modules</h1>
+        <h2>Dependencies</h2>
+        <ul>
+            <li>Flask</li>
+            <li>Flask-SQLAlchemy</li>
+            <li>Flask-Migrate</li>
+            <li>pytest</li>
+        </ul>
 
-            <section>
-                <h2>Dependencies</h2>
-                <ul>
-                    <li>Flask</li>
-                    <li>Flask-SQLAlchemy</li>
-                    <li>Flask-WTF</li>
-                    <li>WTForms</li>
-                    <li>python-dotenv</li>
-                </ul>
-            </section>
+        <h2>Key Modules</h2>
+        <dl>
+            <dt>app (app.py)</dt>
+            <dd>Creates and configures the Flask application, initializes database/migration extensions, defines routes for index, book, member, and loan operations, and renders templates.</dd>
 
-            <section>
-                <h2>Key Modules</h2>
-                <dl>
-                    <dt><strong>Flask application and routes</strong> (app.py)</dt>
-                    <dd>Creates and configures the Flask app, initializes extensions, and defines route handlers for home, books, members, and loans, including CRUD and borrow/return actions.</dd>
+            <dt>models (models.py)</dt>
+            <dd>Defines SQLAlchemy ORM models for library entities (Book, Member, Loan) and their relationships, including fields for book metadata, member details, and loan associations.</dd>
 
-                    <dt><strong>ORM models</strong> (models.py)</dt>
-                    <dd>SQLAlchemy models for Book, Member, and Loan, including relationships between them.</dd>
+            <dt>extensions (extensions.py)</dt>
+            <dd>Holds extension instances (e.g., SQLAlchemy db, migration handler) that are imported and initialized by app.py and used within models.py.</dd>
 
-                    <dt><strong>Extensions registry</strong> (extensions.py)</dt>
-                    <dd>Holds shared extension instances (e.g., SQLAlchemy db object) imported by app and models.</dd>
+            <dt>tests.test_app (tests/test_app.py)</dt>
+            <dd>Implements pytest-based tests for the Flask app, including client fixtures and assertions covering route responses and domain workflows (books, members, loans).</dd>
 
-                    <dt><strong>Base layout</strong> (templates/base.html)</dt>
-                    <dd>Common HTML shell and navigation; other templates extend this.</dd>
+            <dt>templates/base (templates/base.html)</dt>
+            <dd>Shared base layout with common HTML structure and Jinja2 blocks extended by other templates.</dd>
+        </dl>
 
-                    <dt><strong>Home/index view</strong> (templates/index.html)</dt>
-                    <dd>Landing page with overview and links to books, members, and loans sections.</dd>
+        <h2>Responsibilities</h2>
+        <ul>
+            <li><strong>app.py:</strong> Core application setup, routing, and template rendering.</li>
+            <li><strong>models.py:</strong> ORM models for Book, Member, and Loan entities, with database relationships.</li>
+            <li><strong>extensions.py:</strong> Configuration and initialization of Flask extensions.</li>
+            <li><strong>tests/test_app.py:</strong> Ensures correct implementation of key functionalities and workflows.</li>
+        </ul>
 
-                    <dt><strong>Books templates</strong> (templates/books/*.html)</dt>
-                    <dd>Implement list, detail, and form screens for book management.</dd>
-
-                    <dt><strong>Members templates</strong> (templates/members/*.html)</dt>
-                    <dd>Implement list, detail, and form screens for member management.</dd>
-
-                    <dt><strong>Loans templates</strong> (templates/loans/*.html)</dt>
-                    <dd>Implement loan listing and borrowing workflows.</dd>
-
-                    <dt><strong>Route and flow tests</strong> (tests/test_app.py)</dt>
-                    <dd>Exercise main endpoints and flows for books, members, and loans.</dd>
-                </dl>
-            </section>
-
-            <section>
-                <h2>Data Models</h2>
-                <ul>
-                    <li><strong>Book:</strong> Represents library books.</li>
-                    <li><strong>Member:</strong> Represents patrons.</li>
-                    <li><strong>Loan:</strong> Ties books and members with loan/return dates and status.</li>
-                </ul>
-            </section>
-        </main>
+        <h2>Data Model Notes</h2>
+        <ul>
+            <li><strong>Book:</strong> Represents library books with fields such as title, author, and availability-related attributes.</li>
+            <li><strong>Member:</strong> Represents library members with identifying and contact fields.</li>
+            <li><strong>Loan:</strong> Links books and members to track borrow transactions, including dates and status.</li>
+        </ul>
     </div>
 </body>
 </html>
