@@ -23,54 +23,40 @@
         </aside>
         <main class="content">
             <h1>Flows</h1>
-
             <section>
-                <h2>Routes and Execution Flow</h2>
+                <h2>Routes and Request Flow</h2>
                 <ul>
-                    <li><strong>Index Route:</strong> Renders <code>templates/index.html</code> as the main entry point to the app.</li>
-                    <li><strong>Books Management:</strong>
-                        <ul>
-                            <li>CRUD routes rendering templates under <code>templates/books/</code>.</li>
-                            <li>Includes list, detail, and form-based views for book operations.</li>
-                        </ul>
-                    </li>
-                    <li><strong>Members Management:</strong>
-                        <ul>
-                            <li>CRUD routes rendering templates under <code>templates/members/</code>.</li>
-                            <li>Includes list, detail, and form-based views for member operations.</li>
-                        </ul>
-                    </li>
-                    <li><strong>Loans Management:</strong>
-                        <ul>
-                            <li>Routes rendering templates under <code>templates/loans/</code> for borrowing and returning books.</li>
-                            <li>Coordinates between Book and Member models for loan metadata.</li>
-                        </ul>
-                    </li>
+                    <li><strong>Home Route:</strong> Renders <code>index.html</code>, serving as the main entry point with navigation links to books, members, and loans sections.</li>
+                    <li><strong>Books CRUD:</strong> Provides routes for listing, viewing, creating, editing, and deleting books. These routes render templates located under <code>templates/books/</code>.</li>
+                    <li><strong>Members CRUD:</strong> Offers routes for listing, viewing, creating, editing, and deleting members. These routes use templates from <code>templates/members/</code>.</li>
+                    <li><strong>Loans Flow:</strong> Includes routes for listing active loans and facilitating borrow/return workflows. Templates under <code>templates/loans/</code> are used to render these views.</li>
                 </ul>
             </section>
-
+            <section>
+                <h2>Execution Flow</h2>
+                <ol>
+                    <li>Request starts at the browser, targeting a specific route (e.g., <code>/books</code>, <code>/members</code>, or <code>/loans</code>).</li>
+                    <li>Flask handles the route using a controller defined in <code>app.py</code>.</li>
+                    <li>Controllers interact with SQLAlchemy models (defined in <code>models.py</code>) to fetch, update, or create data.</li>
+                    <li>The appropriate Jinja2 template (e.g., <code>books/list.html</code>) renders the response, incorporating dynamic data.</li>
+                    <li>Static assets (CSS/JS/images) from <code>static/</code> enhance the user experience.</li>
+                </ol>
+            </section>
             <section>
                 <h2>UI Patterns</h2>
                 <ul>
-                    <li><strong>Base Template:</strong> <code>templates/base.html</code> used for shared layout and navigation.</li>
-                    <li><strong>Entity-Specific Templates:</strong> Templates grouped by feature (<code>books</code>, <code>members</code>, <code>loans</code>) for CRUD workflows.</li>
-                    <li><strong>Navigation:</strong> Top-level navigation links between Books, Members, and Loans sections, likely defined in base.html.</li>
-                    <li><strong>Form-Based Pages:</strong> CRUD operations implemented through forms in respective entity directories.</li>
+                    <li><strong>Template Inheritance:</strong> All templates extend <code>base.html</code>, which provides common navigation and layout structure.</li>
+                    <li><strong>Domain-Specific Grouping:</strong> Templates are organized into subdirectories (<code>books/</code>, <code>members/</code>, <code>loans/</code>) based on features.</li>
+                    <li><strong>Form-Based CRUD:</strong> Each entity type (Book, Member, Loan) has forms for create/edit actions, rendered using Flask-WTF and WTForms.</li>
                 </ul>
             </section>
-
             <section>
                 <h2>Control Flow Notes</h2>
                 <ul>
-                    <li>Routes defined in <code>app.py</code> handle incoming HTTP requests and map them to Jinja2 templates and SQLAlchemy models.</li>
-                    <li>Control flow for creating a loan involves:
-                        <ol>
-                            <li>Receiving a loan creation request via the relevant loan route.</li>
-                            <li>Updating the Loan model with references to the Member and Book entities.</li>
-                            <li>Rendering updated loan views from <code>templates/loans/</code>.</li>
-                        </ol>
-                    </li>
-                    <li>SQLAlchemy models facilitate database interaction and are central to route logic for CRUD operations.</li>
+                    <li><strong>Database Interaction:</strong> SQLAlchemy ORM handles CRUD operations for Book, Member, and Loan entities, ensuring consistency and relational integrity.</li>
+                    <li><strong>Error Handling:</strong> Flask likely uses default mechanisms to handle errors like invalid form submissions or missing routes (specific implementation not detected).</li>
+                    <li><strong>Testing Coverage:</strong> Automated tests in <code>tests/test_app.py</code> validate major flows, including route accessibility and expected responses.</li>
+                    <li><strong>Static Asset Loading:</strong> The <code>static/</code> directory supports templates with shared CSS and JS resources.</li>
                 </ul>
             </section>
         </main>
