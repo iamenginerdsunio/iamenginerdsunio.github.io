@@ -3,83 +3,89 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contributing</title>
+    <title>Contributing - LibManagement</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <aside class="sidebar">
-            <nav>
-                <ul>
-                    <li><a href="index.html">Overview</a></li>
-                    <li><a href="architecture.html">Architecture</a></li>
-                    <li><a href="structure.html">Structure</a></li>
-                    <li><a href="flows.html">Flows</a></li>
-                    <li><a href="modules.html">Modules</a></li>
-                    <li><a href="evidence.html">Evidence</a></li>
-                    <li><a href="contributing.html" class="active">Contributing</a></li>
-                </ul>
-            </nav>
-        </aside>
-        <main class="content">
-            <h1>Contributing</h1>
-            <section>
-                <h2>Quick Setup</h2>
-                <p>To set up the project locally, follow these steps:</p>
-                <ol>
-                    <li>Clone the repository: <code>git clone https://github.com/iamenginerdsunio/LibManagement.git</code></li>
-                    <li>Navigate into the project directory: <code>cd LibManagement</code></li>
-                    <li>Create a virtual environment: <code>python -m venv venv</code></li>
-                    <li>Activate the virtual environment:</li>
-                    <ul>
-                        <li>On Windows: <code>venv\Scripts\activate</code></li>
-                        <li>On macOS/Linux: <code>source venv/bin/activate</code></li>
-                    </ul>
-                    <li>Install dependencies: <code>pip install -r requirements.txt</code></li>
-                    <li>Run the application: <code>python app.py</code></li>
-                </ol>
-            </section>
-            <section>
-                <h2>Contribution Workflow</h2>
-                <p>The recommended workflow for contributing is:</p>
-                <ol>
-                    <li>Fork the repository on GitHub.</li>
-                    <li>Create a new branch for your feature or bug fix: <code>git checkout -b feature-name</code></li>
-                    <li>Make changes in your branch and commit them with clear messages.</li>
-                    <li>Push your branch to your fork: <code>git push origin feature-name</code></li>
-                    <li>Open a pull request against the <code>main</code> branch of the original repository.</li>
-                </ol>
-            </section>
-            <section>
-                <h2>Code Hygiene</h2>
-                <p>Maintain high standards in your contributions by following these guidelines:</p>
-                <ul>
-                    <li>Write clear, modular, and well-documented code.</li>
-                    <li>Adhere to Python's PEP 8 style guide.</li>
-                    <li>Ensure proper use of Flask's best practices for routes and templates.</li>
-                    <li>Update <code>README.md</code> if your changes affect setup or usage instructions.</li>
-                </ul>
-            </section>
-            <section>
-                <h2>Testing Your Changes</h2>
-                <p>Testing is an integral part of contributions. Use the existing pytest suite to validate your changes:</p>
-                <ol>
-                    <li>Ensure pytest is installed in your environment (included in <code>requirements.txt</code>).</li>
-                    <li>Run tests: <code>pytest</code></li>
-                    <li>Write new tests in <code>tests/test_app.py</code> for any new functionality or changes you introduce.</li>
-                </ol>
-                <p>Tests should cover all major routes and their expected behaviors, including CRUD operations for books, members, and loans.</p>
-            </section>
-            <section>
-                <h2>Operational Notes</h2>
-                <p>Keep the following points in mind while contributing:</p>
-                <ul>
-                    <li>Ensure compatibility with the existing Flask configuration and database models defined in <code>extensions.py</code> and <code>models.py</code>.</li>
-                    <li>Any changes to templates should respect the layout structure defined in <code>base.html</code>.</li>
-                    <li>Static assets in the <code>static/</code> directory should be appropriately referenced in templates.</li>
-                </ul>
-            </section>
-        </main>
+    <div class="sidebar">
+        <nav>
+            <ul>
+                <li><a href="index.html">Overview</a></li>
+                <li><a href="architecture.html">Architecture</a></li>
+                <li><a href="structure.html">Structure</a></li>
+                <li><a href="flows.html">Flows</a></li>
+                <li><a href="modules.html">Modules</a></li>
+                <li><a href="evidence.html">Evidence</a></li>
+                <li><a href="contributing.html" class="active">Contributing</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div class="content">
+        <h1>Contributing</h1>
+        <section>
+            <h2>Quick Setup</h2>
+            <ol>
+                <li>Clone the repository: <code>git clone https://github.com/iamenginerdsunio/LibManagement.git</code></li>
+                <li>Navigate to the project directory: <code>cd LibManagement</code></li>
+                <li>Create and activate a virtual environment:
+                    <pre><code>
+python -m venv venv
+source venv/bin/activate  # On macOS/Linux
+venv\Scripts\activate   # On Windows
+                    </code></pre>
+                </li>
+                <li>Install dependencies: <code>pip install -r requirements.txt</code></li>
+                <li>Run the Flask application: <code>python app.py</code></li>
+            </ol>
+        </section>
+
+        <section>
+            <h2>Contribution Workflow</h2>
+            <ol>
+                <li>Fork the repository and clone your fork locally.</li>
+                <li>Create a new branch for your feature or fix: <code>git checkout -b feature-name</code></li>
+                <li>Make your changes, ensuring code adheres to the existing style and conventions.</li>
+                <li>Run tests to verify your changes:
+                    <pre><code>
+pytest tests/
+                    </code></pre>
+                </li>
+                <li>Commit your changes with a clear message: <code>git commit -m "Descriptive commit message"</code></li>
+                <li>Push your branch: <code>git push origin feature-name</code></li>
+                <li>Open a pull request on GitHub against the <code>main</code> branch.</li>
+            </ol>
+        </section>
+
+        <section>
+            <h2>Code Hygiene</h2>
+            <ul>
+                <li>Follow PEP 8 standards for Python code formatting.</li>
+                <li>Keep functions and methods focused and concise.</li>
+                <li>Document new modules, functions, and classes with clear comments or docstrings.</li>
+                <li>Organize imports into logical groups (standard library, third-party, local modules).</li>
+                <li>Remove unused code and dependencies.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Testing Guidelines</h2>
+            <p>Testing is essential for maintaining the integrity of the application. Ensure your contributions are covered by tests:</p>
+            <ul>
+                <li>Add tests for any new features or bug fixes in <code>tests/test_app.py</code>.</li>
+                <li>Run the test suite locally before submitting your pull request.</li>
+                <li>Check that your tests cover edge cases and fail gracefully.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Operational Notes</h2>
+            <ul>
+                <li>Ensure the application runs properly after your changes by testing with <code>python app.py</code>.</li>
+                <li>Keep the <code>requirements.txt</code> file updated when adding new dependencies.</li>
+                <li>If you modify templates, verify their rendering via the browser and Flask logs.</li>
+                <li>Follow the repository’s branching and pull request conventions.</li>
+            </ul>
+        </section>
     </div>
 </body>
 </html>
