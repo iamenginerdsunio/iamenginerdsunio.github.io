@@ -3,76 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contributing</title>
     <link rel="stylesheet" href="styles.css">
+    <title>Contributing</title>
 </head>
 <body>
     <div class="sidebar">
-        <ul>
-            <li><a href="index.html">Overview</a></li>
-            <li><a href="architecture.html">Architecture</a></li>
-            <li><a href="structure.html">Structure</a></li>
-            <li><a href="flows.html">Flows</a></li>
-            <li><a href="modules.html">Modules</a></li>
-            <li><a href="evidence.html">Evidence</a></li>
-            <li><a href="contributing.html">Contributing</a></li>
-        </ul>
-    </div>
-    <div class="content">
-        <h1>Contributing Guide</h1>
-
-        <h2>Quick Setup</h2>
-        <p>To set up the project locally, follow these steps:</p>
-        <ol>
-            <li>Clone the repository: <code>git clone https://github.com/iamenginerdsunio/LibManagement.git</code></li>
-            <li>Navigate to the project directory: <code>cd LibManagement</code></li>
-            <li>Create a virtual environment: <code>python -m venv venv</code></li>
-            <li>Activate the virtual environment:</li>
+        <nav>
             <ul>
-                <li>On Windows: <code>venv\Scripts\activate</code></li>
-                <li>On macOS/Linux: <code>source venv/bin/activate</code></li>
+                <li><a href="index.html">Overview</a></li>
+                <li><a href="architecture.html">Architecture</a></li>
+                <li><a href="structure.html">Structure</a></li>
+                <li><a href="flows.html">Flows</a></li>
+                <li><a href="modules.html">Modules</a></li>
+                <li><a href="evidence.html">Evidence</a></li>
+                <li><a href="contributing.html">Contributing</a></li>
             </ul>
-            <li>Install dependencies: <code>pip install -r requirements.txt</code></li>
-            <li>Run the Flask application: <code>python app.py</code></li>
-        </ol>
+        </nav>
+    </div>
+    <div class="main-content">
+        <h1>Contributing</h1>
 
-        <h2>Contribution Workflow</h2>
-        <p>To contribute to the project, follow this workflow:</p>
-        <ol>
-            <li>Fork the repository to your GitHub account.</li>
-            <li>Create a new branch for your feature or fix: <code>git checkout -b feature-name</code></li>
-            <li>Make your changes in the codebase.</li>
-            <li>Ensure the application runs successfully and passes all tests.</li>
-            <li>Commit your changes with a clear message: <code>git commit -m "Add feature description"</code></li>
-            <li>Push the changes to your fork: <code>git push origin feature-name</code></li>
-            <li>Create a pull request against the main branch of the original repository.</li>
-        </ol>
+        <section>
+            <h2>Quick Setup</h2>
+            <p>To get started, clone the repository and ensure your environment meets the requirements:</p>
+            <ol>
+                <li>Clone the repository: <code>git clone https://github.com/iamenginerdsunio/LibManagement.git</code></li>
+                <li>Navigate to the project directory: <code>cd LibManagement</code></li>
+                <li>Install dependencies listed in <code>requirements.txt</code>: <code>pip install -r requirements.txt</code></li>
+            </ol>
+        </section>
 
-        <h2>Code Hygiene</h2>
-        <p>When contributing, ensure the following:</p>
-        <ul>
-            <li>Follow PEP 8 standards for Python code.</li>
-            <li>Write clear and descriptive commit messages.</li>
-            <li>Remove any commented-out or unused code.</li>
-            <li>Use meaningful names for functions, variables, and classes.</li>
-        </ul>
+        <section>
+            <h2>Contribution Workflow</h2>
+            <p>To contribute to the project, follow these steps:</p>
+            <ol>
+                <li>Fork the repository on GitHub.</li>
+                <li>Create a new branch for your feature or bugfix: <code>git checkout -b feature-name</code>.</li>
+                <li>Make your changes in the appropriate files. Refer to the repository structure and architecture documentation as needed.</li>
+                <li>Commit your changes with a meaningful message: <code>git commit -m "Describe your changes"</code>.</li>
+                <li>Push your branch to your fork: <code>git push origin feature-name</code>.</li>
+                <li>Create a pull request on the main repository and provide a clear description of your changes.</li>
+            </ol>
+        </section>
 
-        <h2>Testing Cues</h2>
-        <p>Before submitting a contribution, ensure the following tests pass:</p>
-        <ol>
-            <li>Run the automated tests located in <code>tests/test_app.py</code> using pytest: <code>pytest tests</code></li>
-            <li>Test all routes (books, members, loans) for expected behavior and verify CRUD workflows.</li>
-            <li>Manually verify that templates render correctly and display appropriate data.</li>
-        </ol>
+        <section>
+            <h2>Code Hygiene</h2>
+            <p>Ensure your changes adhere to the following code hygiene guidelines:</p>
+            <ul>
+                <li>Maintain consistent formatting and use meaningful variable names.</li>
+                <li>Follow Python's PEP 8 style guide where applicable.</li>
+                <li>Keep functions and methods concise and focused on single responsibilities.</li>
+                <li>Document new code with inline comments and update relevant documentation files.</li>
+            </ul>
+        </section>
 
-        <h2>Operational Notes</h2>
-        <p>Keep in mind the following operational considerations:</p>
-        <ul>
-            <li>Ensure any new dependencies are added to <code>requirements.txt</code>.</li>
-            <li>Document any new routes, models, or features in the appropriate Markdown files within the <code>docs</code> directory (contents not detected).</li>
-            <li>Maintain consistency with existing routes and templates.</li>
-            <li>Check compatibility with the existing Flask-SQLAlchemy and pytest setups.</li>
-        </ul>
+        <section>
+            <h2>Testing Cues</h2>
+            <p>All changes should be validated using the existing <code>pytest</code> test suite before submission:</p>
+            <ul>
+                <li>Run tests with <code>pytest tests/</code>.</li>
+                <li>Add new tests for any added functionality in <code>tests/test_app.py</code>.</li>
+                <li>Ensure all tests pass and coverage is maintained or improved.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Operational Notes</h2>
+            <p>Keep in mind the following operational aspects:</p>
+            <ul>
+                <li>Core application logic resides in <code>app.py</code>. Review its structure before making changes.</li>
+                <li>Database models are defined in <code>models.py</code>. Ensure compatibility with existing models when extending functionality.</li>
+                <li>Templates use Jinja2 inheritance. Update <code>base.html</code> carefully if modifying shared layout components.</li>
+                <li>Static assets are served from the <code>static/</code> directory. Place new assets appropriately.</li>
+            </ul>
+        </section>
     </div>
 </body>
 </html>
