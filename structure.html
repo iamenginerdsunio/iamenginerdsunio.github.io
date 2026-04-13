@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Structure - Library Management System</title>
+    <title>Project Structure</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -20,77 +20,69 @@
             </ul>
         </nav>
     </div>
-
     <div class="content">
-        <h1>Repository Structure</h1>
+        <h1>Project Structure</h1>
 
-        <section>
-            <h2>Root Files</h2>
-            <ul>
-                <li>.gitignore</li>
-                <li>README.md</li>
-                <li>app.py</li>
-                <li>extensions.py</li>
-                <li>models.py</li>
-                <li>requirements.txt</li>
-            </ul>
-        </section>
+        <h2>Root Files</h2>
+        <ul>
+            <li>.gitignore</li>
+            <li>README.md</li>
+            <li>app.py</li>
+            <li>extensions.py</li>
+            <li>models.py</li>
+            <li>requirements.txt</li>
+        </ul>
 
-        <section>
-            <h2>Important Directories</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Path</th>
-                        <th>Purpose</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>templates</td>
-                        <td>Jinja2 HTML templates for the Flask UI, including base layout, home page, and feature-specific views for books, members, and loans</td>
-                    </tr>
-                    <tr>
-                        <td>templates/books</td>
-                        <td>Templates for book-related views such as listing books, viewing details, and creating/updating via forms</td>
-                    </tr>
-                    <tr>
-                        <td>templates/members</td>
-                        <td>Templates for member-related views such as listing members, viewing details, and member forms</td>
-                    </tr>
-                    <tr>
-                        <td>templates/loans</td>
-                        <td>Templates for loan-related views such as listing loans and borrowing books</td>
-                    </tr>
-                    <tr>
-                        <td>static</td>
-                        <td>Static assets such as CSS/JS (contents not inspected but inferred from Flask conventions and directory name)</td>
-                    </tr>
-                    <tr>
-                        <td>tests</td>
-                        <td>Automated tests for the Flask app in test_app.py</td>
-                    </tr>
-                    <tr>
-                        <td>docs</td>
-                        <td>Documentation artifacts (contents not inspected; purpose inferred from directory name)</td>
-                    </tr>
-                </tbody>
-            </table>
-        </section>
+        <h2>Important Directories</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Directory</th>
+                    <th>Purpose</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>templates</td>
+                    <td>Holds Jinja2 HTML templates for the Flask UI, including the shared layout (base.html), the main index page (index.html), and section-specific templates grouped under books/, loans/, and members/.</td>
+                </tr>
+                <tr>
+                    <td>templates/books</td>
+                    <td>Templates related to book management views (e.g., listing, creating, updating, deleting books).</td>
+                </tr>
+                <tr>
+                    <td>templates/loans</td>
+                    <td>Templates for managing loan-related views such as borrowing and returning books.</td>
+                </tr>
+                <tr>
+                    <td>templates/members</td>
+                    <td>Templates for managing library members (e.g., registering and editing member details).</td>
+                </tr>
+                <tr>
+                    <td>static</td>
+                    <td>Container for static assets such as CSS, JavaScript, and images served by Flask; specific files not listed in the snapshot.</td>
+                </tr>
+                <tr>
+                    <td>tests</td>
+                    <td>pytest-based test suite validating the Flask application behavior, with test_app.py exercising routes and core flows.</td>
+                </tr>
+                <tr>
+                    <td>docs</td>
+                    <td>Documentation artifacts, currently including newfile.md as a placeholder or example doc.</td>
+                </tr>
+            </tbody>
+        </table>
 
-        <section>
-            <h2>Entrypoints</h2>
-            <ul>
-                <li>app.py</li>
-            </ul>
-        </section>
+        <h2>Entrypoints</h2>
+        <ul>
+            <li>app.py</li>
+        </ul>
 
-        <section>
-            <h2>Configuration Files</h2>
-            <ul>
-                <li>requirements.txt</li>
-            </ul>
-        </section>
+        <h2>Configuration Files</h2>
+        <ul>
+            <li>requirements.txt</li>
+            <li>.gitignore</li>
+        </ul>
     </div>
 </body>
 </html>
