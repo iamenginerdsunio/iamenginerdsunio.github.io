@@ -3,73 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project Overview</title>
+    <title>Library Management System - Overview</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <aside class="sidebar">
-            <nav>
-                <ul>
-                    <li><a href="index.html" class="active">Overview</a></li>
-                    <li><a href="architecture.html">Architecture</a></li>
-                    <li><a href="structure.html">Structure</a></li>
-                    <li><a href="flows.html">Flows</a></li>
-                    <li><a href="modules.html">Modules</a></li>
-                    <li><a href="evidence.html">Evidence</a></li>
-                    <li><a href="contributing.html">Contributing</a></li>
-                </ul>
-            </nav>
-        </aside>
-        <main class="content">
-            <h1>Project Overview</h1>
-            <section>
-                <h2>Purpose</h2>
-                <p>Provide a basic library management system to manage books, members, and loans (borrow/return) via a web interface.</p>
-            </section>
-            <section>
-                <h2>Project Type</h2>
-                <p>Web application (server-rendered) for library management.</p>
-            </section>
-            <section>
-                <h2>Primary Languages</h2>
-                <p>Python, HTML.</p>
-            </section>
-            <section>
-                <h2>Frameworks</h2>
-                <p>Flask, Flask-SQLAlchemy, Flask-WTF.</p>
-            </section>
-            <section>
-                <h2>Architecture Summary</h2>
-                <p>The application is a single-module Flask app (<code>app.py</code>) with:</p>
-                <ul>
-                    <li>SQLAlchemy models defined in <code>models.py</code>.</li>
-                    <li>Jinja2 templates grouped by domain (books, members, loans).</li>
-                    <li>Reusable extensions initialized in <code>extensions.py</code>.</li>
-                    <li>Tests located in the <code>tests/</code> package.</li>
-                </ul>
-            </section>
-            <section>
-                <h2>Quick Setup</h2>
-                <p>Follow these steps to set up the project:</p>
-                <ol>
-                    <li>Clone the repository: <code>git clone https://github.com/iamenginerdsunio/LibManagement.git</code></li>
-                    <li>Navigate to the project directory: <code>cd LibManagement</code></li>
-                    <li>Create a virtual environment: <code>python -m venv venv</code></li>
-                    <li>Activate the virtual environment:</li>
-                    <ul>
-                        <li>Windows: <code>venv\Scripts\activate</code></li>
-                        <li>macOS/Linux: <code>source venv/bin/activate</code></li>
-                    </ul>
-                    <li>Install dependencies: <code>pip install -r requirements.txt</code></li>
-                    <li>Run the application: <code>python app.py</code></li>
-                </ol>
-            </section>
-            <section>
-                <h2>Getting Started</h2>
-                <p>Once the application is running, visit <code>http://127.0.0.1:5000</code> in your browser to access the library management system. Use the navigation menu to explore books, members, and loans.</p>
-            </section>
-        </main>
-    </div>
+    <aside class="sidebar">
+        <nav>
+            <ul>
+                <li><a href="index.html">Overview</a></li>
+                <li><a href="architecture.html">Architecture</a></li>
+                <li><a href="structure.html">Structure</a></li>
+                <li><a href="flows.html">Flows</a></li>
+                <li><a href="modules.html">Modules</a></li>
+                <li><a href="evidence.html">Evidence</a></li>
+                <li><a href="contributing.html">Contributing</a></li>
+            </ul>
+        </nav>
+    </aside>
+    <main class="content">
+        <h1>Library Management System</h1>
+        <section>
+            <h2>Project Purpose</h2>
+            <p>A simple library management system to manage books, members, and loans with CRUD views and borrowing/return workflows.</p>
+        </section>
+        <section>
+            <h2>Project Type</h2>
+            <p>Flask-based web application with HTML templates and CSS assets.</p>
+        </section>
+        <section>
+            <h2>Primary Languages and Frameworks</h2>
+            <ul>
+                <li>Languages: Python, HTML, CSS</li>
+                <li>Frameworks: Flask, Flask-SQLAlchemy, Flask-Migrate</li>
+            </ul>
+        </section>
+        <section>
+            <h2>Architecture Summary</h2>
+            <p>Single Flask application module (<code>app.py</code>) using SQLAlchemy models (<code>models.py</code>), application-wide extensions (<code>extensions.py</code>), Jinja2 templates organized by domain, and pytest-based tests.</p>
+        </section>
+        <section>
+            <h2>Quick Setup</h2>
+            <ol>
+                <li>Install dependencies from <code>requirements.txt</code>.</li>
+                <li>Run the Flask application using <code>app.py</code>.</li>
+            </ol>
+        </section>
+        <section>
+            <h2>Getting Started Notes</h2>
+            <p>Follow the setup steps to initialize the app. Templates for books, members, and loans are available under the <code>templates</code> directory for quick customization.</p>
+        </section>
+    </main>
 </body>
 </html>
