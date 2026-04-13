@@ -16,74 +16,71 @@
                 <li><a href="flows.html">Flows</a></li>
                 <li><a href="modules.html">Modules</a></li>
                 <li><a href="evidence.html">Evidence</a></li>
-                <li><a href="contributing.html" class="active">Contributing</a></li>
+                <li><a href="contributing.html">Contributing</a></li>
             </ul>
         </nav>
     </div>
     <div class="content">
-        <h1>Contributing</h1>
+        <h1>Contributing to LibManagement</h1>
+
         <section>
             <h2>Quick Setup</h2>
+            <p>To set up the project for development, follow these steps:</p>
             <ol>
-                <li>Clone the repository: <code>git clone https://github.com/iamenginerdsunio/LibManagement.git</code></li>
-                <li>Navigate to the project directory: <code>cd LibManagement</code></li>
-                <li>Create and activate a virtual environment:
-                    <pre><code>
-python -m venv venv
-source venv/bin/activate  # On macOS/Linux
-venv\Scripts\activate   # On Windows
-                    </code></pre>
-                </li>
-                <li>Install dependencies: <code>pip install -r requirements.txt</code></li>
-                <li>Run the Flask application: <code>python app.py</code></li>
+                <li>Clone the repository:</li>
+                <pre><code>git clone https://github.com/iamenginerdsunio/LibManagement.git</code></pre>
+                <li>Navigate to the project directory:</li>
+                <pre><code>cd LibManagement</code></pre>
+                <li>Create a virtual environment and install dependencies:</li>
+                <pre><code>python -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt</code></pre>
+                <li>Run the Flask application:</li>
+                <pre><code>python app.py</code></pre>
             </ol>
         </section>
 
         <section>
             <h2>Contribution Workflow</h2>
-            <ol>
-                <li>Fork the repository and clone your fork locally.</li>
-                <li>Create a new branch for your feature or fix: <code>git checkout -b feature-name</code></li>
-                <li>Make your changes, ensuring code adheres to the existing style and conventions.</li>
-                <li>Run tests to verify your changes:
-                    <pre><code>
-pytest tests/
-                    </code></pre>
-                </li>
-                <li>Commit your changes with a clear message: <code>git commit -m "Descriptive commit message"</code></li>
-                <li>Push your branch: <code>git push origin feature-name</code></li>
-                <li>Open a pull request on GitHub against the <code>main</code> branch.</li>
-            </ol>
+            <p>We welcome contributions to improve the LibManagement project. Please follow these guidelines:</p>
+            <ul>
+                <li>Fork the repository on GitHub.</li>
+                <li>Create a new branch for your feature or bugfix:</li>
+                <pre><code>git checkout -b feature/your-feature-name</code></pre>
+                <li>Make your changes and commit them:</li>
+                <pre><code>git add .
+git commit -m "Description of your changes"</code></pre>
+                <li>Push your branch to your fork:</li>
+                <pre><code>git push origin feature/your-feature-name</code></pre>
+                <li>Submit a pull request to the <code>main</code> branch of this repository.</li>
+            </ul>
         </section>
 
         <section>
             <h2>Code Hygiene</h2>
+            <p>We maintain the following code hygiene standards:</p>
             <ul>
-                <li>Follow PEP 8 standards for Python code formatting.</li>
-                <li>Keep functions and methods focused and concise.</li>
-                <li>Document new modules, functions, and classes with clear comments or docstrings.</li>
-                <li>Organize imports into logical groups (standard library, third-party, local modules).</li>
-                <li>Remove unused code and dependencies.</li>
+                <li>Follow Python's PEP 8 guidelines for code formatting.</li>
+                <li>Write clear, concise commit messages.</li>
+                <li>Document new functions, classes, and modules with comments or docstrings.</li>
+                <li>Keep functions and methods small and focused.</li>
             </ul>
         </section>
 
         <section>
-            <h2>Testing Guidelines</h2>
-            <p>Testing is essential for maintaining the integrity of the application. Ensure your contributions are covered by tests:</p>
-            <ul>
-                <li>Add tests for any new features or bug fixes in <code>tests/test_app.py</code>.</li>
-                <li>Run the test suite locally before submitting your pull request.</li>
-                <li>Check that your tests cover edge cases and fail gracefully.</li>
-            </ul>
+            <h2>Testing</h2>
+            <p>Automated tests are crucial for maintaining project stability. The project uses <code>pytest</code> and <code>pytest-flask</code> for testing. To run the tests:</p>
+            <pre><code>pytest</code></pre>
+            <p>Add tests for any new features or bug fixes in the <code>tests</code> directory. Ensure all tests pass before submitting a pull request.</p>
         </section>
 
         <section>
             <h2>Operational Notes</h2>
+            <p>Key operational details to keep in mind:</p>
             <ul>
-                <li>Ensure the application runs properly after your changes by testing with <code>python app.py</code>.</li>
-                <li>Keep the <code>requirements.txt</code> file updated when adding new dependencies.</li>
-                <li>If you modify templates, verify their rendering via the browser and Flask logs.</li>
-                <li>Follow the repository’s branching and pull request conventions.</li>
+                <li>The entry point for the application is <code>app.py</code>.</li>
+                <li>Templates are organized by domain in the <code>templates</code> directory (e.g., <code>templates/books/</code>, <code>templates/members/</code>, <code>templates/loans/</code>).</li>
+                <li>Static assets are located in the <code>static</code> directory.</li>
             </ul>
         </section>
     </div>
