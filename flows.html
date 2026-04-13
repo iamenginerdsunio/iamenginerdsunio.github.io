@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flows</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <nav>
+                <ul>
+                    <li><a href="index.html">Overview</a></li>
+                    <li><a href="architecture.html">Architecture</a></li>
+                    <li><a href="structure.html">Structure</a></li>
+                    <li><a href="flows.html" class="active">Flows</a></li>
+                    <li><a href="modules.html">Modules</a></li>
+                    <li><a href="evidence.html">Evidence</a></li>
+                    <li><a href="contributing.html">Contributing</a></li>
+                </ul>
+            </nav>
+        </aside>
+        <main class="content">
+            <h1>Flows</h1>
+
+            <section>
+                <h2>Routes and Execution Flow</h2>
+                <ul>
+                    <li><strong>Index Route:</strong> Renders <code>templates/index.html</code> as the main entry point to the app.</li>
+                    <li><strong>Books Management:</strong>
+                        <ul>
+                            <li>CRUD routes rendering templates under <code>templates/books/</code>.</li>
+                            <li>Includes list, detail, and form-based views for book operations.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Members Management:</strong>
+                        <ul>
+                            <li>CRUD routes rendering templates under <code>templates/members/</code>.</li>
+                            <li>Includes list, detail, and form-based views for member operations.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Loans Management:</strong>
+                        <ul>
+                            <li>Routes rendering templates under <code>templates/loans/</code> for borrowing and returning books.</li>
+                            <li>Coordinates between Book and Member models for loan metadata.</li>
+                        </ul>
+                    </li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>UI Patterns</h2>
+                <ul>
+                    <li><strong>Base Template:</strong> <code>templates/base.html</code> used for shared layout and navigation.</li>
+                    <li><strong>Entity-Specific Templates:</strong> Templates grouped by feature (<code>books</code>, <code>members</code>, <code>loans</code>) for CRUD workflows.</li>
+                    <li><strong>Navigation:</strong> Top-level navigation links between Books, Members, and Loans sections, likely defined in base.html.</li>
+                    <li><strong>Form-Based Pages:</strong> CRUD operations implemented through forms in respective entity directories.</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>Control Flow Notes</h2>
+                <ul>
+                    <li>Routes defined in <code>app.py</code> handle incoming HTTP requests and map them to Jinja2 templates and SQLAlchemy models.</li>
+                    <li>Control flow for creating a loan involves:
+                        <ol>
+                            <li>Receiving a loan creation request via the relevant loan route.</li>
+                            <li>Updating the Loan model with references to the Member and Book entities.</li>
+                            <li>Rendering updated loan views from <code>templates/loans/</code>.</li>
+                        </ol>
+                    </li>
+                    <li>SQLAlchemy models facilitate database interaction and are central to route logic for CRUD operations.</li>
+                </ul>
+            </section>
+        </main>
+    </div>
+</body>
+</html>
