@@ -97,14 +97,17 @@ flask run</code></pre>
         </section>
     </main>
 
-    <langflow-chat
-            flow-id="fb98244a-f5df-4fb4-9195-913b0e331dad"
-            api-key="ak_uZRb2tG2eV-ylLTc-k_KpniRmNdy2nnjYaUg5N_p1p4"
-            host-url="https://agentstudio.servicesessentials.ibm.com/"
-            theme="light"
-            position="bottom-right"
-            welcome-message="Hi! Ask me anything about this documentation."
-        ></langflow-chat>
-        <script src="https://cdn.jsdelivr.net/npm/@langflow-ai/embedded-chat@latest/dist/langflow-chat.js"></script>
+     <script type="module">
+          import Chatbot from "https://cdn.jsdelivr.net/npm/flowise-embed/dist/web.js";
+          Chatbot.init({
+            chatflowid: "fb98244a-f5df-4fb4-9195-913b0e331dad",
+            apiHost: "https://agentstudio.servicesessentials.ibm.com",
+            theme: {
+              button: { backgroundColor: "#0366d6", right: 20, bottom: 20 },
+              chatWindow: { welcomeMessage: "Hi! Ask me anything about this documentation.", backgroundColor: "#ffffff" }
+            }
+          });
+        </script>
+        
 </body>
 </html>
