@@ -3,149 +3,141 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Modules documentation for LibManagement - a modular Flask-based library management system.">
-    <title>LibManagement - Modules</title>
+    <title>Modules - LibManagement</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="sidebar">
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="architecture.html">Architecture</a></li>
-                <li class="active"><a href="modules.html">Modules</a></li>
-                <li><a href="flows.html">Flows</a></li>
-                <li><a href="setup.html">Setup</a></li>
-            </ul>
-        </nav>
-    </div>
-    <div class="content">
-        <h1>Modules Overview</h1>
-        <section>
-            <h2>Module Overview</h2>
-            <p>Total module count: 3</p>
-            <p>Organization approach: Modular MVC (Model-View-Controller) architecture.</p>
-            <p>Naming conventions: Modules are named after their primary responsibilities, such as <code>app.py</code> for the application factory and <code>models.py</code> for ORM models.</p>
-        </section>
-        <section>
-            <h2>Core Modules</h2>
-            <article>
-                <h3>Application Factory</h3>
-                <p><strong>Location:</strong> app.py</p>
-                <p><strong>Purpose:</strong> Creates and configures the Flask application instance.</p>
-                <p><strong>Key Functions:</strong></p>
-                <ul>
-                    <li><code>create_app(config_name: str) -> Flask</code>: Initializes the Flask application with the specified configuration.</li>
-                </ul>
-                <p><strong>Dependencies:</strong> extensions.py</p>
-                <p><strong>Used by:</strong> Not explicitly used by other modules.</p>
-                <pre class="code">
-<code>def create_app(config_name: str) -> Flask:
+    <div class="wrapper">
+        <aside class="sidebar">
+            <h2>LibManagement</h2>
+            <nav>
+                <a href="#" class="active">Modules</a>
+                <a href="#architecture">Architecture</a>
+                <a href="#data-models">Data Models</a>
+                <a href="#setup">Setup & Development</a>
+            </nav>
+        </aside>
+        <main class="content">
+            <h1>Modules Overview</h1>
+            <section>
+                <h2>1. Overview</h2>
+                <p><strong>Total Modules:</strong> 3 core modules detected.</p>
+                <p><strong>Organization Approach:</strong> Modular architecture separating application initialization, extensions, and database models.</p>
+                <p><strong>Naming Conventions:</strong> Modules and files use descriptive names (e.g., <code>app.py</code>, <code>extensions.py</code>, <code>models.py</code>).</p>
+            </section>
+
+            <section>
+                <h2>2. Core Modules</h2>
+                <article>
+                    <h3>Application Factory</h3>
+                    <ul>
+                        <li><strong>Location:</strong> <code>app.py</code></li>
+                        <li><strong>Purpose:</strong> Initializes the Flask application and registers extensions.</li>
+                        <li><strong>Key Functions:</strong>
+                            <ul>
+                                <li><code>create_app()</code>: Factory function for dynamic Flask app creation. Example:
+                                    <pre><code>def create_app():
     app = Flask(__name__)
-    app.config.from_object(config_name)
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///library.db'
     db.init_app(app)
-    migrate.init_app(app, db)
-    return app</code>
-                </pre>
-            </article>
-            <article>
-                <h3>Extensions Management</h3>
-                <p><strong>Location:</strong> extensions.py</p>
-                <p><strong>Purpose:</strong> Centralizes the initialization and configuration of Flask extensions.</p>
-                <p><strong>Key Functions:</strong> None documented.</p>
-                <p><strong>Dependencies:</strong> None.</p>
-                <p><strong>Used by:</strong> app.py</p>
-            </article>
-        </section>
-        <section>
-            <h2>Dependency Graph</h2>
-            <p><strong>Graph:</strong> Not detected</p>
-            <p>The application factory depends on the extensions module for managing Flask extensions. No circular dependencies detected.</p>
-        </section>
-        <section>
-            <h2>Third-Party Dependencies</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Category</th>
-                        <th>Library</th>
-                        <th>Version</th>
-                        <th>Purpose</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Web Framework</td>
-                        <td>Flask</td>
-                        <td>Not detected</td>
-                        <td>Core framework for web application development.</td>
-                    </tr>
-                    <tr>
-                        <td>Database</td>
-                        <td>SQLAlchemy</td>
-                        <td>Not detected</td>
-                        <td>ORM for database interactions.</td>
-                    </tr>
-                    <tr>
-                        <td>Database</td>
-                        <td>Flask-SQLAlchemy</td>
-                        <td>Not detected</td>
-                        <td>SQLAlchemy integration with Flask.</td>
-                    </tr>
-                    <tr>
-                        <td>Utilities</td>
-                        <td>Flask-Migrate</td>
-                        <td>Not detected</td>
-                        <td>Handles database migrations.</td>
-                    </tr>
-                </tbody>
-            </table>
-        </section>
-        <section>
-            <h2>Data Models</h2>
-            <article>
-                <h3>Book</h3>
-                <p><strong>Location:</strong> models.py</p>
-                <p><strong>Fields:</strong> id, title, author, publication_date</p>
-                <p><strong>Relationships:</strong> None</p>
-                <pre class="code">
-<code>class Book(db.Model):
+    return app</code></pre>
+                                </li>
+                                <li><code>get_books()</code>: Handles GET requests to retrieve a list of books from the database. Example:
+                                    <pre><code>def get_books():
+    books = Book.query.all()
+    return jsonify([book.to_dict() for book in books])</code></pre>
+                                </li>
+                            </ul>
+                        </li>
+                        <li><strong>Dependencies:</strong> Imports <code>extensions.py</code> and <code>models.py</code>.</li>
+                        <li><strong>Used By:</strong> Entry point for initializing the application.</li>
+                    </ul>
+                </article>
+
+                <article>
+                    <h3>Shared Extensions</h3>
+                    <ul>
+                        <li><strong>Location:</strong> <code>extensions.py</code></li>
+                        <li><strong>Purpose:</strong> Centralized management and initialization of shared Flask extensions.</li>
+                        <li><strong>Key Functions:</strong> None explicitly defined in the analysis.</li>
+                        <li><strong>Dependencies:</strong> Imports <code>flask_sqlalchemy</code>.</li>
+                        <li><strong>Used By:</strong> Imported by <code>app.py</code> and <code>models.py</code>.</li>
+                    </ul>
+                </article>
+
+                <article>
+                    <h3>Database Models</h3>
+                    <ul>
+                        <li><strong>Location:</strong> <code>models.py</code></li>
+                        <li><strong>Purpose:</strong> Defines ORM entities for database interactions.</li>
+                        <li><strong>Key Functions:</strong> None explicitly defined in the analysis.</li>
+                        <li><strong>Dependencies:</strong> Imports <code>extensions.py</code> for database operations.</li>
+                        <li><strong>Used By:</strong> Accessed by <code>app.py</code> for database operations.</li>
+                    </ul>
+                </article>
+            </section>
+
+            <section>
+                <h2>3. Dependency Graph</h2>
+                <p>Not detected.</p>
+            </section>
+
+            <section>
+                <h2>4. Third-Party Dependencies</h2>
+                <p>Dependencies are defined in <code>requirements.txt</code>, but specifics were not analyzed in the provided data.</p>
+            </section>
+
+            <section>
+                <h2>5. Data Models</h2>
+
+                <article>
+                    <h3>Book Model</h3>
+                    <p><strong>Fields:</strong> id, title, author</p>
+                    <p><strong>Schema:</strong></p>
+                    <pre><code>class Book(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(255), nullable=False)
-    author = db.Column(db.String(255), nullable=False)
-    publication_date = db.Column(db.Date, nullable=False)</code>
-                </pre>
-            </article>
-            <article>
-                <h3>Member</h3>
-                <p><strong>Location:</strong> models.py</p>
-                <p><strong>Fields:</strong> id, name, membership_date</p>
-                <p><strong>Relationships:</strong> None</p>
-                <pre class="code">
-<code>class Member(db.Model):
+    author = db.Column(db.String(255), nullable=False</code></pre>
+                </article>
+
+                <article>
+                    <h3>Member Model</h3>
+                    <p><strong>Fields:</strong> id, name, join_date</p>
+                    <p><strong>Schema:</strong></p>
+                    <pre><code>class Member(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(255), nullable=False)
-    membership_date = db.Column(db.Date, default=datetime.utcnow)</code>
-                </pre>
-            </article>
-        </section>
-        <section>
-            <h2>Utilities and Helpers</h2>
-            <p>Not detected</p>
-        </section>
-        <section>
-            <h2>API Interfaces</h2>
-            <p>No API endpoints detected in the analyzed code.</p>
-        </section>
-        <section>
-            <h2>Module Best Practices</h2>
-            <ul>
-                <li>Adherence to Flask's Application Factory pattern for scalable initialization.</li>
-                <li>Centralized extension management for modularity and maintainability.</li>
-                <li>ORM models defined with SQLAlchemy for clean database operations.</li>
-                <li>Testing organized by module in the <code>tests</code> directory.</li>
-            </ul>
-        </section>
+    join_date = db.Column(db.Date, nullable=False</code></pre>
+                </article>
+            </section>
+
+            <section>
+                <h2>6. Utilities and Helpers</h2>
+                <p>Not detected in the current analysis.</p>
+            </section>
+
+            <section>
+                <h2>7. API Interfaces</h2>
+                <article>
+                    <h3>Books Endpoint</h3>
+                    <ul>
+                        <li><strong>Path:</strong> <code>/books</code></li>
+                        <li><strong>Method:</strong> GET</li>
+                        <li><strong>Handler:</strong> <code>get_books</code></li>
+                        <li><strong>Description:</strong> Retrieves a list of books from the database.</li>
+                    </ul>
+                </article>
+            </section>
+
+            <section>
+                <h2>8. Module Best Practices</h2>
+                <ul>
+                    <li><strong>Coding Patterns:</strong> Adheres to Flask's factory pattern for modularity and scalability.</li>
+                    <li><strong>Import Conventions:</strong> Extensions are imported centrally in <code>extensions.py</code> for reusability.</li>
+                    <li><strong>Testing Approach:</strong> Unit tests are likely organized in the <code>tests/</code> directory but were not analyzed in detail.</li>
+                </ul>
+            </section>
+        </main>
     </div>
 </body>
 </html>
