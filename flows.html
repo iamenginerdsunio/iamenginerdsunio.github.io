@@ -3,63 +3,123 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flows</title>
+    <title>Flows - LibManagement</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <aside class="sidebar">
-            <nav>
-                <ul>
-                    <li><a href="index.html">Overview</a></li>
-                    <li><a href="architecture.html">Architecture</a></li>
-                    <li><a href="structure.html">Structure</a></li>
-                    <li><a href="flows.html" class="active">Flows</a></li>
-                    <li><a href="modules.html">Modules</a></li>
-                    <li><a href="evidence.html">Evidence</a></li>
-                    <li><a href="contributing.html">Contributing</a></li>
-                </ul>
-            </nav>
-        </aside>
-        <main class="content">
-            <h1>Flows</h1>
-            <section>
-                <h2>Routes and Request Flow</h2>
-                <ul>
-                    <li><strong>Home Route:</strong> Renders <code>index.html</code>, serving as the main entry point with navigation links to books, members, and loans sections.</li>
-                    <li><strong>Books CRUD:</strong> Provides routes for listing, viewing, creating, editing, and deleting books. These routes render templates located under <code>templates/books/</code>.</li>
-                    <li><strong>Members CRUD:</strong> Offers routes for listing, viewing, creating, editing, and deleting members. These routes use templates from <code>templates/members/</code>.</li>
-                    <li><strong>Loans Flow:</strong> Includes routes for listing active loans and facilitating borrow/return workflows. Templates under <code>templates/loans/</code> are used to render these views.</li>
-                </ul>
-            </section>
-            <section>
-                <h2>Execution Flow</h2>
-                <ol>
-                    <li>Request starts at the browser, targeting a specific route (e.g., <code>/books</code>, <code>/members</code>, or <code>/loans</code>).</li>
-                    <li>Flask handles the route using a controller defined in <code>app.py</code>.</li>
-                    <li>Controllers interact with SQLAlchemy models (defined in <code>models.py</code>) to fetch, update, or create data.</li>
-                    <li>The appropriate Jinja2 template (e.g., <code>books/list.html</code>) renders the response, incorporating dynamic data.</li>
-                    <li>Static assets (CSS/JS/images) from <code>static/</code> enhance the user experience.</li>
-                </ol>
-            </section>
-            <section>
-                <h2>UI Patterns</h2>
-                <ul>
-                    <li><strong>Template Inheritance:</strong> All templates extend <code>base.html</code>, which provides common navigation and layout structure.</li>
-                    <li><strong>Domain-Specific Grouping:</strong> Templates are organized into subdirectories (<code>books/</code>, <code>members/</code>, <code>loans/</code>) based on features.</li>
-                    <li><strong>Form-Based CRUD:</strong> Each entity type (Book, Member, Loan) has forms for create/edit actions, rendered using Flask-WTF and WTForms.</li>
-                </ul>
-            </section>
-            <section>
-                <h2>Control Flow Notes</h2>
-                <ul>
-                    <li><strong>Database Interaction:</strong> SQLAlchemy ORM handles CRUD operations for Book, Member, and Loan entities, ensuring consistency and relational integrity.</li>
-                    <li><strong>Error Handling:</strong> Flask likely uses default mechanisms to handle errors like invalid form submissions or missing routes (specific implementation not detected).</li>
-                    <li><strong>Testing Coverage:</strong> Automated tests in <code>tests/test_app.py</code> validate major flows, including route accessibility and expected responses.</li>
-                    <li><strong>Static Asset Loading:</strong> The <code>static/</code> directory supports templates with shared CSS and JS resources.</li>
-                </ul>
-            </section>
-        </main>
+    <div class="sidebar">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="architecture.html">Architecture</a></li>
+            <li><a href="flows.html" class="active">Flows</a></li>
+            <li><a href="structure.html">Structure</a></li>
+        </ul>
+    </div>
+    <div class="content">
+        <h1>Flows in LibManagement</h1>
+
+        <section>
+            <h2>Code Flow Overview</h2>
+            <p>LibManagement leverages a modular MVC (Model-View-Controller) architecture. Request handling begins with the Flask Application Factory, which initializes the application and extensions. User interactions are processed via controllers, which interact with SQLAlchemy ORM models to perform database operations. Views, rendered with Jinja2 templates, provide dynamic HTML responses to clients.</p>
+        </section>
+
+        <section>
+            <h2>Request Lifecycle</h2>
+            <ol>
+                <li><strong>Request Initiation:</strong> A user sends a request to the Flask web server.</li>
+                <li><strong>Routing:</strong> The request is matched to an appropriate route defined in the controller layer.</li>
+                <li><strong>Database Interaction:</strong> The controller invokes ORM models for CRUD operations as needed.</li>
+                <li><strong>Response Generation:</strong> Processed data is passed to a Jinja2 template to generate an HTML response.</li>
+                <li><strong>Response Delivery:</strong> The server sends the rendered response back to the client.</li>
+            </ol>
+        </section>
+
+        <section>
+            <h2>Routing</h2>
+            <p>Routes in LibManagement are defined using Flask's <code>@app.route</code> decorator. For instance:</p>
+            <pre><code>@app.route('/books')
+def list_books():
+    books = Book.query.all()
+    return render_template('books.html', books=books)</code></pre>
+            <p>Route definitions map URLs to specific controller functions, ensuring clean separation of concerns.</p>
+        </section>
+
+        <section>
+            <h2>Data Flow</h2>
+            <p>Data flows seamlessly across the application's layers:</p>
+            <ul>
+                <li><strong>Input:</strong> User data is collected via forms or API requests.</li>
+                <li><strong>Controller Logic:</strong> Data is processed in the controller layer, which also interacts with the model layer for database operations.</li>
+                <li><strong>Database Layer:</strong> SQLAlchemy ORM models handle database interactions. Example:</li>
+                <pre><code>class Book(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String(255), nullable=False)
+    author = db.Column(db.String(255), nullable=False)
+    publication_date = db.Column(db.Date, nullable=False)</code></pre>
+                <li><strong>Output:</strong> Data is rendered into dynamic HTML templates and returned to the client.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Business Logic</h2>
+            <p>Core business logic resides in the controller layer. For example, adding a new book involves validation, database interaction, and redirection:</p>
+            <pre><code>@app.route('/add_book', methods=['POST'])
+def add_book():
+    title = request.form['title']
+    author = request.form['author']
+    publication_date = request.form['publication_date']
+    new_book = Book(title=title, author=author, publication_date=publication_date)
+    db.session.add(new_book)
+    db.session.commit()
+    return redirect(url_for('list_books'))</code></pre>
+        </section>
+
+        <section>
+            <h2>UI/Frontend Flows</h2>
+            <p>Dynamic HTML content is rendered using Jinja2 templates. These templates, stored in the <code>templates/</code> directory, dynamically display data passed from the backend. Example:</p>
+            <pre><code>&lt;ul&gt;
+    {% for book in books %}
+    &lt;li&gt;{{ book.title }} by {{ book.author }}&lt;/li&gt;
+    {% endfor %}
+&lt;/ul&gt;</code></pre>
+        </section>
+
+        <section>
+            <h2>Background Jobs</h2>
+            <p>No background job processing or asynchronous task handling mechanisms were detected in the project.</p>
+        </section>
+
+        <section>
+            <h2>Error Handling</h2>
+            <p>Error handling appears to rely on Flask's default mechanisms. For instance, custom error pages can be created using Flask's error handler:</p>
+            <pre><code>@app.errorhandler(404)
+def page_not_found(e):
+    return render_template('404.html'), 404</code></pre>
+        </section>
+
+        <section>
+            <h2>Flow Diagrams</h2>
+            <h3>Sequence Diagram: Adding a New Book</h3>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 300" style="border:1px solid #ccc;">
+                <defs>
+                    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+                        <polygon points="0 0, 10 3.5, 0 7" />
+                    </marker>
+                </defs>
+                <line x1="100" y1="50" x2="250" y2="50" stroke="black" marker-end="url(#arrowhead)" />
+                <text x="120" y="40" font-size="12" fill="black">Request: POST /add_book</text>
+                <line x1="250" y1="50" x2="400" y2="50" stroke="black" marker-end="url(#arrowhead)" />
+                <text x="270" y="40" font-size="12" fill="black">Controller Logic</text>
+                <line x1="400" y1="50" x2="550" y2="50" stroke="black" marker-end="url(#arrowhead)" />
+                <text x="420" y="40" font-size="12" fill="black">Database Insert</text>
+                <line x1="550" y1="50" x2="400" y2="100" stroke="black" marker-end="url(#arrowhead)" />
+                <text x="420" y="90" font-size="12" fill="black">Success</text>
+                <line x1="400" y1="100" x2="250" y2="150" stroke="black" marker-end="url(#arrowhead)" />
+                <text x="270" y="140" font-size="12" fill="black">Redirect</text>
+                <line x1="250" y1="150" x2="100" y2="150" stroke="black" marker-end="url(#arrowhead)" />
+                <text x="120" y="140" font-size="12" fill="black">Response to Client</text>
+            </svg>
+        </section>
     </div>
 </body>
 </html>
