@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Contributing Guide for LibManagement">
-    <title>Contributing - LibManagement</title>
+    <title>Contributing to LibManagement</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -12,30 +11,30 @@
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
-                <li><a href="overview.html">Overview</a></li>
                 <li><a href="structure.html">Structure</a></li>
-                <li><a href="contributing.html" class="active">Contributing</a></li>
-                <li><a href="docs.html">Docs</a></li>
+                <li class="active"><a href="contributing.html">Contributing</a></li>
+                <li><a href="docs.html">Documentation</a></li>
             </ul>
         </nav>
     </div>
     <div class="content">
-        <header>
-            <h1>Contributing Guide</h1>
-        </header>
+        <h1>Contributing to LibManagement</h1>
+
         <section>
-            <h2>Welcome to LibManagement</h2>
-            <p>Thank you for your interest in contributing to LibManagement, a Flask-based library management system. We highly value contributions from the community, whether you are fixing bugs, adding features, or improving documentation.</p>
-            <p>All contributors are expected to adhere to our <a href="code_of_conduct.html">Code of Conduct</a> to maintain a welcoming and collaborative environment.</p>
+            <h2>Welcome</h2>
+            <p>Thank you for considering contributing to <strong>LibManagement</strong>! Your contributions help make this Flask-based library management system better for everyone. Whether you're fixing bugs, improving documentation, or introducing new features, your efforts are greatly appreciated.</p>
+            <p>Please ensure you follow our <a href="code_of_conduct.html">Code of Conduct</a> to maintain a collaborative and respectful environment.</p>
         </section>
+
         <section>
             <h2>Prerequisites</h2>
             <ul>
-                <li>Python 3.x installed on your system</li>
-                <li>pip for managing Python packages</li>
-                <li>A GitHub account for submitting issues and pull requests</li>
+                <li>Python 3.8 or later</li>
+                <li><code>pip</code> package manager</li>
+                <li>A GitHub account</li>
             </ul>
         </section>
+
         <section>
             <h2>Development Setup</h2>
             <ol>
@@ -44,101 +43,76 @@
                     <pre><code>git clone https://github.com/iamenginerdsunio/LibManagement.git</code></pre>
                 </li>
                 <li>
-                    <p>Navigate to the project directory:</p>
-                    <pre><code>cd LibManagement</code></pre>
-                </li>
-                <li>
                     <p>Install dependencies:</p>
                     <pre><code>pip install -r requirements.txt</code></pre>
                 </li>
                 <li>
-                    <p>Verify the installation:</p>
+                    <p>Set environment variables:</p>
+                    <ul>
+                        <li><code>FLASK_ENV</code>: Set this to <code>development</code>.</li>
+                    </ul>
+                </li>
+                <li>
+                    <p>Run the application:</p>
                     <pre><code>python app.py</code></pre>
                 </li>
             </ol>
-            <p>If you encounter issues during setup, please check your Python and pip versions or refer to our <a href="docs.html">Documentation</a>.</p>
         </section>
+
         <section>
             <h2>Project Structure Orientation</h2>
-            <p>LibManagement follows a structured layout to ensure maintainability:</p>
+            <p>Heres a brief overview of the main directories:</p>
             <ul>
-                <li><strong>templates/</strong>: Contains HTML templates</li>
-                <li><strong>static/</strong>: Stores CSS and JavaScript files</li>
-                <li><strong>tests/</strong>: Includes test scripts</li>
-                <li><strong>docs/</strong>: Provides project documentation</li>
+                <li><code>templates/</code>: Contains HTML templates for rendering views.</li>
+                <li><code>static/</code>: Stores static assets like CSS and JavaScript files.</li>
+                <li><code>tests/</code>: Houses unit and integration tests for the application.</li>
+                <li><code>docs/</code>: Provides documentation for setup and usage.</li>
             </ul>
-            <p>For a detailed directory breakdown, visit the <a href="structure.html">Structure</a> page.</p>
+            <p>Refer to the <a href="structure.html">Structure</a> page for more details.</p>
         </section>
+
         <section>
             <h2>Development Workflow</h2>
-            <p>Follow these steps for contributing:</p>
             <ul>
-                <li>Use feature-specific branch names (e.g., <code>feature/add-search</code>).</li>
-                <li>Write clear commit messages (e.g., "Fix issue with book search functionality").</li>
-                <li>Submit pull requests with detailed descriptions of changes.</li>
-                <li>Ensure your code passes all tests before requesting a review.</li>
+                <li><strong>Branch Naming:</strong> Use descriptive names such as <code>feature/add-user-authentication</code> or <code>bugfix/fix-database-error</code>.</li>
+                <li><strong>Commit Messages:</strong> Follow the format <code>[Type] Short Description</code>. Example: <code>[Feature] Add user login functionality</code>.</li>
+                <li><strong>Pull Requests:</strong> Ensure your PR contains a detailed description of your changes and references relevant issues.</li>
+                <li><strong>Code Reviews:</strong> Be open to constructive feedback and make necessary adjustments.</li>
             </ul>
         </section>
+
         <section>
             <h2>Coding Standards</h2>
-            <p>To maintain consistency:</p>
             <ul>
-                <li>Follow PEP 8 for Python code style.</li>
-                <li>Use the provided linting tools to check your code:</li>
-                <pre><code>flake8 .</code></pre>
-                <li>Format code using:</li>
-                <pre><code>black .</code></pre>
+                <li><strong>Style Guide:</strong> Adhere to PEP 8 for Python code.</li>
+                <li><strong>Linting:</strong> Use <code>flake8</code> to identify and fix coding issues.</li>
+                <li><strong>Formatting:</strong> Apply <code>black</code> for consistent code formatting.</li>
             </ul>
         </section>
+
         <section>
             <h2>Testing</h2>
-            <p>LibManagement uses Python's unittest framework:</p>
             <ul>
-                <li>Run all tests:</li>
-                <pre><code>python -m unittest discover tests</code></pre>
-                <li>Add tests for new features in the <code>tests/</code> directory.</li>
-                <li>Ensure test coverage is high by writing comprehensive test cases.</li>
+                <li><strong>Running Tests:</strong> Execute <code>pytest tests/</code> to run the test suite.</li>
+                <li><strong>Writing Tests:</strong> Add new test cases to the <code>tests/</code> directory, organized by feature or module.</li>
             </ul>
         </section>
-        <section>
-            <h2>Building and Running</h2>
-            <p>To start the development server:</p>
-            <pre><code>python app.py</code></pre>
-            <p>Environment variables required:</p>
-            <ul>
-                <li><code>SQLALCHEMY_DATABASE_URI</code> for database connection</li>
-            </ul>
-        </section>
-        <section>
-            <h2>Debugging</h2>
-            <p>Use debugging tools such as:</p>
-            <ul>
-                <li><code>pdb</code> for Python debugging</li>
-                <li>Flask's built-in debugger</li>
-            </ul>
-            <p>Check logs generated by the application for insights into issues.</p>
-        </section>
+
         <section>
             <h2>Submitting Contributions</h2>
-            <p>Before submitting:</p>
             <ul>
-                <li>File an issue for discussion, if necessary.</li>
-                <li>Follow the pull request checklist:</li>
-                <ul>
-                    <li>Code is formatted and linted.</li>
-                    <li>Tests are included and passing.</li>
-                    <li>Documentation is updated, if applicable.</li>
-                </ul>
-                <li>Expect feedback within a few days.</li>
+                <li><strong>Issue Guidelines:</strong> Provide clear and detailed descriptions of the problem, including steps to reproduce it.</li>
+                <li><strong>Pull Request Checklist:</strong> Ensure all tests pass and relevant documentation is updated before submitting.</li>
+                <li><strong>Documentation:</strong> Update relevant sections of the documentation when introducing new features.</li>
             </ul>
         </section>
+
         <section>
             <h2>Getting Help</h2>
-            <p>If you have questions or need assistance:</p>
+            <p>If you have any questions or need assistance, you can:</p>
             <ul>
-                <li>Check the <a href="docs.html">Documentation</a>.</li>
-                <li>Open an issue on GitHub.</li>
-                <li>Contact maintainers listed in the repository.</li>
+                <li>Open an issue on our <a href="https://github.com/iamenginerdsunio/LibManagement">GitHub repository</a>.</li>
+                <li>Start a discussion on GitHub to get feedback from the community.</li>
             </ul>
         </section>
     </div>
