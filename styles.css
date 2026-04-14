@@ -1,174 +1,265 @@
+/* Base Reset and Typography */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+  color: #2d3748;
+  background-color: #ffffff;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 1.5rem 0 1rem;
+  font-weight: bold;
+  line-height: 1.2;
+  color: #1a202c;
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+p {
+  margin: 0 0 1.5rem;
+}
+
+ul, ol {
+  margin: 0 0 1.5rem;
+  padding-left: 2rem;
+}
+
+li {
+  margin-bottom: 0.5rem;
+}
+
+code {
+  font-family: Consolas, Monaco, 'Courier New', monospace;
+  font-size: 14px;
+  background-color: #f3f4f6;
+  color: #2d3748;
+  padding: 0.2em 0.4em;
+  border-radius: 3px;
+}
+
+/* Layout */
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+}
+
+/* Sidebar */
 .sidebar {
   position: fixed;
   top: 0;
   left: 0;
-  width: 250px;
-  height: 100%;
+  width: 260px;
+  height: 100vh;
   background-color: #2c3e50;
   color: #ffffff;
   overflow-y: auto;
-  padding-top: 1rem;
-  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
 }
 
 .sidebar a {
-  display: block;
   color: #ffffff;
   text-decoration: none;
-  padding: 0.75rem 1rem;
+  display: block;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
   transition: background-color 0.3s;
 }
 
 .sidebar a:hover {
-  background-color: #1a202c;
+  background-color: #34495e;
 }
 
 .sidebar a.active {
-  background-color: #0366d6;
-  font-weight: bold;
+  background-color: #1abc9c;
 }
 
-.content {
-  margin-left: 250px;
-  padding: 3rem;
-  max-width: 900px;
-  background-color: #ffffff;
-  color: #000000;
-  border-left: 1px solid #e2e8f0;
-  line-height: 1.7;
-}
-
-.content h1 {
-  font-size: 2.5rem;
-  font-weight: bold;
-  margin-bottom: 1rem;
-  color: #2c3e50;
-}
-
-.content h2 {
-  font-size: 2rem;
-  font-weight: bold;
-  margin-bottom: 0.75rem;
-  color: #2c3e50;
-}
-
-.content h3 {
+.sidebar h2 {
   font-size: 1.5rem;
-  font-weight: bold;
-  margin-bottom: 0.5rem;
-  color: #2c3e50;
+  margin-bottom: 1rem;
 }
 
-.content p {
+/* Content */
+.content {
+  margin-left: 280px;
+  padding: 3rem;
+  background-color: #ffffff;
+  border-left: 1px solid #e2e8f0;
+}
+
+/* Header */
+.header {
+  position: sticky;
+  top: 0;
+  background-color: #ffffff;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid #e2e8f0;
+  z-index: 10;
+}
+
+.header .breadcrumbs {
+  font-size: 0.875rem;
+  color: #718096;
+}
+
+.header .breadcrumbs a {
+  color: #0366d6;
+  text-decoration: none;
+}
+
+.header .breadcrumbs a:hover {
+  text-decoration: underline;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 1.5rem;
+  background-color: #f7fafc;
+  border-top: 1px solid #e2e8f0;
+  font-size: 0.875rem;
+  color: #718096;
+}
+
+.footer a {
+  color: #0366d6;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+/* Tables */
+table {
+  width: 100%;
+  border-collapse: collapse;
   margin-bottom: 1.5rem;
 }
 
-.content a {
-  color: #0366d6;
-  text-decoration: underline;
-  transition: color 0.3s;
+table th, table td {
+  padding: 0.75rem;
+  text-align: left;
+  border: 1px solid #e2e8f0;
 }
 
-.content a:hover {
-  color: #014e92;
+table th {
+  background-color: #f7fafc;
+  font-weight: bold;
 }
 
-.content code {
-  font-family: Consolas, Monaco, 'Courier New', monospace;
-  font-size: 14px;
-  background-color: #f3f4f6;
-  padding: 0.2em 0.4em;
-  border-radius: 3px;
-  color: #2c3e50;
+tr:nth-child(even) {
+  background-color: #f9f9f9;
 }
 
-.content pre {
-  background-color: #f6f8fa;
+/* Code Blocks */
+pre {
+  background: #f6f8fa;
   padding: 1rem;
   border-radius: 6px;
   overflow-x: auto;
-  font-family: Consolas, Monaco, 'Courier New', monospace;
   font-size: 14px;
-  color: #2c3e50;
-  border: 1px solid #e2e8f0;
+  color: #2d3748;
+  line-height: 1.6;
 }
 
-.content table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-bottom: 2rem;
+pre code {
+  background: none;
+  padding: 0;
+  border-radius: 0;
 }
 
-.content table th,
-.content table td {
-  padding: 0.75rem;
-  border: 1px solid #e2e8f0;
-  text-align: left;
+/* Buttons */
+button {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  font-family: inherit;
+  color: #ffffff;
+  background-color: #0366d6;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
 
-.content table th {
-  background-color: #f7fafc;
-  font-weight: bold;
+button:hover {
+  background-color: #024ea4;
 }
 
-.content table tr:nth-child(even) {
-  background-color: #f7fafc;
-}
-
-.content ul {
-  margin-bottom: 1.5rem;
-  padding-left: 1.5rem;
-}
-
-.content ul li {
-  margin-bottom: 0.5rem;
-}
-
-.content .alert {
+/* Alerts */
+.alert {
   padding: 1rem;
   border-radius: 4px;
   margin-bottom: 1.5rem;
-  border-left: 4px solid;
+  font-size: 0.875rem;
+  display: flex;
+  align-items: center;
 }
 
-.content .alert.info {
-  background-color: #f0f8ff;
-  border-color: #0366d6;
+.alert-info {
+  background-color: #ebf8ff;
+  color: #2b6cb0;
+  border-left: 4px solid #2b6cb0;
 }
 
-.content .alert.warning {
-  background-color: #fff8e1;
-  border-color: #ffb300;
+.alert-warning {
+  background-color: #fff5e5;
+  color: #975a16;
+  border-left: 4px solid #975a16;
 }
 
-.content .alert.error {
-  background-color: #ffebee;
-  border-color: #e53935;
+.alert-error {
+  background-color: #ffe4e6;
+  color: #c53030;
+  border-left: 4px solid #c53030;
 }
 
+/* Links */
+a {
+  color: #0366d6;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+a:hover {
+  color: #024ea4;
+  text-decoration: underline;
+}
+
+/* Responsive Design */
 @media (max-width: 1024px) {
   .sidebar {
+    position: relative;
     width: 100%;
     height: auto;
-    position: relative;
+    padding: 1rem;
   }
 
   .content {
     margin-left: 0;
-    padding: 2rem;
-  }
-
-  .sidebar a {
-    padding: 0.5rem;
+    padding: 1.5rem;
   }
 }
 
 @media (max-width: 768px) {
-  .sidebar {
-    display: none;
+  .header {
+    padding: 1rem;
   }
 
-  .content {
+  .container {
     padding: 1.5rem;
   }
 }
