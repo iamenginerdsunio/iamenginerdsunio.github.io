@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="LibManagement is a Flask-based library management system for managing books and users.">
+    <meta name="description" content="LibManagement is a Python-based library management system designed with Flask and SQLAlchemy for efficient library operations.">
+    <title>LibManagement - Overview</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="/path/to/favicon.ico">
-    <title>LibManagement - Overview</title>
 </head>
 <body>
     <aside class="sidebar">
@@ -15,7 +15,7 @@
         </header>
         <nav>
             <ul>
-                <li><a href="index.html" class="active">f4c4 Overview</a></li>
+                <li class="active"><a href="index.html">f4c4 Overview</a></li>
                 <li><a href="architecture.html">f3d7e0f Architecture</a></li>
                 <li><a href="structure.html">f4c1 Structure</a></li>
                 <li><a href="flows.html">f504 Flows</a></li>
@@ -26,75 +26,75 @@
         </nav>
     </aside>
     <main class="content">
-        <section class="hero">
+        <header class="hero">
             <h1>LibManagement</h1>
-            <p>A Flask-based library management system for managing books and users.</p>
+            <p>Comprehensive library management system built with Flask and SQLAlchemy.</p>
             <div class="badges">
-                <span>Python</span>
-                <span>Flask</span>
-                <span>MIT License</span>
+                <span class="badge">Python</span>
+                <span class="badge">Flask</span>
+                <span class="badge">SQLAlchemy</span>
+                <span class="badge">MIT License</span>
             </div>
-        </section>
-
-        <section id="purpose">
-            <h2>Project Purpose</h2>
-            <p>LibManagement is designed to simplify the process of managing books and user information in a library setting. This web application provides a streamlined interface for administrators to add, update, and retrieve book details. By leveraging Flask for routing and SQLAlchemy for database operations, the system ensures efficient and reliable data handling.</p>
-            <p>The project is ideal for small to medium-sized libraries or individuals who need a lightweight yet robust solution for cataloging books. Its modular architecture allows for easy feature extension and maintenance, making it a versatile tool for developers and end-users alike.</p>
-        </section>
-
-        <section id="features">
-            <h2>Key Features</h2>
-            <ul>
-                <li><strong>Flask-based web application:</strong> Provides a lightweight and scalable foundation for web development.</li>
-                <li><strong>SQLAlchemy ORM:</strong> Simplifies database modeling and interaction, ensuring data consistency.</li>
-                <li><strong>Modular architecture:</strong> Employs the factory pattern for easy configuration and extension management.</li>
-                <li><strong>Book management:</strong> Enables CRUD operations with serialization for API responses.</li>
-            </ul>
-        </section>
-
-        <section id="tech-stack">
-            <h2>Tech Stack</h2>
-            <ul>
-                <li><strong>Languages:</strong> Python</li>
-                <li><strong>Frameworks:</strong> Flask, SQLAlchemy</li>
-                <li><strong>Database:</strong> SQLite (via SQLAlchemy ORM)</li>
-                <li><strong>Frontend templating:</strong> Jinja2</li>
-            </ul>
-        </section>
-
-        <section id="architecture-overview">
-            <h2>Architecture Overview</h2>
-            <p>The application follows the MVC (Model-View-Controller) architectural pattern. The model layer handles database interactions using SQLAlchemy, the view layer renders HTML templates via Jinja2, and the controller layer processes user requests and business logic through Flask routes.</p>
-            <p>For more details, visit the <a href="architecture.html">Architecture</a> page.</p>
-        </section>
-
-        <section id="quick-start">
-            <h2>Quick Start</h2>
-            <h3>Prerequisites</h3>
-            <ul>
-                <li>Python 3.8+</li>
-                <li>Flask</li>
-                <li>SQLAlchemy</li>
-            </ul>
-            <h3>Installation Steps</h3>
-            <ol>
-                <li>Clone the repository:</li>
-                <pre><code class="language-bash">git clone https://github.com/iamenginerdsunio/LibManagement.git</code></pre>
-                <li>Navigate to the project directory:</li>
-                <pre><code class="language-bash">cd LibManagement</code></pre>
-                <li>Install dependencies:</li>
-                <pre><code class="language-bash">pip install -r requirements.txt</code></pre>
-                <li>Run the application:</li>
-                <pre><code class="language-bash">python app.py</code></pre>
-            </ol>
-            <p>For contributing guidelines, visit the <a href="contributing.html">Contributing</a> page.</p>
-        </section>
-
-        <section id="project-status">
-            <h2>Project Status</h2>
-            <p><strong>Status:</strong> Active</p>
-            <p>The repository is currently active, with potential for further feature additions, such as authentication and a test suite, to enhance functionality and reliability.</p>
-        </section>
+        </header>
+        <article>
+            <section id="purpose">
+                <h2>Project Purpose</h2>
+                <p>LibManagement is a Python-based library management system designed to streamline the management of books and members. It leverages Flask for web application development and SQLAlchemy for robust database interactions. The project adopts a modular and scalable architecture, making it an ideal solution for small-to-medium libraries searching for an efficient and user-friendly platform.</p>
+                <p>LibManagement addresses the challenges of managing library operations by providing a streamlined system for cataloging books, tracking memberships, and handling lending processes. It is perfect for library administrators, librarians, and developers seeking a customizable solution to cater to specific library requirements.</p>
+            </section>
+            <section id="features">
+                <h2>Key Features</h2>
+                <ul>
+                    <li>Modular Flask application with SQLAlchemy integration for clean and maintainable code.</li>
+                    <li>RESTful API endpoints to manage books and members efficiently.</li>
+                    <li>Database models utilizing SQLAlchemy ORM for seamless data interaction and migrations.</li>
+                    <li>Factory pattern for streamlined Flask application initialization and configuration.</li>
+                    <li>Separation of concerns through MVC architecture, ensuring scalability and clarity.</li>
+                </ul>
+            </section>
+            <section id="tech-stack">
+                <h2>Tech Stack</h2>
+                <ul>
+                    <li><strong>Primary Language:</strong> Python</li>
+                    <li><strong>Frameworks:</strong> Flask, SQLAlchemy</li>
+                    <li><strong>Database:</strong> SQLite (default), configurable for other relational databases</li>
+                </ul>
+            </section>
+            <section id="architecture">
+                <h2>Architecture Overview</h2>
+                <p>LibManagement follows the Model-View-Controller (MVC) architectural pattern. The application is divided into three primary layers:</p>
+                <ul>
+                    <li><strong>Controller:</strong> Manages HTTP requests and application logic using Flask.</li>
+                    <li><strong>Model:</strong> Handles database interactions using SQLAlchemy ORM.</li>
+                    <li><strong>View:</strong> Renders HTML templates for the user interface.</li>
+                </ul>
+                <p>The architecture ensures scalability and maintainability by separating concerns into distinct layers. For an in-depth exploration, visit the <a href="architecture.html">Architecture page</a>.</p>
+            </section>
+            <section id="quick-start">
+                <h2>Quick Start</h2>
+                <h3>Prerequisites</h3>
+                <ul>
+                    <li>Python 3.7+</li>
+                    <li>pip package manager</li>
+                </ul>
+                <h3>Installation Steps</h3>
+                <ol>
+                    <li><code>git clone https://github.com/iamenginerdsunio/LibManagement.git</code> - Clone the repository.</li>
+                    <li><code>pip install -r requirements.txt</code> - Install dependencies.</li>
+                    <li><code>python app.py</code> - Start the development server.</li>
+                </ol>
+                <h3>Usage Example</h3>
+                <pre><code class="language-python">import requests
+response = requests.get('http://localhost:5000/books')
+print(response.json())</code></pre>
+                <p>For contributing guidelines, refer to the <a href="contributing.html">Contributing page</a>.</p>
+            </section>
+            <section id="status">
+                <h2>Project Status</h2>
+                <p><strong>Status:</strong> Active development</p>
+                <p>The repository is actively maintained and updated. Contributions are encouraged to enhance the project further.</p>
+            </section>
+        </article>
     </main>
 </body>
 </html>
