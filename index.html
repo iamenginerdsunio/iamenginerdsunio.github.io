@@ -1,65 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Library Management System</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A modular Flask-based library management system with SQLAlchemy integration.">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <title>LibManagement - Overview</title>
 </head>
 <body>
-    <aside class="sidebar">
-        <nav>
-            <ul>
-                <li><a href="index.html">Overview</a></li>
-                <li><a href="architecture.html">Architecture</a></li>
-                <li><a href="structure.html">Structure</a></li>
-                <li><a href="flows.html">Flows</a></li>
-                <li><a href="modules.html">Modules</a></li>
-                <li><a href="evidence.html">Evidence</a></li>
-                <li><a href="contributing.html">Contributing</a></li>
-            </ul>
-        </nav>
-    </aside>
-    <main class="content">
-        <h1>Library Management System</h1>
-        <section>
-            <h2>Project Purpose</h2>
-            <p>A minimal library management system to manage books, members, and loans with CRUD operations and borrowing workflows.</p>
-        </section>
-        <section>
-            <h2>Project Type</h2>
-            <p>Flask-based web application with HTML templates, CSS assets, and automated tests.</p>
-        </section>
-        <section>
-            <h2>Primary Languages</h2>
-            <ul>
-                <li>Python</li>
-                <li>HTML</li>
-                <li>CSS</li>
-            </ul>
-        </section>
-        <section>
-            <h2>Frameworks</h2>
-            <ul>
-                <li>Flask</li>
-                <li>Flask-SQLAlchemy</li>
-                <li>Flask-Migrate</li>
-                <li>pytest</li>
-                <li>pytest-flask</li>
-            </ul>
-        </section>
-        <section>
-            <h2>Architecture Summary</h2>
-            <p>Single Flask application module (<code>app.py</code>) with SQLAlchemy models (<code>models.py</code>), shared extensions (<code>extensions.py</code>), Jinja2 templates grouped by domain (books, members, loans), static CSS, and pytest tests.</p>
-        </section>
-        <section>
-            <h2>Quick Setup</h2>
-            <p>Dependencies are listed in <code>requirements.txt</code>. Install them using <code>pip</code>, set up environment variables, initialize database migrations, and run the Flask application.</p>
-        </section>
-        <section>
-            <h2>Getting Started</h2>
-            <p>Start by exploring <code>app.py</code> for routes and <code>models.py</code> for core entity definitions. Jinja2 templates in <code>templates</code> provide the UI structure, while tests in <code>tests/test_app.py</code> validate functionality.</p>
-        </section>
-    </main>
+  <aside class="sidebar">
+    <header>
+      <h1>LibManagement</h1>
+    </header>
+    <nav>
+      <ul>
+        <li class="active">📄 Overview</li>
+        <li><a href="architecture.html">🏗️ Architecture</a></li>
+        <li><a href="structure.html">📁 Structure</a></li>
+        <li><a href="flows.html">🔄 Flows</a></li>
+        <li><a href="modules.html">📦 Modules</a></li>
+        <li><a href="evidence.html">✅ Evidence</a></li>
+        <li><a href="contributing.html">🤝 Contributing</a></li>
+      </ul>
+    </nav>
+  </aside>
+
+  <main class="content">
+    <header class="hero">
+      <h1>LibManagement</h1>
+      <p>A modular Flask-based library management system with SQLAlchemy integration.</p>
+      <div class="badges">
+        <span class="badge">Language: Python</span>
+        <span class="badge">Framework: Flask, SQLAlchemy</span>
+        <span class="badge">License: Unknown</span>
+      </div>
+    </header>
+
+    <section class="purpose">
+      <h2>Project Purpose</h2>
+      <article>
+        <p>LibManagement is a Python web application designed to manage library resources such as books and members. Built using Flask and SQLAlchemy, the project leverages modular design principles for scalability and maintainability.</p>
+        <p>The Application Factory pattern is employed to initialize and configure the app, while SQLAlchemy serves as the ORM layer for database interactions. Centralized extension management and well-defined models ensure the system is easy to develop, test, and deploy.</p>
+      </article>
+    </section>
+
+    <section class="features">
+      <h2>Key Features</h2>
+      <ul>
+        <li>Modular Application Factory pattern for Flask initialization</li>
+        <li>Centralized management of Flask extensions like SQLAlchemy and Flask-Migrate</li>
+        <li>ORM-based models for Book and Member entities</li>
+        <li>Scalable and testable architecture adhering to Flask conventions</li>
+      </ul>
+    </section>
+
+    <section class="tech-stack">
+      <h2>Tech Stack</h2>
+      <article>
+        <p><strong>Primary Language:</strong> Python</p>
+        <p><strong>Frameworks:</strong> Flask, SQLAlchemy</p>
+        <p><strong>Database:</strong> SQLAlchemy ORM</p>
+        <p><strong>Deployment Platform:</strong> Not detected</p>
+      </article>
+    </section>
+
+    <section class="architecture">
+      <h2>Architecture Overview</h2>
+      <article>
+        <p>The LibManagement application is structured using a modular MVC architecture. The Application Factory pattern initializes and configures the Flask app, while centralized extensions handle database operations and migrations.</p>
+        <p>The data layer is built using SQLAlchemy ORM for defining database entities. This design ensures scalability, testability, and adherence to Flask best practices.</p>
+        <p><a href="architecture.html">Learn more about the Architecture</a></p>
+      </article>
+    </section>
+
+    <section class="quick-start">
+      <h2>Quick Start</h2>
+      <article>
+        <h3>Prerequisites</h3>
+        <ul>
+          <li>Python 3.7+</li>
+          <li>pip</li>
+        </ul>
+        <h3>Installation Steps</h3>
+        <ol>
+          <li><code class="code">git clone https://github.com/iamenginerdsunio/LibManagement.git</code> - Clone the repository locally.</li>
+          <li><code class="code">pip install -r requirements.txt</code> - Install required dependencies.</li>
+          <li><code class="code">python app.py</code> - Run the application locally.</li>
+        </ol>
+        <h3>Basic Usage</h3>
+        <p>Run the application and access it locally via the Flask development server.</p>
+        <p><a href="contributing.html">Learn more about contributing</a></p>
+      </article>
+    </section>
+
+    <section class="status">
+      <h2>Project Status</h2>
+      <article>
+        <p><strong>Development Status:</strong> Active</p>
+        <p><strong>Recent Activity:</strong> Not detected</p>
+      </article>
+    </section>
+  </main>
 </body>
 </html>
