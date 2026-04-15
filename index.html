@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Library Management System - A Flask-based web application for managing library resources and operations.">
+    <meta name="description" content="Overview of the Library Management System project">
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="/favicon.ico">
     <title>Library Management System - Overview</title>
 </head>
 <body>
     <aside class="sidebar">
-        <div class="logo"><h1>📚 Library Management</h1></div>
+        <div class="logo">Library Management System</div>
         <nav>
             <ul>
                 <li class="active"><a href="index.html">📄 Overview</a></li>
@@ -26,73 +26,75 @@
     <main class="content">
         <header>
             <h1>Library Management System</h1>
-            <p class="tagline">A Flask-based web application for managing library resources and operations.</p>
+            <p>A robust Flask-based library management application.</p>
             <div class="badges">
                 <span class="badge">Language: Python</span>
                 <span class="badge">Framework: Flask</span>
                 <span class="badge">License: MIT</span>
             </div>
         </header>
-        <article>
-            <section id="purpose">
+        <section>
+            <article>
                 <h2>Project Purpose</h2>
-                <p>The Library Management System is a modular web application built using Python and Flask, designed to streamline library operations. It offers functionality to manage books, users, and loans, making it ideal for small to medium-sized libraries seeking an efficient open-source solution for resource management.</p>
-                <p>By leveraging Flask-SQLAlchemy, the application ensures structured data management through ORM-based interactions. Its MVC architecture promotes maintainability by separating core application logic, data models, and testing layers. The user interface is rendered dynamically using HTML templates, enabling intuitive interactions.</p>
-                <p>This system is tailored to meet the needs of librarians, administrators, and users, offering scalability and extensibility for future enhancements, such as advanced search capabilities, authentication mechanisms, and external integrations.</p>
-            </section>
-            <section id="features">
+                <p>The Library Management System is a web application designed for managing library operations such as tracking books, users, and loans. Built using Flask, it employs SQLAlchemy for Object-Relational Mapping (ORM), enabling efficient database interactions.</p>
+                <p>The application follows the MVC (Model-View-Controller) architecture, separating concerns across routes, models, and templates. It provides a modular and scalable solution for libraries of all sizes.</p>
+                <p>Targeted at library administrators and staff, it aims to simplify daily operations while ensuring scalability and flexibility for future enhancements.</p>
+            </article>
+            <article>
                 <h2>Key Features</h2>
                 <ul>
-                    <li><strong>Book, User, and Loan Management:</strong> Comprehensive functionality for managing library resources.</li>
-                    <li><strong>ORM-based Database Interactions:</strong> SQLAlchemy ensures structured data handling and scalability.</li>
-                    <li><strong>MVC Architecture:</strong> Modular design for maintainability and ease of extension.</li>
-                    <li><strong>Dynamic HTML Templates:</strong> User-friendly interface for seamless interactions.</li>
-                    <li><strong>Unit Testing:</strong> Robust validation of core functionalities and API endpoints.</li>
+                    <li>Flask factory pattern for modular app initialization.</li>
+                    <li>SQLAlchemy ORM for database management.</li>
+                    <li>CRUD API endpoints for managing books and users.</li>
+                    <li>Unit testing with pytest and Flask test client.</li>
+                    <li>Clear separation of concerns in MVC architecture.</li>
                 </ul>
-            </section>
-            <section id="tech-stack">
+            </article>
+            <article>
                 <h2>Tech Stack</h2>
                 <ul>
                     <li><strong>Primary Language:</strong> Python</li>
-                    <li><strong>Framework:</strong> Flask</li>
-                    <li><strong>Database:</strong> SQLite (via SQLAlchemy ORM)</li>
-                    <li><strong>Deployment Platform:</strong> Not detected</li>
+                    <li><strong>Frameworks:</strong> Flask</li>
+                    <li><strong>Database:</strong> SQLAlchemy ORM</li>
+                    <li><strong>Deployment:</strong> Not detected</li>
                 </ul>
-            </section>
-            <section id="architecture-overview">
+            </article>
+            <article>
                 <h2>Architecture Overview</h2>
-                <p>The Library Management System employs an MVC architecture, organizing the application into layers for data handling, UI rendering, and routing. This modular design ensures scalability and adaptability, making it suitable for future enhancements.</p>
-                <p>Learn more about the architecture on the <a href="architecture.html">Architecture page</a>.</p>
-            </section>
-            <section id="quick-start">
+                <p>The application uses an MVC architecture to organize models, views, and controllers. Models are defined in <code>models.py</code> using SQLAlchemy, representing database entities such as books and users. Views are rendered using HTML templates stored in the <code>templates</code> directory, while controllers in <code>app.py</code> handle routing and API logic.</p>
+                <p><a href="architecture.html">Learn more about the architecture</a>.</p>
+            </article>
+            <article>
                 <h2>Quick Start</h2>
                 <h3>Prerequisites</h3>
                 <ul>
-                    <li>Python 3.8 or higher</li>
-                    <li>pip (Python package manager)</li>
-                    <li>SQLite</li>
+                    <li>Python 3.7+</li>
+                    <li>pip installed</li>
                 </ul>
-                <h3>Installation</h3>
-                <ol>
-                    <li>Clone the repository:</li>
-                    <pre class="code-block">git clone https://github.com/iamenginerdsunio/LibManagement.git</pre>
-                    <li>Navigate to the directory:</li>
-                    <pre class="code-block">cd LibManagement</pre>
-                    <li>Install dependencies:</li>
-                    <pre class="code-block">pip install -r requirements.txt</pre>
-                    <li>Run the application:</li>
-                    <pre class="code-block">python app.py</pre>
-                </ol>
+                <h3>Installation Steps</h3>
+                <pre><code class="language-bash"># Clone the repository
+git clone https://github.com/iamenginerdsunio/LibManagement.git
+
+# Navigate to the project directory
+cd LibManagement
+
+# Install dependencies
+pip install -r requirements.txt
+</code></pre>
                 <h3>Basic Usage</h3>
-                <p>Access the application in your browser at <code>http://localhost:5000</code>. Use the interface to manage books, users, and loans.</p>
-                <p>Want to contribute? Check out the <a href="contributing.html">Contributing page</a>.</p>
-            </section>
-            <section id="status">
+                <pre><code class="language-python"># Run the application
+python app.py
+
+# Access the application at http://localhost:5000
+</code></pre>
+                <p><a href="contributing.html">Learn how to contribute</a>.</p>
+            </article>
+            <article>
                 <h2>Project Status</h2>
                 <p><strong>Status:</strong> Active</p>
-                <p>The Library Management System is actively maintained, with recent activity focusing on enhancing unit tests and improving modularity.</p>
-            </section>
-        </article>
+                <p><strong>Recent Activity:</strong> Repository analyzed on 2023-10-03.</p>
+            </article>
+        </section>
     </main>
 </body>
 </html>
