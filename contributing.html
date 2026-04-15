@@ -3,116 +3,145 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contributing to LibManagement</title>
+    <meta name="description" content="How to contribute to the Library Management System">
+    <title>Contributing - Library Management System</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="sidebar">
         <nav>
             <ul>
-                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html">Overview</a></li>
+                <li><a href="architecture.html">Architecture</a></li>
+                <li><a href="modules.html">Modules</a></li>
+                <li><a href="contributing.html" class="active">Contributing</a></li>
                 <li><a href="structure.html">Structure</a></li>
-                <li class="active"><a href="contributing.html">Contributing</a></li>
-                <li><a href="docs.html">Documentation</a></li>
             </ul>
         </nav>
     </div>
     <div class="content">
-        <h1>Contributing to LibManagement</h1>
-
-        <section>
+        <header>
+            <h1>Contributing to the Library Management System</h1>
+        </header>
+        <section id="welcome">
             <h2>Welcome</h2>
-            <p>Thank you for considering contributing to <strong>LibManagement</strong>! Your contributions help make this Flask-based library management system better for everyone. Whether you're fixing bugs, improving documentation, or introducing new features, your efforts are greatly appreciated.</p>
-            <p>Please ensure you follow our <a href="code_of_conduct.html">Code of Conduct</a> to maintain a collaborative and respectful environment.</p>
+            <p>Thank you for your interest in contributing to the Library Management System! Contributions from the community help us improve and grow the project. Whether you're fixing bugs, creating new features, or improving documentation, your input is highly valued.</p>
+            <p>Please make sure to adhere to our <a href="code_of_conduct.html">Code of Conduct</a> to maintain a respectful and inclusive environment.</p>
         </section>
-
-        <section>
+        <section id="prerequisites">
             <h2>Prerequisites</h2>
             <ul>
-                <li>Python 3.8 or later</li>
-                <li><code>pip</code> package manager</li>
-                <li>A GitHub account</li>
+                <li><strong>Tools:</strong> Python 3.8 or higher, Flask, SQLAlchemy</li>
+                <li><strong>System Requirements:</strong> Compatible with Linux, macOS, and Windows</li>
+                <li><strong>Account Requirements:</strong> A GitHub account to submit issues and pull requests</li>
             </ul>
         </section>
-
-        <section>
+        <section id="setup">
             <h2>Development Setup</h2>
             <ol>
                 <li>
-                    <p>Clone the repository:</p>
+                    <strong>Clone the repository:</strong>
                     <pre><code>git clone https://github.com/iamenginerdsunio/LibManagement.git</code></pre>
                 </li>
                 <li>
-                    <p>Install dependencies:</p>
+                    <strong>Install dependencies:</strong>
                     <pre><code>pip install -r requirements.txt</code></pre>
                 </li>
                 <li>
-                    <p>Set environment variables:</p>
-                    <ul>
-                        <li><code>FLASK_ENV</code>: Set this to <code>development</code>.</li>
-                    </ul>
+                    <strong>Configure the environment:</strong>
+                    Ensure the database URI in <code>app.py</code> is correctly set, e.g.,:
+                    <pre><code>SQLALCHEMY_DATABASE_URI = 'sqlite:///library.db'</code></pre>
                 </li>
                 <li>
-                    <p>Run the application:</p>
+                    <strong>Verify installation:</strong>
+                    Run the development server:
                     <pre><code>python app.py</code></pre>
+                    Visit <code>http://127.0.0.1:5000</code> to confirm the application is running.
+                </li>
+            </ol>
+            <p>If you encounter issues, consult the project's README or open an issue for help.</p>
+        </section>
+        <section id="structure">
+            <h2>Project Structure</h2>
+            <p>The Library Management System follows a modular structure:</p>
+            <ul>
+                <li><strong><code>app.py</code>:</strong> Entry point for the application</li>
+                <li><strong><code>models.py</code>:</strong> Database models using SQLAlchemy</li>
+                <li><strong><code>extensions.py</code>:</strong> Initializes shared extensions</li>
+                <li><strong><code>tests/</code>:</strong> Contains unit tests</li>
+                <li><strong><code>templates/</code>:</strong> HTML templates</li>
+            </ul>
+            <p>For more details, visit the <a href="structure.html">Structure</a> page.</p>
+        </section>
+        <section id="workflow">
+            <h2>Development Workflow</h2>
+            <ul>
+                <li><strong>Branch Naming:</strong> Use descriptive names like <code>feature/add-book-api</code> or <code>bugfix/fix-loan-calculation</code>.</li>
+                <li><strong>Commit Messages:</strong> Follow the format: <code>type(scope): message</code>, e.g., <code>feat(api): add endpoint for book retrieval</code>.</li>
+                <li><strong>Pull Requests:</strong> Submit PRs with a clear description of changes. Include screenshots or logs if applicable.</li>
+                <li><strong>Code Reviews:</strong> Expect maintainers to review and suggest improvements.</li>
+            </ul>
+        </section>
+        <section id="standards">
+            <h2>Coding Standards</h2>
+            <ul>
+                <li><strong>Style Guide:</strong> Follow <a href="https://pep8.org">PEP 8</a> guidelines.</li>
+                <li><strong>Linting:</strong> Use tools like <code>flake8</code> to check for errors.</li>
+                <li><strong>Formatting:</strong> Ensure consistent formatting using <code>black</code>.</li>
+                <li><strong>Best Practices:</strong> Write modular, reusable, and testable code.</li>
+            </ul>
+        </section>
+        <section id="testing">
+            <h2>Testing</h2>
+            <ol>
+                <li>
+                    <strong>Run tests:</strong>
+                    <pre><code>pytest tests/</code></pre>
+                </li>
+                <li>
+                    <strong>Write new tests:</strong> Place test files in the <code>tests/</code> directory. Use descriptive function names.
+                </li>
+                <li>
+                    <strong>Test Coverage:</strong> Aim for at least 80% coverage.
                 </li>
             </ol>
         </section>
-
-        <section>
-            <h2>Project Structure Orientation</h2>
-            <p>Heres a brief overview of the main directories:</p>
-            <ul>
-                <li><code>templates/</code>: Contains HTML templates for rendering views.</li>
-                <li><code>static/</code>: Stores static assets like CSS and JavaScript files.</li>
-                <li><code>tests/</code>: Houses unit and integration tests for the application.</li>
-                <li><code>docs/</code>: Provides documentation for setup and usage.</li>
-            </ul>
-            <p>Refer to the <a href="structure.html">Structure</a> page for more details.</p>
+        <section id="building">
+            <h2>Building and Running</h2>
+            <ol>
+                <li>
+                    <strong>Development Server:</strong> Run <code>python app.py</code>.</li>
+                <li>
+                    <strong>Build Process:</strong> Not detected.</li>
+                <li>
+                    <strong>Environment Variables:</strong> Not detected.</li>
+                <li>
+                    <strong>Hot Reload:</strong> Flask's built-in development server reloads on code changes.</li>
+            </ol>
         </section>
-
-        <section>
-            <h2>Development Workflow</h2>
+        <section id="debugging">
+            <h2>Debugging</h2>
             <ul>
-                <li><strong>Branch Naming:</strong> Use descriptive names such as <code>feature/add-user-authentication</code> or <code>bugfix/fix-database-error</code>.</li>
-                <li><strong>Commit Messages:</strong> Follow the format <code>[Type] Short Description</code>. Example: <code>[Feature] Add user login functionality</code>.</li>
-                <li><strong>Pull Requests:</strong> Ensure your PR contains a detailed description of your changes and references relevant issues.</li>
-                <li><strong>Code Reviews:</strong> Be open to constructive feedback and make necessary adjustments.</li>
-            </ul>
-        </section>
-
-        <section>
-            <h2>Coding Standards</h2>
-            <ul>
-                <li><strong>Style Guide:</strong> Adhere to PEP 8 for Python code.</li>
-                <li><strong>Linting:</strong> Use <code>flake8</code> to identify and fix coding issues.</li>
-                <li><strong>Formatting:</strong> Apply <code>black</code> for consistent code formatting.</li>
+                <li><strong>Tools:</strong> Use Flask's debugger and logging features.</li>
+                <li><strong>Common Scenarios:</strong> Check configurations and database connections.</li>
+                <li><strong>Logging:</strong> Insert debug logs using Python's <code>logging</code> module.</li>
             </ul>
         </section>
-
-        <section>
-            <h2>Testing</h2>
-            <ul>
-                <li><strong>Running Tests:</strong> Execute <code>pytest tests/</code> to run the test suite.</li>
-                <li><strong>Writing Tests:</strong> Add new test cases to the <code>tests/</code> directory, organized by feature or module.</li>
-            </ul>
-        </section>
-
-        <section>
+        <section id="submissions">
             <h2>Submitting Contributions</h2>
             <ul>
-                <li><strong>Issue Guidelines:</strong> Provide clear and detailed descriptions of the problem, including steps to reproduce it.</li>
-                <li><strong>Pull Request Checklist:</strong> Ensure all tests pass and relevant documentation is updated before submitting.</li>
-                <li><strong>Documentation:</strong> Update relevant sections of the documentation when introducing new features.</li>
+                <li><strong>Issue Guidelines:</strong> Describe the problem clearly with steps to reproduce.</li>
+                <li><strong>PR Checklist:</strong> Ensure your code passes tests and adheres to coding standards.</li>
+                <li><strong>Documentation:</strong> Update relevant documentation for your changes.</li>
+                <li><strong>Review Timeline:</strong> Expect responses within 5 business days.</li>
             </ul>
         </section>
-
-        <section>
+        <section id="help">
             <h2>Getting Help</h2>
-            <p>If you have any questions or need assistance, you can:</p>
             <ul>
-                <li>Open an issue on our <a href="https://github.com/iamenginerdsunio/LibManagement">GitHub repository</a>.</li>
-                <li>Start a discussion on GitHub to get feedback from the community.</li>
+                <li><strong>Questions:</strong> Open an issue on GitHub.</li>
+                <li><strong>Communication Channels:</strong> Not detected.</li>
+                <li><strong>Maintainer Contact:</strong> Not detected.</li>
             </ul>
         </section>
     </div>
