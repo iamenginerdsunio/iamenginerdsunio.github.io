@@ -3,49 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Architecture - LibManagement</title>
+    <meta name="description" content="Detailed architecture of the Library Management System">
+    <title>Architecture - Library Management System</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="sidebar">
         <nav>
             <ul>
-                <li><a href="index.html">Overview</a></li>
+                <li><a href="index.html">Home</a></li>
                 <li><a href="structure.html">Structure</a></li>
-                <li><a href="architecture.html" class="active">Architecture</a></li>
                 <li><a href="modules.html">Modules</a></li>
+                <li><a href="architecture.html" class="active">Architecture</a></li>
+                <li><a href="api.html">API</a></li>
             </ul>
         </nav>
     </div>
     <div class="content">
-        <h1>Architecture</h1>
+        <header>
+            <h1>Architecture</h1>
+        </header>
         <section>
-            <h2>Summary</h2>
-            <p>The architecture of LibManagement adheres to the Model-View-Controller (MVC) design pattern, ensuring a clear separation of concerns among data, user interface, and application logic. The system is built using Flask, a lightweight web framework, and SQLAlchemy for database operations. This modular design, combined with the factory pattern for application initialization, makes the system scalable and maintainable.</p>
-            <p>The core components include the model layer for database interaction, the controller layer for handling routes and logic, and the view layer for rendering HTML templates. The system is designed to manage book information effectively, with serialization methods to facilitate API responses.</p>
+            <h2>Overview</h2>
+            <p>The Library Management System is built using the MVC (Model-View-Controller) architectural style, designed for modularity, scalability, and maintainability. By separating concerns between models, views, and controllers, the system ensures clear boundaries between data management, user interface rendering, and business logic.</p>
+            <p>Core functionalities include managing library operations such as tracking books, members, and loans. The application leverages Flask's factory pattern for initialization, SQLAlchemy for database interactions, and Flask-Migrate for handling migrations. This design makes the system robust and suitable for growth while adhering to modern web application development practices.</p>
         </section>
+
         <section>
             <h2>Architecture Diagram</h2>
-            <svg width="600" height="400" xmlns="http://www.w3.org/2000/svg">
-                <!-- Model Layer -->
-                <rect x="50" y="50" width="150" height="100" fill="#b3cde0" stroke="#000" />
-                <text x="75" y="100" font-size="14" fill="#000">Model Layer</text>
+            <p>The following diagram illustrates the primary components and their interactions within the Library Management System:</p>
+            <svg xmlns="http://www.w3.org/2000/svg" width="800" height="400" viewBox="0 0 800 400" style="border:1px solid #ccc">
+                <!-- Application Layer -->
+                <rect x="50" y="50" width="200" height="100" fill="#0366d6" stroke="#000" stroke-width="1" />
+                <text x="75" y="100" fill="white" font-size="14">Application Layer</text>
 
-                <!-- Controller Layer -->
-                <rect x="225" y="50" width="150" height="100" fill="#fbb4ae" stroke="#000" />
-                <text x="250" y="100" font-size="14" fill="#000">Controller Layer</text>
+                <!-- Data Layer -->
+                <rect x="300" y="50" width="200" height="100" fill="#28a745" stroke="#000" stroke-width="1" />
+                <text x="325" y="100" fill="white" font-size="14">Data Layer</text>
 
-                <!-- View Layer -->
-                <rect x="400" y="50" width="150" height="100" fill="#ccebc5" stroke="#000" />
-                <text x="425" y="100" font-size="14" fill="#000">View Layer</text>
+                <!-- Extension Layer -->
+                <rect x="550" y="50" width="200" height="100" fill="#ff7f0e" stroke="#000" stroke-width="1" />
+                <text x="575" y="100" fill="white" font-size="14">Extension Layer</text>
 
-                <!-- Data Flow Arrows -->
-                <line x1="200" y1="100" x2="225" y2="100" stroke="#000" marker-end="url(#arrowhead)" />
-                <line x1="375" y1="100" x2="400" y2="100" stroke="#000" marker-end="url(#arrowhead)" />
-
-                <!-- External Dependency -->
-                <rect x="225" y="200" width="150" height="100" fill="#decbe4" stroke="#000" />
-                <text x="235" y="250" font-size="14" fill="#000">Database (SQLite)</text>
+                <!-- Arrows -->
+                <line x1="250" y1="100" x2="300" y2="100" stroke="#000" stroke-width="2" marker-end="url(#arrowhead)" />
+                <line x1="500" y1="100" x2="550" y2="100" stroke="#000" stroke-width="2" marker-end="url(#arrowhead)" />
 
                 <defs>
                     <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
@@ -54,66 +56,101 @@
                 </defs>
             </svg>
         </section>
+
         <section>
             <h2>System Components</h2>
             <article>
-                <h3>Model Layer</h3>
-                <p>Manages database interactions and defines ORM models using SQLAlchemy.</p>
-                <p><strong>Key Files:</strong> models.py</p>
-                <pre><code>class Book(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    title = db.Column(db.String(255), nullable=False)
-    author = db.Column(db.String(255), nullable=False)
-
-    def to_dict(self):
-        return {
-            'id': self.id,
-            'title': self.title,
-            'author': self.author
-        }</code></pre>
-            </article>
-            <article>
-                <h3>Controller Layer</h3>
-                <p>Handles application logic, including API routes and request processing using Flask.</p>
-                <p><strong>Key Files:</strong> app.py</p>
-                <pre><code>def create_app():
+                <h3>Application Layer</h3>
+                <p>Responsible for routing, application initialization, and HTTP request handling.</p>
+                <ul>
+                    <li><strong>Key File:</strong> <code>app.py</code></li>
+                    <li><strong>Technologies:</strong> Flask</li>
+                </ul>
+                <pre><code>def create_app() -> Flask:
     app = Flask(__name__)
     app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///library.db'
     db.init_app(app)
     return app</code></pre>
-                <pre><code>def get_books():
-    books = Book.query.all()
-    return jsonify([book.to_dict() for book in books])</code></pre>
+                <p>This function initializes the Flask application using the factory pattern.</p>
             </article>
+
             <article>
-                <h3>View Layer</h3>
-                <p>Responsible for rendering HTML templates for user interactions.</p>
-                <p><strong>Key Files:</strong> templates/</p>
+                <h3>Data Layer</h3>
+                <p>Defines database entities and their relationships using SQLAlchemy ORM.</p>
+                <ul>
+                    <li><strong>Key File:</strong> <code>models.py</code></li>
+                    <li><strong>Technologies:</strong> SQLAlchemy</li>
+                </ul>
+                <pre><code>class Book(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String(80), nullable=False)
+    author = db.Column(db.String(50), nullable=False)
+    published_date = db.Column(db.Date, nullable=False)</code></pre>
+                <p>This model represents the <strong>Book</strong> entity in the database.</p>
+            </article>
+
+            <article>
+                <h3>Extension Layer</h3>
+                <p>Manages shared extensions like SQLAlchemy and Flask-Migrate.</p>
+                <ul>
+                    <li><strong>Key File:</strong> <code>extensions.py</code></li>
+                    <li><strong>Technologies:</strong> Flask-SQLAlchemy, Flask-Migrate</li>
+                </ul>
+                <pre><code>db = SQLAlchemy()
+migrate = Migrate()</code></pre>
+                <p>These extensions are initialized for database operations and migrations.</p>
             </article>
         </section>
+
         <section>
             <h2>Design Patterns</h2>
-            <p>The architecture employs the Factory Pattern for modular application initialization and the ORM Design Pattern for abstracting database operations. These patterns facilitate scalability and code maintainability.</p>
+            <p>The Library Management System employs the following design patterns:</p>
+            <ul>
+                <li><strong>Factory Pattern:</strong> Enables modular app initialization and configuration.</li>
+                <li><strong>Object-Relational Mapping (ORM):</strong> Facilitates database operations using SQLAlchemy.</li>
+            </ul>
         </section>
+
         <section>
             <h2>Data Flow</h2>
-            <p>Data flows from user requests handled by Flask routes, through the controller layer to the model layer for database operations. The resulting data is serialized and returned as JSON responses.</p>
+            <p>Data flows through the system as follows:</p>
+            <ol>
+                <li>HTTP requests are received by routes defined in <code>app.py</code>.</li>
+                <li>Routes interact with database models in <code>models.py</code> via SQLAlchemy.</li>
+                <li>Data is retrieved or updated in the database.</li>
+                <li>HTML templates in the <code>templates/</code> directory are rendered dynamically.</li>
+                <li>Responses are sent back to the client.</li>
+            </ol>
         </section>
+
         <section>
             <h2>Technology Choices</h2>
-            <p><strong>Framework:</strong> Flask was chosen for its lightweight nature and ease of integration with SQLAlchemy.</p>
-            <p><strong>Database:</strong> SQLite is used for simplicity and ease of setup during development.</p>
-            <p><strong>External Services:</strong> Not detected.</p>
+            <p>The following technologies were selected for their suitability:</p>
+            <ul>
+                <li><strong>Flask:</strong> Lightweight framework for rapid web application development.</li>
+                <li><strong>SQLAlchemy:</strong> ORM for seamless database interaction.</li>
+                <li><strong>Flask-Migrate:</strong> Simplifies database migrations.</li>
+            </ul>
         </section>
+
         <section>
             <h2>Scalability Considerations</h2>
-            <p>The modular architecture supports scalability by separating concerns and enabling easy extension of features. However, SQLite may become a bottleneck for larger datasets, and migrating to a more robust database like PostgreSQL could be considered.</p>
+            <p>The architecture supports scalability through modular components:</p>
+            <ul>
+                <li>Factory pattern allows dynamic configuration changes.</li>
+                <li>SQLAlchemy's ORM ensures efficient database queries.</li>
+                <li>Extensions can be expanded to incorporate additional features.</li>
+            </ul>
         </section>
+
         <section>
             <h2>Security Architecture</h2>
-            <p><strong>Authentication:</strong> Not detected.</p>
-            <p><strong>Data Protection:</strong> Not detected.</p>
-            <p><strong>API Security:</strong> Relies on Flask's default mechanisms.</p>
+            <p>Key security measures implemented in the system:</p>
+            <ul>
+                <li><strong>Authentication:</strong> Not detected.</li>
+                <li><strong>Authorization:</strong> Not detected.</li>
+                <li><strong>Data Protection:</strong> Not detected.</li>
+            </ul>
         </section>
     </div>
 </body>
