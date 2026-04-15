@@ -3,111 +3,96 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="LibManagement is a Flask-based Library Management System designed to efficiently manage library operations with a modular and scalable architecture.">
+    <meta name="description" content="Library Management System - A Flask-based web application for managing library resources and operations.">
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="/favicon.ico">
-    <title>LibManagement - Overview</title>
+    <title>Library Management System - Overview</title>
 </head>
 <body>
     <aside class="sidebar">
-        <h1 class="sidebar-logo">LibManagement</h1>
-        <nav class="sidebar-nav">
+        <div class="logo"><h1>📚 Library Management</h1></div>
+        <nav>
             <ul>
-                <li class="active"><a href="index.html"> Overview</a></li>
-                <li><a href="architecture.html">e0f Architecture</a></li>
-                <li><a href="structure.html"> Structure</a></li>
-                <li><a href="flows.html"> Flows</a></li>
-                <li><a href="modules.html"> Modules</a></li>
-                <li><a href="evidence.html"> Evidence</a></li>
-                <li><a href="contributing.html"> Contributing</a></li>
+                <li class="active"><a href="index.html">📄 Overview</a></li>
+                <li><a href="architecture.html">🏗️ Architecture</a></li>
+                <li><a href="structure.html">📁 Structure</a></li>
+                <li><a href="flows.html">🔄 Flows</a></li>
+                <li><a href="modules.html">📦 Modules</a></li>
+                <li><a href="evidence.html">✅ Evidence</a></li>
+                <li><a href="contributing.html">🤝 Contributing</a></li>
             </ul>
         </nav>
     </aside>
     <main class="content">
-        <header class="hero">
-            <h1 class="hero-title">LibManagement</h1>
-            <p class="hero-tagline">A Flask-based Library Management System</p>
-            <div class="hero-badges">
-                <span class="badge">Python</span>
-                <span class="badge">Flask</span>
-                <span class="badge">License: Not specified</span>
+        <header>
+            <h1>Library Management System</h1>
+            <p class="tagline">A Flask-based web application for managing library resources and operations.</p>
+            <div class="badges">
+                <span class="badge">Language: Python</span>
+                <span class="badge">Framework: Flask</span>
+                <span class="badge">License: MIT</span>
             </div>
         </header>
-        <section id="project-purpose">
-            <h2>Project Purpose</h2>
-            <p>LibManagement is a web-based application built using the Flask framework, designed to streamline the management of library operations. Its intuitive interface allows users to efficiently manage books, library members, and related data. The application leverages Flask-SQLAlchemy for seamless database interactions and includes features for adding, editing, and viewing library resources.</p>
-            <p>With its modular and scalable architecture, LibManagement is ideal for small to medium-sized library systems. The project adheres to Flask development best practices, ensuring maintainability and ease of use. Additionally, it simplifies setup and usage through detailed documentation, making it accessible to developers with minimal Flask experience.</p>
-            <p>By incorporating features like database migrations via Flask-Migrate, the application ensures smooth updates to the database schema over time, enabling long-term usability and adaptability to changing requirements.</p>
-        </section>
-        <section id="key-features">
-            <h2>Key Features</h2>
-            <ul>
-                <li><strong>Flask-based web application:</strong> Built on the lightweight and powerful Flask framework for a robust and scalable solution.</li>
-                <li><strong>SQLAlchemy ORM integration:</strong> Simplifies database operations with an object-relational mapping approach.</li>
-                <li><strong>Support for database migrations:</strong> Ensures smooth updates to the database schema using Flask-Migrate.</li>
-                <li><strong>Modular architecture:</strong> Features a clean and extensible design for easy addition of new functionalities.</li>
-                <li><strong>Comprehensive documentation:</strong> Includes detailed setup and usage instructions to facilitate implementation.</li>
-            </ul>
-        </section>
-        <section id="tech-stack">
-            <h2>Tech Stack</h2>
-            <p>LibManagement leverages a robust combination of technologies to deliver its functionality:</p>
-            <ul>
-                <li><strong>Programming Language:</strong> Python</li>
-                <li><strong>Framework:</strong> Flask</li>
-                <li><strong>Database:</strong> SQLAlchemy ORM for database interactions</li>
-                <li><strong>Extensions:</strong> Flask-Migrate for database migrations</li>
-                <li><strong>Deployment:</strong> Not explicitly detected</li>
-            </ul>
-        </section>
-        <section id="architecture-overview">
-            <h2>Architecture Overview</h2>
-            <p>LibManagement employs the Model-View-Controller (MVC) architecture to separate concerns across the application. It uses SQLAlchemy for defining and interacting with database models, Flask for initializing and managing the core application, and Flask's template rendering capabilities for the user interface. This modular design ensures scalability and maintainability of the project.</p>
-            <p>For an in-depth breakdown, visit the <a href="architecture.html">Architecture</a> page.</p>
-        </section>
-        <section id="quick-start">
-            <h2>Quick Start</h2>
-            <h3>Prerequisites</h3>
-            <ul>
-                <li>Python 3.8 or higher</li>
-                <li>pip (Python package manager)</li>
-                <li>Virtual environment tools (optional but recommended)</li>
-            </ul>
-            <h3>Installation Steps</h3>
-            <pre><code class="language-bash"># Clone the repository
-git clone https://github.com/iamenginerdsunio/LibManagement.git
-cd LibManagement
-
-# Set up a virtual environment
-python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
-
-# Install dependencies
-pip install -r requirements.txt
-
-# Run the application
-flask run</code></pre>
-            <h3>Basic Usage</h3>
-            <p>Once the application is running, navigate to <code>http://127.0.0.1:5000</code> in your browser to access the library management interface. Features include adding books, managing members, and viewing data.</p>
-            <p>To contribute or explore advanced usage, visit the <a href="contributing.html">Contributing</a> page.</p>
-        </section>
-        <section id="project-status">
-            <h2>Project Status</h2>
-            <p>The project is currently <strong>active</strong>, with ongoing development and updates. The repository contains recent commits as of the last analysis, ensuring its relevancy and usability.</p>
-        </section>
+        <article>
+            <section id="purpose">
+                <h2>Project Purpose</h2>
+                <p>The Library Management System is a modular web application built using Python and Flask, designed to streamline library operations. It offers functionality to manage books, users, and loans, making it ideal for small to medium-sized libraries seeking an efficient open-source solution for resource management.</p>
+                <p>By leveraging Flask-SQLAlchemy, the application ensures structured data management through ORM-based interactions. Its MVC architecture promotes maintainability by separating core application logic, data models, and testing layers. The user interface is rendered dynamically using HTML templates, enabling intuitive interactions.</p>
+                <p>This system is tailored to meet the needs of librarians, administrators, and users, offering scalability and extensibility for future enhancements, such as advanced search capabilities, authentication mechanisms, and external integrations.</p>
+            </section>
+            <section id="features">
+                <h2>Key Features</h2>
+                <ul>
+                    <li><strong>Book, User, and Loan Management:</strong> Comprehensive functionality for managing library resources.</li>
+                    <li><strong>ORM-based Database Interactions:</strong> SQLAlchemy ensures structured data handling and scalability.</li>
+                    <li><strong>MVC Architecture:</strong> Modular design for maintainability and ease of extension.</li>
+                    <li><strong>Dynamic HTML Templates:</strong> User-friendly interface for seamless interactions.</li>
+                    <li><strong>Unit Testing:</strong> Robust validation of core functionalities and API endpoints.</li>
+                </ul>
+            </section>
+            <section id="tech-stack">
+                <h2>Tech Stack</h2>
+                <ul>
+                    <li><strong>Primary Language:</strong> Python</li>
+                    <li><strong>Framework:</strong> Flask</li>
+                    <li><strong>Database:</strong> SQLite (via SQLAlchemy ORM)</li>
+                    <li><strong>Deployment Platform:</strong> Not detected</li>
+                </ul>
+            </section>
+            <section id="architecture-overview">
+                <h2>Architecture Overview</h2>
+                <p>The Library Management System employs an MVC architecture, organizing the application into layers for data handling, UI rendering, and routing. This modular design ensures scalability and adaptability, making it suitable for future enhancements.</p>
+                <p>Learn more about the architecture on the <a href="architecture.html">Architecture page</a>.</p>
+            </section>
+            <section id="quick-start">
+                <h2>Quick Start</h2>
+                <h3>Prerequisites</h3>
+                <ul>
+                    <li>Python 3.8 or higher</li>
+                    <li>pip (Python package manager)</li>
+                    <li>SQLite</li>
+                </ul>
+                <h3>Installation</h3>
+                <ol>
+                    <li>Clone the repository:</li>
+                    <pre class="code-block">git clone https://github.com/iamenginerdsunio/LibManagement.git</pre>
+                    <li>Navigate to the directory:</li>
+                    <pre class="code-block">cd LibManagement</pre>
+                    <li>Install dependencies:</li>
+                    <pre class="code-block">pip install -r requirements.txt</pre>
+                    <li>Run the application:</li>
+                    <pre class="code-block">python app.py</pre>
+                </ol>
+                <h3>Basic Usage</h3>
+                <p>Access the application in your browser at <code>http://localhost:5000</code>. Use the interface to manage books, users, and loans.</p>
+                <p>Want to contribute? Check out the <a href="contributing.html">Contributing page</a>.</p>
+            </section>
+            <section id="status">
+                <h2>Project Status</h2>
+                <p><strong>Status:</strong> Active</p>
+                <p>The Library Management System is actively maintained, with recent activity focusing on enhancing unit tests and improving modularity.</p>
+            </section>
+        </article>
     </main>
-
-     <script type="module">
-          import Chatbot from "https://cdn.jsdelivr.net/npm/flowise-embed/dist/web.js";
-          Chatbot.init({
-            chatflowid: "fb98244a-f5df-4fb4-9195-913b0e331dad",
-            apiHost: "https://agentstudio.servicesessentials.ibm.com",
-            theme: {
-              button: { backgroundColor: "#0366d6", right: 20, bottom: 20 },
-              chatWindow: { welcomeMessage: "Hi! Ask me anything about this documentation.", backgroundColor: "#ffffff" }
-            }
-          });
-        </script>
-        
 </body>
 </html>
