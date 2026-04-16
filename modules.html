@@ -3,141 +3,162 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modules - LibManagement</title>
+    <meta name="description" content="Module documentation for Flask-AppBuilder">
+    <title>Modules - Flask-AppBuilder</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="wrapper">
-        <aside class="sidebar">
-            <h2>LibManagement</h2>
-            <nav>
-                <a href="#" class="active">Modules</a>
-                <a href="#architecture">Architecture</a>
-                <a href="#data-models">Data Models</a>
-                <a href="#setup">Setup & Development</a>
-            </nav>
-        </aside>
-        <main class="content">
-            <h1>Modules Overview</h1>
-            <section>
-                <h2>1. Overview</h2>
-                <p><strong>Total Modules:</strong> 3 core modules detected.</p>
-                <p><strong>Organization Approach:</strong> Modular architecture separating application initialization, extensions, and database models.</p>
-                <p><strong>Naming Conventions:</strong> Modules and files use descriptive names (e.g., <code>app.py</code>, <code>extensions.py</code>, <code>models.py</code>).</p>
-            </section>
-
-            <section>
-                <h2>2. Core Modules</h2>
-                <article>
-                    <h3>Application Factory</h3>
-                    <ul>
-                        <li><strong>Location:</strong> <code>app.py</code></li>
-                        <li><strong>Purpose:</strong> Initializes the Flask application and registers extensions.</li>
-                        <li><strong>Key Functions:</strong>
-                            <ul>
-                                <li><code>create_app()</code>: Factory function for dynamic Flask app creation. Example:
-                                    <pre><code>def create_app():
-    app = Flask(__name__)
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///library.db'
-    db.init_app(app)
-    return app</code></pre>
-                                </li>
-                                <li><code>get_books()</code>: Handles GET requests to retrieve a list of books from the database. Example:
-                                    <pre><code>def get_books():
-    books = Book.query.all()
-    return jsonify([book.to_dict() for book in books])</code></pre>
-                                </li>
-                            </ul>
-                        </li>
-                        <li><strong>Dependencies:</strong> Imports <code>extensions.py</code> and <code>models.py</code>.</li>
-                        <li><strong>Used By:</strong> Entry point for initializing the application.</li>
-                    </ul>
-                </article>
-
-                <article>
-                    <h3>Shared Extensions</h3>
-                    <ul>
-                        <li><strong>Location:</strong> <code>extensions.py</code></li>
-                        <li><strong>Purpose:</strong> Centralized management and initialization of shared Flask extensions.</li>
-                        <li><strong>Key Functions:</strong> None explicitly defined in the analysis.</li>
-                        <li><strong>Dependencies:</strong> Imports <code>flask_sqlalchemy</code>.</li>
-                        <li><strong>Used By:</strong> Imported by <code>app.py</code> and <code>models.py</code>.</li>
-                    </ul>
-                </article>
-
-                <article>
-                    <h3>Database Models</h3>
-                    <ul>
-                        <li><strong>Location:</strong> <code>models.py</code></li>
-                        <li><strong>Purpose:</strong> Defines ORM entities for database interactions.</li>
-                        <li><strong>Key Functions:</strong> None explicitly defined in the analysis.</li>
-                        <li><strong>Dependencies:</strong> Imports <code>extensions.py</code> for database operations.</li>
-                        <li><strong>Used By:</strong> Accessed by <code>app.py</code> for database operations.</li>
-                    </ul>
-                </article>
-            </section>
-
-            <section>
-                <h2>3. Dependency Graph</h2>
-                <p>Not detected.</p>
-            </section>
-
-            <section>
-                <h2>4. Third-Party Dependencies</h2>
-                <p>Dependencies are defined in <code>requirements.txt</code>, but specifics were not analyzed in the provided data.</p>
-            </section>
-
-            <section>
-                <h2>5. Data Models</h2>
-
-                <article>
-                    <h3>Book Model</h3>
-                    <p><strong>Fields:</strong> id, title, author</p>
-                    <p><strong>Schema:</strong></p>
-                    <pre><code>class Book(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    title = db.Column(db.String(255), nullable=False)
-    author = db.Column(db.String(255), nullable=False</code></pre>
-                </article>
-
-                <article>
-                    <h3>Member Model</h3>
-                    <p><strong>Fields:</strong> id, name, join_date</p>
-                    <p><strong>Schema:</strong></p>
-                    <pre><code>class Member(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(255), nullable=False)
-    join_date = db.Column(db.Date, nullable=False</code></pre>
-                </article>
-            </section>
-
-            <section>
-                <h2>6. Utilities and Helpers</h2>
-                <p>Not detected in the current analysis.</p>
-            </section>
-
-            <section>
-                <h2>7. API Interfaces</h2>
-                <article>
-                    <h3>Books Endpoint</h3>
-                    <ul>
-                        <li><strong>Path:</strong> <code>/books</code></li>
-                        <li><strong>Method:</strong> GET</li>
-                        <li><strong>Handler:</strong> <code>get_books</code></li>
-                        <li><strong>Description:</strong> Retrieves a list of books from the database.</li>
-                    </ul>
-                </article>
-            </section>
-
-            <section>
-                <h2>8. Module Best Practices</h2>
-                <ul>
-                    <li><strong>Coding Patterns:</strong> Adheres to Flask's factory pattern for modularity and scalability.</li>
-                    <li><strong>Import Conventions:</strong> Extensions are imported centrally in <code>extensions.py</code> for reusability.</li>
-                    <li><strong>Testing Approach:</strong> Unit tests are likely organized in the <code>tests/</code> directory but were not analyzed in detail.</li>
-                </ul>
-            </section>
-        </main>
+    <div class="sidebar">
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="overview.html">Overview</a></li>
+                <li><a class="active" href="modules.html">Modules</a></li>
+                <li><a href="contributing.html">Contributing</a></li>
+            </ul>
+        </nav>
     </div>
+    <div class="content">
+        <header>
+            <h1>Modules</h1>
+        </header>
+        <section id="module-overview">
+            <h2>Module Overview</h2>
+            <p><strong>Total Modules:</strong> 2</p>
+            <p>The core modules are organized to follow the MVC (Model-View-Controller) architecture, ensuring modularity and scalability. Module names align with their functionality, such as <code>AppBuilder</code> for application initialization and <code>BaseView</code> for managing views and routing.</p>
+        </section>
+        <section id="core-modules">
+            <h2>Core Modules</h2>
+            <article class="module-item">
+                <h3>AppBuilder</h3>
+                <ul>
+                    <li><strong>Location:</strong> <code>flask_appbuilder/__init__.py</code></li>
+                    <li><strong>Purpose:</strong> Initializes and configures the Flask application with SQLAlchemy.</li>
+                    <li><strong>Key Functions:</strong>
+                        <ul>
+                            <li><code>__init__(app: Flask, db: SQLAlchemy) -> None</code>: Constructor for the AppBuilder class.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Dependencies:</strong> Flask, SQLAlchemy</li>
+                    <li><strong>Used By:</strong> Views and models modules</li>
+                </ul>
+                <h4>Code Example</h4>
+                <pre><code>class AppBuilder:
+    def __init__(self, app: Flask, db: SQLAlchemy):
+        self.app = app
+        self.db = db
+        self.init_app()</code></pre>
+            </article>
+            <article class="module-item">
+                <h3>BaseView</h3>
+                <ul>
+                    <li><strong>Location:</strong> <code>flask_appbuilder/views.py</code></li>
+                    <li><strong>Purpose:</strong> Defines the base class for creating views and routing logic.</li>
+                    <li><strong>Key Functions:</strong>
+                        <ul>
+                            <li><code>register_view(view: BaseView) -> None</code>: Registers a view with Flask.</li>
+                            <li><code>render() -> str</code>: Renders the template associated with the view.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Dependencies:</strong> Flask</li>
+                    <li><strong>Used By:</strong> Controllers and routes</li>
+                </ul>
+                <h4>Code Example</h4>
+                <pre><code>def register_view(view: BaseView) -> None:
+    app.add_url_rule(view.url, view_func=view.render)</code></pre>
+            </article>
+        </section>
+        <section id="dependency-graph">
+            <h2>Dependency Graph</h2>
+            <p>Below is the structured list of dependencies between the modules:</p>
+            <ul>
+                <li><strong>AppBuilder</strong> → Used by Views and Models</li>
+                <li><strong>BaseView</strong> → Depends on Flask and is used by Controllers and Routes</li>
+            </ul>
+            <p>No circular dependencies were detected.</p>
+        </section>
+        <section id="third-party-dependencies">
+            <h2>Third-Party Dependencies</h2>
+            <p>The following third-party dependencies were identified:</p>
+            <ul>
+                <li><strong>Flask:</strong> Used as the web framework for building applications.</li>
+                <li><strong>SQLAlchemy:</strong> Used for ORM and database management.</li>
+            </ul>
+        </section>
+        <section id="data-models">
+            <h2>Data Models</h2>
+            <p>No data models or database schema definitions were detected in the analyzed files.</p>
+        </section>
+        <section id="utilities-and-helpers">
+            <h2>Utilities and Helpers</h2>
+            <p>No utility modules or helper functions were explicitly detected in the repository analysis.</p>
+        </section>
+        <section id="api-interfaces">
+            <h2>API Interfaces</h2>
+            <p>No REST or GraphQL endpoints were detected in the analyzed files.</p>
+        </section>
+        <section id="module-best-practices">
+            <h2>Module Best Practices</h2>
+            <ul>
+                <li><strong>Coding Patterns:</strong> The repository follows an MVC pattern to promote modularity and separation of concerns.</li>
+                <li><strong>Import Conventions:</strong> Modules are imported using absolute paths, ensuring clarity and maintainability.</li>
+                <li><strong>Testing Approach:</strong> Tests are written using Pytest and focus on API and MVC functionality.</li>
+            </ul>
+        </section>
+    </div>
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+        });
+
+        // Copy to clipboard for code blocks
+        document.querySelectorAll('pre code').forEach(block => {
+            const btn = document.createElement('button');
+            btn.className = 'copy-btn';
+            btn.textContent = 'Copy';
+            btn.onclick = () => {
+                navigator.clipboard.writeText(block.textContent);
+                btn.textContent = 'Copied!';
+                setTimeout(() => btn.textContent = 'Copy', 2000);
+            };
+            block.parentElement.style.position = 'relative';
+            block.parentElement.appendChild(btn);
+        });
+
+        // Mobile navigation toggle
+        const createMobileToggle = () => {
+            if (window.innerWidth <= 768) {
+                const sidebar = document.querySelector('.sidebar');
+                const toggle = document.createElement('button');
+                toggle.className = 'mobile-nav-toggle';
+                toggle.innerHTML = '☰';
+                toggle.onclick = () => sidebar.classList.toggle('active');
+                document.body.insertBefore(toggle, document.body.firstChild);
+            }
+        };
+        createMobileToggle();
+
+        // Scroll to top button
+        const scrollBtn = document.createElement('button');
+        scrollBtn.className = 'scroll-to-top';
+        scrollBtn.innerHTML = '↑';
+        scrollBtn.onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
+        document.body.appendChild(scrollBtn);
+        window.addEventListener('scroll', () => {
+            scrollBtn.style.display = window.scrollY > 300 ? 'block' : 'none';
+        });
+    </script>
+    <script src="https://cdn.jsdelivr.net/gh/logspace-ai/langflow-embedded-chat@v1.0.7/dist/build/static/js/bundle.min.js"></script>
+    <langflow-chat
+        window_title="Code Wiki Assistant"
+        flow_id="fb98244a-f5df-4fb4-9195-913b0e331dad"
+        host_url="https://agentstudio.servicesessentials.ibm.com"
+        api_key="ak_uZRb2tG2eV-ylLTc-k_KpniRmNdy2nnjYaUg5N_p1p4">
+    </langflow-chat>
 </body>
 </html>
