@@ -1,88 +1,121 @@
-{
-  "source_repo": "iamenginerdsunio/LibManagement",
-  "source_ref": "main",
-  "summary": {
-    "project_type": "Web Application",
-    "primary_languages": ["Python"],
-    "frameworks": ["Flask", "SQLAlchemy"],
-    "architecture": "Modular MVC (Model-View-Controller) with Application Factory pattern and centralized extension management.",
-    "purpose": "To provide a Flask-based library management system that handles resources like books and members using SQLAlchemy ORM for database interactions."
-  },
-  "repository_structure": {
-    "root_files": ["app.py", "extensions.py", "models.py", "requirements.txt"],
-    "important_directories": [
-      {
-        "path": "templates",
-        "purpose": "Stores HTML templates using Jinja2 for dynamic rendering in the web application."
-      },
-      {
-        "path": "static",
-        "purpose": "Houses static assets such as CSS, JavaScript, and images."
-      },
-      {
-        "path": "docs",
-        "purpose": "Contains project documentation, potentially organized by topics or features."
-      },
-      {
-        "path": "tests",
-        "purpose": "Houses unit and integration test cases, likely organized by module or functionality."
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Repository structure documentation">
+  <link rel="stylesheet" href="styles.css">
+  <title>Repository Structure</title>
+</head>
+<body>
+  <div class="sidebar">
+    <nav>
+      <ul>
+        <li><a href="overview.html">Overview</a></li>
+        <li><a href="structure.html" class="active">Structure</a></li>
+        <li><a href="modules.html">Modules</a></li>
+        <li><a href="apis.html">APIs</a></li>
+      </ul>
+    </nav>
+  </div>
+  <div class="content">
+    <header>
+      <h1>Repository Structure</h1>
+    </header>
+    <section>
+      <h2>Repository Overview</h2>
+      <p>Total files: Not detected</p>
+      <p>Total lines of code (LOC): Not detected</p>
+      <p>Primary directories: Not detected</p>
+    </section>
+    <section>
+      <h2>Directory Tree</h2>
+      <p>Not detected</p>
+    </section>
+    <section>
+      <h2>Key Directories</h2>
+      <p>Not detected</p>
+    </section>
+    <section>
+      <h2>Configuration Files</h2>
+      <p>Not detected</p>
+    </section>
+    <section>
+      <h2>Entry Points</h2>
+      <p>Not detected</p>
+    </section>
+    <section>
+      <h2>Build and Deployment</h2>
+      <p>Not detected</p>
+    </section>
+    <section>
+      <h2>Testing Structure</h2>
+      <p>Not detected</p>
+    </section>
+    <section>
+      <h2>Documentation Structure</h2>
+      <p>Not detected</p>
+    </section>
+  </div>
+  <!-- Custom Langflow Chat Widget -->
+  <div id="chat-widget" style="position:fixed;bottom:20px;right:20px;z-index:1000;">
+    <button id="chat-toggle" style="width:60px;height:60px;border-radius:50%;background:#0366d6;border:none;cursor:pointer;box-shadow:0 4px 12px rgba(0,0,0,0.15);">
+      <svg width="24" height="24" fill="white" viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
+    </button>
+    <div id="chat-window" style="display:none;position:absolute;bottom:70px;right:0;width:350px;height:500px;background:white;border-radius:12px;box-shadow:0 4px 24px rgba(0,0,0,0.2);flex-direction:column;">
+      <div style="background:#0366d6;color:white;padding:16px;border-radius:12px 12px 0 0;font-weight:600;">Documentation Assistant</div>
+      <div id="chat-messages" style="flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:12px;"></div>
+      <div style="padding:12px;border-top:1px solid #e0e0e0;display:flex;gap:8px;">
+        <input id="chat-input" type="text" placeholder="Ask a question..." style="flex:1;padding:10px;border:1px solid #ddd;border-radius:6px;outline:none;" />
+        <button id="chat-send" style="padding:10px 20px;background:#0366d6;color:white;border:none;border-radius:6px;cursor:pointer;font-weight:600;">Send</button>
+      </div>
+    </div>
+  </div>
+  <script>
+  (function() {
+    const toggle = document.getElementById('chat-toggle');
+    const window = document.getElementById('chat-window');
+    const messages = document.getElementById('chat-messages');
+    const input = document.getElementById('chat-input');
+    const send = document.getElementById('chat-send');
+
+    toggle.onclick = () => {
+      window.style.display = window.style.display === 'none' ? 'flex' : 'none';
+      if (window.style.display === 'flex' && messages.children.length === 0) {
+        addMessage('Hi! Ask me anything about this documentation.', 'bot');
       }
-    ],
-    "entrypoints": ["app.py"],
-    "configuration_files": ["requirements.txt"]
-  },
-  "implementation_details": {
-    "dependencies": ["Flask", "Flask-SQLAlchemy", "Flask-Migrate", "pytest"],
-    "key_modules": [
-      {
-        "name": "Application Factory",
-        "path": "app.py",
-        "responsibility": "Initializes and configures the Flask application, including registering extensions."
-      },
-      {
-        "name": "Extensions Management",
-        "path": "extensions.py",
-        "responsibility": "Centralizes the initialization and configuration of shared Flask extensions like SQLAlchemy."
-      },
-      {
-        "name": "Data Models",
-        "path": "models.py",
-        "responsibility": "Defines ORM classes for library-related entities such as books and members."
+    };
+
+    function addMessage(text, sender) {
+      const msg = document.createElement('div');
+      msg.style.cssText = `padding:12px;border-radius:8px;max-width:80%;${sender === 'user' ? 'background:#0366d6;color:white;align-self:flex-end;' : 'background:#f0f0f0;color:#333;align-self:flex-start;'}`;
+      msg.textContent = text;
+      messages.appendChild(msg);
+      messages.scrollTop = messages.scrollHeight;
+    }
+
+    async function sendMessage() {
+      const question = input.value.trim();
+      if (!question) return;
+      addMessage(question, 'user');
+      input.value = '';
+
+      try {
+        const res = await fetch('https://agentstudio.servicesessentials.ibm.com/api/v1/run/fb98244a-f5df-4fb4-9195-913b0e331dad', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ input_value: question, tweaks: {} })
+        });
+        const data = await res.json();
+        addMessage(data.output || data.result || 'Sorry, I could not process that.', 'bot');
+      } catch (e) {
+        addMessage('Error connecting to assistant. Please try again.', 'bot');
       }
-    ],
-    "data_models": [
-      {
-        "name": "Book",
-        "fields": ["id", "title", "author", "publication_date"],
-        "relationships": [],
-        "code_snippet": "class Book(db.Model):\n    id = db.Column(db.Integer, primary_key=True)\n    title = db.Column(db.String(255), nullable=False)\n    author = db.Column(db.String(255), nullable=False)\n    publication_date = db.Column(db.Date, nullable=False)"
-      },
-      {
-        "name": "Member",
-        "fields": ["id", "name", "membership_date"],
-        "relationships": [],
-        "code_snippet": "class Member(db.Model):\n    id = db.Column(db.Integer, primary_key=True)\n    name = db.Column(db.String(255), nullable=False)\n    membership_date = db.Column(db.Date, default=datetime.utcnow)"
-      }
-    ],
-    "routes_or_flows": "No explicit routes were documented; routing likely follows Flask's standard practices and is defined in separate modules.",
-    "ui_patterns": "Templates use Jinja2 for dynamic rendering; static assets are stored in the 'static' directory."
-  },
-  "wiki_blueprint": {
-    "recommended_sections": ["Overview", "Architecture", "Setup", "Code Flow", "Modules", "Data Model", "Contribution Guide"],
-    "navigation_labels": ["Home", "Architecture", "Setup Guide", "Data Models", "Testing"],
-    "diagram_candidates": ["Application Factory Initialization Flow", "Database Schema Diagram"],
-    "chart_candidates": ["Dependency Graph", "Request-Response Lifecycle"]
-  },
-  "evidence": {
-    "files_examined": ["app.py", "extensions.py", "models.py"],
-    "search_queries_used": [
-      "repo:iamenginerdsunio/LibManagement create_app",
-      "repo:iamenginerdsunio/LibManagement db.Model",
-      "repo:iamenginerdsunio/LibManagement SQLAlchemy"
-    ]
-  },
-  "confidence": {
-    "overall": "high",
-    "notes": "Core components such as the Application Factory, ORM models, and extension management were well-documented. Routes and advanced features like authentication were not analyzed due to limited file access."
-  }
-}
+    }
+
+    send.onclick = sendMessage;
+    input.onkeypress = (e) => { if (e.key === 'Enter') sendMessage(); };
+  })();
+  </script>
+</body>
+</html>
