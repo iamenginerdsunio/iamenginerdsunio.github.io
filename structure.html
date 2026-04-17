@@ -1,1 +1,171 @@
-<!-- Error: No agent selected -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Repository structure page for Flask-AppBuilder.">
+    <meta name="author" content="dpgaspar">
+    <link rel="stylesheet" href="styles.css">
+    <title>Repository Structure - Flask-AppBuilder</title>
+</head>
+<body>
+    <div class="sidebar">
+        <nav>
+            <ul>
+                <li><a href="index.html">Overview</a></li>
+                <li><a href="architecture.html">Architecture</a></li>
+                <li class="active"><a href="structure.html">Structure</a></li>
+                <li><a href="modules.html">Modules & APIs</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div class="content">
+        <h1>Repository Structure</h1>
+        <section id="repository-overview">
+            <h2>Repository Overview</h2>
+            <p><strong>Total Files:</strong> 11</p>
+            <p><strong>Primary Directories:</strong></p>
+            <ul>
+                <li><strong>flask_appbuilder/:</strong> Core framework logic, including initialization, models, views, and APIs.</li>
+                <li><strong>tests/:</strong> Validates framework functionality through unit and integration tests.</li>
+            </ul>
+        </section>
+        <section id="directory-tree">
+            <h2>Directory Tree</h2>
+            <pre class="file-tree">
+flask_appbuilder/
+├── __init__.py
+├── views.py
+├── base.py
+├── api
+│   ├── __init__.py
+│   ├── manager.py
+│   ├── schemas.py
+├── models
+│   ├── base.py
+│   ├── group.py
+├── tests
+│   ├── base.py
+│   ├── test_api.py
+│   ├── test_mvc.py
+│   ├── test_sqlalchemy.py
+│   ├── test_urltools.py
+            </pre>
+        </section>
+        <section id="key-directories">
+            <h2>Key Directories</h2>
+            <div>
+                <h3>flask_appbuilder/</h3>
+                <p><strong>Purpose:</strong> Core framework logic, including initialization, models, views, and APIs.</p>
+                <p><strong>Key Files:</strong> <code>__init__.py</code>, <code>views.py</code>, <code>api/manager.py</code></p>
+            </div>
+            <div>
+                <h3>tests/</h3>
+                <p><strong>Purpose:</strong> Validates framework functionality through unit and integration tests.</p>
+                <p><strong>Key Files:</strong> <code>test_api.py</code>, <code>test_sqlalchemy.py</code>, <code>test_urltools.py</code></p>
+            </div>
+        </section>
+        <section id="configuration-files">
+            <h2>Configuration Files</h2>
+            <ul>
+                <li><code>setup.py</code>: Defines the setup configuration for the framework, including dependencies and metadata.</li>
+                <li><code>requirements/base.txt</code>: Specifies the base Python dependencies for the project.</li>
+                <li><code>MANIFEST.in</code>: Includes additional files in the package distribution.</li>
+            </ul>
+        </section>
+        <section id="entry-points">
+            <h2>Entry Points</h2>
+            <p><strong>Main Application Entry File:</strong> <code>flask_appbuilder/__init__.py</code></p>
+            <p>The application is initialized via the <code>create_app</code> function, which sets up Flask and integrates AppBuilder.</p>
+        </section>
+        <section id="build-and-deployment">
+            <h2>Build and Deployment</h2>
+            <p><strong>Build Configuration:</strong> <code>setup.py</code> handles the packaging and installation of the framework.</p>
+            <p><strong>Deployment Scripts:</strong> Not detected</p>
+            <p><strong>CI/CD Files:</strong> Not detected</p>
+        </section>
+        <section id="testing-structure">
+            <h2>Testing Structure</h2>
+            <p><strong>Test Directories:</strong> <code>tests/</code></p>
+            <p><strong>Testing Framework:</strong> <code>Pytest</code></p>
+            <p><strong>Test Organization:</strong> Tests are organized to validate APIs, models, and views. Key test files include:</p>
+            <ul>
+                <li><code>test_api.py</code>: Tests for API functionality.</li>
+                <li><code>test_mvc.py</code>: Tests for MVC architecture.</li>
+                <li><code>test_sqlalchemy.py</code>: Tests for SQLAlchemy integration.</li>
+            </ul>
+        </section>
+        <section id="documentation-structure">
+            <h2>Documentation Structure</h2>
+            <p><strong>Documentation Location:</strong> Not detected</p>
+            <p><strong>Documentation Contents:</strong> Not detected</p>
+        </section>
+    </div>
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+        });
+
+        // Copy to clipboard for code blocks
+        document.querySelectorAll('pre code').forEach(block => {
+            const btn = document.createElement('button');
+            btn.className = 'copy-btn';
+            btn.textContent = 'Copy';
+            btn.onclick = () => {
+                navigator.clipboard.writeText(block.textContent);
+                btn.textContent = 'Copied!';
+                setTimeout(() => btn.textContent = 'Copy', 2000);
+            };
+            block.parentElement.style.position = 'relative';
+            block.parentElement.appendChild(btn);
+        });
+
+        // Collapsible directory trees
+        document.querySelectorAll('.file-tree li').forEach(item => {
+            if (item.querySelector('ul')) {
+                item.style.cursor = 'pointer';
+                item.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    item.classList.toggle('collapsed');
+                });
+            }
+        });
+
+        // Mobile navigation toggle
+        const createMobileToggle = () => {
+            if (window.innerWidth <= 768) {
+                const sidebar = document.querySelector('.sidebar');
+                const toggle = document.createElement('button');
+                toggle.className = 'mobile-nav-toggle';
+                toggle.innerHTML = '☰';
+                toggle.onclick = () => sidebar.classList.toggle('active');
+                document.body.insertBefore(toggle, document.body.firstChild);
+            }
+        };
+        createMobileToggle();
+
+        // Scroll to top button
+        const scrollBtn = document.createElement('button');
+        scrollBtn.className = 'scroll-to-top';
+        scrollBtn.innerHTML = '↑';
+        scrollBtn.onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
+        document.body.appendChild(scrollBtn);
+        window.addEventListener('scroll', () => {
+            scrollBtn.style.display = window.scrollY > 300 ? 'block' : 'none';
+        });
+    </script>
+    <!-- Langflow Embedded Chat Widget -->
+    <script src="https://cdn.jsdelivr.net/gh/logspace-ai/langflow-embedded-chat@v1.0.7/dist/build/static/js/bundle.min.js"></script>
+    <langflow-chat
+        window_title="Code Wiki Assistant"
+        flow_id="fb98244a-f5df-4fb4-9195-913b0e331dad"
+        host_url="https://agentstudio.servicesessentials.ibm.com"
+        api_key="ak_uZRb2tG2eV-ylLTc-k_KpniRmNdy2nnjYaUg5N_p1p4">
+    </langflow-chat>
+</body>
+</html>
