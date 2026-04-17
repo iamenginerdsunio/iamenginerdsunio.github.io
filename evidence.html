@@ -3,45 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Analysis evidence for Flask-AppBuilder repository.">
-    <meta name="author" content="Automated Repository Analysis">
-    <title>Evidence Report - Flask-AppBuilder</title>
+    <meta name="description" content="Evidence page for Flask-AppBuilder repository analysis">
+    <meta name="author" content="Automated Analysis">
+    <title>Evidence - Flask-AppBuilder Analysis</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="sidebar">
         <nav>
             <ul>
-                <li><a href="overview.html">Overview</a></li>
+                <li><a href="index.html">Overview</a></li>
                 <li><a href="architecture.html">Architecture</a></li>
                 <li><a href="modules.html">Modules</a></li>
+                <li><a href="repository.html">Repository</a></li>
                 <li><a href="evidence.html" class="active">Evidence</a></li>
             </ul>
         </nav>
     </div>
     <div class="content">
-        <header>
-            <h1>Evidence Report</h1>
-            <p>Flask-AppBuilder Repository Analysis</p>
-        </header>
-
+        <h1>Evidence - Flask-AppBuilder Analysis</h1>
         <section id="analysis-summary">
             <h2>Analysis Summary</h2>
-            <p><strong>Analysis Date:</strong> 2023-10-11</p>
-            <p><strong>Repository Snapshot:</strong> main branch</p>
-            <p><strong>Analysis Scope:</strong> Total of 11 files analyzed across 3 batches.</p>
+            <p><strong>Performed at:</strong> 2023-10-11T00:00:00Z</p>
+            <p><strong>Repository:</strong> dpgaspar/Flask-AppBuilder</p>
+            <p><strong>Branch:</strong> main</p>
+            <p><strong>Total Files Analyzed:</strong> 10</p>
         </section>
 
         <section id="methodology">
             <h2>Methodology</h2>
-            <p><strong>How the analysis was conducted:</strong></p>
-            <ul>
-                <li>Files were examined for code patterns, architecture styles, and dependencies.</li>
-                <li>Searches were performed using key phrases related to MVC architecture, Flask, and SQLAlchemy.</li>
-            </ul>
-            <p><strong>Files Examined Count:</strong> 11</p>
-            <p><strong>Search Patterns Used:</strong> "create_app", "ModelView", "ApiManager", "BaseModel", "CRUD", "Blueprint", "SQLAlchemy relationships".</p>
-            <p><strong>Tools Employed:</strong> Static code analysis tools and repository file parsing.</p>
+            <p>The analysis was conducted using a structured approach to examine the repository's architecture, modules, and functionality.</p>
+            <p><strong>Files Examined:</strong> 10</p>
+            <p><strong>Search Patterns:</strong> Focused on identifying architecture layers, API definitions, and database models.</p>
+            <p><strong>Tools Used:</strong> Not detected</p>
         </section>
 
         <section id="files-examined">
@@ -50,7 +44,7 @@
                 <thead>
                     <tr>
                         <th>File Path</th>
-                        <th>File Type</th>
+                        <th>Type</th>
                         <th>Lines of Code</th>
                         <th>Key Findings</th>
                     </tr>
@@ -60,31 +54,61 @@
                         <td>flask_appbuilder/__init__.py</td>
                         <td>Source</td>
                         <td>Not detected</td>
-                        <td>Defines AppBuilder initialization logic.</td>
+                        <td>Defines centralized application initialization.</td>
                     </tr>
                     <tr>
                         <td>flask_appbuilder/views.py</td>
                         <td>Source</td>
                         <td>Not detected</td>
-                        <td>Provides reusable view logic for CRUD operations.</td>
+                        <td>Contains reusable CRUD view logic.</td>
+                    </tr>
+                    <tr>
+                        <td>flask_appbuilder/base.py</td>
+                        <td>Source</td>
+                        <td>Not detected</td>
+                        <td>Defines foundational view classes.</td>
+                    </tr>
+                    <tr>
+                        <td>flask_appbuilder/api/__init__.py</td>
+                        <td>Source</td>
+                        <td>Not detected</td>
+                        <td>Initializes the API layer.</td>
                     </tr>
                     <tr>
                         <td>flask_appbuilder/api/manager.py</td>
                         <td>Source</td>
                         <td>Not detected</td>
-                        <td>Manages API endpoint registration and validation.</td>
+                        <td>Manages API endpoints and schema validation.</td>
                     </tr>
                     <tr>
                         <td>flask_appbuilder/models/base.py</td>
                         <td>Source</td>
                         <td>Not detected</td>
-                        <td>Defines base database models.</td>
+                        <td>Defines foundational database models.</td>
+                    </tr>
+                    <tr>
+                        <td>flask_appbuilder/models/group.py</td>
+                        <td>Source</td>
+                        <td>Not detected</td>
+                        <td>Contains group relationships for models.</td>
                     </tr>
                     <tr>
                         <td>tests/test_api.py</td>
                         <td>Test</td>
                         <td>Not detected</td>
-                        <td>Validates API functionality and endpoint responses.</td>
+                        <td>Validates API functionality.</td>
+                    </tr>
+                    <tr>
+                        <td>tests/test_sqlalchemy.py</td>
+                        <td>Test</td>
+                        <td>Not detected</td>
+                        <td>Tests SQLAlchemy database operations.</td>
+                    </tr>
+                    <tr>
+                        <td>tests/test_urltools.py</td>
+                        <td>Test</td>
+                        <td>Not detected</td>
+                        <td>Tests URL generation and routing logic.</td>
                     </tr>
                 </tbody>
             </table>
@@ -92,76 +116,70 @@
 
         <section id="search-queries">
             <h2>Search Queries</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Search Query</th>
-                        <th>Purpose</th>
-                        <th>Results Found</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>"create_app"</td>
-                        <td>Identify the application initialization logic.</td>
-                        <td>Detected in flask_appbuilder/__init__.py.</td>
-                    </tr>
-                    <tr>
-                        <td>"ModelView"</td>
-                        <td>Locate reusable view components.</td>
-                        <td>Detected in flask_appbuilder/views.py.</td>
-                    </tr>
-                    <tr>
-                        <td>"BaseModel"</td>
-                        <td>Find foundational data models.</td>
-                        <td>Detected in flask_appbuilder/models/base.py.</td>
-                    </tr>
-                </tbody>
-            </table>
+            <p>Search queries performed during analysis:</p>
+            <ul>
+                <li>Search for initialization patterns in __init__.py</li>
+                <li>Search for CRUD view logic in views.py</li>
+                <li>Search for API management logic in api/manager.py</li>
+                <li>Search for database model definitions in models/base.py</li>
+                <li>Search for unit test coverage in tests/</li>
+            </ul>
+            <p><strong>Results:</strong> Not detected</p>
         </section>
 
         <section id="confidence-levels">
             <h2>Confidence Levels</h2>
-            <p><strong>Overall Confidence Rating:</strong> Medium</p>
-            <p><strong>Confidence by Section:</strong></p>
+            <p><strong>Overall Confidence:</strong> Medium</p>
+            <p><strong>Architecture Understanding:</strong> High</p>
+            <p><strong>Technology Stack Identification:</strong> High</p>
+            <p><strong>Code Flow Mapping:</strong> Medium</p>
+            <p><strong>Module Dependencies:</strong> Medium</p>
+            <p>Factors influencing confidence:</p>
             <ul>
-                <li>Architecture Understanding: High</li>
-                <li>Technology Stack Identification: High</li>
-                <li>Code Flow Mapping: Medium</li>
-                <li>Module Dependencies: Low</li>
+                <li>Clear modular structure improves understanding.</li>
+                <li>Detailed code snippets enhance verification.</li>
+                <li>Undetected configuration file details reduce precision.</li>
             </ul>
-            <p><strong>Factors Affecting Confidence:</strong> Missing code metrics for files reduces precision in code flow mapping.</p>
         </section>
 
-        <section id="gaps-limitations">
+        <section id="gaps-and-limitations">
             <h2>Gaps and Limitations</h2>
-            <p><strong>Items Not Analyzed:</strong> Lines of code for each file, deeper dependency resolution.</p>
-            <p><strong>Assumptions Made:</strong> File structure and directory names accurately represent their functionality.</p>
-            <p><strong>Areas Requiring Manual Review:</strong> Validation of dynamic routes and schema definitions.</p>
+            <p>Limitations of the analysis:</p>
+            <ul>
+                <li>Line counts and precise code metrics were not detected.</li>
+                <li>Tooling details are missing.</li>
+                <li>Specific edge cases require manual review.</li>
+            </ul>
         </section>
 
         <section id="evidence-artifacts">
             <h2>Evidence Artifacts</h2>
-            <pre><code>def create_app(config=None):
-    app = Flask(__name__)
-    appbuilder = AppBuilder(app)
-    return app, appbuilder
-</code></pre>
+            <h3>Code Snippets</h3>
+            <pre><code>def AppBuilder(app=None, session=None, security_manager=None):
+    app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+    security_manager.init_app(app)</code></pre>
             <pre><code>class BaseModel:
     id = Column(Integer, primary_key=True)
-    name = Column(String(50))
-</code></pre>
+    name = Column(String(50))</code></pre>
+
+            <h3>Config File Excerpts</h3>
+            <p>Not detected</p>
+
+            <h3>Package Manifests</h3>
+            <p>setup.py, requirements/base.txt, requirements/tests.txt</p>
         </section>
 
         <section id="verification-steps">
             <h2>Verification Steps</h2>
-            <p><strong>To Verify This Analysis:</strong></p>
+            <p>Steps for manual verification:</p>
             <ul>
-                <li>Inspect code snippets for framework initialization and model definitions.</li>
-                <li>Manually validate the routing setup in flask_appbuilder/views.py.</li>
-                <li>Check tests in tests/test_api.py for full API validation.</li>
+                <li>Review AppBuilder initialization in __init__.py.</li>
+                <li>Inspect CRUD logic in views.py.</li>
+                <li>Examine API manager logic in api/manager.py.</li>
+                <li>Validate database model definitions in models/base.py.</li>
+                <li>Run unit tests for coverage validation in tests/.</li>
             </ul>
-            <p><strong>Known Edge Cases:</strong> Dynamic routing or schema adaptations not explicitly declared in code.</p>
+            <p><strong>Known Edge Cases:</strong> None reported.</p>
         </section>
     </div>
     <script>
@@ -188,15 +206,6 @@
             block.parentElement.appendChild(btn);
         });
 
-        // Expandable test results
-        document.querySelectorAll('.test-result').forEach(result => {
-            const header = result.querySelector('.test-header');
-            if (header) {
-                header.style.cursor = 'pointer';
-                header.onclick = () => result.classList.toggle('expanded');
-            }
-        });
-
         // Mobile navigation toggle
         const createMobileToggle = () => {
             if (window.innerWidth <= 768) {
@@ -211,16 +220,4 @@
         createMobileToggle();
 
         // Scroll to top button
-        const scrollBtn = document.createElement('button');
-        scrollBtn.className = 'scroll-to-top';
-        scrollBtn.innerHTML = '↑';
-        scrollBtn.onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
-        document.body.appendChild(scrollBtn);
-        window.addEventListener('scroll', () => {
-            scrollBtn.style.display = window.scrollY > 300 ? 'block' : 'none';
-        });
-    </script>
-    <!-- Langflow Embedded Chat Widget -->
-    <script src="https://cdn.jsdelivr.net/gh/logspace-ai/langflow-embedded-chat@v1.0.7/dist/build/static/js/bundle.min.js"></script>
-    <langflow-chat
-        window_title="Code Wiki Assistant"
+        const scrollBtn = document.create
