@@ -3,147 +3,167 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Explore the modular architecture of Flask-AppBuilder, a web application framework built on Flask and SQLAlchemy.">
-    <title>Architecture - Flask-AppBuilder</title>
+    <meta name="description" content="WebAppWithDatabaseDemo Architecture Page">
+    <title>Architecture - WebAppWithDatabaseDemo</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="sidebar">
+        <h2>Documentation</h2>
         <nav>
             <ul>
                 <li><a href="index.html">Overview</a></li>
                 <li><a href="structure.html">Structure</a></li>
                 <li><a href="modules.html">Modules</a></li>
                 <li class="active"><a href="architecture.html">Architecture</a></li>
-                <li><a href="apis.html">APIs</a></li>
             </ul>
         </nav>
     </div>
     <div class="content">
         <h1>Architecture</h1>
-        <p>Flask-AppBuilder adopts a modular architecture that simplifies web application development by providing a clear separation of concerns. The framework integrates Flask for routing and application logic and SQLAlchemy for database management. Each module serves a specific purpose, such as handling API endpoints, rendering views, and managing utilities. This design allows developers to customize and extend functionalities efficiently.</p>
-        <p>The architecture emphasizes scalability and maintainability, making it suitable for applications ranging from simple dashboards to complex data-driven systems. Layers within the framework include core application logic, views and UI rendering, API management, and utilities for compatibility and configuration.</p>
-
-        <h2>Architecture Diagram</h2>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500" style="border:1px solid #ccc; background-color:#f9f9f9;">
-            <!-- Core Application -->
-            <rect x="50" y="50" width="200" height="100" fill="#add8e6" stroke="#000" stroke-width="2"></rect>
-            <text x="150" y="110" fill="#000" font-size="14" text-anchor="middle">Core Application</text>
-            <text x="150" y="130" fill="#000" font-size="12" text-anchor="middle">(Flask, SQLAlchemy)</text>
-
-            <!-- Views and UI -->
-            <rect x="300" y="50" width="200" height="100" fill="#90ee90" stroke="#000" stroke-width="2"></rect>
-            <text x="400" y="110" fill="#000" font-size="14" text-anchor="middle">Views and UI</text>
-            <text x="400" y="130" fill="#000" font-size="12" text-anchor="middle">(Flask, Jinja2)</text>
-
-            <!-- API Endpoints -->
-            <rect x="550" y="50" width="200" height="100" fill="#ffcccb" stroke="#000" stroke-width="2"></rect>
-            <text x="650" y="110" fill="#000" font-size="14" text-anchor="middle">API Endpoints</text>
-            <text x="650" y="130" fill="#000" font-size="12" text-anchor="middle">(Flask)</text>
-
-            <!-- Utilities -->
-            <rect x="300" y="200" width="200" height="100" fill="#f4a460" stroke="#000" stroke-width="2"></rect>
-            <text x="400" y="260" fill="#000" font-size="14" text-anchor="middle">Utilities</text>
-            <text x="400" y="280" fill="#000" font-size="12" text-anchor="middle">(Python)</text>
-
-            <!-- Arrows -->
-            <line x1="250" y1="100" x2="300" y2="100" stroke="#000" stroke-width="2" marker-end="url(#arrow)"></line>
-            <line x1="500" y1="100" x2="550" y2="100" stroke="#000" stroke-width="2" marker-end="url(#arrow)"></line>
-            <line x1="400" y1="150" x2="400" y2="200" stroke="#000" stroke-width="2" marker-end="url(#arrow)"></line>
-
-            <!-- Arrowhead Definition -->
-            <defs>
-                <marker id="arrow" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto">
-                    <path d="M0,0 L10,5 L0,10 z" fill="#000"></path>
-                </marker>
-            </defs>
-        </svg>
-
-        <h2>System Components</h2>
         <section>
-            <h3>Core Application</h3>
-            <p>Contains foundational classes and utilities for initializing and managing the application.</p>
-            <p><strong>Key Files:</strong> <code>flask_appbuilder/__init__.py</code>, <code>flask_appbuilder/base.py</code></p>
-            <pre><code>app = Flask(__name__)
-initialize_app(app)</code></pre>
+            <h2>System Design Overview</h2>
+            <p>The WebAppWithDatabaseDemo application is designed using the ASP.NET Core MVC architectural style, which ensures modularity, scalability, and maintainability. By separating the application into three primary layers—Model, View, and Controller—the architecture adheres to the principle of separation of concerns. This allows developers to independently manage the presentation, business logic, and data persistence aspects of the application.</p>
+            <p>The Model layer defines data structures and facilitates seamless database interactions through Entity Framework Core. The View layer handles the user interface, rendering dynamic Razor views. The Controller layer manages HTTP requests, processes business logic, and coordinates responses. Additionally, environment-specific configuration files provide flexibility for deployment in different environments.</p>
         </section>
         <section>
-            <h3>Views and UI</h3>
-            <p>Handles user interface rendering and integration with templates.</p>
-            <p><strong>Key Files:</strong> <code>flask_appbuilder/baseviews.py</code></p>
-            <pre><code>class BaseView:
-    def render(self):
-        return render_template('template.html')</code></pre>
+            <h2>Architecture Diagram</h2>
+            <figure>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" width="100%" height="auto">
+                    <!-- Presentation Layer -->
+                    <rect x="50" y="50" width="200" height="100" fill="#f0f8ff" stroke="#000" />
+                    <text x="150" y="90" font-size="14" text-anchor="middle">Presentation Layer</text>
+                    <text x="150" y="110" font-size="12" text-anchor="middle">(Razor Views)</text>
+                    <!-- API Layer -->
+                    <rect x="300" y="50" width="200" height="100" fill="#e6ffe6" stroke="#000" />
+                    <text x="400" y="90" font-size="14" text-anchor="middle">API Layer</text>
+                    <text x="400" y="110" font-size="12" text-anchor="middle">(Controllers)</text>
+                    <!-- Data Layer -->
+                    <rect x="550" y="50" width="200" height="100" fill="#fff5e6" stroke="#000" />
+                    <text x="650" y="90" font-size="14" text-anchor="middle">Data Layer</text>
+                    <text x="650" y="110" font-size="12" text-anchor="middle">(Entity Framework Core)</text>
+                    <!-- Data Flow Arrows -->
+                    <line x1="250" y1="100" x2="300" y2="100" stroke="#000" marker-end="url(#arrowhead)" />
+                    <line x1="500" y1="100" x2="550" y2="100" stroke="#000" marker-end="url(#arrowhead)" />
+                    <!-- Arrowhead Definition -->
+                    <defs>
+                        <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+                            <polygon points="0 0, 10 3.5, 0 7" fill="#000" />
+                        </marker>
+                    </defs>
+                </svg>
+                <figcaption>A high-level view of the application's architecture showing the flow between layers.</figcaption>
+            </figure>
         </section>
         <section>
-            <h3>API Endpoints</h3>
-            <p>Defines API functionalities for interacting with external services or applications.</p>
-            <p><strong>Key Files:</strong> <code>flask_appbuilder/api.py</code>, <code>tests/test_api.py</code></p>
-            <pre><code>@app.route('/api/v1/test', methods=['GET'])
-def test_api():
-    return jsonify({'message': 'success'})</code></pre>
+            <h2>System Components</h2>
+            <article>
+                <h3>Presentation Layer</h3>
+                <p>Responsible for managing the user interface using Razor Views. These views render dynamic HTML content based on data provided by controllers.</p>
+                <ul>
+                    <li><strong>Key Files:</strong> <code>WebApp/Views/*</code></li>
+                </ul>
+            </article>
+            <article>
+                <h3>API Layer</h3>
+                <p>Handles incoming HTTP requests, processes business logic, and manages responses. Implements CRUD operations for various entities.</p>
+                <ul>
+                    <li><strong>Key Files:</strong> <code>WebApp/Controllers/EmployeesController.cs</code>, <code>WebApp/Controllers/HomeController.cs</code></li>
+                    <li><strong>Code Example:</strong></li>
+                </ul>
+                <pre><code>public IActionResult Index() { 
+    var employees = _context.Employees.ToList(); 
+    return View(employees); 
+}</code></pre>
+            </article>
+            <article>
+                <h3>Data Layer</h3>
+                <p>Provides database access and persistence using Entity Framework Core. Defines the database context and entities.</p>
+                <ul>
+                    <li><strong>Key Files:</strong> <code>WebApp/Data/WebAppContext.cs</code></li>
+                    <li><strong>Code Example:</strong></li>
+                </ul>
+                <pre><code>public DbSet&lt;Product&gt; Products { get; set; }</code></pre>
+            </article>
+            <article>
+                <h3>Configuration Layer</h3>
+                <p>Manages environment-specific settings such as database connection strings and logging preferences.</p>
+                <ul>
+                    <li><strong>Key Files:</strong> <code>WebApp/appsettings.Development.json</code>, <code>WebApp/appsettings.json</code></li>
+                </ul>
+            </article>
         </section>
         <section>
-            <h3>Utilities</h3>
-            <p>Provides reusable utilities, constants, and compatibility layers for the application.</p>
-            <p><strong>Key Files:</strong> <code>flask_appbuilder/_compat.py</code>, <code>flask_appbuilder/const.py</code></p>
-            <pre><code>def is_unicode(obj):
-    return isinstance(obj, six.text_type)</code></pre>
+            <h2>Design Patterns</h2>
+            <p>The project employs the Model-View-Controller (MVC) pattern to ensure separation of concerns. Dependency Injection is used for managing dependencies and promoting testability.</p>
         </section>
-
-        <h2>Design Patterns</h2>
-        <ul>
-            <li><strong>Modular Design Pattern:</strong> Enables separation of concerns and ease of extension.</li>
-            <li><strong>MVC Pattern:</strong> Facilitates organized management of models, views, and controllers.</li>
-        </ul>
-
-        <h2>Data Flow</h2>
-        <p>Data flows from API endpoints to views or JSON responses, with SQLAlchemy managing database interactions. This approach ensures efficient handling of user requests and application logic.</p>
-
-        <h2>Technology Choices</h2>
-        <ul>
-            <li><strong>Flask:</strong> Lightweight web framework for routing and application logic.</li>
-            <li><strong>SQLAlchemy:</strong> ORM for robust database management.</li>
-            <li><strong>Jinja2:</strong> Template engine for rendering user interfaces.</li>
-            <li><strong>Python:</strong> Provides utilities and compatibility layers.</li>
-        </ul>
-
-        <h2>Scalability Considerations</h2>
-        <p>The modular architecture supports scalability by allowing individual layers to be extended independently. SQLAlchemy's ORM ensures efficient database management, while Flask's Blueprint system facilitates modular routing and API definitions.</p>
-
-        <h2>Security Architecture</h2>
-        <p>Flask-AppBuilder includes built-in authentication mechanisms, such as role-based access control, and supports secure session management. Custom exception handling is integrated to address application-specific errors.</p>
+        <section>
+            <h2>Data Flow</h2>
+            <p>Data flows from user input (View) to the controllers (API Layer), which process it and interact with the database through the Data Layer. The processed data is returned to the Views for rendering.</p>
+        </section>
+        <section>
+            <h2>Technology Choices</h2>
+            <ul>
+                <li><strong>Framework:</strong> ASP.NET Core provides robust performance and security features.</li>
+                <li><strong>Database:</strong> Entity Framework Core simplifies database operations with object-relational mapping.</li>
+            </ul>
+        </section>
+        <section>
+            <h2>Scalability Considerations</h2>
+            <p>The architecture is designed to support scalability by separating concerns into distinct layers. However, no specific optimizations for high traffic or parallel processing were detected.</p>
+        </section>
+        <section>
+            <h2>Security Architecture</h2>
+            <p>No authentication or authorization mechanisms were detected, as this is a demo application. Future implementations could integrate ASP.NET Core Identity for user management and secure API endpoints.</p>
+        </section>
     </div>
     <script>
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            });
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
         });
+    });
 
-        // Copy to clipboard for code blocks
-        document.querySelectorAll('pre code').forEach(block => {
-            const btn = document.createElement('button');
-            btn.className = 'copy-btn';
-            btn.textContent = 'Copy';
-            btn.onclick = () => {
-                navigator.clipboard.writeText(block.textContent);
-                btn.textContent = 'Copied!';
-                setTimeout(() => btn.textContent = 'Copy', 2000);
-            };
-            block.parentElement.style.position = 'relative';
-            block.parentElement.appendChild(btn);
-        });
+    // Copy to clipboard for code blocks
+    document.querySelectorAll('pre code').forEach(block => {
+        const btn = document.createElement('button');
+        btn.className = 'copy-btn';
+        btn.textContent = 'Copy';
+        btn.onclick = () => {
+            navigator.clipboard.writeText(block.textContent);
+            btn.textContent = 'Copied!';
+            setTimeout(() => btn.textContent = 'Copy', 2000);
+        };
+        block.parentElement.style.position = 'relative';
+        block.parentElement.appendChild(btn);
+    });
 
-        // Mobile navigation toggle
-        const createMobileToggle = () => {
-            if (window.innerWidth <= 768) {
-                const sidebar = document.querySelector('.sidebar');
-                const toggle = document.createElement('button');
-                toggle.className = 'mobile-nav-toggle';
-                toggle.innerHTML = '☰';
-                toggle.onclick = () => sidebar.classList.toggle('active');
-                document.body.insertBefore(toggle
+    // Mobile navigation toggle
+    const createMobileToggle = () => {
+        if (window.innerWidth <= 768) {
+            const sidebar = document.querySelector('.sidebar');
+            const toggle = document.createElement('button');
+            toggle.className = 'mobile-nav-toggle';
+            toggle.innerHTML = '☰';
+            toggle.onclick = () => sidebar.classList.toggle('active');
+            document.body.insertBefore(toggle, document.body.firstChild);
+        }
+    };
+    createMobileToggle();
+
+    // Scroll to top button
+    const scrollBtn = document.createElement('button');
+    scrollBtn.className = 'scroll-to-top';
+    scrollBtn.innerHTML = '↑';
+    scrollBtn.onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
+    document.body.appendChild(scrollBtn);
+    window.addEventListener('scroll', () => {
+        scrollBtn.style.display = window.scrollY > 300 ? 'block' : 'none';
+    });
+
+    // Highlight active section in navigation
+    const sections = document.querySelectorAll('section[id]');
+    const
