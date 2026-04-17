@@ -3,94 +3,93 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Overview page for Flask-AppBuilder, a rapid application development framework built on Flask.">
-    <title>Flask-AppBuilder - Overview</title>
+    <meta name="description" content="WebAppWithDatabaseDemo: An ASP.NET Core MVC web application with a database backend.">
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="favicon.ico">
+    <title>WebAppWithDatabaseDemo - Overview</title>
 </head>
 <body>
     <aside class="sidebar">
-        <div class="sidebar-header">
-            <h1>Flask-AppBuilder</h1>
-        </div>
+        <h1>WebAppWithDatabaseDemo</h1>
         <nav>
-            <ul>
-                <li><a href="index.html" class="active">📄 Overview</a></li>
-                <li><a href="architecture.html">🏗️ Architecture</a></li>
-                <li><a href="structure.html">📁 Structure</a></li>
-                <li><a href="flows.html">🔄 Flows</a></li>
-                <li><a href="modules.html">📦 Modules</a></li>
-                <li><a href="evidence.html">✅ Evidence</a></li>
-                <li><a href="contributing.html">🤝 Contributing</a></li>
-            </ul>
+            <a href="index.html" class="active">📄 Overview</a>
+            <a href="architecture.html">🏗️ Architecture</a>
+            <a href="structure.html">📁 Structure</a>
+            <a href="flows.html">🔄 Flows</a>
+            <a href="modules.html">📦 Modules</a>
+            <a href="evidence.html">✅ Evidence</a>
+            <a href="contributing.html">🤝 Contributing</a>
         </nav>
     </aside>
     <main class="content">
-        <header class="hero">
-            <h1>Flask-AppBuilder</h1>
-            <p class="tagline">A rapid application development framework built on Flask.</p>
-            <div class="badges">
-                <span class="badge">Python</span>
-                <span class="badge">Flask</span>
-                <span class="badge">Apache License 2.0</span>
-            </div>
+        <header>
+            <h1>WebAppWithDatabaseDemo</h1>
+            <p>An ASP.NET Core MVC web application with a database backend.</p>
+            <p>
+                <span class="badge">Language: C#</span>
+                <span class="badge">Framework: ASP.NET Core</span>
+                <span class="badge">License: MIT</span>
+            </p>
         </header>
+
         <section id="project-purpose">
             <h2>Project Purpose</h2>
-            <p>Flask-AppBuilder is a web application framework built on Flask. It provides a modular architecture for building scalable and secure applications with ease. The framework integrates seamlessly with SQLAlchemy for database management and includes tools for creating APIs, authentication mechanisms, and user interfaces.</p>
-            <p>It emphasizes simplicity and flexibility for developers, offering boilerplate code and utilities to streamline the development process. The project features a highly organized structure with clear separation of concerns across modules, enabling developers to extend functionalities and customize components efficiently. Comprehensive documentation and examples are provided to help users get started quickly and understand the core concepts and features.</p>
+            <p>WebAppWithDatabaseDemo is a demo application built using ASP.NET Core MVC framework. It showcases a typical web application architecture that includes a frontend for rendering views, a backend API layer for handling client requests, and a database layer for managing data persistence through Entity Framework Core.</p>
+            <p>The application serves as a foundational template for developers looking to understand and build ASP.NET Core applications with integrated database functionality. It emphasizes scalability, maintainability, and ease of configuration, making it ideal for both learning and real-world applications.</p>
         </section>
+
         <section id="key-features">
             <h2>Key Features</h2>
             <ul>
-                <li>Modular structure for web applications.</li>
-                <li>Seamless integration with Flask and SQLAlchemy.</li>
-                <li>Support for creating APIs and user interfaces.</li>
-                <li>Built-in authentication and authorization mechanisms.</li>
-                <li>Extensive documentation and example usage.</li>
+                <li><strong>ASP.NET Core MVC architecture:</strong> Robust and scalable web application structure.</li>
+                <li><strong>Entity Framework Core:</strong> Simplifies database interactions with ORM.</li>
+                <li><strong>CRUD operations:</strong> Controllers handle create, read, update, and delete requests.</li>
+                <li><strong>Environment-specific configurations:</strong> Adjust settings for development and production.</li>
+                <li><strong>Separation of concerns:</strong> Organized into Models, Views, and Controllers.</li>
             </ul>
         </section>
+
         <section id="tech-stack">
             <h2>Tech Stack</h2>
             <ul>
-                <li><strong>Primary Language:</strong> Python</li>
-                <li><strong>Frameworks:</strong> Flask</li>
-                <li><strong>Database:</strong> SQLAlchemy</li>
-                <li><strong>License:</strong> Apache License 2.0</li>
+                <li><strong>Language:</strong> C#</li>
+                <li><strong>Framework:</strong> ASP.NET Core</li>
+                <li><strong>Database:</strong> Entity Framework Core</li>
+                <li><strong>Configuration:</strong> JSON-based app settings</li>
             </ul>
         </section>
+
         <section id="architecture-overview">
             <h2>Architecture Overview</h2>
-            <p>Flask-AppBuilder employs a modular architecture, where each module is responsible for specific functionalities such as API management, views, authentication, and database interactions. This design enables developers to selectively use or extend components based on their application needs.</p>
-            <p>For more details, visit the <a href="architecture.html">Architecture</a> page.</p>
+            <p>The WebAppWithDatabaseDemo follows the ASP.NET MVC architectural style, which separates the application into Model, View, and Controller layers. This modular structure ensures scalability and maintainability. The architecture is complemented by configuration files that manage settings for various deployment environments.</p>
+            <p><a href="architecture.html">Learn more about the architecture →</a></p>
         </section>
+
         <section id="quick-start">
             <h2>Quick Start</h2>
-            <ol>
-                <li><strong>Prerequisites:</strong> Python 3.7+, Flask</li>
-                <li>
-                    <strong>Installation Steps:</strong>
-                    <pre><code class="language-bash">pip install flask-appbuilder</code></pre>
-                </li>
-                <li>
-                    <strong>Run the Application:</strong>
-                    <pre><code class="language-bash">flask run</code></pre>
-                </li>
-                <li>
-                    <strong>Environment Variables:</strong>
-                    <ul>
-                        <li><code>SQLALCHEMY_DATABASE_URI</code> - Defines the database URI for SQLAlchemy (e.g., <code>sqlite:///app.db</code>).</li>
-                        <li><code>SECRET_KEY</code> - Security key for the Flask application (e.g., <code>mysecretkey</code>).</li>
-                    </ul>
-                </li>
-            </ol>
-            <p>For information on contributing, visit the <a href="contributing.html">Contributing</a> page.</p>
+            <h3>Prerequisites</h3>
+            <ul>
+                <li>.NET Core SDK installed</li>
+                <li>SQL Server or compatible database</li>
+            </ul>
+            <h3>Installation</h3>
+            <pre><code class="language-bash">git clone https://github.com/HoussemDellai/WebAppWithDatabaseDemo.git
+cd WebAppWithDatabaseDemo
+dotnet restore
+dotnet build</code></pre>
+            <h3>Basic Usage</h3>
+            <pre><code class="language-bash">dotnet run</code></pre>
+            <p>Visit <a href="http://localhost:5000">http://localhost:5000</a> in your browser to see the application in action.</p>
+            <p><a href="contributing.html">Learn how to contribute →</a></p>
         </section>
+
         <section id="project-status">
             <h2>Project Status</h2>
-            <p>The project is currently active, with ongoing development and recent contributions. The repository has been analyzed with high confidence in its core application and testing areas.</p>
+            <p><strong>Status:</strong> Demo application for educational purposes.</p>
+            <p>This project is actively maintained as a learning resource. Updates may include improvements to code quality or additional features to enhance educational value.</p>
         </section>
     </main>
+
     <script>
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -153,6 +152,7 @@
             });
         });
     </script>
+
     <!-- Langflow Embedded Chat Widget -->
     <script src="https://cdn.jsdelivr.net/gh/logspace-ai/langflow-embedded-chat@v1.0.7/dist/build/static/js/bundle.min.js"></script>
     <langflow-chat
