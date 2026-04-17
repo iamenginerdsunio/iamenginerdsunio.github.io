@@ -1,1 +1,188 @@
-<!-- Error: No agent selected -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Flows documentation for Flask-AppBuilder. Learn how the application handles requests, routes, and data processes.">
+    <title>Flows - Flask-AppBuilder</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="sidebar">
+        <nav>
+            <ul>
+                <li><a href="index.html">Overview</a></li>
+                <li><a href="architecture.html">Architecture</a></li>
+                <li><a href="flows.html" class="active">Flows</a></li>
+                <li><a href="modules.html">Modules</a></li>
+                <li><a href="testing.html">Testing</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div class="content">
+        <header>
+            <h1>Flows</h1>
+            <p>Understand how Flask-AppBuilder processes requests, handles data, and manages logic.</p>
+        </header>
+        <main>
+            <section id="code-flow-overview">
+                <h2>Code Flow Overview</h2>
+                <p>Flask-AppBuilder processes requests/events by leveraging a centralized initialization layer, modular routing, and robust MVC patterns. AppBuilder orchestrates application setup and security integration, while SQLAlchemy manages data interactions. Requests flow through defined views or APIs to the database layer and return responses accordingly.</p>
+            </section>
+            <section id="request-lifecycle">
+                <h2>Request Lifecycle</h2>
+                <ol>
+                    <li>The request is received by the Flask application.</li>
+                    <li>Middleware or interceptors (if configured) preprocess the request.</li>
+                    <li>Routing determines the target view or API endpoint.</li>
+                    <li>The associated controller or handler processes the request.</li>
+                    <li>Data is fetched or updated using SQLAlchemy models.</li>
+                    <li>The response is generated and returned to the client.</li>
+                </ol>
+            </section>
+            <section id="routing">
+                <h2>Routing</h2>
+                <p>Routes are defined using Flask's <code>Blueprint</code> system. Flask-AppBuilder uses modular endpoints for views and APIs.</p>
+                <pre><code>from flask import Blueprint
+
+blueprint = Blueprint('my_blueprint', __name__)
+
+@blueprint.route('/hello', methods=['GET'])
+def hello_world():
+    return "Hello, World!"</code></pre>
+                <p>Views and controllers map routes to logic:</p>
+                <pre><code>class ModelView(BaseView):
+    route_base = '/modelview'
+
+    @expose('/')
+    def list(self):
+        return self.render_template('list.html')</code></pre>
+            </section>
+            <section id="data-flow">
+                <h2>Data Flow</h2>
+                <p>Data flows through the following layers:</p>
+                <ul>
+                    <li>Controllers handle user requests.</li>
+                    <li>SQLAlchemy ORM manages database queries and transactions.</li>
+                    <li>Data is transformed within models or schemas before being returned.</li>
+                </ul>
+                <pre><code>class BaseModel:
+    id = Column(Integer, primary_key=True)
+    name = Column(String(50))</code></pre>
+            </section>
+            <section id="business-logic">
+                <h2>Business Logic</h2>
+                <p>Core logic resides within the service layer and reusable components such as <code>ModelView</code>. Algorithms and processes are encapsulated for extensibility and maintainability.</p>
+                <pre><code>class ModelView(BaseView):
+    def process_data(self, data):
+        # Perform transformation
+        return data.upper()</code></pre>
+            </section>
+            <section id="ui-frontend-flows">
+                <h2>UI/Frontend Flows</h2>
+                <p>Flask-AppBuilder focuses on server-side rendering. Template files define components and interactions. State is maintained in the backend, minimizing JavaScript dependencies.</p>
+                <pre><code>&lt;table&gt;
+    &lt;tr&gt;
+        &lt;td&gt;{{ item.name }}&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;</code></pre>
+            </section>
+            <section id="background-jobs">
+                <h2>Background Jobs</h2>
+                <p>Not detected</p>
+            </section>
+            <section id="error-handling">
+                <h2>Error Handling</h2>
+                <p>Errors are caught using Flask's error handlers and middleware. Flask-AppBuilder integrates logging for debugging.</p>
+                <pre><code>from flask import Flask
+
+app = Flask(__name__)
+
+@app.errorhandler(404)
+def page_not_found(e):
+    return "Page not found", 404</code></pre>
+            </section>
+            <section id="flow-diagrams">
+                <h2>Flow Diagrams</h2>
+                <p>Sequence diagrams and state machine diagrams are used to visualize operations.</p>
+                <svg viewBox="0 0 200 100" data-interactive>
+                    <circle cx="50" cy="50" r="30" data-step="1" data-info="Start of the flow"></circle>
+                    <circle cx="150" cy="50" r="30" data-step="2" data-info="End of the flow"></circle>
+                    <line x1="80" y1="50" x2="120" y2="50" stroke="black" marker-end="url(#arrowhead)"></line>
+                    <defs>
+                        <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
+                            <polygon points="0 0, 10 3.5, 0 7" />
+                        </marker>
+                    </defs>
+                </svg>
+            </section>
+        </main>
+    </div>
+    <script>
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+    });
+
+    // Copy to clipboard for code blocks
+    document.querySelectorAll('pre code').forEach(block => {
+        const btn = document.createElement('button');
+        btn.className = 'copy-btn';
+        btn.textContent = 'Copy';
+        btn.onclick = () => {
+            navigator.clipboard.writeText(block.textContent);
+            btn.textContent = 'Copied!';
+            setTimeout(() => btn.textContent = 'Copy', 2000);
+        };
+        block.parentElement.style.position = 'relative';
+        block.parentElement.appendChild(btn);
+    });
+
+    // Mobile navigation toggle
+    const createMobileToggle = () => {
+        if (window.innerWidth <= 768) {
+            const sidebar = document.querySelector('.sidebar');
+            const toggle = document.createElement('button');
+            toggle.className = 'mobile-nav-toggle';
+            toggle.innerHTML = '☰';
+            toggle.onclick = () => sidebar.classList.toggle('active');
+            document.body.insertBefore(toggle, document.body.firstChild);
+        }
+    };
+    createMobileToggle();
+
+    // Scroll to top button
+    const scrollBtn = document.createElement('button');
+    scrollBtn.className = 'scroll-to-top';
+    scrollBtn.innerHTML = '↑';
+    scrollBtn.onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
+    document.body.appendChild(scrollBtn);
+    window.addEventListener('scroll', () => {
+        scrollBtn.style.display = window.scrollY > 300 ? 'block' : 'none';
+    });
+
+    // Interactive flow diagrams (if using SVG)
+    document.querySelectorAll('svg[data-interactive]').forEach(svg => {
+        svg.querySelectorAll('[data-step]').forEach(step => {
+            step.style.cursor = 'pointer';
+            step.addEventListener('click', () => {
+                const info = step.getAttribute('data-info');
+                if (info) alert(info);
+            });
+        });
+    });
+    </script>
+    <!-- Langflow Embedded Chat Widget -->
+    <script src="https://cdn.jsdelivr.net/gh/logspace-ai/langflow-embedded-chat@v1.0.7/dist/build/static/js/bundle.min.js"></script>
+    <langflow-chat
+        window_title="Code Wiki Assistant"
+        flow_id="fb98244a-f5df-4fb4-9195-913b0e331dad"
+        host_url="https://agentstudio.servicesessentials.ibm.com"
+        api_key="ak_uZRb2tG2eV-ylLTc-k_KpniRmNdy2nnjYaUg5N_p1p4">
+    </langflow-chat>
+</body>
+</html>
