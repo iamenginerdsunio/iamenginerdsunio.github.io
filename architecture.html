@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Learn about the architecture of Flask-AppBuilder, a robust framework for building web applications with Flask and SQLAlchemy.">
+    <meta name="description" content="Explore the modular architecture of Flask-AppBuilder, a web application framework built on Flask and SQLAlchemy.">
     <title>Architecture - Flask-AppBuilder</title>
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -21,41 +21,35 @@
     </div>
     <div class="content">
         <h1>Architecture</h1>
-        <p>Flask-AppBuilder is built on the MVC (Model-View-Controller) architecture, designed to provide modularity, scalability, and extensibility for web applications. The framework integrates Flask for routing and application logic, SQLAlchemy for the data layer, and additional tools for API management, testing, and role-based security. Each layer is intended to fulfill specific responsibilities, ensuring a clear separation of concerns and maintainable code.</p>
-        <p>At the core of the architecture is the AppBuilder class, which centralizes initialization and integrates essential components like security and database management. The view layer leverages Flask's Blueprint system for routing and user interaction. The data layer uses SQLAlchemy ORM for database operations, enhanced by reusable models and mixins for extensibility. The framework also provides a robust API layer for endpoint management and a comprehensive testing suite for validation.</p>
+        <p>Flask-AppBuilder adopts a modular architecture that simplifies web application development by providing a clear separation of concerns. The framework integrates Flask for routing and application logic and SQLAlchemy for database management. Each module serves a specific purpose, such as handling API endpoints, rendering views, and managing utilities. This design allows developers to customize and extend functionalities efficiently.</p>
+        <p>The architecture emphasizes scalability and maintainability, making it suitable for applications ranging from simple dashboards to complex data-driven systems. Layers within the framework include core application logic, views and UI rendering, API management, and utilities for compatibility and configuration.</p>
 
         <h2>Architecture Diagram</h2>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500" style="border:1px solid #ccc; background-color:#f9f9f9;">
-            <!-- Initialization Layer -->
+            <!-- Core Application -->
             <rect x="50" y="50" width="200" height="100" fill="#add8e6" stroke="#000" stroke-width="2"></rect>
-            <text x="150" y="110" fill="#000" font-size="14" text-anchor="middle">Initialization Layer</text>
+            <text x="150" y="110" fill="#000" font-size="14" text-anchor="middle">Core Application</text>
             <text x="150" y="130" fill="#000" font-size="12" text-anchor="middle">(Flask, SQLAlchemy)</text>
 
-            <!-- View Layer -->
+            <!-- Views and UI -->
             <rect x="300" y="50" width="200" height="100" fill="#90ee90" stroke="#000" stroke-width="2"></rect>
-            <text x="400" y="110" fill="#000" font-size="14" text-anchor="middle">View Layer</text>
-            <text x="400" y="130" fill="#000" font-size="12" text-anchor="middle">(Blueprints)</text>
+            <text x="400" y="110" fill="#000" font-size="14" text-anchor="middle">Views and UI</text>
+            <text x="400" y="130" fill="#000" font-size="12" text-anchor="middle">(Flask, Jinja2)</text>
 
-            <!-- API Layer -->
+            <!-- API Endpoints -->
             <rect x="550" y="50" width="200" height="100" fill="#ffcccb" stroke="#000" stroke-width="2"></rect>
-            <text x="650" y="110" fill="#000" font-size="14" text-anchor="middle">API Layer</text>
-            <text x="650" y="130" fill="#000" font-size="12" text-anchor="middle">(Marshmallow)</text>
+            <text x="650" y="110" fill="#000" font-size="14" text-anchor="middle">API Endpoints</text>
+            <text x="650" y="130" fill="#000" font-size="12" text-anchor="middle">(Flask)</text>
 
-            <!-- Data Layer -->
+            <!-- Utilities -->
             <rect x="300" y="200" width="200" height="100" fill="#f4a460" stroke="#000" stroke-width="2"></rect>
-            <text x="400" y="260" fill="#000" font-size="14" text-anchor="middle">Data Layer</text>
-            <text x="400" y="280" fill="#000" font-size="12" text-anchor="middle">(SQLAlchemy ORM)</text>
-
-            <!-- Testing Layer -->
-            <rect x="550" y="200" width="200" height="100" fill="#ffb6c1" stroke="#000" stroke-width="2"></rect>
-            <text x="650" y="260" fill="#000" font-size="14" text-anchor="middle">Testing Layer</text>
-            <text x="650" y="280" fill="#000" font-size="12" text-anchor="middle">(Pytest)</text>
+            <text x="400" y="260" fill="#000" font-size="14" text-anchor="middle">Utilities</text>
+            <text x="400" y="280" fill="#000" font-size="12" text-anchor="middle">(Python)</text>
 
             <!-- Arrows -->
             <line x1="250" y1="100" x2="300" y2="100" stroke="#000" stroke-width="2" marker-end="url(#arrow)"></line>
             <line x1="500" y1="100" x2="550" y2="100" stroke="#000" stroke-width="2" marker-end="url(#arrow)"></line>
             <line x1="400" y1="150" x2="400" y2="200" stroke="#000" stroke-width="2" marker-end="url(#arrow)"></line>
-            <line x1="500" y1="250" x2="550" y2="250" stroke="#000" stroke-width="2" marker-end="url(#arrow)"></line>
 
             <!-- Arrowhead Definition -->
             <defs>
@@ -67,65 +61,89 @@
 
         <h2>System Components</h2>
         <section>
-            <h3>Initialization Layer</h3>
-            <p>Responsible for setting up the Flask application and integrating SQLAlchemy and security mechanisms.</p>
-            <p><strong>Key File:</strong> <code>flask_appbuilder/__init__.py</code></p>
-            <pre><code>def AppBuilder(app=None, session=None, security_manager=None):
-    app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-    security_manager.init_app(app)</code></pre>
+            <h3>Core Application</h3>
+            <p>Contains foundational classes and utilities for initializing and managing the application.</p>
+            <p><strong>Key Files:</strong> <code>flask_appbuilder/__init__.py</code>, <code>flask_appbuilder/base.py</code></p>
+            <pre><code>app = Flask(__name__)
+initialize_app(app)</code></pre>
         </section>
         <section>
-            <h3>View Layer</h3>
-            <p>Handles routing and user interaction using Flask's Blueprint system.</p>
-            <p><strong>Key Files:</strong> <code>flask_appbuilder/views.py</code>, <code>flask_appbuilder/base.py</code></p>
+            <h3>Views and UI</h3>
+            <p>Handles user interface rendering and integration with templates.</p>
+            <p><strong>Key Files:</strong> <code>flask_appbuilder/baseviews.py</code></p>
             <pre><code>class BaseView:
-    def register_routes(self):
-        blueprint = Blueprint('base', __name__)
-        self.appbuilder.app.register_blueprint(blueprint)</code></pre>
+    def render(self):
+        return render_template('template.html')</code></pre>
         </section>
         <section>
-            <h3>API Layer</h3>
-            <p>Supports endpoint registration and schema validation using Marshmallow.</p>
-            <p><strong>Key Files:</strong> <code>flask_appbuilder/api/__init__.py</code>, <code>flask_appbuilder/api/manager.py</code></p>
-            <pre><code>class ApiManager:
-    def register_blueprint(self, blueprint):
-        self.app.register_blueprint(blueprint)</code></pre>
+            <h3>API Endpoints</h3>
+            <p>Defines API functionalities for interacting with external services or applications.</p>
+            <p><strong>Key Files:</strong> <code>flask_appbuilder/api.py</code>, <code>tests/test_api.py</code></p>
+            <pre><code>@app.route('/api/v1/test', methods=['GET'])
+def test_api():
+    return jsonify({'message': 'success'})</code></pre>
         </section>
         <section>
-            <h3>Data Layer</h3>
-            <p>Manages database interactions using SQLAlchemy ORM, providing foundational CRUD operations.</p>
-            <p><strong>Key Files:</strong> <code>flask_appbuilder/models/base.py</code>, <code>flask_appbuilder/models/group.py</code></p>
-            <pre><code>class BaseModel:
-    id = Column(Integer, primary_key=True)
-    name = Column(String(50))</code></pre>
-        </section>
-        <section>
-            <h3>Testing Layer</h3>
-            <p>Ensures functionality validation through unit and integration tests.</p>
-            <p><strong>Key Files:</strong> <code>tests/test_api.py</code>, <code>tests/test_sqlalchemy.py</code>, <code>tests/test_urltools.py</code></p>
-            <pre><code>def test_engine_connection():
-    engine = create_engine('sqlite:///:memory:')
-    connection = engine.connect()
-    assert connection.closed is False</code></pre>
+            <h3>Utilities</h3>
+            <p>Provides reusable utilities, constants, and compatibility layers for the application.</p>
+            <p><strong>Key Files:</strong> <code>flask_appbuilder/_compat.py</code>, <code>flask_appbuilder/const.py</code></p>
+            <pre><code>def is_unicode(obj):
+    return isinstance(obj, six.text_type)</code></pre>
         </section>
 
         <h2>Design Patterns</h2>
         <ul>
-            <li><strong>Blueprint Routing:</strong> Enables modular routing.</li>
-            <li><strong>Mixin:</strong> Provides reusable functionality for models and views.</li>
-            <li><strong>Decorator:</strong> Implements role-based security and validation.</li>
+            <li><strong>Modular Design Pattern:</strong> Enables separation of concerns and ease of extension.</li>
+            <li><strong>MVC Pattern:</strong> Facilitates organized management of models, views, and controllers.</li>
         </ul>
 
         <h2>Data Flow</h2>
-        <p>Data flows from user requests through views or APIs to the data layer, where SQLAlchemy manages database operations. Responses are rendered and returned to the user.</p>
+        <p>Data flows from API endpoints to views or JSON responses, with SQLAlchemy managing database interactions. This approach ensures efficient handling of user requests and application logic.</p>
 
         <h2>Technology Choices</h2>
         <ul>
-            <li><strong>Flask:</strong> Lightweight framework for routing and application logic.</li>
-            <li><strong>SQLAlchemy:</strong> ORM for database management.</li>
-            <li><strong>Marshmallow:</strong> Schema validation for APIs.</li>
-            <li><strong>Pytest:</strong> Framework for testing.</li>
+            <li><strong>Flask:</strong> Lightweight web framework for routing and application logic.</li>
+            <li><strong>SQLAlchemy:</strong> ORM for robust database management.</li>
+            <li><strong>Jinja2:</strong> Template engine for rendering user interfaces.</li>
+            <li><strong>Python:</strong> Provides utilities and compatibility layers.</li>
         </ul>
 
         <h2>Scalability Considerations</h2>
-        <
+        <p>The modular architecture supports scalability by allowing individual layers to be extended independently. SQLAlchemy's ORM ensures efficient database management, while Flask's Blueprint system facilitates modular routing and API definitions.</p>
+
+        <h2>Security Architecture</h2>
+        <p>Flask-AppBuilder includes built-in authentication mechanisms, such as role-based access control, and supports secure session management. Custom exception handling is integrated to address application-specific errors.</p>
+    </div>
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+        });
+
+        // Copy to clipboard for code blocks
+        document.querySelectorAll('pre code').forEach(block => {
+            const btn = document.createElement('button');
+            btn.className = 'copy-btn';
+            btn.textContent = 'Copy';
+            btn.onclick = () => {
+                navigator.clipboard.writeText(block.textContent);
+                btn.textContent = 'Copied!';
+                setTimeout(() => btn.textContent = 'Copy', 2000);
+            };
+            block.parentElement.style.position = 'relative';
+            block.parentElement.appendChild(btn);
+        });
+
+        // Mobile navigation toggle
+        const createMobileToggle = () => {
+            if (window.innerWidth <= 768) {
+                const sidebar = document.querySelector('.sidebar');
+                const toggle = document.createElement('button');
+                toggle.className = 'mobile-nav-toggle';
+                toggle.innerHTML = '☰';
+                toggle.onclick = () => sidebar.classList.toggle('active');
+                document.body.insertBefore(toggle
