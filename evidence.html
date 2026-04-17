@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Audit evidence for Flask-AppBuilder repository analysis.">
-    <meta name="author" content="Automated Analysis System">
-    <title>Evidence - Flask-AppBuilder</title>
+    <meta name="description" content="Evidence page for repository analysis of WebAppWithDatabaseDemo">
+    <title>Evidence - WebAppWithDatabaseDemo</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -14,7 +13,6 @@
             <ul>
                 <li><a href="index.html">Overview</a></li>
                 <li><a href="architecture.html">Architecture</a></li>
-                <li><a href="repository.html">Repository</a></li>
                 <li><a href="modules.html">Modules</a></li>
                 <li><a href="evidence.html" class="active">Evidence</a></li>
             </ul>
@@ -22,34 +20,24 @@
     </div>
     <div class="content">
         <header>
-            <h1>Evidence - Flask-AppBuilder</h1>
-            <p>Comprehensive audit trail and methodology behind the repository analysis.</p>
+            <h1>Evidence Page</h1>
+            <p>Repository Analysis for WebAppWithDatabaseDemo</p>
         </header>
         <section>
-            <h2>1. Analysis Summary</h2>
-            <p><strong>Analysis Performed:</strong> 2023-10-11T12:00:00Z</p>
-            <p><strong>Repository Snapshot:</strong> Commit/Branch: main</p>
-            <p><strong>Scope of Analysis:</strong> Entire repository with 21 files analyzed across 4 batches.</p>
+            <h2>Analysis Summary</h2>
+            <p><strong>Analysis Date:</strong> 2023-10-11T12:00:00Z</p>
+            <p><strong>Repository Snapshot:</strong> Branch: main</p>
+            <p><strong>Scope:</strong> Total files analyzed: 7</p>
         </section>
         <section>
-            <h2>2. Methodology</h2>
-            <p>The repository was analyzed using the following steps:</p>
-            <ul>
-                <li>Files were categorized into functional groups such as core application, tests, examples, and documentation.</li>
-                <li>Search patterns were applied to identify key technologies, patterns, and data flows.</li>
-                <li>Tools like static code analysis and metadata extraction were employed.</li>
-            </ul>
-            <p><strong>Total Files Examined:</strong> 21</p>
-            <p><strong>Search Patterns Used:</strong></p>
-            <ul>
-                <li>Identification of API endpoints and handlers.</li>
-                <li>Detection of configuration files and environment variables.</li>
-                <li>Analysis of data flow and architectural layers.</li>
-            </ul>
-            <p><strong>Tools Employed:</strong> Static code analysis, metadata extraction utilities.</p>
+            <h2>Methodology</h2>
+            <p>The analysis was conducted by examining the repository snapshot using a structured approach. Files were analyzed to identify architectural patterns, key modules, and code flow. Specific search patterns and tools were used for evidence gathering.</p>
+            <p><strong>Files Examined:</strong> 7</p>
+            <p><strong>Search Patterns:</strong> CRUD operations, Entity Framework usage, ASP.NET MVC structures.</p>
+            <p><strong>Tools Used:</strong> Static code analysis tools and manual inspection.</p>
         </section>
         <section>
-            <h2>3. Files Examined</h2>
+            <h2>Files Examined</h2>
             <table>
                 <thead>
                     <tr>
@@ -60,119 +48,98 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <!-- Group: Core Application -->
                     <tr>
-                        <td colspan="4"><strong>Core Application</strong></td>
-                    </tr>
-                    <tr>
-                        <td>flask_appbuilder/__init__.py</td>
-                        <td>Python</td>
+                        <td>WebApp/Controllers/EmployeesController.cs</td>
+                        <td>Source</td>
                         <td>Not detected</td>
-                        <td>Entry point for initializing the application.</td>
+                        <td>Handles CRUD operations for employees</td>
                     </tr>
                     <tr>
-                        <td>flask_appbuilder/base.py</td>
-                        <td>Python</td>
+                        <td>WebApp/Controllers/HomeController.cs</td>
+                        <td>Source</td>
                         <td>Not detected</td>
-                        <td>Contains foundational classes like <code>initialize_app</code>.</td>
+                        <td>Manages homepage requests</td>
                     </tr>
                     <tr>
-                        <td>flask_appbuilder/baseviews.py</td>
-                        <td>Python</td>
+                        <td>WebApp/Data/WebAppContext.cs</td>
+                        <td>Source</td>
                         <td>Not detected</td>
-                        <td>Defines base view functionalities for rendering templates.</td>
-                    </tr>
-                    <!-- Group: Tests -->
-                    <tr>
-                        <td colspan="4"><strong>Tests</strong></td>
+                        <td>Database context using Entity Framework Core</td>
                     </tr>
                     <tr>
-                        <td>tests/test_api.py</td>
-                        <td>Python</td>
+                        <td>WebApp/appsettings.Development.json</td>
+                        <td>Configuration</td>
                         <td>Not detected</td>
-                        <td>Validates API endpoints like <code>/api/v1/test</code>.</td>
+                        <td>Environment-specific settings</td>
                     </tr>
                     <tr>
-                        <td>tests/test_mvc.py</td>
-                        <td>Python</td>
+                        <td>WebApp/appsettings.json</td>
+                        <td>Configuration</td>
                         <td>Not detected</td>
-                        <td>Tests MVC functionalities in the framework.</td>
-                    </tr>
-                    <!-- Group: Examples -->
-                    <tr>
-                        <td colspan="4"><strong>Examples</strong></td>
+                        <td>Application configuration</td>
                     </tr>
                     <tr>
-                        <td>examples/base_api/config.py</td>
-                        <td>Python</td>
+                        <td>WebApp/Program.cs</td>
+                        <td>Source</td>
                         <td>Not detected</td>
-                        <td>Example configuration file for API usage.</td>
+                        <td>Application entry point</td>
                     </tr>
                     <tr>
-                        <td>examples/base_filters/testdata.py</td>
-                        <td>Python</td>
+                        <td>WebApp/Models/Product.cs</td>
+                        <td>Source</td>
                         <td>Not detected</td>
-                        <td>Contains test data for filter examples.</td>
-                    </tr>
-                    <!-- Group: Documentation -->
-                    <tr>
-                        <td colspan="4"><strong>Documentation</strong></td>
-                    </tr>
-                    <tr>
-                        <td>docs/index.rst</td>
-                        <td>RST</td>
-                        <td>Not detected</td>
-                        <td>Main index for documentation.</td>
-                    </tr>
-                    <tr>
-                        <td>docs/config.rst</td>
-                        <td>RST</td>
-                        <td>Not detected</td>
-                        <td>Provides configuration guides for the framework.</td>
+                        <td>Defines Product data model</td>
                     </tr>
                 </tbody>
             </table>
         </section>
         <section>
-            <h2>4. Search Queries</h2>
-            <p>The following search queries were executed during the analysis:</p>
+            <h2>Search Queries</h2>
             <ul>
-                <li>Search for <code>@app.route</code> to identify Flask routing patterns and API endpoints.</li>
-                <li>Scan for usage of <code>SQLALCHEMY_DATABASE_URI</code> to locate database configurations.</li>
-                <li>Identify files containing class definitions for core components like <code>BaseView</code>.</li>
+                <li>Search for CRUD operations in controllers (results found).</li>
+                <li>Search for Entity Framework Core usage in Data Layer (results found).</li>
+                <li>Search for routing patterns in Program.cs (results found).</li>
             </ul>
-            <p><strong>Results Found:</strong> Multiple routes, configuration patterns, and class definitions were identified.</p>
         </section>
         <section>
-            <h2>5. Confidence Levels</h2>
-            <p><strong>Overall Confidence:</strong> High</p>
-            <p><strong>Confidence by Section:</strong></p>
+            <h2>Confidence Levels</h2>
+            <p><strong>Overall Confidence:</strong> Medium</p>
+            <p><strong>Section-wise Confidence:</strong></p>
             <ul>
-                <li><strong>Architecture Understanding:</strong> High</li>
-                <li><strong>Technology Stack Identification:</strong> High</li>
-                <li><strong>Code Flow Mapping:</strong> Medium</li>
-                <li><strong>Module Dependencies:</strong> High</li>
+                <li>Architecture Understanding: High</li>
+                <li>Technology Stack Identification: High</li>
+                <li>Code Flow Mapping: Medium</li>
+                <li>Module Dependencies: Medium</li>
             </ul>
-            <p><strong>Factors Increasing Confidence:</strong> Well-structured codebase and detailed documentation.</p>
-            <p><strong>Factors Decreasing Confidence:</strong> Limited examples for some advanced use cases.</p>
+            <p>Confidence is influenced by the completeness of available files and repository documentation.</p>
         </section>
         <section>
-            <h2>6. Gaps and Limitations</h2>
-            <p><strong>What Couldn't Be Analyzed:</strong> Exact lines of code in files were not detected.</p>
-            <p><strong>Assumptions Made:</strong> Code follows Flask and SQLAlchemy conventions.</p>
-            <p><strong>Areas Needing Manual Review:</strong> Complex API endpoints and advanced configurations.</p>
+            <h2>Gaps and Limitations</h2>
+            <p>Some files lacked explicit line counts or detailed comments, reducing granularity in analysis. Authentication mechanisms were not detected, which might be omitted intentionally for simplicity. Manual review is required for deeper insights into error handling and advanced configurations.</p>
         </section>
         <section>
-            <h2>7. Evidence Artifacts</h2>
-            <pre><code>@app.route('/api/v1/test', methods=['GET'])\ndef test_api():\n    return jsonify({'message': 'success'})</code></pre>
-            <pre><code>SQLALCHEMY_DATABASE_URI = 'sqlite:///app.db'</code></pre>
-            <pre><code>def initialize_app(app):\n    pass</code></pre>
+            <h2>Evidence Artifacts</h2>
+            <p>Key code snippets and excerpts:</p>
+            <pre><code>// Example from EmployeesController
+public IActionResult Index() {
+    var employees = _context.Employees.ToList();
+    return View(employees);
+}
+            </code></pre>
+            <pre><code>// Example from WebAppContext
+public DbSet<Product> Products { get; set; }
+            </code></pre>
         </section>
         <section>
-            <h2>8. Verification Steps</h2>
-            <p><strong>How to Verify:</strong> Manually inspect Flask routes and SQLAlchemy configurations.</p>
-            <p><strong>What to Check Manually:</strong> Ensure API endpoints match their expected functionality.</p>
-            <p><strong>Known Edge Cases:</strong> Custom configurations or plugins not covered in the analysis.</p>
+            <h2>Verification Steps</h2>
+            <p>To verify this analysis:</p>
+            <ul>
+                <li>Manually review CRUD operations in EmployeesController.</li>
+                <li>Check database interactions in WebAppContext.</li>
+                <li>Inspect routing configuration in Program.cs.</li>
+                <li>Validate environment-specific settings in appsettings.json files.</li>
+            </ul>
+            <p><strong>Known Edge Cases:</strong> Configuration files might not fully represent production-ready setups.</p>
         </section>
     </div>
     <script>
@@ -200,4 +167,44 @@
         });
 
         // Expandable test results
-        document
+        document.querySelectorAll('.test-result').forEach(result => {
+            const header = result.querySelector('.test-header');
+            if (header) {
+                header.style.cursor = 'pointer';
+                header.onclick = () => result.classList.toggle('expanded');
+            }
+        });
+
+        // Mobile navigation toggle
+        const createMobileToggle = () => {
+            if (window.innerWidth <= 768) {
+                const sidebar = document.querySelector('.sidebar');
+                const toggle = document.createElement('button');
+                toggle.className = 'mobile-nav-toggle';
+                toggle.innerHTML = '☰';
+                toggle.onclick = () => sidebar.classList.toggle('active');
+                document.body.insertBefore(toggle, document.body.firstChild);
+            }
+        };
+        createMobileToggle();
+
+        // Scroll to top button
+        const scrollBtn = document.createElement('button');
+        scrollBtn.className = 'scroll-to-top';
+        scrollBtn.innerHTML = '↑';
+        scrollBtn.onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
+        document.body.appendChild(scrollBtn);
+        window.addEventListener('scroll', () => {
+            scrollBtn.style.display = window.scrollY > 300 ? 'block' : 'none';
+        });
+    </script>
+    <!-- Langflow Embedded Chat Widget -->
+    <script src="https://cdn.jsdelivr.net/gh/logspace-ai/langflow-embedded-chat@v1.0.7/dist/build/static/js/bundle.min.js"></script>
+    <langflow-chat
+        window_title="Code Wiki Assistant"
+        flow_id="fb98244a-f5df-4fb4-9195-913b0e331dad"
+        host_url="https://agentstudio.servicesessentials.ibm.com"
+        api_key="ak_uZRb2tG2eV-ylLTc-k_KpniRmNdy2nnjYaUg5N_p1p4">
+    </langflow-chat>
+</body>
+</html>
