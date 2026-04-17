@@ -3,221 +3,187 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Module documentation for Flask-AppBuilder framework.">
-    <title>Modules - Flask-AppBuilder Documentation</title>
+    <meta name="description" content="Modules documentation for Flask-AppBuilder framework.">
+    <title>Modules | Flask-AppBuilder Documentation</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="sidebar">
-        <nav>
+<div class="sidebar">
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/architecture">Architecture</a></li>
+            <li class="active"><a href="/modules">Modules</a></li>
+            <li><a href="/setup">Setup</a></li>
+            <li><a href="/flows">Flows</a></li>
+        </ul>
+    </nav>
+</div>
+<div class="content">
+    <h1>Modules</h1>
+    
+    <!-- Module Overview -->
+    <section id="module-overview">
+        <h2>Module Overview</h2>
+        <p><strong>Total module count:</strong> Not detected</p>
+        <p><strong>Organization approach:</strong> Modular structure with clear separation of concerns.</p>
+        <p><strong>Naming conventions:</strong> Not detected</p>
+    </section>
+
+    <!-- Core Modules -->
+    <section id="core-modules">
+        <h2>Core Modules</h2>
+        
+        <article class="module-item">
+            <h3>Base</h3>
+            <p><strong>Location:</strong> <code>flask_appbuilder/base.py</code></p>
+            <p><strong>Purpose:</strong> Provides foundational classes and functions for the framework.</p>
+            <p><strong>Key Classes/Functions:</strong></p>
             <ul>
-                <li><a href="overview.html">Overview</a></li>
-                <li><a href="architecture.html">Architecture</a></li>
-                <li><a href="modules.html" class="active">Modules</a></li>
-                <li><a href="setup.html">Setup</a></li>
-                <li><a href="testing.html">Testing</a></li>
+                <li>
+                    <strong>initialize_app(app):</strong> Initializes the application.
+                    <pre><code>def initialize_app(app): pass</code></pre>
+                </li>
             </ul>
-        </nav>
-    </div>
-    <div class="content">
-        <h1>Modules</h1>
-        <section id="module-overview">
-            <h2>Module Overview</h2>
-            <p>Total Module Count: Not detected</p>
-            <p>Organization Approach: Modular, adhering to MVC architecture.</p>
-            <p>Naming Conventions: Not detected</p>
-        </section>
+            <p><strong>Dependencies:</strong> <code>flask_appbuilder/const.py</code></p>
+            <p><strong>Used by:</strong> <code>flask_appbuilder/views.py</code></p>
+        </article>
 
-        <section id="core-modules">
-            <h2>Core Modules</h2>
+        <article class="module-item">
+            <h3>BaseView</h3>
+            <p><strong>Location:</strong> <code>flask_appbuilder/baseviews.py</code></p>
+            <p><strong>Purpose:</strong> Defines base view functionalities.</p>
+            <p><strong>Key Classes/Functions:</strong> None detected</p>
+            <p><strong>Dependencies:</strong> None detected</p>
+            <p><strong>Used by:</strong> None detected</p>
+        </article>
+    </section>
 
-            <div class="module-item">
-                <h3>App Initialization</h3>
-                <p><strong>Location:</strong> flask_appbuilder/__init__.py</p>
-                <p><strong>Purpose:</strong> Initializes the Flask application and integrates AppBuilder.</p>
-                <p><strong>Key Functions:</strong></p>
-                <ul>
-                    <li>
-                        <strong>AppBuilder</strong> - <code>(app=None, session=None, security_manager=None)</code><br>
-                        Initializes AppBuilder with app, session, and security manager.<br>
-                        <pre><code>def AppBuilder(app=None, session=None, security_manager=None):
-    app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-    security_manager.init_app(app)</code></pre>
-                    </li>
-                </ul>
-                <p><strong>Dependencies:</strong> Flask</p>
-                <p><strong>Used By:</strong> Views, Models</p>
-                <p><strong>Example Usage:</strong></p>
-                <pre><code># Initializing AppBuilder
-from flask import Flask
-from flask_appbuilder import AppBuilder
+    <!-- Dependency Graph -->
+    <section id="dependency-graph">
+        <h2>Dependency Graph</h2>
+        <p>Not detected</p>
+    </section>
 
-app = Flask(__name__)
-appbuilder = AppBuilder(app=app)</code></pre>
-            </div>
+    <!-- Third-Party Dependencies -->
+    <section id="third-party-dependencies">
+        <h2>Third-Party Dependencies</h2>
+        <p>Not detected</p>
+    </section>
 
-            <div class="module-item">
-                <h3>API Manager</h3>
-                <p><strong>Location:</strong> flask_appbuilder/api/manager.py</p>
-                <p><strong>Purpose:</strong> Handles API endpoint registrations and configurations.</p>
-                <p><strong>Key Functions:</strong> Not detected</p>
-                <p><strong>Dependencies:</strong> Flask, Marshmallow</p>
-                <p><strong>Used By:</strong> api/__init__.py, tests/test_api.py</p>
-                <p><strong>Example Usage:</strong> Not detected</p>
-            </div>
-        </section>
+    <!-- Data Models -->
+    <section id="data-models">
+        <h2>Data Models</h2>
+        <p>Not detected</p>
+    </section>
 
-        <section id="dependency-graph">
-            <h2>Dependency Graph</h2>
-            <p><strong>Visual Representation:</strong> Not detected</p>
-            <p><strong>Circular Dependencies:</strong> Not detected</p>
-        </section>
+    <!-- Utilities and Helpers -->
+    <section id="utilities-and-helpers">
+        <h2>Utilities and Helpers</h2>
+        <p>Not detected</p>
+    </section>
 
-        <section id="third-party-dependencies">
-            <h2>Third-Party Dependencies</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Dependency</th>
-                        <th>Category</th>
-                        <th>Version Requirement</th>
-                        <th>Purpose</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Flask</td>
-                        <td>Web Framework</td>
-                        <td>Not detected</td>
-                        <td>Handles routing and application logic.</td>
-                    </tr>
-                    <tr>
-                        <td>SQLAlchemy</td>
-                        <td>Database ORM</td>
-                        <td>Not detected</td>
-                        <td>Manages database interactions.</td>
-                    </tr>
-                    <tr>
-                        <td>Marshmallow</td>
-                        <td>Validation</td>
-                        <td>Not detected</td>
-                        <td>Provides schema validation for API endpoints.</td>
-                    </tr>
-                </tbody>
-            </table>
-        </section>
+    <!-- API Interfaces -->
+    <section id="api-interfaces">
+        <h2>API Interfaces</h2>
+        <article class="api-item">
+            <h3>Test API</h3>
+            <p><strong>Endpoint:</strong> <code>/api/v1/test</code></p>
+            <p><strong>Method:</strong> GET</p>
+            <p><strong>Handler:</strong> <code>test_api</code></p>
+            <p><strong>Description:</strong> Endpoint for testing API functionality.</p>
+        </article>
+        <article class="api-item">
+            <h3>Model View List</h3>
+            <p><strong>Endpoint:</strong> <code>/modelview/list</code></p>
+            <p><strong>Method:</strong> GET</p>
+            <p><strong>Handler:</strong> <code>test_model_view_list</code></p>
+            <p><strong>Description:</strong> Endpoint for listing models.</p>
+        </article>
+    </section>
 
-        <section id="data-models">
-            <h2>Data Models</h2>
-            <div class="model-item">
-                <h3>BaseModel</h3>
-                <p><strong>Location:</strong> flask_appbuilder/models/base.py</p>
-                <p><strong>Fields:</strong> id (Integer, primary key), name (String).</p>
-                <p><strong>Relationships:</strong> None</p>
-                <p><strong>Validation Rules:</strong> Not detected</p>
-                <p><strong>Example Schema:</strong></p>
-                <pre><code>class BaseModel:
-    id = Column(Integer, primary_key=True)
-    name = Column(String(50))</code></pre>
-            </div>
+    <!-- Module Best Practices -->
+    <section id="module-best-practices">
+        <h2>Module Best Practices</h2>
+        <p><strong>Coding patterns observed:</strong> Modular design pattern and MVC pattern.</p>
+        <p><strong>Import conventions:</strong> Not detected</p>
+        <p><strong>Testing approach per module:</strong> Tests are organized by functional areas such as APIs and MVC.</p>
+    </section>
+</div>
 
-            <div class="model-item">
-                <h3>GroupModel</h3>
-                <p><strong>Location:</strong> flask_appbuilder/models/group.py</p>
-                <p><strong>Fields:</strong> members</p>
-                <p><strong>Relationships:</strong> User</p>
-                <p><strong>Validation Rules:</strong> Not detected</p>
-                <p><strong>Example Schema:</strong></p>
-                <pre><code>class GroupModel(BaseModel):
-    members = relationship('User')</code></pre>
-            </div>
-        </section>
+<script>
+// Smooth scrolling for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+});
 
-        <section id="utilities-helpers">
-            <h2>Utilities and Helpers</h2>
-            <p>Common utility modules: Not detected</p>
-            <p>Helper functions: Not detected</p>
-            <p>Shared services: Not detected</p>
-        </section>
+// Copy to clipboard for code blocks
+document.querySelectorAll('pre code').forEach(block => {
+    const btn = document.createElement('button');
+    btn.className = 'copy-btn';
+    btn.textContent = 'Copy';
+    btn.onclick = () => {
+        navigator.clipboard.writeText(block.textContent);
+        btn.textContent = 'Copied!';
+        setTimeout(() => btn.textContent = 'Copy', 2000);
+    };
+    block.parentElement.style.position = 'relative';
+    block.parentElement.appendChild(btn);
+});
 
-        <section id="api-interfaces">
-            <h2>API Interfaces</h2>
-            <p>REST/GraphQL endpoints: Not detected</p>
-            <p>Request/Response schemas: Not detected</p>
-            <p>Authentication requirements: Not detected</p>
-        </section>
-
-        <section id="module-best-practices">
-            <h2>Module Best Practices</h2>
-            <p>Coding patterns observed: Blueprint Routing, Mixin, Decorator.</p>
-            <p>Import conventions: Not detected</p>
-            <p>Testing approach per module:</p>
-            <ul>
-                <li>Unit and integration tests for APIs, models, and view logic.</li>
-                <li>Validation of database interactions using SQLAlchemy utilities.</li>
-            </ul>
-        </section>
-    </div>
-    <script>
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            });
+// Module search/filter
+const createModuleFilter = () => {
+    const filter = document.createElement('input');
+    filter.type = 'text';
+    filter.placeholder = 'Search modules...';
+    filter.className = 'module-search';
+    filter.oninput = (e) => {
+        const query = e.target.value.toLowerCase();
+        document.querySelectorAll('.module-item').forEach(item => {
+            const text = item.textContent.toLowerCase();
+            item.style.display = text.includes(query) ? '' : 'none';
         });
+    };
+    const content = document.querySelector('.content');
+    if (content) content.insertBefore(filter, content.firstChild);
+};
+createModuleFilter();
 
-        // Copy to clipboard for code blocks
-        document.querySelectorAll('pre code').forEach(block => {
-            const btn = document.createElement('button');
-            btn.className = 'copy-btn';
-            btn.textContent = 'Copy';
-            btn.onclick = () => {
-                navigator.clipboard.writeText(block.textContent);
-                btn.textContent = 'Copied!';
-                setTimeout(() => btn.textContent = 'Copy', 2000);
-            };
-            block.parentElement.style.position = 'relative';
-            block.parentElement.appendChild(btn);
-        });
+// Mobile navigation toggle
+const createMobileToggle = () => {
+    if (window.innerWidth <= 768) {
+        const sidebar = document.querySelector('.sidebar');
+        const toggle = document.createElement('button');
+        toggle.className = 'mobile-nav-toggle';
+        toggle.innerHTML = '☰';
+        toggle.onclick = () => sidebar.classList.toggle('active');
+        document.body.insertBefore(toggle, document.body.firstChild);
+    }
+};
+createMobileToggle();
 
-        // Module search/filter
-        const createModuleFilter = () => {
-            const filter = document.createElement('input');
-            filter.type = 'text';
-            filter.placeholder = 'Search modules...';
-            filter.className = 'module-search';
-            filter.oninput = (e) => {
-                const query = e.target.value.toLowerCase();
-                document.querySelectorAll('.module-item').forEach(item => {
-                    const text = item.textContent.toLowerCase();
-                    item.style.display = text.includes(query) ? '' : 'none';
-                });
-            };
-            const content = document.querySelector('.content');
-            if (content) content.insertBefore(filter, content.firstChild);
-        };
-        createModuleFilter();
+// Scroll to top button
+const scrollBtn = document.createElement('button');
+scrollBtn.className = 'scroll-to-top';
+scrollBtn.innerHTML = '↑';
+scrollBtn.onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
+document.body.appendChild(scrollBtn);
+window.addEventListener('scroll', () => {
+    scrollBtn.style.display = window.scrollY > 300 ? 'block' : 'none';
+});
+</script>
 
-        // Mobile navigation toggle
-        const createMobileToggle = () => {
-            if (window.innerWidth <= 768) {
-                const sidebar = document.querySelector('.sidebar');
-                const toggle = document.createElement('button');
-                toggle.className = 'mobile-nav-toggle';
-                toggle.innerHTML = '☰';
-                toggle.onclick = () => sidebar.classList.toggle('active');
-                document.body.insertBefore(toggle, document.body.firstChild);
-            }
-        };
-        createMobileToggle();
-
-        // Scroll to top button
-        const scrollBtn = document.createElement('button');
-        scrollBtn.className = 'scroll-to-top';
-        scrollBtn.innerHTML = '↑';
-        scrollBtn.onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
-        document.body.appendChild(scrollBtn);
-        window.addEventListener('scroll', () => {
-            scrollBtn
+<!-- Langflow Embedded Chat Widget -->
+<script src="https://cdn.jsdelivr.net/gh/logspace-ai/langflow-embedded-chat@v1.0.7/dist/build/static/js/bundle.min.js"></script>
+<langflow-chat
+    window_title="Code Wiki Assistant"
+    flow_id="fb98244a-f5df-4fb4-9195-913b0e331dad"
+    host_url="https://agentstudio.servicesessentials.ibm.com"
+    api_key="ak_uZRb2tG2eV-ylLTc-k_KpniRmNdy2nnjYaUg5N_p1p4">
+</langflow-chat>
+</body>
+</html>
