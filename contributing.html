@@ -1,1 +1,194 @@
-<!-- Error: setup and development details incomplete -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contribute to Flask-AppBuilder, a web application framework built with Flask and SQLAlchemy.">
+    <title>Contributing - Flask-AppBuilder</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="sidebar">
+        <nav>
+            <ul>
+                <li><a href="index.html">Overview</a></li>
+                <li><a href="structure.html">Structure</a></li>
+                <li><a href="modules.html">Modules</a></li>
+                <li><a href="architecture.html">Architecture</a></li>
+                <li class="active"><a href="contributing.html">Contributing</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div class="content">
+        <h1>Contributing to Flask-AppBuilder</h1>
+        
+        <section>
+            <h2>Welcome to Flask-AppBuilder!</h2>
+            <p>Thank you for considering contributing to Flask-AppBuilder! Your contributions help us improve this framework and provide developers with a powerful tool for building web applications.</p>
+            <p>Please ensure you adhere to the project's <a href="code_of_conduct.html">Code of Conduct</a> while contributing.</p>
+        </section>
+
+        <section>
+            <h2>Prerequisites</h2>
+            <ul>
+                <li><strong>Required Tools:</strong> Python 3.6+ installed on your system.</li>
+                <li><strong>System Requirements:</strong> Ensure you have pip and virtualenv installed.</li>
+                <li><strong>Account Requirements:</strong> A GitHub account is required for submitting issues and pull requests.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Development Setup</h2>
+            <ol>
+                <li><strong>Clone the Repository:</strong>
+                    <pre><code>git clone https://github.com/dpgaspar/Flask-AppBuilder.git</code></pre>
+                </li>
+                <li><strong>Install Dependencies:</strong>
+                    <pre><code>cd Flask-AppBuilder
+pip install -r requirements/base.txt</code></pre>
+                </li>
+                <li><strong>Configure Environment:</strong> Set up a virtual environment for development:
+                    <pre><code>python -m venv venv
+source venv/bin/activate</code></pre>
+                </li>
+                <li><strong>Verify Installation:</strong> Run the tests to ensure everything is working:
+                    <pre><code>pytest</code></pre>
+                </li>
+            </ol>
+            <h3>Troubleshooting</h3>
+            <p>If you encounter issues during setup, ensure all dependencies are installed correctly and your Python version is compatible.</p>
+        </section>
+
+        <section>
+            <h2>Project Structure Orientation</h2>
+            <p>The repository is organized as follows:</p>
+            <pre><code>flask_appbuilder/
+├── __init__.py
+├── views.py
+├── base.py
+├── api/
+│   ├── __init__.py
+│   ├── manager.py
+│   ├── schemas.py
+├── models/
+│   ├── base.py
+│   ├── group.py
+├── tests/
+│   ├── base.py
+│   ├── test_api.py
+│   ├── test_mvc.py
+│   ├── test_sqlalchemy.py
+│   ├── test_urltools.py</code></pre>
+            <p>Refer to the <a href="structure.html">Structure</a> page for detailed explanations of the directory contents.</p>
+        </section>
+
+        <section>
+            <h2>Development Workflow</h2>
+            <ul>
+                <li><strong>Branch Naming Conventions:</strong> Use descriptive branch names, e.g., <code>feature/add-authentication</code> or <code>bugfix/fix-routing</code>.</li>
+                <li><strong>Commit Messages:</strong> Follow this format:
+                    <pre><code>[Type]: Short description
+
+Detailed description (if necessary)
+Fixes #issue_number</code></pre>
+                </li>
+                <li><strong>Pull Request Process:</strong> Open a pull request against the <code>main</code> branch. Ensure your PR includes clear descriptions and references any related issues.</li>
+                <li><strong>Code Reviews:</strong> Expect thorough reviews from maintainers. Address all comments promptly.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Coding Standards</h2>
+            <p>Adhere to the following coding standards:</p>
+            <ul>
+                <li><strong>Style Guide:</strong> Follow PEP 8 for Python coding conventions.</li>
+                <li><strong>Linting:</strong> Install and configure <code>flake8</code>:
+                    <pre><code>pip install flake8</code></pre>
+                </li>
+                <li><strong>Formatting:</strong> Use <code>black</code> for code formatting:
+                    <pre><code>pip install black
+black .</code></pre>
+                </li>
+                <li><strong>Best Practices:</strong> Write modular and reusable code, and ensure proper comments and docstrings.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Testing</h2>
+            <ul>
+                <li><strong>Running Tests:</strong> Execute all tests using:
+                    <pre><code>pytest</code></pre>
+                </li>
+                <li><strong>Writing New Tests:</strong> Include tests for new features or bug fixes in the <code>tests/</code> directory.</li>
+                <li><strong>Test Coverage:</strong> Aim for 100% test coverage.</li>
+                <li><strong>Organizing Tests:</strong> Group tests by functionality (e.g., API, models, views).</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Building and Running</h2>
+            <ul>
+                <li><strong>Development Server:</strong> Run the server locally using:
+                    <pre><code>flask run</code></pre>
+                </li>
+                <li><strong>Build Process:</strong> Flask-AppBuilder does not require a build step but ensure dependencies are up-to-date.</li>
+                <li><strong>Environment Variables:</strong> Configure environment variables for your development setup.</li>
+                <li><strong>Hot Reload:</strong> Enable Flask's debugging mode for live reloads during development.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Debugging</h2>
+            <ul>
+                <li><strong>Debugging Tools:</strong> Use Flask's built-in debugger for troubleshooting.</li>
+                <li><strong>Common Scenarios:</strong> Check logs and tracebacks for errors in routing or database queries.</li>
+                <li><strong>Logging:</strong> Configure Flask logging for detailed error tracking.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Submitting Contributions</h2>
+            <p>Follow these guidelines when submitting contributions:</p>
+            <ul>
+                <li><strong>Issue Guidelines:</strong> Provide detailed descriptions and steps to reproduce bugs or feature requests.</li>
+                <li><strong>Pull Request Checklist:</strong> Ensure the following before submitting:
+                    <ul>
+                        <li>Code is linted and formatted.</li>
+                        <li>Tests are included and passed.</li>
+                        <li>Documentation is updated.</li>
+                    </ul>
+                </li>
+                <li><strong>Documentation Requirements:</strong> Update relevant pages for new features.</li>
+                <li><strong>Review Expectations:</strong> Maintain patience during the review process.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Getting Help</h2>
+            <ul>
+                <li><strong>Questions:</strong> Use the <a href="https://github.com/dpgaspar/Flask-AppBuilder/issues">GitHub Issues</a> page for queries.</li>
+                <li><strong>Communication Channels:</strong> Join discussions on the project's GitHub Discussions tab.</li>
+                <li><strong>Maintainer Contact:</strong> Reach out to maintainers for urgent queries.</li>
+            </ul>
+        </section>
+    </div>
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+        });
+
+        // Copy to clipboard for code blocks
+        document.querySelectorAll('pre code').forEach(block => {
+            const btn = document.createElement('button');
+            btn.className = 'copy-btn';
+            btn.textContent = 'Copy';
+            btn.onclick = () => {
+                navigator.clipboard.writeText(block.textContent);
+                btn.textContent = 'Copied!';
+                setTimeout(() => btn.textContent = 'Copy', 2000);
+            };
