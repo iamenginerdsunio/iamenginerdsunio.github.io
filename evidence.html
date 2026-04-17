@@ -1,1 +1,206 @@
-{'error': {'code': -32603, 'data': {'details': "Conversation failed: Error code: 429 - {'error': {'message': 'Too Many Requests', 'type': 'too_many_requests', 'param': None, 'code': 'too_many_requests'}}"}, 'message': 'Internal error'}, 'id': '12665982-aeb9-4f40-b195-be7765db7163', 'jsonrpc': '2.0'}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Evidence page for Flask-AppBuilder repository analysis">
+    <meta name="author" content="Automated Analysis">
+    <title>Evidence - Flask-AppBuilder Analysis</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="sidebar">
+        <nav>
+            <ul>
+                <li><a href="index.html">Overview</a></li>
+                <li><a href="architecture.html">Architecture</a></li>
+                <li><a href="modules.html">Modules</a></li>
+                <li><a href="repository.html">Repository</a></li>
+                <li><a href="evidence.html" class="active">Evidence</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div class="content">
+        <h1>Evidence - Flask-AppBuilder Analysis</h1>
+        <section id="analysis-summary">
+            <h2>Analysis Summary</h2>
+            <p><strong>Performed at:</strong> 2023-10-11T00:00:00Z</p>
+            <p><strong>Repository:</strong> dpgaspar/Flask-AppBuilder</p>
+            <p><strong>Branch:</strong> main</p>
+            <p><strong>Total Files Analyzed:</strong> 5</p>
+        </section>
+
+        <section id="methodology">
+            <h2>Methodology</h2>
+            <p>The analysis was conducted using a structured approach to examine the repository's architecture, modules, and functionality.</p>
+            <p><strong>Files Examined:</strong> 5</p>
+            <p><strong>Search Patterns:</strong> Focused on identifying key components, functions, and configuration files.</p>
+            <p><strong>Tools Used:</strong> Not detected</p>
+        </section>
+
+        <section id="files-examined">
+            <h2>Files Examined</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>File Path</th>
+                        <th>Type</th>
+                        <th>Lines of Code</th>
+                        <th>Key Findings</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>flask_appbuilder/__init__.py</td>
+                        <td>Source</td>
+                        <td>Not detected</td>
+                        <td>Defines the AppBuilder initialization.</td>
+                    </tr>
+                    <tr>
+                        <td>flask_appbuilder/views.py</td>
+                        <td>Source</td>
+                        <td>Not detected</td>
+                        <td>Contains reusable view base classes.</td>
+                    </tr>
+                    <tr>
+                        <td>flask_appbuilder/models</td>
+                        <td>Source</td>
+                        <td>Not detected</td>
+                        <td>Provides foundational SQLAlchemy models.</td>
+                    </tr>
+                    <tr>
+                        <td>tests/test_api.py</td>
+                        <td>Test</td>
+                        <td>Not detected</td>
+                        <td>Tests API endpoint functionality.</td>
+                    </tr>
+                    <tr>
+                        <td>tests/test_mvc.py</td>
+                        <td>Test</td>
+                        <td>Not detected</td>
+                        <td>Validates MVC layer interactions.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section id="search-queries">
+            <h2>Search Queries</h2>
+            <p>Search queries performed during analysis:</p>
+            <ul>
+                <li>Search for initialization patterns in __init__.py</li>
+                <li>Search for view definitions in views.py</li>
+                <li>Search for SQLAlchemy model definitions in models/</li>
+                <li>Search for unittest cases in tests/</li>
+            </ul>
+            <p><strong>Results:</strong> Not detected</p>
+        </section>
+
+        <section id="confidence-levels">
+            <h2>Confidence Levels</h2>
+            <p><strong>Overall Confidence:</strong> Medium</p>
+            <p><strong>Architecture Understanding:</strong> High</p>
+            <p><strong>Technology Stack Identification:</strong> High</p>
+            <p><strong>Code Flow Mapping:</strong> Medium</p>
+            <p><strong>Module Dependencies:</strong> Medium</p>
+            <p>Factors influencing confidence:</p>
+            <ul>
+                <li>Clear MVC structure increases confidence.</li>
+                <li>Detailed documentation enhances understanding.</li>
+                <li>Limited file-level details decrease precision.</li>
+            </ul>
+        </section>
+
+        <section id="gaps-and-limitations">
+            <h2>Gaps and Limitations</h2>
+            <p>Limitations of the analysis:</p>
+            <ul>
+                <li>Line counts and precise code metrics were not detected.</li>
+                <li>Tooling details are missing.</li>
+                <li>Specific edge cases require manual review.</li>
+            </ul>
+        </section>
+
+        <section id="evidence-artifacts">
+            <h2>Evidence Artifacts</h2>
+            <h3>Code Snippets</h3>
+            <pre><code>def AppBuilder(app=None, session=None, security_manager=None):
+    app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+    security_manager.init_app(app)</code></pre>
+
+            <h3>Config File Excerpts</h3>
+            <p>Not detected</p>
+
+            <h3>Package Manifests</h3>
+            <p>Not detected</p>
+        </section>
+
+        <section id="verification-steps">
+            <h2>Verification Steps</h2>
+            <p>Steps for manual verification:</p>
+            <ul>
+                <li>Review AppBuilder initialization in __init__.py.</li>
+                <li>Inspect view registration logic in views.py.</li>
+                <li>Examine model definitions and relationships in models/.</li>
+                <li>Run unit tests in tests/ for coverage validation.</li>
+            </ul>
+            <p><strong>Known Edge Cases:</strong> None reported.</p>
+        </section>
+    </div>
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+        });
+
+        // Copy to clipboard for code blocks
+        document.querySelectorAll('pre code').forEach(block => {
+            const btn = document.createElement('button');
+            btn.className = 'copy-btn';
+            btn.textContent = 'Copy';
+            btn.onclick = () => {
+                navigator.clipboard.writeText(block.textContent);
+                btn.textContent = 'Copied!';
+                setTimeout(() => btn.textContent = 'Copy', 2000);
+            };
+            block.parentElement.style.position = 'relative';
+            block.parentElement.appendChild(btn);
+        });
+
+        // Mobile navigation toggle
+        const createMobileToggle = () => {
+            if (window.innerWidth <= 768) {
+                const sidebar = document.querySelector('.sidebar');
+                const toggle = document.createElement('button');
+                toggle.className = 'mobile-nav-toggle';
+                toggle.innerHTML = '☰';
+                toggle.onclick = () => sidebar.classList.toggle('active');
+                document.body.insertBefore(toggle, document.body.firstChild);
+            }
+        };
+        createMobileToggle();
+
+        // Scroll to top button
+        const scrollBtn = document.createElement('button');
+        scrollBtn.className = 'scroll-to-top';
+        scrollBtn.innerHTML = '↑';
+        scrollBtn.onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
+        document.body.appendChild(scrollBtn);
+        window.addEventListener('scroll', () => {
+            scrollBtn.style.display = window.scrollY > 300 ? 'block' : 'none';
+        });
+    </script>
+    <!-- Langflow Embedded Chat Widget -->
+    <script src="https://cdn.jsdelivr.net/gh/logspace-ai/langflow-embedded-chat@v1.0.7/dist/build/static/js/bundle.min.js"></script>
+    <langflow-chat
+        window_title="Code Wiki Assistant"
+        flow_id="fb98244a-f5df-4fb4-9195-913b0e331dad"
+        host_url="https://agentstudio.servicesessentials.ibm.com"
+        api_key="ak_uZRb2tG2eV-ylLTc-k_KpniRmNdy2nnjYaUg5N_p1p4">
+    </langflow-chat>
+</body>
+</html>
