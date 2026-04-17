@@ -1,195 +1,157 @@
-{
-  "metadata": {
-    "source_repo": "dpgaspar/Flask-AppBuilder",
-    "source_ref": "main",
-    "analyzed_at": "2023-10-10T00:00:00Z",
-    "total_files_analyzed": 8,
-    "total_batches": 3
-  },
-  "overview": {
-    "project_name": "Flask-AppBuilder",
-    "tagline": "A framework for building web applications with Flask and SQLAlchemy.",
-    "detailed_description": "Flask-AppBuilder is a powerful framework designed to streamline the process of building web applications with Flask. It provides a robust implementation of the Model-View-Controller (MVC) architecture, integrating SQLAlchemy for the data layer and Flask for routing and controller logic. The framework includes utilities for managing APIs, user authentication, role-based access control, and reusable views for CRUD operations. It is modular and extensible, with centralized initialization through AppBuilder, reusable ModelView classes for CRUD operations, and ApiManager for managing API endpoints. The framework is widely used for creating dashboards, admin panels, and applications requiring tightly-coupled backend and frontend systems.",
-    "key_features": [
-      "MVC architecture with Flask and SQLAlchemy",
-      "Centralized initialization using AppBuilder",
-      "Modular API management with Blueprint system",
-      "Role-based access control and user authentication",
-      "CLI commands for application management",
-      "Reusable view components for CRUD operations"
-    ],
-    "project_status": "Active",
-    "license": "Apache License 2.0",
-    "languages": ["Python"],
-    "frameworks": ["Flask", "SQLAlchemy"]
-  },
-  "architecture": {
-    "style": "MVC with modular API and CLI management",
-    "description": "Flask-AppBuilder implements an MVC architecture that integrates SQLAlchemy for the data layer, Flask for routing and controller logic, and Blueprint-based views for the presentation layer. The AppBuilder class acts as the central hub for initializing and configuring the application, managing components like security, routing, and session handling. The framework also includes an API layer with ApiManager for Blueprint-based API registration and a CLI layer for managing the application using Click. Its design emphasizes modularity and scalability, ensuring clear separation of concerns and easy extensibility.",
-    "layers": [
-      {
-        "name": "Core Application Layer",
-        "description": "Handles the initialization and configuration of the application, including Flask and SQLAlchemy setup.",
-        "technologies": ["Flask", "SQLAlchemy"],
-        "key_files": [
-          "flask_appbuilder/__init__.py",
-          "flask_appbuilder/cli.py"
-        ],
-        "code_examples": [
-          {
-            "name": "AppBuilder initialization",
-            "code_snippet": "class AppBuilder:\n    def __init__(self, app, session):\n        self.app = app\n        self.session = session"
-          }
-        ]
-      },
-      {
-        "name": "Data Layer",
-        "description": "Manages database interactions using SQLAlchemy. Includes base models and CRUD utilities.",
-        "technologies": ["SQLAlchemy"],
-        "key_files": [
-          "flask_appbuilder/models/__init__.py",
-          "flask_appbuilder/models/sqla/models.py"
-        ],
-        "code_examples": [
-          {
-            "name": "BaseModel CRUD operations",
-            "code_snippet": "class BaseModel:\n    def save(self):\n        session.add(self)\n        session.commit()\n\n    def delete(self):\n        session.delete(self)\n        session.commit()"
-          }
-        ]
-      },
-      {
-        "name": "API Layer",
-        "description": "Manages API initialization and endpoint registrations using ApiManager and Flask's Blueprint system.",
-        "technologies": ["Flask"],
-        "key_files": [
-          "flask_appbuilder/api/__init__.py",
-          "flask_appbuilder/api/manager.py"
-        ],
-        "code_examples": [
-          {
-            "name": "API Blueprint registration",
-            "code_snippet": "class ApiManager:\n    def register_blueprint(self, blueprint):\n        self.app.register_blueprint(blueprint)"
-          }
-        ]
-      },
-      {
-        "name": "View Layer",
-        "description": "Defines reusable views for CRUD operations and user interaction.",
-        "technologies": ["Flask"],
-        "key_files": [
-          "flask_appbuilder/views.py"
-        ],
-        "code_examples": [
-          {
-            "name": "CRUD list view",
-            "code_snippet": "def list(self):\n    return render_template('list.html', data=self.datamodel.query_all())"
-          }
-        ]
-      }
-    ],
-    "components": [
-      {
-        "name": "AppBuilder",
-        "purpose": "Initializes and manages the application components.",
-        "files": ["flask_appbuilder/__init__.py"],
-        "interactions": "Depends on Flask and SQLAlchemy for app and session management."
-      },
-      {
-        "name": "ModelView",
-        "purpose": "Provides CRUD operations for SQLAlchemy models.",
-        "files": ["flask_appbuilder/views.py"],
-        "interactions": "Interacts with the SQLAlchemy data layer through data models."
-      },
-      {
-        "name": "ApiManager",
-        "purpose": "Handles API registrations and configurations.",
-        "files": ["flask_appbuilder/api/manager.py"],
-        "interactions": "Depends on Flask's Blueprint for modular API management."
-      }
-    ],
-    "design_patterns": ["MVC", "Blueprint Routing", "Command Pattern (CLI)"],
-    "data_flow": "Data flows from the SQLAlchemy data layer through views and APIs to the user interface. CRUD operations and API calls are managed through centralized components like ModelView and ApiManager."
-  },
-  "repository_structure": {
-    "directory_tree": "flask_appbuilder/\n├── __init__.py\n├── models\n│   ├── __init__.py\n│   ├── sqla\n│       ├── models.py\n├── api\n│   ├── __init__.py\n│   ├── manager.py\n├── views.py\n├── cli.py\n├── tests\n│   ├── test_api.py\n│   ├── test_mvc.py",
-    "key_directories": [
-      {
-        "path": "flask_appbuilder/",
-        "purpose": "Contains core framework logic, including initialization, models, views, and APIs.",
-        "key_files": [
-          "__init__.py",
-          "views.py",
-          "api/manager.py"
-        ],
-        "patterns": "Structured around modular components with clear separation of concerns."
-      },
-      {
-        "path": "tests/",
-        "purpose": "Houses unit and integration tests for validating framework functionalities.",
-        "key_files": [
-          "test_api.py",
-          "test_mvc.py"
-        ],
-        "patterns": "Extensive use of unittest for API and MVC validation."
-      }
-    ],
-    "entry_points": ["flask_appbuilder/__init__.py"],
-    "configuration_files": ["setup.py", "setup.cfg", "MANIFEST.in"]
-  },
-  "modules_and_apis": {
-    "core_modules": [
-      {
-        "name": "AppBuilder",
-        "file": "flask_appbuilder/__init__.py",
-        "purpose": "Centralized initialization and configuration for the application.",
-        "key_functions": [
-          {
-            "name": "AppBuilder",
-            "signature": "(self, app: Flask, session: SQLAlchemy.session)",
-            "description": "Initializes the Flask-AppBuilder instance with app and session.",
-            "code_snippet": "class AppBuilder:\n    def __init__(self, app, session):\n        self.app = app\n        self.session = session"
-          }
-        ],
-        "dependencies": ["Flask", "SQLAlchemy"],
-        "used_by": ["views.py", "models/base.py"]
-      },
-      {
-        "name": "ApiManager",
-        "file": "flask_appbuilder/api/manager.py",
-        "purpose": "Centralized management of API registrations and configurations.",
-        "key_functions": [
-          {
-            "name": "register_blueprint",
-            "signature": "def register_blueprint(self, blueprint):",
-            "description": "Registers a Blueprint with the application.",
-            "code_snippet": "def register_blueprint(self, blueprint):\n    self.app.register_blueprint(blueprint)\n    self.blueprints.append(blueprint)"
-          }
-        ],
-        "dependencies": ["Flask.Blueprint"],
-        "used_by": []
-      }
-    ],
-    "data_models": [
-      {
-        "name": "BaseModel",
-        "file": "flask_appbuilder/models/sqla/models.py",
-        "fields": ["id"],
-        "relationships": [],
-        "code_snippet": "class BaseModel:\n    id = Column(Integer, primary_key=True)"
-      }
-    ],
-    "api_endpoints": [
-      {
-        "path": "/api/v1/test",
-        "method": "GET",
-        "handler": "ApiManager.test_handler",
-        "description": "Test endpoint to validate API functionality."
-      }
-    ]
-  },
-  "code_flows": {
-    "request_lifecycle": "Requests are routed through Flask, invoking views or APIs for processing and returning responses.",
-    "routing_patterns": "Uses Flask's Blueprint system for modular routing and view registration.",
-    "data_flow": "Data flows from user requests through views to models, where CRUD operations are performed using SQLAlchemy.",
-    "authentication": "Role-based security is integrated into views and APIs, managed by AppBuilder.",
-    "
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Flask-AppBuilder: A framework for building web applications with Flask and SQLAlchemy.">
+    <title>Flask-AppBuilder - Overview</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="favicon.ico">
+</head>
+<body>
+    <aside class="sidebar">
+        <div class="logo">
+            <h1>Flask-AppBuilder</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html" class="active">📄 Overview</a></li>
+                <li><a href="architecture.html">🏗️ Architecture</a></li>
+                <li><a href="structure.html">📁 Structure</a></li>
+                <li><a href="flows.html">🔄 Flows</a></li>
+                <li><a href="modules.html">📦 Modules</a></li>
+                <li><a href="evidence.html">✅ Evidence</a></li>
+                <li><a href="contributing.html">🤝 Contributing</a></li>
+            </ul>
+        </nav>
+    </aside>
+    <main class="content">
+        <header class="hero">
+            <h1>Flask-AppBuilder</h1>
+            <p>A framework for building web applications with Flask and SQLAlchemy.</p>
+            <div class="badges">
+                <span class="badge">Language: Python</span>
+                <span class="badge">Framework: Flask, SQLAlchemy</span>
+                <span class="badge">License: Apache 2.0</span>
+            </div>
+        </header>
+        <article>
+            <section id="project-purpose">
+                <h2>Project Purpose</h2>
+                <p>Flask-AppBuilder is a comprehensive framework designed to facilitate the rapid development of web applications using Flask and SQLAlchemy. By adopting an MVC architecture, the framework organizes the application into modular components, including views, models, and controllers. Flask-AppBuilder provides tools for initializing the application, managing routes, and interfacing with SQLAlchemy for database operations. It includes reusable base classes for views and models, offering built-in support for role-based access control, CRUD operations, and robust API functionality.</p>
+                <p>The framework also emphasizes extensibility, allowing developers to build on its core components using decorators, mixins, and fixtures for testing. Testing is a core part of Flask-AppBuilder's design, with pre-configured tools and workflows to validate API endpoints and MVC components effectively. The framework's user-friendly design ensures that developers can quickly implement scalable, secure, and maintainable applications, making it a popular choice for dashboards, administrative tools, and data-driven applications.</p>
+            </section>
+            <section id="key-features">
+                <h2>Key Features</h2>
+                <ul>
+                    <li>Modular MVC architecture with Flask and SQLAlchemy</li>
+                    <li>Role-based access control and security decorators</li>
+                    <li>Blueprint-based routing for modular views</li>
+                    <li>Comprehensive CRUD operations integrated with SQLAlchemy</li>
+                    <li>Pytest-based testing framework with fixtures for API and MVC validation</li>
+                </ul>
+            </section>
+            <section id="tech-stack">
+                <h2>Tech Stack</h2>
+                <ul>
+                    <li><strong>Primary Language:</strong> Python</li>
+                    <li><strong>Frameworks:</strong> Flask, SQLAlchemy</li>
+                </ul>
+            </section>
+            <section id="architecture-overview">
+                <h2>Architecture Overview</h2>
+                <p>Flask-AppBuilder organizes its core functionality around the MVC architecture. The initialization layer is responsible for application setup, integrating AppBuilder with Flask and SQLAlchemy. The view layer utilizes Flask's Blueprint system for modular routing and relies on base classes to streamline the creation of user interfaces. The model layer defines database abstractions with SQLAlchemy and provides CRUD functionality via reusable base classes. The testing layer ensures application reliability through unit tests for API endpoints, models, and views, leveraging the pytest framework.</p>
+                <p><a href="architecture.html">Learn more about the architecture.</a></p>
+            </section>
+            <section id="quick-start">
+                <h2>Quick Start</h2>
+                <h3>Prerequisites</h3>
+                <ul>
+                    <li>Python 3.x</li>
+                    <li>pip package manager</li>
+                </ul>
+                <h3>Installation</h3>
+                <pre><code class="language-bash">pip install flask-appbuilder</code></pre>
+                <h3>Basic Usage</h3>
+                <pre><code class="language-python">from flask_appbuilder import AppBuilder
+appbuilder = AppBuilder(app, db.session)</code></pre>
+                <p><a href="contributing.html">Learn how to contribute to this project.</a></p>
+            </section>
+            <section id="project-status">
+                <h2>Project Status</h2>
+                <p>The project is currently active.</p>
+            </section>
+        </article>
+    </main>
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+        });
+
+        // Copy to clipboard for code blocks
+        document.querySelectorAll('pre code').forEach(block => {
+            const btn = document.createElement('button');
+            btn.className = 'copy-btn';
+            btn.textContent = 'Copy';
+            btn.onclick = () => {
+                navigator.clipboard.writeText(block.textContent);
+                btn.textContent = 'Copied!';
+                setTimeout(() => btn.textContent = 'Copy', 2000);
+            };
+            block.parentElement.style.position = 'relative';
+            block.parentElement.appendChild(btn);
+        });
+
+        // Mobile navigation toggle
+        const createMobileToggle = () => {
+            if (window.innerWidth <= 768) {
+                const sidebar = document.querySelector('.sidebar');
+                const toggle = document.createElement('button');
+                toggle.className = 'mobile-nav-toggle';
+                toggle.innerHTML = '☰';
+                toggle.onclick = () => sidebar.classList.toggle('active');
+                document.body.insertBefore(toggle, document.body.firstChild);
+            }
+        };
+        createMobileToggle();
+
+        // Scroll to top button
+        const scrollBtn = document.createElement('button');
+        scrollBtn.className = 'scroll-to-top';
+        scrollBtn.innerHTML = '↑';
+        scrollBtn.onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
+        document.body.appendChild(scrollBtn);
+        window.addEventListener('scroll', () => {
+            scrollBtn.style.display = window.scrollY > 300 ? 'block' : 'none';
+        });
+
+        // Highlight active section in navigation
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.sidebar a');
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (scrollY >= sectionTop - 60) current = section.getAttribute('id');
+            });
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) link.classList.add('active');
+            });
+        });
+    </script>
+    <!-- Langflow Embedded Chat Widget -->
+    <script src="https://cdn.jsdelivr.net/gh/logspace-ai/langflow-embedded-chat@v1.0.7/dist/build/static/js/bundle.min.js"></script>
+    <langflow-chat
+        window_title="Code Wiki Assistant"
+        flow_id="fb98244a-f5df-4fb4-9195-913b0e331dad"
+        host_url="https://agentstudio.servicesessentials.ibm.com"
+        api_key="ak_uZRb2tG2eV-ylLTc-k_KpniRmNdy2nnjYaUg5N_p1p4">
+    </langflow-chat>
+</body>
+</html>
