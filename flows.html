@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Detailed documentation on Flask-AppBuilder code flows including request lifecycle, routing, data flow, and more.">
-    <meta name="author" content="Flask-AppBuilder Documentation">
-    <title>Code Flows | Flask-AppBuilder</title>
+    <meta name="description" content="Flows documentation for Flask-AppBuilder. Learn how the application handles requests, routes, and data processes.">
+    <title>Flows - Flask-AppBuilder</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -16,84 +15,115 @@
                 <li><a href="architecture.html">Architecture</a></li>
                 <li><a href="flows.html" class="active">Flows</a></li>
                 <li><a href="modules.html">Modules</a></li>
-                <li><a href="setup.html">Setup</a></li>
+                <li><a href="testing.html">Testing</a></li>
             </ul>
         </nav>
     </div>
     <div class="content">
         <header>
-            <h1>Code Flows</h1>
-            <p>Understand the detailed flow of requests, data, and application logic in Flask-AppBuilder.</p>
+            <h1>Flows</h1>
+            <p>Understand how Flask-AppBuilder processes requests, handles data, and manages logic.</p>
         </header>
+        <main>
+            <section id="code-flow-overview">
+                <h2>Code Flow Overview</h2>
+                <p>Flask-AppBuilder processes requests and events through a modular architecture. It utilizes Flask's routing system, SQLAlchemy's ORM capabilities, and a layered design to handle requests efficiently. The framework separates initialization, API management, views, and utilities into distinct modules.</p>
+            </section>
+            <section id="request-lifecycle">
+                <h2>Request Lifecycle</h2>
+                <ol>
+                    <li>A request is received by the Flask application.</li>
+                    <li>Routing determines the target view or API endpoint.</li>
+                    <li>The appropriate handler processes the request.</li>
+                    <li>Data is fetched or updated using SQLAlchemy models.</li>
+                    <li>The response is generated as HTML or JSON and returned to the user.</li>
+                </ol>
+                <pre><code>from flask import Flask, jsonify
 
-        <section id="code-flow-overview">
-            <h2>Code Flow Overview</h2>
-            <p>Flask-AppBuilder is designed around the MVC architecture, processing requests through modular views and APIs, interacting with SQLAlchemy models for data operations, and generating responses for users. It integrates Flask and SQLAlchemy seamlessly to ensure scalability and maintainability.</p>
-        </section>
+app = Flask(__name__)
 
-        <section id="request-lifecycle">
-            <h2>Request Lifecycle</h2>
-            <ol>
-                <li>A user sends a request (e.g., HTTP GET or POST) to the server.</li>
-                <li>The request is routed using Flask's Blueprint system.</li>
-                <li>Views or APIs process the request and interact with SQLAlchemy models for database operations.</li>
-                <li>Processed data is sent back as a response (HTML, JSON, etc.).</li>
-            </ol>
-        </section>
+@app.route('/api/v1/test', methods=['GET'])
+def test_api():
+    return jsonify({'message': 'success'})</code></pre>
+            </section>
+            <section id="routing">
+                <h2>Routing</h2>
+                <p>Routes are defined using Flask's decorators. Flask-AppBuilder employs modular routing for views and APIs, allowing developers to extend functionality easily.</p>
+                <pre><code>from flask import Blueprint
 
-        <section id="routing">
-            <h2>Routing</h2>
-            <p>Routing is handled by Flask's Blueprint system, allowing modular definition of routes.</p>
-            <div class="code-example">
+blueprint = Blueprint('example', __name__)
+
+@blueprint.route('/example', methods=['GET'])
+def example_route():
+    return "Example route"</code></pre>
+                <p>Views map routes to business logic:</p>
                 <pre><code>class BaseView:
-    def register_routes(self):
-        blueprint = Blueprint('base', __name__)
-        self.appbuilder.app.register_blueprint(blueprint)</code></pre>
-            </div>
-            <p><strong>Examples:</strong></p>
-            <ul>
-                <li><code>/modelview</code> handled by reusable CRUD views.</li>
-                <li><code>/api/endpoint</code> managed by ApiManager for modular API logic.</li>
-            </ul>
-        </section>
+    route_base = '/baseview'
 
-        <section id="data-flow">
-            <h2>Data Flow</h2>
-            <p>Data flows from user inputs through views or APIs to models, where SQLAlchemy handles database operations. Responses are generated and returned to users.</p>
-            <div class="code-example">
-                <pre><code>class BaseModel:
+    @expose('/')
+    def index(self):
+        return self.render_template('index.html')</code></pre>
+            </section>
+            <section id="data-flow">
+                <h2>Data Flow</h2>
+                <p>Data flows through several layers:</p>
+                <ul>
+                    <li>API endpoints or views receive user inputs.</li>
+                    <li>SQLAlchemy models manage database interactions.</li>
+                    <li>Data is transformed within models or utilities before being returned.</li>
+                </ul>
+                <pre><code>from sqlalchemy import Column, Integer, String
+
+class BaseModel:
     id = Column(Integer, primary_key=True)
     name = Column(String(50))</code></pre>
-            </div>
-        </section>
+            </section>
+            <section id="business-logic">
+                <h2>Business Logic</h2>
+                <p>Core business logic resides in views and API handlers. Modular classes like <code>BaseView</code> and <code>BaseManager</code> encapsulate reusable functionalities.</p>
+                <pre><code>class BaseManager:
+    def manage_component(self, component):
+        # Manage application component lifecycle
+        pass</code></pre>
+            </section>
+            <section id="ui-frontend-flows">
+                <h2>UI/Frontend Flows</h2>
+                <p>Flask-AppBuilder focuses on server-side rendering using Jinja2 templates for UI components. State is handled in the backend, reducing frontend complexity.</p>
+                <pre><code>&lt;div&gt;
+    &lt;h1&gt;{{ title }}&lt;/h1&gt;
+&lt;/div&gt;</code></pre>
+            </section>
+            <section id="background-jobs">
+                <h2>Background Jobs</h2>
+                <p>Not detected</p>
+            </section>
+            <section id="error-handling">
+                <h2>Error Handling</h2>
+                <p>Errors are managed using custom exception classes and Flask's error handlers. Application-specific exceptions are defined in <code>AppBuilderException</code>.</p>
+                <pre><code>from flask import Flask
 
-        <section id="business-logic">
-            <h2>Business Logic</h2>
-            <p>Business logic resides in modular views and APIs, which interact with SQLAlchemy models for data processing. AppBuilder integrates security mechanisms, including role-based access control.</p>
-        </section>
+app = Flask(__name__)
 
-        <section id="ui-flows">
-            <h2>UI/Frontend Flows</h2>
-            <p>Not detected</p>
-        </section>
-
-        <section id="background-jobs">
-            <h2>Background Jobs</h2>
-            <p>Not detected</p>
-        </section>
-
-        <section id="error-handling">
-            <h2>Error Handling</h2>
-            <p>Custom error handlers are integrated following Flask conventions to manage exceptions and invalid inputs. Logging is implemented for debugging purposes.</p>
-        </section>
-
-        <section id="flow-diagrams">
-            <h2>Flow Diagrams</h2>
-            <p>Not detected</p>
-        </section>
+@app.errorhandler(404)
+def not_found_error(e):
+    return "Not Found", 404</code></pre>
+            </section>
+            <section id="flow-diagrams">
+                <h2>Flow Diagrams</h2>
+                <p>Visual representations of operations include sequence diagrams and modular component interactions.</p>
+                <svg viewBox="0 0 200 100" data-interactive>
+                    <circle cx="50" cy="50" r="30" data-step="1" data-info="Request received"></circle>
+                    <circle cx="150" cy="50" r="30" data-step="2" data-info="Response generated"></circle>
+                    <line x1="80" y1="50" x2="120" y2="50" stroke="black" marker-end="url(#arrowhead)"></line>
+                    <defs>
+                        <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
+                            <polygon points="0 0, 10 3.5, 0 7" />
+                        </marker>
+                    </defs>
+                </svg>
+            </section>
+        </main>
     </div>
-
-    <!-- Modern JavaScript Enhancements -->
     <script>
     // Smooth scrolling for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -152,7 +182,6 @@
         });
     });
     </script>
-
     <!-- Langflow Embedded Chat Widget -->
     <script src="https://cdn.jsdelivr.net/gh/logspace-ai/langflow-embedded-chat@v1.0.7/dist/build/static/js/bundle.min.js"></script>
     <langflow-chat
