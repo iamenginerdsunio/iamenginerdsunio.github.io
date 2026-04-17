@@ -3,96 +3,114 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Structure of Flask-AppBuilder repository showing its organization, key files, and components.">
-    <meta name="author" content="Flask-AppBuilder Documentation">
-    <title>Repository Structure - Flask-AppBuilder</title>
+    <meta name="description" content="Repository structure and analysis for Flask-AppBuilder, a comprehensive framework for web development.">
+    <title>Structure - Flask-AppBuilder Documentation</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="sidebar">
-        <h2>Navigation</h2>
-        <ul>
-            <li><a href="index.html">Overview</a></li>
-            <li><a href="structure.html" class="active">Structure</a></li>
-            <li><a href="architecture.html">Architecture</a></li>
-            <li><a href="modules.html">Modules</a></li>
-            <li><a href="apis.html">APIs</a></li>
-        </ul>
+        <nav>
+            <ul>
+                <li><a href="overview.html">Overview</a></li>
+                <li><a href="architecture.html">Architecture</a></li>
+                <li><a href="structure.html" class="active">Structure</a></li>
+                <li><a href="modules.html">Modules & APIs</a></li>
+                <li><a href="codeflows.html">Code Flows</a></li>
+                <li><a href="setup.html">Setup & Development</a></li>
+            </ul>
+        </nav>
     </div>
     <div class="content">
         <header>
             <h1>Repository Structure</h1>
-            <p>An organized view of the Flask-AppBuilder repository's structure, including key directories, configuration files, and entry points.</p>
+            <p>Detailed breakdown of Flask-AppBuilder's file organization and key components.</p>
         </header>
-        <section id="overview">
+        <section>
             <h2>Repository Overview</h2>
-            <p><strong>Total Files Analyzed:</strong> 9</p>
-            <p><strong>Primary Directories:</strong> Core logic in <code>flask_appbuilder/</code>, testing in <code>tests/</code>.</p>
+            <p>Total files analyzed: 7</p>
+            <p>Total lines of code: Not detected</p>
+            <h3>Primary Directories</h3>
+            <ul>
+                <li><strong>flask_appbuilder/</strong>: Contains core framework logic, including initialization, views, and models.</li>
+                <li><strong>flask_appbuilder/templates</strong>: HTML templates for frontend rendering.</li>
+                <li><strong>flask_appbuilder/static</strong>: Static assets like JavaScript and CSS for frontend styling.</li>
+            </ul>
         </section>
-        <section id="directory-tree">
+        <section>
             <h2>Directory Tree</h2>
             <pre class="file-tree">
 flask_appbuilder/
 ├── __init__.py
-├── views.py
 ├── baseviews.py
 ├── models
 │   ├── __init__.py
-│   ├── base.py
-│   ├── decorators.py
-│   ├── filters.py
-│   ├── group.py
-│   ├── mixins.py
-│   ├── sqlalchemy.py
+│   ├── sqla.py
+├── views.py
+├── templates
+│   ├── appbuilder
+├── static
+│   ├── appbuilder
 ├── tests
-│   ├── base.py
 │   ├── test_api.py
 │   ├── test_mvc.py
             </pre>
         </section>
-        <section id="key-directories">
+        <section>
             <h2>Key Directories</h2>
-            <article>
-                <h3>Core Framework Logic</h3>
-                <p><strong>Path:</strong> <code>flask_appbuilder/</code></p>
-                <p><strong>Purpose:</strong> Contains the core framework logic, including initialization, models, and views.</p>
-                <p><strong>Key Files:</strong> <code>__init__.py</code>, <code>views.py</code>, <code>models/base.py</code></p>
-            </article>
-            <article>
-                <h3>Tests</h3>
-                <p><strong>Path:</strong> <code>tests/</code></p>
-                <p><strong>Purpose:</strong> Unit and integration tests for validating the framework's functionality.</p>
-                <p><strong>Key Files:</strong> <code>test_api.py</code>, <code>test_mvc.py</code></p>
-            </article>
+            <div>
+                <h3>flask_appbuilder/</h3>
+                <p><strong>Purpose:</strong> Contains core framework logic, including initialization, views, and models.</p>
+                <p><strong>Key Files:</strong></p>
+                <ul>
+                    <li>__init__.py</li>
+                    <li>views.py</li>
+                    <li>baseviews.py</li>
+                </ul>
+                <p><strong>Patterns:</strong> Modular design with integration of Flask and SQLAlchemy.</p>
+            </div>
+            <div>
+                <h3>flask_appbuilder/templates</h3>
+                <p><strong>Purpose:</strong> Houses HTML templates for frontend rendering.</p>
+                <p><strong>Key Files:</strong> Not detected</p>
+                <p><strong>Patterns:</strong> UI components used by views for rendering.</p>
+            </div>
+            <div>
+                <h3>flask_appbuilder/static</h3>
+                <p><strong>Purpose:</strong> Stores static assets like JavaScript and CSS for frontend styling.</p>
+                <p><strong>Key Files:</strong> Not detected</p>
+                <p><strong>Patterns:</strong> Frontend resources for user interface.</p>
+            </div>
         </section>
-        <section id="configuration-files">
+        <section>
             <h2>Configuration Files</h2>
             <ul>
-                <li><strong>setup.py:</strong> Configures the Python package for installation.</li>
-                <li><strong>MANIFEST.in:</strong> Specifies the additional files to include in the distributed package.</li>
+                <li><strong>setup.py</strong>: Configures the package installation.</li>
+                <li><strong>setup.cfg</strong>: Metadata and options for packaging.</li>
+                <li><strong>MANIFEST.in</strong>: Specifies files to include in the distribution.</li>
             </ul>
         </section>
-        <section id="entry-points">
+        <section>
             <h2>Entry Points</h2>
-            <p><strong>Primary Entry File:</strong> <code>flask_appbuilder/__init__.py</code></p>
-            <p>The application is initialized here, configuring settings, routing, and security management via AppBuilder.</p>
+            <ul>
+                <li><strong>flask_appbuilder/__init__.py</strong>: Main entry point for application setup and initialization.</li>
+            </ul>
         </section>
-        <section id="build-deployment">
+        <section>
             <h2>Build and Deployment</h2>
-            <p><strong>Build Configuration Files:</strong> <code>setup.py</code></p>
-            <p><strong>Deployment Scripts:</strong> Not detected</p>
-            <p><strong>CI/CD Files:</strong> Not detected</p>
+            <p>Build configuration files: Not detected</p>
+            <p>Deployment scripts: Not detected</p>
+            <p>CI/CD files: Not detected</p>
         </section>
-        <section id="testing-structure">
+        <section>
             <h2>Testing Structure</h2>
-            <p><strong>Test Directories:</strong> <code>tests/</code></p>
-            <p><strong>Testing Framework:</strong> unittest</p>
-            <p><strong>Organization:</strong> Tests are grouped by their functionality, focusing on API and CRUD operations.</p>
+            <p><strong>Test Directories:</strong> tests/</p>
+            <p><strong>Testing Framework:</strong> Not detected</p>
+            <p><strong>Test Organization:</strong> API and MVC testing using Flask utilities and SQLAlchemy.</p>
         </section>
-        <section id="documentation-structure">
+        <section>
             <h2>Documentation Structure</h2>
-            <p><strong>Location:</strong> Not detected</p>
-            <p><strong>Available Documentation:</strong> Not detected</p>
+            <p>Where documentation lives: Not detected</p>
+            <p>Documentation contents: Not detected</p>
         </section>
     </div>
     <script>
