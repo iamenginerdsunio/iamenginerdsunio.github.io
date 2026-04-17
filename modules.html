@@ -36,45 +36,26 @@
             <div class="module-item">
                 <h3>App Initialization</h3>
                 <p><strong>Location:</strong> flask_appbuilder/__init__.py</p>
-                <p><strong>Purpose:</strong> Initializes the Flask application and integrates AppBuilder.</p>
+                <p><strong>Purpose:</strong> Sets up the Flask application and integrates AppBuilder.</p>
                 <p><strong>Key Functions:</strong></p>
                 <ul>
-                    <li><code>setup(app: Flask) -> None</code>: Configures Flask application settings such as SQLAlchemy and security.</li>
+                    <li><code>create_app(config=None)</code>: Creates the Flask application and initializes AppBuilder.</li>
                 </ul>
-                <p><strong>Dependencies:</strong> Flask, SQLAlchemy, flask_appbuilder.security</p>
+                <p><strong>Dependencies:</strong> Flask</p>
                 <p><strong>Used By:</strong> views, models</p>
-                <pre><code>def setup(app: Flask) -> None:
-    app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-    app.config['SECRET_KEY'] = 'super-secret-key'</code></pre>
+                <pre><code>def create_app(config=None):
+    app = Flask(__name__)
+    appbuilder = AppBuilder(app)
+    return app, appbuilder</code></pre>
             </div>
 
             <div class="module-item">
-                <h3>Base Views</h3>
-                <p><strong>Location:</strong> flask_appbuilder/views.py</p>
-                <p><strong>Purpose:</strong> Defines reusable base classes and utilities for views.</p>
-                <p><strong>Key Functions:</strong></p>
-                <ul>
-                    <li><code>register_view(view: BaseView) -> None</code>: Registers a view with the Flask application.</li>
-                </ul>
-                <p><strong>Dependencies:</strong> Flask, AppBuilder</p>
-                <p><strong>Used By:</strong> specific view implementations</p>
-                <pre><code>def register_view(view: BaseView) -> None:
-    bp = Blueprint(view.name, __name__)
-    appbuilder.app.register_blueprint(bp</code></pre>
-            </div>
-
-            <div class="module-item">
-                <h3>Base Models</h3>
-                <p><strong>Location:</strong> flask_appbuilder/models</p>
-                <p><strong>Purpose:</strong> Provides foundational definitions for SQLAlchemy models.</p>
-                <p><strong>Key Functions:</strong></p>
-                <ul>
-                    <li><code>get_by_id(session, id: int) -> Optional[Model]</code>: Fetches a model instance by its ID.</li>
-                </ul>
+                <h3>Model Utilities</h3>
+                <p><strong>Location:</strong> flask_appbuilder/models/base.py</p>
+                <p><strong>Purpose:</strong> Provides base functionality for SQLAlchemy models.</p>
+                <p><strong>Key Functions:</strong> None</p>
                 <p><strong>Dependencies:</strong> SQLAlchemy</p>
-                <p><strong>Used By:</strong> model-specific implementations</p>
-                <pre><code>def get_by_id(session, id: int) -> Optional[Model]:
-    return session.query(Model).filter(Model.id == id).first()</code></pre>
+                <p><strong>Used By:</strong> filters.py, group.py</p>
             </div>
         </section>
 
@@ -91,13 +72,21 @@
         <section id="data-models">
             <h2>Data Models</h2>
             <div class="model-item">
-                <h3>Model</h3>
-                <p><strong>Location:</strong> flask_appbuilder/models</p>
-                <p><strong>Fields:</strong> id, created_at</p>
+                <h3>BaseModel</h3>
+                <p><strong>Location:</strong> flask_appbuilder/models/base.py</p>
+                <p><strong>Fields:</strong> id, name</p>
                 <p><strong>Relationships:</strong> None</p>
-                <pre><code>class Model(SQLAlchemy.Model):
+                <pre><code>class BaseModel:
     id = Column(Integer, primary_key=True)
-    created_at = Column(DateTime, default=datetime.utcnow)</code></pre>
+    name = Column(String(50))</code></pre>
+            </div>
+            <div class="model-item">
+                <h3>GroupModel</h3>
+                <p><strong>Location:</strong> flask_appbuilder/models/group.py</p>
+                <p><strong>Fields:</strong> members</p>
+                <p><strong>Relationships:</strong> User</p>
+                <pre><code>class GroupModel(BaseModel):
+    members = relationship('User')</code></pre>
             </div>
         </section>
 
@@ -108,14 +97,27 @@
 
         <section id="api-interfaces">
             <h2>API Interfaces</h2>
-            <p>REST/GraphQL endpoints: Not detected</p>
+            <div class="api-item">
+                <h3>Model View Endpoint</h3>
+                <p><strong>Path:</strong> /modelview</p>
+                <p><strong>Method:</strong> GET</p>
+                <p><strong>Handler:</strong> ModelView.list</p>
+                <p><strong>Description:</strong> List view for model data.</p>
+            </div>
+            <div class="api-item">
+                <h3>Create Item Endpoint</h3>
+                <p><strong>Path:</strong> /api/create_item</p>
+                <p><strong>Method:</strong> POST</p>
+                <p><strong>Handler:</strong> api.create_item</p>
+                <p><strong>Description:</strong> Creates a new item in the database.</p>
+            </div>
         </section>
 
         <section id="module-best-practices">
             <h2>Module Best Practices</h2>
-            <p>Coding patterns observed: Blueprint, Decorator, Mixin</p>
+            <p>Coding patterns observed: Blueprint Routing, Mixin, Decorator</p>
             <p>Import conventions: Not detected</p>
-            <p>Testing approach per module: Validates API endpoints and MVC functionalities using the unittest framework.</p>
+            <p>Testing approach per module: Focus on API and MVC testing using Flask utilities and SQLAlchemy.</p>
         </section>
     </div>
 
@@ -176,13 +178,13 @@
 
     // Scroll to top button
     const scrollBtn = document.createElement('button');
-    scrollBtn.className = 'scroll-to-top';
-    scrollBtn.innerHTML = '↑';
-    scrollBtn.onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
-    document.body.appendChild(scrollBtn);
-    window.addEventListener('scroll', () => {
-        scrollBtn.style.display = window.scrollY > 300 ? 'block' : 'none';
-    });
+        scrollBtn.className = 'scroll-to-top';
+        scrollBtn.innerHTML = '↑';
+        scrollBtn.onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
+        document.body.appendChild(scrollBtn);
+        window.addEventListener('scroll', () => {
+            scrollBtn.style.display = window.scrollY > 300 ? 'block' : 'none';
+        });
     </script>
 
     <!-- Langflow Embedded Chat Widget -->
