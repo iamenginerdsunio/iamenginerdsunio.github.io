@@ -1,1 +1,203 @@
-{'error': {'code': -32603, 'data': {'details': "Conversation failed: Error code: 429 - {'error': {'message': 'Too Many Requests', 'type': 'too_many_requests', 'param': None, 'code': 'too_many_requests'}}"}, 'message': 'Internal error'}, 'id': '2ffb7beb-ef31-49df-a7a1-04fc42daf960', 'jsonrpc': '2.0'}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Module documentation for Flask-AppBuilder">
+    <meta name="author" content="Flask-AppBuilder Contributors">
+    <title>Modules - Flask-AppBuilder</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="sidebar">
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="architecture.html">Architecture</a></li>
+                <li><a href="modules.html" class="active">Modules</a></li>
+                <li><a href="data.html">Data Models</a></li>
+                <li><a href="apis.html">API</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div class="content">
+        <h1>Modules</h1>
+
+        <section id="module-overview">
+            <h2>Module Overview</h2>
+            <p><strong>Total Modules:</strong> 3</p>
+            <p><strong>Organization Approach:</strong> Modules are organized following the MVC architecture with distinct layers for initialization, views, and models.</p>
+            <p><strong>Naming Conventions:</strong> Modules are named descriptively to reflect their functionality, such as "App Initialization," "Base Views," and "Base Models."</p>
+        </section>
+
+        <section id="core-modules">
+            <h2>Core Modules</h2>
+
+            <div class="module-item">
+                <h3>App Initialization</h3>
+                <p><strong>Location:</strong> flask_appbuilder/__init__.py</p>
+                <p><strong>Purpose:</strong> Initializes the Flask application and integrates AppBuilder.</p>
+                <p><strong>Key Functions:</strong></p>
+                <ul>
+                    <li>
+                        <strong>AppBuilder</strong> (<code>def AppBuilder(app=None, session=None, security_manager=None):</code>)
+                        <p>Initializes Flask-AppBuilder with app, session, and security manager.</p>
+                        <pre><code>def AppBuilder(app=None, session=None, security_manager=None):  
+    app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False  
+    security_manager.init_app(app)</code></pre>
+                    </li>
+                </ul>
+                <p><strong>Dependencies:</strong> Flask, SQLAlchemy, flask_appbuilder.security</p>
+                <p><strong>Used By:</strong> views, models</p>
+            </div>
+
+            <div class="module-item">
+                <h3>Base Views</h3>
+                <p><strong>Location:</strong> flask_appbuilder/views.py</p>
+                <p><strong>Purpose:</strong> Defines reusable base classes and utilities for views.</p>
+                <p><strong>Key Functions:</strong></p>
+                <ul>
+                    <li>
+                        <strong>register_view</strong> (<code>def register_view(view: BaseView) -> None</code>)
+                        <p>Registers a view with the Flask application.</p>
+                        <pre><code>def register_view(view: BaseView) -> None:  
+    bp = Blueprint(view.name, __name__)  
+    appbuilder.app.register_blueprint(bp</code></pre>
+                    </li>
+                </ul>
+                <p><strong>Dependencies:</strong> Flask, AppBuilder</p>
+                <p><strong>Used By:</strong> specific view implementations</p>
+            </div>
+
+            <div class="module-item">
+                <h3>Base Models</h3>
+                <p><strong>Location:</strong> flask_appbuilder/models</p>
+                <p><strong>Purpose:</strong> Provides foundational definitions for SQLAlchemy models.</p>
+                <p><strong>Key Functions:</strong></p>
+                <ul>
+                    <li>
+                        <strong>get_by_id</strong> (<code>def get_by_id(session, id: int) -> Optional[Model]</code>)
+                        <p>Fetches a model instance by its ID.</p>
+                        <pre><code>def get_by_id(session, id: int) -> Optional[Model]:  
+    return session.query(Model).filter(Model.id == id).first()</code></pre>
+                    </li>
+                </ul>
+                <p><strong>Dependencies:</strong> SQLAlchemy</p>
+                <p><strong>Used By:</strong> model-specific implementations</p>
+            </div>
+        </section>
+
+        <section id="dependency-graph">
+            <h2>Dependency Graph</h2>
+            <p>Not detected</p>
+        </section>
+
+        <section id="third-party-dependencies">
+            <h2>Third-party Dependencies</h2>
+            <p>Not detected</p>
+        </section>
+
+        <section id="data-models">
+            <h2>Data Models</h2>
+            <div>
+                <h3>Model</h3>
+                <p><strong>Location:</strong> flask_appbuilder/models</p>
+                <p><strong>Fields:</strong> id, created_at</p>
+                <p><strong>Relationships:</strong> None</p>
+                <pre><code>class Model(SQLAlchemy.Model):  
+    id = Column(Integer, primary_key=True)  
+    created_at = Column(DateTime, default=datetime.utcnow)</code></pre>
+            </div>
+        </section>
+
+        <section id="utilities-helpers">
+            <h2>Utilities and Helpers</h2>
+            <p>Not detected</p>
+        </section>
+
+        <section id="api-interfaces">
+            <h2>API Interfaces</h2>
+            <p>Not detected</p>
+        </section>
+
+        <section id="module-best-practices">
+            <h2>Module Best Practices</h2>
+            <p><strong>Coding Patterns Observed:</strong> Blueprint, Decorator, Mixin</p>
+            <p><strong>Import Conventions:</strong> Standard Python imports grouped at the top of each file. Framework-specific imports are followed by project-specific imports.</p>
+            <p><strong>Testing Approach:</strong> Unit testing with unittest and mock. Tests validate API routes and core MVC functionalities.</p>
+        </section>
+    </div>
+
+    <script>
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+    });
+
+    // Copy to clipboard for code blocks
+    document.querySelectorAll('pre code').forEach(block => {
+        const btn = document.createElement('button');
+        btn.className = 'copy-btn';
+        btn.textContent = 'Copy';
+        btn.onclick = () => {
+            navigator.clipboard.writeText(block.textContent);
+            btn.textContent = 'Copied!';
+            setTimeout(() => btn.textContent = 'Copy', 2000);
+        };
+        block.parentElement.style.position = 'relative';
+        block.parentElement.appendChild(btn);
+    });
+
+    // Module search/filter
+    const createModuleFilter = () => {
+        const filter = document.createElement('input');
+        filter.type = 'text';
+        filter.placeholder = 'Search modules...';
+        filter.className = 'module-search';
+        filter.oninput = (e) => {
+            const query = e.target.value.toLowerCase();
+            document.querySelectorAll('.module-item').forEach(item => {
+                const text = item.textContent.toLowerCase();
+                item.style.display = text.includes(query) ? '' : 'none';
+            });
+        };
+        const content = document.querySelector('.content');
+        if (content) content.insertBefore(filter, content.firstChild);
+    };
+    createModuleFilter();
+
+    // Mobile navigation toggle
+    const createMobileToggle = () => {
+        if (window.innerWidth <= 768) {
+            const sidebar = document.querySelector('.sidebar');
+            const toggle = document.createElement('button');
+            toggle.className = 'mobile-nav-toggle';
+            toggle.innerHTML = '☰';
+            toggle.onclick = () => sidebar.classList.toggle('active');
+            document.body.insertBefore(toggle, document.body.firstChild);
+        }
+    };
+    createMobileToggle();
+
+    // Scroll to top button
+    const scrollBtn = document.createElement('button');
+    scrollBtn.className = 'scroll-to-top';
+    scrollBtn.innerHTML = '↑';
+    scrollBtn.onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
+    document.body.appendChild(scrollBtn);
+    window.addEventListener('scroll', () => {
+        scrollBtn.style.display = window.scrollY > 300 ? 'block' : 'none';
+    });
+    </script>
+
+    <!-- Langflow Embedded Chat Widget -->
+    <script src="https://cdn.jsdelivr.net/gh/logspace-ai/langflow-embedded-chat@v1.0.7/dist/build/static/js/bundle.min.js"></script>
+    <langflow-chat
+        window_title="Code Wiki Assistant"
+        flow_id="fb98244a-f5df-4fb4-9195-913b0e331dad"
+        host_url="https://agentstudio.servicesessentials.ibm.com"
+        api_key="ak_uZRb2tG2eV-ylLTc-k
