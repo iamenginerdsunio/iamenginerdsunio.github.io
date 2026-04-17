@@ -1,226 +1,257 @@
 /* General Reset */
-html, body {
-  margin: 0;
-  padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  font-size: 16px;
-  line-height: 1.7;
-  color: #1a202c;
+body, h1, h2, h3, p, ul, ol, pre, code {
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+    color: #2d3748;
+    background-color: #ffffff;
 }
 
 /* Layout */
 .sidebar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 260px;
-  height: 100vh;
-  background-color: #1a202c;
-  color: #ffffff;
-  overflow-y: auto;
-  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 280px;
+    background-color: #2c3e50;
+    color: #ffffff;
+    overflow-y: auto;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    z-index: 1000;
 }
-
-.sidebar.active {
-  transform: translateX(0);
+.sidebar a {
+    color: #ffffff;
+    text-decoration: none;
+    padding: 10px 20px;
+    display: block;
+    border-left: 3px solid transparent;
+    transition: background-color 0.2s, border-color 0.2s;
+}
+.sidebar a:hover {
+    background-color: #34495e;
+    border-color: #0366d6;
+}
+.sidebar .active {
+    background-color: #34495e;
+    border-color: #0366d6;
 }
 
 .content {
-  margin-left: 260px;
-  padding: 3rem;
-  background-color: #ffffff;
-  max-width: 900px;
-  margin-right: auto;
-  margin-left: auto;
-}
-
-@media (max-width: 768px) {
-  .sidebar {
-    transform: translateX(-100%);
-  }
-  .sidebar.active {
-    transform: translateX(0);
-  }
-  .content {
-    margin-left: 0;
-  }
+    margin-left: 280px;
+    padding: 3rem;
+    max-width: 900px;
+    margin-right: auto;
 }
 
 /* Typography */
 h1 {
-  font-size: 2.5rem;
-  font-weight: bold;
-  margin-bottom: 1rem;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #2d3748;
+    margin-bottom: 1rem;
 }
 h2 {
-  font-size: 2rem;
-  font-weight: bold;
-  margin-bottom: 0.75rem;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #2d3748;
+    margin-bottom: 0.75rem;
 }
 h3 {
-  font-size: 1.5rem;
-  font-weight: bold;
-  margin-bottom: 0.5rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #2d3748;
+    margin-bottom: 0.5rem;
 }
+
 p {
-  margin-bottom: 1.5rem;
+    margin-bottom: 1.5rem;
 }
 
-/* Links */
-a {
-  color: #0366d6;
-  text-decoration: none;
-  transition: color 0.2s ease;
+ul, ol {
+    margin-bottom: 1.5rem;
+    padding-left: 2rem;
 }
 
-a:hover {
-  color: #0249a4;
-  text-decoration: underline;
+/* Code Blocks */
+pre, code {
+    font-family: Consolas, Monaco, 'Courier New', monospace;
+    font-size: 14px;
+}
+pre {
+    background-color: #f6f8fa;
+    padding: 1rem;
+    border-radius: 6px;
+    overflow-x: auto;
+    border: 1px solid #e2e8f0;
+    position: relative;
+    margin-bottom: 1.5rem;
+}
+.copy-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #0366d6;
+    color: #ffffff;
+    border: none;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    cursor: pointer;
+    display: none;
+}
+pre:hover .copy-btn {
+    display: inline-block;
+}
+
+/* Inline Code */
+code {
+    background-color: #f3f4f6;
+    padding: 0.2em 0.4em;
+    border-radius: 3px;
+    color: #2d3748;
 }
 
 /* Tables */
 table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-bottom: 1.5rem;
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1.5rem;
 }
 th, td {
-  padding: 0.75rem;
-  border: 1px solid #e2e8f0;
+    padding: 0.75rem;
+    border: 1px solid #e2e8f0;
+    text-align: left;
 }
 th {
-  background-color: #f7fafc;
-  font-weight: bold;
+    background-color: #f7fafc;
+    font-weight: bold;
 }
 tr:nth-child(even) {
-  background-color: #f9f9f9;
-}
-
-/* Code Blocks */
-pre {
-  background-color: #f6f8fa;
-  padding: 1rem;
-  border-radius: 6px;
-  border: 1px solid #e2e8f0;
-  overflow-x: auto;
-  position: relative;
-}
-
-pre:hover .copy-btn {
-  display: inline-block;
-}
-
-.copy-btn {
-  position: absolute;
-  top: 8px;
-  right: 8px;
-  background-color: #0366d6;
-  color: #ffffff;
-  padding: 4px 8px;
-  border-radius: 4px;
-  font-size: 14px;
-  cursor: pointer;
-  display: none;
-}
-
-code {
-  font-family: Consolas, Monaco, "Courier New", monospace;
-  font-size: 14px;
-  background-color: #f3f4f6;
-  padding: 0.2em 0.4em;
-  border-radius: 3px;
+    background-color: #f9fafb;
 }
 
 /* Alerts */
 .alert {
-  padding: 1rem;
-  border-left: 4px solid;
-  margin-bottom: 1.5rem;
-  border-radius: 6px;
+    padding: 1rem;
+    border-radius: 4px;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+}
+.alert.info {
+    background-color: #ebf8ff;
+    border-left: 4px solid #3182ce;
+    color: #2b6cb0;
+}
+.alert.warning {
+    background-color: #fff5eb;
+    border-left: 4px solid #dd6b20;
+    color: #c05621;
+}
+.alert.error {
+    background-color: #fff5f5;
+    border-left: 4px solid #e53e3e;
+    color: #c53030;
 }
 
-.alert-info {
-  border-color: #0366d6;
-  background-color: #f1f8ff;
+/* Links */
+a {
+    color: #0366d6;
+    text-decoration: underline;
+    transition: color 0.2s;
 }
-
-.alert-warning {
-  border-color: #ffcc00;
-  background-color: #fff9e6;
-}
-
-.alert-error {
-  border-color: #d73a49;
-  background-color: #ffeef0;
+a:hover {
+    color: #024ea2;
 }
 
 /* Buttons */
 button {
-  padding: 0.5rem 1rem;
-  border: none;
-  border-radius: 6px;
-  background-color: #0366d6;
-  color: #ffffff;
-  cursor: pointer;
-  transition: background-color 0.2s ease;
+    background-color: #0366d6;
+    color: #ffffff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
 }
-
 button:hover {
-  background-color: #0249a4;
+    background-color: #024ea2;
 }
 
-/* Scroll to Top */
+/* Scroll-to-Top Button */
 .scroll-to-top {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  width: 50px;
-  height: 50px;
-  background-color: #0366d6;
-  color: #ffffff;
-  border-radius: 50%;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  display: none;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    background-color: #0366d6;
+    color: #ffffff;
+    border-radius: 50%;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
 }
-
-.scroll-to-top:hover {
-  background-color: #0249a4;
-}
-
-/* Mobile Navigation Toggle */
-.mobile-nav-toggle {
-  position: fixed;
-  top: 10px;
-  left: 10px;
-  width: 40px;
-  height: 40px;
-  background-color: #0366d6;
-  color: #ffffff;
-  border-radius: 6px;
-  z-index: 1001;
-  display: none;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-}
-
-@media (max-width: 768px) {
-  .mobile-nav-toggle {
+.scroll-to-top.visible {
     display: flex;
-  }
+}
+
+/* Mobile Navigation */
+.mobile-nav-toggle {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    width: 40px;
+    height: 40px;
+    background-color: #0366d6;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    z-index: 1001;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+@media (max-width: 768px) {
+    .mobile-nav-toggle {
+        display: flex;
+    }
+    .sidebar {
+        transform: translateX(-280px);
+    }
+    .sidebar.active {
+        transform: translateX(0);
+    }
+    .content {
+        margin-left: 0;
+        padding: 2rem;
+    }
+}
+
+/* Search Module */
+.module-search {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    font-size: 16px;
 }
 
 /* Langflow Chat Widget */
 langflow-chat {
-  z-index: 9999;
+    z-index: 9999;
 }
-
 @media (max-width: 768px) {
-  langflow-chat {
-    bottom: 80px; /* Ensure chat doesn't overlap mobile nav toggle */
-  }
+    langflow-chat {
+        bottom: 80px;
+    }
 }
