@@ -1,3 +1,187 @@
 {
-  "name": "index.html",
-  "content": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <meta name=\"description\" content=\"Overview of Flask-AppBuilder - A framework for building web applications with Flask and SQLAlchemy.\">\n    <link rel=\"stylesheet\" href=\"styles.css\">\n    <link rel=\"icon\" href=\"/path/to/favicon.ico\" type=\"image/x-icon\">\n    <title>Flask-AppBuilder | Overview</title>\n</head>\n<body>\n    <aside class=\"sidebar\">\n        <header>\n            <h1>Flask-AppBuilder</h1>\n        </header>\n        <nav>\n            <ul>\n                <li><a href=\"index.html\" class=\"active\">📄 Overview</a></li>\n                <li><a href=\"architecture.html\">🏗️ Architecture</a></li>\n                <li><a href=\"structure.html\">📁 Structure</a></li>\n                <li><a href=\"flows.html\">🔄 Flows</a></li>\n                <li><a href=\"modules.html\">📦 Modules</a></li>\n                <li><a href=\"evidence.html\">✅ Evidence</a></li>\n                <li><a href=\"contributing.html\">🤝 Contributing</a></li>\n            </ul>\n        </nav>\n    </aside>\n\n    <main class=\"content\">\n        <header class=\"hero\">\n            <h1>Flask-AppBuilder</h1>\n            <p>A framework for building web applications with Flask and SQLAlchemy.</p>\n            <div class=\"badges\">\n                <span class=\"badge\">Language: Python</span>\n                <span class=\"badge\">Framework: Flask</span>\n                <span class=\"badge\">License: Apache 2.0</span>\n            </div>\n        </header>\n\n        <section id=\"purpose\" class=\"section\">\n            <h2>Project Purpose</h2>\n            <p>Flask-AppBuilder is a comprehensive framework designed to simplify web application development using Flask and SQLAlchemy. It offers abstractions for CRUD operations, modular routing, and robust security management, making it ideal for building scalable and secure applications.</p>\n            <p>The framework integrates seamlessly with Flask's routing mechanisms and SQLAlchemy's ORM capabilities, providing developers with the tools necessary to efficiently manage models, views, and API endpoints. Flask-AppBuilder also emphasizes extensibility, allowing developers to customize and extend its features through mixins, decorators, and reusable components. Its architecture supports rapid development while maintaining scalability and maintainability, ensuring that applications built with Flask-AppBuilder remain robust and adaptable over time.</p>\n        </section>\n\n        <section id=\"features\" class=\"section\">\n            <h2>Key Features</h2>\n            <ul>\n                <li>CRUD abstraction for SQLAlchemy models</li>\n                <li>Role-based security and access control</li>\n                <li>Blueprint-based routing for modular views</li>\n                <li>Extensible model and view architecture</li>\n                <li>Comprehensive testing framework</li>\n            </ul>\n        </section>\n\n        <section id=\"tech-stack\" class=\"section\">\n            <h2>Tech Stack</h2>\n            <ul>\n                <li><strong>Primary Language:</strong> Python</li>\n                <li><strong>Frameworks:</strong> Flask, SQLAlchemy</li>\n                <li><strong>Database:</strong> Not detected</li>\n                <li><strong>Deployment Platform:</strong> Not detected</li>\n            </ul>\n        </section>\n\n        <section id=\"architecture\" class=\"section\">\n            <h2>Architecture Overview</h2>\n            <p>Flask-AppBuilder utilizes an MVC architecture to organize application functionality. Models are defined using SQLAlchemy, enabling structured database interactions. Views leverage Flask's Blueprint system for modular routing and UI integration, while controllers handle application logic and facilitate communication between models and views.</p>\n            <p><a href=\"architecture.html\">Learn more about the architecture →</a></p>\n        </section>\n\n        <section id=\"quick-start\" class=\"section\">\n            <h2>Quick Start</h2>\n            <h3>Prerequisites</h3>\n            <ul>\n                <li>Python >= 3.6</li>\n                <li>Flask and SQLAlchemy installed</li>\n            </ul>\n            <h3>Installation</h3>\n            <pre><code class=\"language-bash\"># Install Flask-AppBuilder and its dependencies\npip install flask-appbuilder\n\n# Optionally, set up the package locally\npython setup.py install</code></pre>\n            <h3>Basic Usage</h3>\n            <pre><code class=\"language-python\">from flask_appbuilder import AppBuilder\nfrom flask import Flask\n\napp = Flask(__name__)\nappbuilder = AppBuilder(app)\n\n@app.route('/')\ndef home():\n    return \"Welcome to Flask-AppBuilder!\"\n\nif __name__ == '__main__':\n    app.run(debug=True)</code></pre>\n            <p><a href=\"contributing.html\">View the contributing guide →</a></p>\n        </section>\n\n        <section id=\"status\" class=\"section\">\n            <h2>Project Status</h2>\n            <p>The project is currently <strong>Active</strong>. Development continues to enhance features and maintain reliability.</p>\n        </section>\n    </main>\n\n    <script>\n    // Smooth scrolling for anchor links\n    document.querySelectorAll('a[href^=\"#\"]').forEach(anchor => {\n        anchor.addEventListener('click', function(e) {\n            e.preventDefault();\n            const target = document.querySelector(this.getAttribute('href'));\n            if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });\n        });\n    });\n\n    // Copy to clipboard for code blocks\n    document.querySelectorAll('pre code').forEach(block => {\n        const btn = document.createElement('button');\n        btn.className = 'copy-btn';\n        btn.textContent = 'Copy';\n        btn.onclick = () => {\n            navigator.clipboard.writeText(block.textContent);\n            btn.textContent = 'Copied!';\n            setTimeout(() => btn.textContent = 'Copy', 2000);\n        };\n        block.parentElement.style.position = 'relative';\n        block.parentElement.appendChild(btn);\n    });\n\n    // Mobile navigation toggle\n    const createMobileToggle = () => {\n        if (window.innerWidth <= 768) {\n            const sidebar = document.querySelector('.sidebar');\n            const toggle = document.createElement('button');\n            toggle.className = 'mobile-nav-toggle';\n            toggle.innerHTML = '☰';\n            toggle.onclick = () => sidebar.classList.toggle('active');\n            document.body.insertBefore(toggle, document.body.firstChild);\n        }\n    };\n    createMobileToggle();\n\n    // Scroll to top button\n    const scrollBtn = document.createElement('button');\n    scrollBtn.className = 'scroll-to-top';\n    scrollBtn.innerHTML = '↑';\n    scrollBtn.onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });\n    document.body.appendChild(scrollBtn);\n    window.addEventListener('scroll', () => {\n        scrollBtn.style.display = window.scrollY > 300 ? 'block' : 'none';\n    });\n\n    // Highlight active section in navigation\n    const sections = document.querySelectorAll('section[id]');\n    const navLinks = document.querySelectorAll('.sidebar a');\n    window.addEventListener('scroll', () => {\n        let current = '';\n        sections.forEach(section => {\n            const sectionTop = section.offsetTop;\n            if (scrollY >= sectionTop - 60) current = section.getAttribute('id');\n        });\n        navLinks.forEach(link => {\n            link.classList.remove('active');\n            if (link.getAttribute('href') === `#${current}`) link.classList.add('active');\n        });\n    });\n    </script>\n\n    <!-- Langflow Embedded Chat Widget -->\n    <script src=\"https://cdn.jsdelivr.net/gh/logspace-ai/langflow-embedded-chat@v1.0.7/dist/build/static/js/bundle.min.js\"></script>\n    <langflow-chat\n        window_title=\"Code Wiki Assistant\"\n        flow_id=\"fb98244a-f5df-4fb4-9195-913b0e331dad\"\n        host_url=\"https://agentstudio.servicesessentials.ibm.com\"\n        api_key=\"ak_uZRb2tG2eV-ylLTc-k_KpniRmNdy2nnjYaUg5N_p1p4\">\n    </
+  "metadata": {
+    "source_repo": "dpgaspar/Flask-AppBuilder",
+    "source_ref": "main",
+    "analyzed_at": "2023-10-11T00:00:00Z",
+    "total_files_analyzed": 5,
+    "total_batches": 2
+  },
+  "overview": {
+    "project_name": "Flask-AppBuilder",
+    "tagline": "A framework for building web applications with Flask and SQLAlchemy.",
+    "detailed_description": "Flask-AppBuilder is a web application framework that simplifies development using Flask and SQLAlchemy. It provides abstractions for CRUD operations, modular routing, and robust security management, enabling developers to build scalable and secure web applications efficiently. The framework integrates seamlessly with Flask's routing mechanisms and SQLAlchemy's ORM capabilities, offering tools for managing models, views, and API endpoints. Flask-AppBuilder emphasizes extensibility through mixins, decorators, and reusable components, ensuring developers can customize and expand its functionality as needed. Its architecture supports rapid development while maintaining scalability and maintainability, making it suitable for a wide range of projects.",
+    "key_features": [
+      "CRUD abstraction with SQLAlchemy models",
+      "Role-based security and access control",
+      "Blueprint-based routing for modular views",
+      "Extensible architecture through mixins and decorators",
+      "Comprehensive testing framework"
+    ],
+    "project_status": "Active",
+    "license": "Apache 2.0",
+    "languages": ["Python"],
+    "frameworks": ["Flask", "SQLAlchemy"]
+  },
+  "architecture": {
+    "style": "MVC (Model-View-Controller) framework",
+    "description": "Flask-AppBuilder employs an MVC architecture to organize application functionality. Models are defined using SQLAlchemy for structured database abstractions, views utilize Flask's Blueprint system for modular routing, and controllers handle the application logic. The framework emphasizes extensibility through mixins and decorators, allowing developers to add reusable functionality to models and views. Testing is an integral part of the architecture, ensuring that API endpoints, CRUD operations, and MVC components are validated thoroughly. The design prioritizes modularity, scalability, and maintainability, making it a robust choice for web application development.",
+    "layers": [
+      {
+        "name": "Initialization Layer",
+        "description": "Handles application startup, configuration, and integration with AppBuilder.",
+        "technologies": ["Flask", "SQLAlchemy"],
+        "key_files": ["flask_appbuilder/__init__.py"],
+        "code_examples": [
+          "class AppBuilder(object):\n    def __init__(self, app, session):\n        self.app = app\n        self.session = session\n        self.security_manager = Manager(session)"
+        ]
+      },
+      {
+        "name": "View Layer",
+        "description": "Manages routing and user interactions using Flask's Blueprint system.",
+        "technologies": ["Flask"],
+        "key_files": ["flask_appbuilder/views.py"],
+        "code_examples": [
+          "def register_view(view: BaseView) -> None:\n    bp = Blueprint(view.name, __name__)\n    appbuilder.app.register_blueprint(bp"
+        ]
+      },
+      {
+        "name": "Model Layer",
+        "description": "Provides abstractions for database interactions using SQLAlchemy.",
+        "technologies": ["SQLAlchemy"],
+        "key_files": ["flask_appbuilder/models"],
+        "code_examples": [
+          "class Model(SQLAlchemy.Model):\n    id = Column(Integer, primary_key=True)\n    created_at = Column(DateTime, default=datetime.utcnow)"
+        ]
+      }
+    ],
+    "components": [
+      {
+        "name": "AppBuilder",
+        "purpose": "Central manager for application configuration, routing, and security.",
+        "files": ["flask_appbuilder/__init__.py"],
+        "interactions": "Integrated during application initialization and used across views and models."
+      },
+      {
+        "name": "BaseView",
+        "purpose": "Abstract base class for defining views.",
+        "files": ["flask_appbuilder/views.py"],
+        "interactions": "Extended by specific view classes for modular routing and UI logic."
+      },
+      {
+        "name": "Model",
+        "purpose": "Base class for defining database models and CRUD operations.",
+        "files": ["flask_appbuilder/models"],
+        "interactions": "Extended by application-specific models to define schema and relationships."
+      }
+    ],
+    "design_patterns": ["Blueprint", "Decorator", "Mixin"],
+    "data_flow": "Data flows from user requests to views, which interact with models for database operations using SQLAlchemy ORM."
+  },
+  "repository_structure": {
+    "directory_tree": "flask_appbuilder/\n  ├── __init__.py\n  ├── views.py\n  ├── models/\n  │   ├── base.py\n  │   ├── mixins.py\n  │   ├── filters.py\n  tests/\n  ├── test_api.py\n  ├── test_mvc.py",
+    "key_directories": [
+      {
+        "path": "flask_appbuilder/",
+        "purpose": "Core application logic.",
+        "key_files": ["__init__.py", "views.py", "models/base.py"],
+        "patterns": "Organized around initialization, routing, and data layer setup."
+      },
+      {
+        "path": "tests/",
+        "purpose": "Unit and integration tests.",
+        "key_files": ["test_api.py", "test_mvc.py"],
+        "patterns": "Focuses on validating API endpoints and MVC functionalities using Flask's testing utilities."
+      }
+    ],
+    "entry_points": ["flask_appbuilder/__init__.py"],
+    "configuration_files": ["setup.py", "setup.cfg", "MANIFEST.in"]
+  },
+  "modules_and_apis": {
+    "core_modules": [
+      {
+        "name": "App Initialization",
+        "file": "flask_appbuilder/__init__.py",
+        "purpose": "Initializes the Flask application and integrates AppBuilder.",
+        "key_functions": [
+          {
+            "name": "setup",
+            "signature": "def setup(app: Flask) -> None",
+            "description": "Configures Flask application settings such as SQLAlchemy and security.",
+            "code_snippet": "def setup(app: Flask) -> None:\n    app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False\n    app.config['SECRET_KEY'] = 'super-secret-key'"
+          }
+        ],
+        "dependencies": ["Flask", "SQLAlchemy", "flask_appbuilder.security"],
+        "used_by": ["views", "models"]
+      },
+      {
+        "name": "Base Models",
+        "file": "flask_appbuilder/models",
+        "purpose": "Defines foundational database models and CRUD operations.",
+        "key_functions": [
+          {
+            "name": "get_by_id",
+            "signature": "def get_by_id(session, id: int) -> Optional[Model]",
+            "description": "Fetches a model instance by its ID.",
+            "code_snippet": "def get_by_id(session, id: int) -> Optional[Model]:\n    return session.query(Model).filter(Model.id == id).first()"
+          }
+        ],
+        "dependencies": ["SQLAlchemy", "flask_appbuilder.models.mixins"],
+        "used_by": []
+      }
+    ],
+    "data_models": [
+      {
+        "name": "Model",
+        "file": "flask_appbuilder/models",
+        "fields": ["id", "created_at"],
+        "relationships": [],
+        "code_snippet": "class Model(SQLAlchemy.Model):\n    id = Column(Integer, primary_key=True)\n    created_at = Column(DateTime, default=datetime.utcnow)"
+      }
+    ],
+    "api_endpoints": [
+      {
+        "path": "/test",
+        "method": "GET",
+        "handler": "lambda: 'test'",
+        "description": "Test endpoint for validating API functionality."
+      },
+      {
+        "path": "/testmodelview/list/",
+        "method": "GET",
+        "handler": "ModelView.list",
+        "description": "List view for ModelView testing."
+      }
+    ]
+  },
+  "code_flows": {
+    "request_lifecycle": "Requests flow through Flask routing, invoking views where logic is handled and responses are generated.",
+    "routing_patterns": "Uses Flask's Blueprint system for modular routing and view registration.",
+    "data_flow": "Data flows from user requests through views to models, where SQLAlchemy handles database interactions.",
+    "authentication": "Role-based security is integrated into views and managed by AppBuilder.",
+    "error_handling": "Custom error handlers are integrated into views to manage exceptions and invalid inputs."
+  },
+  "setup_and_development": {
+    "prerequisites": ["Python >= 3.6", "Flask", "SQLAlchemy"],
+    "installation_steps": [
+      {
+        "step": 1,
+        "command": "pip install flask-appbuilder",
+        "description": "Install Flask-AppBuilder and its dependencies via pip."
+      },
+      {
+        "step": 2,
+        "command": "python setup.py install",
+        "description": "Set up the package locally for development."
+      }
+    ],
+    "environment_variables": [
+      {
+        "name": "FLASK_APP",
+        "description": "Specifies the Flask application to run.",
+        "example": "FLASK_APP=app.py",
+        "required": true
+      },
+      {
+        "name": "DATABASE_URL",
+        "description": "Connection string for SQLAlchemy database.",
+        "example": "DATABASE_URL=sqlite:///app.db",
