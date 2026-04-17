@@ -26,7 +26,7 @@
         <section id="module-overview">
             <h2>Module Overview</h2>
             <p>Total module count: Not detected</p>
-            <p>Organization approach: Organized around MVC principles with clearly separated modules for each layer.</p>
+            <p>Organization approach: Organized around MVC principles with modular components and extensibility.</p>
             <p>Naming conventions: Not detected</p>
         </section>
 
@@ -36,26 +36,25 @@
             <div class="module-item">
                 <h3>App Initialization</h3>
                 <p><strong>Location:</strong> flask_appbuilder/__init__.py</p>
-                <p><strong>Purpose:</strong> Sets up the Flask application and integrates AppBuilder.</p>
+                <p><strong>Purpose:</strong> Initializes the Flask application and integrates AppBuilder.</p>
                 <p><strong>Key Functions:</strong></p>
                 <ul>
-                    <li><code>create_app(config=None)</code>: Creates the Flask application and initializes AppBuilder.</li>
+                    <li><code>AppBuilder(app=None, session=None, security_manager=None)</code>: Initializes AppBuilder with app, session, and security manager.</li>
                 </ul>
-                <p><strong>Dependencies:</strong> Flask</p>
+                <p><strong>Dependencies:</strong> Flask, SQLAlchemy</p>
                 <p><strong>Used By:</strong> views, models</p>
-                <pre><code>def create_app(config=None):
-    app = Flask(__name__)
-    appbuilder = AppBuilder(app)
-    return app, appbuilder</code></pre>
+                <pre><code>def AppBuilder(app=None, session=None, security_manager=None):
+    app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+    security_manager.init_app(app</code></pre>
             </div>
 
             <div class="module-item">
-                <h3>Model Utilities</h3>
+                <h3>Base Models</h3>
                 <p><strong>Location:</strong> flask_appbuilder/models/base.py</p>
-                <p><strong>Purpose:</strong> Provides base functionality for SQLAlchemy models.</p>
+                <p><strong>Purpose:</strong> Provides foundational database models and auditing support.</p>
                 <p><strong>Key Functions:</strong> None</p>
                 <p><strong>Dependencies:</strong> SQLAlchemy</p>
-                <p><strong>Used By:</strong> filters.py, group.py</p>
+                <p><strong>Used By:</strong> filters.py, group.py, mixins.py</p>
             </div>
         </section>
 
@@ -76,7 +75,7 @@
                 <p><strong>Location:</strong> flask_appbuilder/models/base.py</p>
                 <p><strong>Fields:</strong> id, name</p>
                 <p><strong>Relationships:</strong> None</p>
-                <pre><code>class BaseModel:
+                <pre><code>class BaseModel(AuditMixin):
     id = Column(Integer, primary_key=True)
     name = Column(String(50))</code></pre>
             </div>
@@ -117,7 +116,7 @@
             <h2>Module Best Practices</h2>
             <p>Coding patterns observed: Blueprint Routing, Mixin, Decorator</p>
             <p>Import conventions: Not detected</p>
-            <p>Testing approach per module: Focus on API and MVC testing using Flask utilities and SQLAlchemy.</p>
+            <p>Testing approach per module: Focus on API and CRUD operation validation using Flask and SQLAlchemy.</p>
         </section>
     </div>
 
