@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Flask-AppBuilder is a comprehensive framework for building web applications with Flask and SQLAlchemy.">
+    <meta name="description" content="Flask-AppBuilder is a framework for building web applications with Flask and SQLAlchemy.">
     <title>Flask-AppBuilder - Overview</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="favicon.ico">
 </head>
 <body>
     <aside class="sidebar">
-        <div class="logo">
+        <div class="sidebar-header">
             <h1>Flask-AppBuilder</h1>
         </div>
         <nav>
@@ -28,131 +28,145 @@
     <main class="content">
         <header class="hero">
             <h1>Flask-AppBuilder</h1>
-            <p>A framework for building web applications with Flask and SQLAlchemy.</p>
+            <p class="tagline">A framework for building web applications with Flask and SQLAlchemy.</p>
             <div class="badges">
                 <span class="badge">Python</span>
                 <span class="badge">Flask</span>
-                <span class="badge">SQLAlchemy</span>
                 <span class="badge">Apache License 2.0</span>
             </div>
         </header>
-        <section id="purpose">
+
+        <section id="project-purpose">
             <h2>Project Purpose</h2>
-            <p>Flask-AppBuilder is a comprehensive framework designed to simplify web application development using Flask and SQLAlchemy. It provides abstractions for CRUD operations, modular routing, and robust security management, enabling developers to build scalable and secure web applications efficiently.</p>
-            <p>The framework integrates seamlessly with Flask's routing mechanisms and SQLAlchemy's ORM capabilities, offering tools for managing models, views, APIs, and CLI commands. Flask-AppBuilder emphasizes extensibility, allowing developers to customize and extend its functionality as needed.</p>
-            <p>Its architecture supports rapid development while maintaining scalability and maintainability, making it suitable for a wide range of projects, from admin panels to data-driven dashboards.</p>
+            <article>
+                <p>Flask-AppBuilder is a robust framework designed to simplify web application development using Flask. It provides a modular implementation of the Model-View-Controller (MVC) architecture, integrating SQLAlchemy for the data layer and Flask for routing and application logic.</p>
+                <p>The framework includes tools for managing APIs, user authentication, and role-based access control, along with reusable views for CRUD operations. Additionally, Flask-AppBuilder offers a command-line interface (CLI) for administrative tasks, as well as extensive testing capabilities.</p>
+                <p>Its design emphasizes scalability, extensibility, and maintainability, making it suitable for a wide range of applications, including dashboards, admin panels, and data-driven systems.</p>
+            </article>
         </section>
-        <section id="features">
+
+        <section id="key-features">
             <h2>Key Features</h2>
             <ul>
                 <li>MVC architecture with Flask and SQLAlchemy</li>
-                <li>Centralized application initialization using AppBuilder</li>
+                <li>Centralized initialization using AppBuilder</li>
                 <li>Reusable CRUD views and API endpoints</li>
                 <li>Role-based security and user authentication</li>
                 <li>CLI tools for application management</li>
                 <li>Comprehensive test suite for validation</li>
             </ul>
         </section>
+
         <section id="tech-stack">
             <h2>Tech Stack</h2>
             <ul>
                 <li>Primary Language: Python</li>
                 <li>Frameworks: Flask, SQLAlchemy</li>
-                <li>License: Apache License 2.0</li>
+                <li>Database/Storage: SQLAlchemy ORM</li>
+                <li>Deployment Platform: Not detected</li>
             </ul>
         </section>
+
         <section id="architecture-overview">
             <h2>Architecture Overview</h2>
-            <p>Flask-AppBuilder implements an MVC architecture, integrating SQLAlchemy for the data layer, Flask for routing and controller logic, and Blueprint-based views for the presentation layer.</p>
-            <p>AppBuilder serves as the central component for application initialization, managing routing and security. The framework's API layer leverages Flask's Blueprint system for modular endpoint registration, while reusable view components facilitate CRUD operations.</p>
-            <a href="architecture.html">Learn more about the architecture →</a>
+            <p>Flask-AppBuilder implements an MVC architecture with a focus on modularity and extensibility. The initialization layer integrates Flask and SQLAlchemy, while the view layer uses Flask's Blueprint system for routing. The data layer leverages SQLAlchemy ORM for database interactions, enhanced by mixins for auditing and validation.</p>
+            <p>An API layer supports modular endpoint management with schema validation, and CLI tools provide administrative functionality. For more details, visit the <a href="architecture.html">Architecture</a> page.</p>
         </section>
+
         <section id="quick-start">
             <h2>Quick Start</h2>
-            <h3>Prerequisites</h3>
-            <ul>
-                <li>Python 3.6+</li>
-                <li>Flask</li>
-                <li>SQLAlchemy</li>
-            </ul>
-            <h3>Installation</h3>
-            <pre><code class="language-bash">pip install flask-appbuilder</code></pre>
-            <h3>Basic Usage</h3>
-            <pre><code class="language-python">from flask import Flask
+            <article>
+                <h3>Prerequisites</h3>
+                <ul>
+                    <li>Python 3.x</li>
+                    <li>pip (Python package manager)</li>
+                </ul>
+
+                <h3>Installation</h3>
+                <pre><code class="language-bash">pip install flask-appbuilder</code></pre>
+
+                <h3>Basic Usage</h3>
+                <pre><code class="language-python">from flask import Flask
 from flask_appbuilder import AppBuilder
 
 app = Flask(__name__)
 appbuilder = AppBuilder(app)
-app.run(debug=True)</code></pre>
-            <a href="contributing.html">Learn how to contribute to the project →</a>
+app.run()</code></pre>
+
+                <p>For contributing guidelines, visit the <a href="contributing.html">Contributing</a> page.</p>
+            </article>
         </section>
-        <section id="status">
+
+        <section id="project-status">
             <h2>Project Status</h2>
-            <p>The project is actively maintained and widely adopted for its simplicity and powerful feature set. It is suitable for building data-driven applications, dashboards, and administrative tools.</p>
+            <p><strong>Status:</strong> Active</p>
+            <p>No recent activity notes detected.</p>
         </section>
     </main>
+
     <script>
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            });
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
         });
+    });
 
-        // Copy to clipboard for code blocks
-        document.querySelectorAll('pre code').forEach(block => {
-            const btn = document.createElement('button');
-            btn.className = 'copy-btn';
-            btn.textContent = 'Copy';
-            btn.onclick = () => {
-                navigator.clipboard.writeText(block.textContent);
-                btn.textContent = 'Copied!';
-                setTimeout(() => btn.textContent = 'Copy', 2000);
-            };
-            block.parentElement.style.position = 'relative';
-            block.parentElement.appendChild(btn);
-        });
-
-        // Mobile navigation toggle
-        const createMobileToggle = () => {
-            if (window.innerWidth <= 768) {
-                const sidebar = document.querySelector('.sidebar');
-                const toggle = document.createElement('button');
-                toggle.className = 'mobile-nav-toggle';
-                toggle.innerHTML = '☰';
-                toggle.onclick = () => sidebar.classList.toggle('active');
-                document.body.insertBefore(toggle, document.body.firstChild);
-            }
+    // Copy to clipboard for code blocks
+    document.querySelectorAll('pre code').forEach(block => {
+        const btn = document.createElement('button');
+        btn.className = 'copy-btn';
+        btn.textContent = 'Copy';
+        btn.onclick = () => {
+            navigator.clipboard.writeText(block.textContent);
+            btn.textContent = 'Copied!';
+            setTimeout(() => btn.textContent = 'Copy', 2000);
         };
-        createMobileToggle();
+        block.parentElement.style.position = 'relative';
+        block.parentElement.appendChild(btn);
+    });
 
-        // Scroll to top button
-        const scrollBtn = document.createElement('button');
-        scrollBtn.className = 'scroll-to-top';
-        scrollBtn.innerHTML = '↑';
-        scrollBtn.onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
-        document.body.appendChild(scrollBtn);
-        window.addEventListener('scroll', () => {
-            scrollBtn.style.display = window.scrollY > 300 ? 'block' : 'none';
-        });
+    // Mobile navigation toggle
+    const createMobileToggle = () => {
+        if (window.innerWidth <= 768) {
+            const sidebar = document.querySelector('.sidebar');
+            const toggle = document.createElement('button');
+            toggle.className = 'mobile-nav-toggle';
+            toggle.innerHTML = '☰';
+            toggle.onclick = () => sidebar.classList.toggle('active');
+            document.body.insertBefore(toggle, document.body.firstChild);
+        }
+    };
+    createMobileToggle();
 
-        // Highlight active section in navigation
-        const sections = document.querySelectorAll('section[id]');
-        const navLinks = document.querySelectorAll('.sidebar a');
-        window.addEventListener('scroll', () => {
-            let current = '';
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                if (scrollY >= sectionTop - 60) current = section.getAttribute('id');
-            });
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === `#${current}`) link.classList.add('active');
-            });
+    // Scroll to top button
+    const scrollBtn = document.createElement('button');
+    scrollBtn.className = 'scroll-to-top';
+    scrollBtn.innerHTML = '↑';
+    scrollBtn.onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
+    document.body.appendChild(scrollBtn);
+    window.addEventListener('scroll', () => {
+        scrollBtn.style.display = window.scrollY > 300 ? 'block' : 'none';
+    });
+
+    // Highlight active section in navigation
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.sidebar a');
+    window.addEventListener('scroll', () => {
+        let current = '';
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            if (scrollY >= sectionTop - 60) current = section.getAttribute('id');
         });
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === `#${current}`) link.classList.add('active');
+        });
+    });
     </script>
+
     <!-- Langflow Embedded Chat Widget -->
     <script src="https://cdn.jsdelivr.net/gh/logspace-ai/langflow-embedded-chat@v1.0.7/dist/build/static/js/bundle.min.js"></script>
     <langflow-chat
