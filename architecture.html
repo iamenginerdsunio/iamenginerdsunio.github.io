@@ -1,3 +1,140 @@
-{
-  "name": "architecture.html",
-  "content": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <meta name=\"description\" content=\"Explore the architecture of Flask-AppBuilder, a Python framework based on Flask and SQLAlchemy.\">\n    <title>Architecture - Flask-AppBuilder</title>\n    <link rel=\"stylesheet\" href=\"styles.css\">\n</head>\n<body>\n    <div class=\"sidebar\">\n        <nav>\n            <ul>\n                <li><a href=\"index.html\">Overview</a></li>\n                <li><a href=\"structure.html\">Structure</a></li>\n                <li><a class=\"active\" href=\"architecture.html\">Architecture</a></li>\n                <li><a href=\"modules.html\">Modules</a></li>\n            </ul>\n        </nav>\n    </div>\n    <div class=\"content\">\n        <h1>Architecture</h1>\n        <p>Flask-AppBuilder adopts an MVC (Model-View-Controller) architecture to separate application concerns and promote modular development. The initialization logic is encapsulated in the AppBuilder class, which integrates Flask and SQLAlchemy. Views are defined modularly, using routing logic to ensure scalability and maintainability. This architecture allows developers to focus on building features while adhering to best practices for clean, maintainable code.</p>\n        <p>The architecture leverages SQLAlchemy ORM for seamless database integration, simplifying the process of defining and interacting with data models. By focusing on separation of concerns, Flask-AppBuilder provides a structured and scalable foundation for developing web applications.</p>\n\n        <h2>Architecture Diagram</h2>\n        <svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 800 400\" style=\"max-width: 100%; height: auto;\">\n            <rect x=\"100\" y=\"50\" width=\"200\" height=\"60\" fill=\"#f4f4f4\" stroke=\"#333\" />\n            <text x=\"200\" y=\"90\" font-size=\"14\" text-anchor=\"middle\">Application Initialization</text>\n\n            <rect x=\"400\" y=\"50\" width=\"200\" height=\"60\" fill=\"#f4f4f4\" stroke=\"#333\" />\n            <text x=\"500\" y=\"90\" font-size=\"14\" text-anchor=\"middle\">View Management</text>\n\n            <line x1=\"300\" y1=\"80\" x2=\"400\" y2=\"80\" stroke=\"#000\" marker-end=\"url(#arrow)\" />\n\n            <defs>\n                <marker id=\"arrow\" markerWidth=\"10\" markerHeight=\"10\" refX=\"6\" refY=\"3\" orient=\"auto\">\n                    <path d=\"M0,0 L6,3 L0,6 Z\" fill=\"#000\" />\n                </marker>\n            </defs>\n        </svg>\n\n        <h2>System Components</h2>\n        <h3>Application Initialization Layer</h3>\n        <p>This layer handles the setup and configuration of the Flask application and its integrations, such as SQLAlchemy ORM.</p>\n        <ul>\n            <li>Key Technologies: Flask, SQLAlchemy</li>\n            <li>Key Files: <code>flask_appbuilder/__init__.py</code></li>\n        </ul>\n        <pre><code>class AppBuilder:\n    def __init__(self, app: Flask, db: SQLAlchemy):\n        self.app = app\n        self.db = db\n        self.init_app()</code></pre>\n\n        <h3>View Management Layer</h3>\n        <p>This layer defines views and their associated routing logic, enabling modular and scalable application development.</p>\n        <ul>\n            <li>Key Technologies: Flask</li>\n            <li>Key Files: <code>flask_appbuilder/views.py</code></li>\n        </ul>\n        <pre><code>class BaseView:\n    template = 'index.html'\n    url = '/'\n\ndef register_view(view: BaseView) -> None:\n    app.add_url_rule(view.url, view_func=view.render)</code></pre>\n\n        <h2>Design Patterns</h2>\n        <p>The following design patterns are integral to Flask-AppBuilder's architecture:</p>\n        <ul>\n            <li><strong>Application Initialization Pattern:</strong> Encapsulates setup and configuration in a dedicated class (AppBuilder).</li>\n            <li><strong>View Management Pattern:</strong> Modularly defines views and routes to enforce separation of concerns.</li>\n        </ul>\n\n        <h2>Data Flow</h2>\n        <p>The data flow in the system follows these steps:</p>\n        <ul>\n            <li><strong>User Request:</strong> Initiated by the user via HTTP.</li>\n            <li><strong>Routing:</strong> The request is routed through the Flask application to the appropriate view.</li>\n            <li><strong>View Logic:</strong> The view processes the request and interacts with the database using SQLAlchemy ORM, if necessary.</li>\n            <li><strong>Response:</strong> The view generates and returns a response to the user.</li>\n        </ul>\n\n        <h2>Technology Choices</h2>\n        <p>The following technologies were chosen for their alignment with Flask-AppBuilder's goals:</p>\n        <ul>\n            <li><strong>Flask:</strong> Lightweight and flexible framework for web development.</li>\n            <li><strong>SQLAlchemy:</strong> ORM for efficient database integration and management.</li>\n        </ul>\n\n        <h2>Scalability Considerations</h2>\n        <p>The following aspects of the architecture support scalability:</p>\n        <ul>\n            <li>Modular design of views and routing logic.</li>\n            <li>Encapsulation of initialization logic in a dedicated class.</li>\n            <li>Seamless integration with SQLAlchemy for database operations.</li>\n        </ul>\n\n        <h2>Security Architecture</h2>\n        <p>Security features were not explicitly detected in the analyzed files, but the framework benefits from Flask's built-in security mechanisms, such as request validation and error handling.</p>\n    </div>\n\n    <script>\n    // Smooth scrolling for anchor links\n    document.querySelectorAll('a[href^=\"#\"]').forEach(anchor => {\n        anchor.addEventListener('click', function(e) {\n            e.preventDefault();\n            const target = document.querySelector(this.getAttribute('href'));\n            if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });\n        });\n    });\n\n    // Copy to clipboard for code blocks\n    document.querySelectorAll('pre code').forEach(block => {\n        const btn = document.createElement('button');\n        btn.className = 'copy-btn';\n        btn.textContent = 'Copy';\n        btn.onclick = () => {\n            navigator.clipboard.writeText(block.textContent);\n            btn.textContent = 'Copied!';\n            setTimeout(() => btn.textContent = 'Copy', 2000);\n        };\n        block.parentElement.style.position = 'relative';\n        block.parentElement.appendChild(btn);\n    });\n\n    // Mobile navigation toggle\n    const createMobileToggle = () => {\n        if (window.innerWidth <= 768) {\n            const sidebar = document.querySelector('.sidebar');\n            const toggle = document.createElement('button');\n            toggle.className = 'mobile-nav-toggle';\n            toggle.innerHTML = '☰';\n            toggle.onclick = () => sidebar.classList.toggle('active');\n            document.body.insertBefore(toggle, document.body.firstChild);\n        }\n    };\n    createMobileToggle();\n\n    // Scroll to top button\n    const scrollBtn = document.createElement('button');\n    scrollBtn.className = 'scroll-to-top';\n    scrollBtn.innerHTML = '↑';\n    scrollBtn.onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });\n    document.body.appendChild(scrollBtn);\n    window.addEventListener('scroll', () => {\n        scrollBtn.style.display = window.scrollY > 300 ? 'block' : 'none';\n    });\n\n    // Highlight active section in navigation\n    const sections = document.querySelectorAll('section[id]');\n    const navLinks = document.querySelectorAll('.sidebar a');\n    window.addEventListener('scroll', () => {\n        let current = '';\n        sections.forEach(section => {\n            const sectionTop = section.offsetTop;\n            if (scrollY >= sectionTop - 60) current = section.getAttribute('id');\n        });\n        navLinks.forEach(link => {\n            link.classList.remove('active');\n            if (link.getAttribute('href') === `#${current}`)
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Learn about the architecture of Flask-AppBuilder, a framework for building web applications with Flask and SQLAlchemy.">
+    <title>Architecture - Flask-AppBuilder</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="sidebar">
+        <nav>
+            <ul>
+                <li><a href="index.html">Overview</a></li>
+                <li><a href="structure.html">Structure</a></li>
+                <li><a href="modules.html">Modules</a></li>
+                <li class="active"><a href="architecture.html">Architecture</a></li>
+                <li><a href="apis.html">APIs</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div class="content">
+        <h1>Architecture</h1>
+        <p>Flask-AppBuilder is designed around a modular MVC (Model-View-Controller) architecture, enabling developers to build scalable, maintainable, and secure web applications. The system's core consists of multiple layers, each responsible for handling specific functionalities like initialization, view routing, database abstraction, and testing. This architecture promotes separation of concerns and reusability, making it well-suited for applications requiring role-based access control, CRUD operations, and API endpoints.</p>
+        <p>The framework's architecture integrates seamlessly with Flask and SQLAlchemy, leveraging Flask's Blueprint system for modular routing and SQLAlchemy for robust database management. The design also includes a dedicated testing layer to ensure application reliability, utilizing the pytest framework for validating MVC components and API endpoints.</p>
+
+        <h2>Architecture Diagram</h2>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" width="800" height="400" style="border:1px solid #ccc; background-color:#f9f9f9;">
+            <!-- Initialization Layer -->
+            <rect x="50" y="50" width="200" height="100" fill="#add8e6" stroke="#000" stroke-width="2"></rect>
+            <text x="150" y="110" fill="#000" font-size="14" text-anchor="middle">Initialization Layer</text>
+            <text x="150" y="130" fill="#000" font-size="12" text-anchor="middle">(Flask, SQLAlchemy, AppBuilder)</text>
+
+            <!-- View Layer -->
+            <rect x="300" y="50" width="200" height="100" fill="#90ee90" stroke="#000" stroke-width="2"></rect>
+            <text x="400" y="110" fill="#000" font-size="14" text-anchor="middle">View Layer</text>
+            <text x="400" y="130" fill="#000" font-size="12" text-anchor="middle">(Blueprint, Views)</text>
+
+            <!-- Model Layer -->
+            <rect x="550" y="50" width="200" height="100" fill="#f4a460" stroke="#000" stroke-width="2"></rect>
+            <text x="650" y="110" fill="#000" font-size="14" text-anchor="middle">Model Layer</text>
+            <text x="650" y="130" fill="#000" font-size="12" text-anchor="middle">(SQLAlchemy Models)</text>
+
+            <!-- Testing Layer -->
+            <rect x="300" y="200" width="200" height="100" fill="#ffb6c1" stroke="#000" stroke-width="2"></rect>
+            <text x="400" y="260" fill="#000" font-size="14" text-anchor="middle">Testing Layer</text>
+            <text x="400" y="280" fill="#000" font-size="12" text-anchor="middle">(pytest)</text>
+
+            <!-- Arrows -->
+            <line x1="250" y1="100" x2="300" y2="100" stroke="#000" stroke-width="2" marker-end="url(#arrow)"></line>
+            <line x1="500" y1="100" x2="550" y2="100" stroke="#000" stroke-width="2" marker-end="url(#arrow)"></line>
+            <line x1="400" y1="150" x2="400" y2="200" stroke="#000" stroke-width="2" marker-end="url(#arrow)"></line>
+
+            <!-- Arrowhead Definition -->
+            <defs>
+                <marker id="arrow" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto">
+                    <path d="M0,0 L10,5 L0,10 z" fill="#000"></path>
+                </marker>
+            </defs>
+        </svg>
+
+        <h2>System Components</h2>
+        <section>
+            <h3>Initialization Layer</h3>
+            <p>Handles application startup and configuration, including AppBuilder setup and security integration.</p>
+            <p><strong>Key File:</strong> <code>flask_appbuilder/__init__.py</code></p>
+            <pre><code>def AppBuilder(app=None, session=None, security_manager=None):
+    app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+    security_manager.init_app(app)</code></pre>
+        </section>
+        <section>
+            <h3>View Layer</h3>
+            <p>Defines views and their routing using Flask's Blueprint system and reusable base classes.</p>
+            <p><strong>Key File:</strong> <code>flask_appbuilder/views.py</code></p>
+            <pre><code>def register_routes(self):
+    blueprint = Blueprint('base', __name__)
+    self.appbuilder.app.register_blueprint(blueprint)</code></pre>
+        </section>
+        <section>
+            <h3>Model Layer</h3>
+            <p>Abstracts database operations using SQLAlchemy and provides foundational CRUD functionality.</p>
+            <p><strong>Key File:</strong> <code>flask_appbuilder/models/base.py</code></p>
+            <pre><code>class BaseModel(declarative_base()):
+    __abstract__ = True
+    id = Column(Integer, primary_key=True)
+    def save(self):
+        session.add(self)
+        session.commit()</code></pre>
+        </section>
+        <section>
+            <h3>Testing Layer</h3>
+            <p>Validates API endpoints and MVC components using pytest with pre-defined fixtures.</p>
+            <p><strong>Key Files:</strong> <code>tests/test_api.py</code>, <code>tests/test_mvc.py</code></p>
+            <pre><code>def test_get_api_endpoint(client):
+    response = client.get('/api/v1/resource')
+    assert response.status_code == 200</code></pre>
+        </section>
+
+        <h2>Design Patterns</h2>
+        <p>The framework employs several design patterns:</p>
+        <ul>
+            <li><strong>Blueprint:</strong> For modular routing and view organization.</li>
+            <li><strong>Decorator:</strong> For role-based access control and security.</li>
+            <li><strong>Mixin:</strong> For adding reusable functionality to models and views.</li>
+        </ul>
+
+        <h2>Data Flow</h2>
+        <p>Data flows from user requests to the view layer, which interacts with the model layer for database operations using SQLAlchemy. Responses are either rendered as HTML templates or returned as JSON for APIs. This approach ensures a clear separation between presentation, business logic, and data management.</p>
+
+        <h2>Technology Choices</h2>
+        <ul>
+            <li><strong>Flask:</strong> Lightweight framework for application routing and templating.</li>
+            <li><strong>SQLAlchemy:</strong> ORM for robust database abstraction and management.</li>
+            <li><strong>pytest:</strong> Testing framework for validating application functionality.</li>
+        </ul>
+
+        <h2>Scalability Considerations</h2>
+        <p>The modular design of Flask-AppBuilder supports scalability by allowing developers to extend views, models, and APIs independently. However, database performance could become a bottleneck with large datasets, which can be mitigated with query optimization and caching strategies.</p>
+
+        <h2>Security Architecture</h2>
+        <p>Flask-AppBuilder integrates role-based access control (RBAC) using decorators to enforce permissions. Data protection is ensured through secure session management, and API endpoints can be secured using token-based authentication mechanisms.</p>
+    </div>
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+        });
+
+        // Copy to clipboard for code blocks
+        document.querySelectorAll('pre code').forEach(block => {
+            const btn = document.createElement('button');
+            btn.className = 'copy-btn';
+            btn.textContent = 'Copy';
+            btn.onclick = () => {
+                navigator.clipboard.writeText(block.textContent);
+                btn.textContent = 'Copied!';
