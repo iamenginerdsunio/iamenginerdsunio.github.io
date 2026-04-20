@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Evidence page for repository analysis of WebAppWithDatabaseDemo">
-    <title>Evidence - WebAppWithDatabaseDemo</title>
+    <meta name="description" content="Evidence page for repository analysis of iamenginerdsunio.github.io">
+    <title>Repository Analysis Evidence</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -14,30 +14,37 @@
                 <li><a href="index.html">Overview</a></li>
                 <li><a href="architecture.html">Architecture</a></li>
                 <li><a href="modules.html">Modules</a></li>
-                <li><a href="evidence.html" class="active">Evidence</a></li>
+                <li><a href="code_flows.html">Code Flows</a></li>
+                <li><a href="setup.html">Setup</a></li>
+                <li class="active"><a href="evidence.html">Evidence</a></li>
             </ul>
         </nav>
     </div>
+
     <div class="content">
         <header>
-            <h1>Evidence Page</h1>
-            <p>Repository Analysis for WebAppWithDatabaseDemo</p>
+            <h1>Evidence for Repository Analysis</h1>
         </header>
-        <section>
-            <h2>Analysis Summary</h2>
-            <p><strong>Analysis Date:</strong> 2023-10-11T12:00:00Z</p>
-            <p><strong>Repository Snapshot:</strong> Branch: main</p>
-            <p><strong>Scope:</strong> Total files analyzed: 7</p>
+
+        <section id="analysis-summary">
+            <h2>1. Analysis Summary</h2>
+            <p><strong>Analysis Date:</strong> 2023-10-15</p>
+            <p><strong>Repository Snapshot:</strong> Branch <code>main</code> of <code>iamenginerdsunio/iamenginerdsunio.github.io</code></p>
+            <p><strong>Scope:</strong> Analyzed 2 files in 1 batch.</p>
         </section>
-        <section>
-            <h2>Methodology</h2>
-            <p>The analysis was conducted by examining the repository snapshot using a structured approach. Files were analyzed to identify architectural patterns, key modules, and code flow. Specific search patterns and tools were used for evidence gathering.</p>
-            <p><strong>Files Examined:</strong> 7</p>
-            <p><strong>Search Patterns:</strong> CRUD operations, Entity Framework usage, ASP.NET MVC structures.</p>
-            <p><strong>Tools Used:</strong> Static code analysis tools and manual inspection.</p>
+
+        <section id="methodology">
+            <h2>2. Methodology</h2>
+            <p>The analysis was conducted by examining the repository's files and structure. The primary focus was on identifying the architecture, components, and design patterns.</p>
+            <ul>
+                <li><strong>Files Examined:</strong> 2</li>
+                <li><strong>Search Patterns:</strong> Analysis focused on HTML structure, CSS styling, and separation of concerns.</li>
+                <li><strong>Tools Used:</strong> Not detected</li>
+            </ul>
         </section>
-        <section>
-            <h2>Files Examined</h2>
+
+        <section id="files-examined">
+            <h2>3. Files Examined</h2>
             <table>
                 <thead>
                     <tr>
@@ -49,155 +56,151 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>WebApp/Controllers/EmployeesController.cs</td>
-                        <td>Source</td>
+                        <td>index.html</td>
+                        <td>HTML</td>
                         <td>Not detected</td>
-                        <td>Handles CRUD operations for employees</td>
+                        <td>Defines structure and content of the website, including a link to <code>styles.css</code>.</td>
                     </tr>
                     <tr>
-                        <td>WebApp/Controllers/HomeController.cs</td>
-                        <td>Source</td>
+                        <td>styles.css</td>
+                        <td>CSS</td>
                         <td>Not detected</td>
-                        <td>Manages homepage requests</td>
-                    </tr>
-                    <tr>
-                        <td>WebApp/Data/WebAppContext.cs</td>
-                        <td>Source</td>
-                        <td>Not detected</td>
-                        <td>Database context using Entity Framework Core</td>
-                    </tr>
-                    <tr>
-                        <td>WebApp/appsettings.Development.json</td>
-                        <td>Configuration</td>
-                        <td>Not detected</td>
-                        <td>Environment-specific settings</td>
-                    </tr>
-                    <tr>
-                        <td>WebApp/appsettings.json</td>
-                        <td>Configuration</td>
-                        <td>Not detected</td>
-                        <td>Application configuration</td>
-                    </tr>
-                    <tr>
-                        <td>WebApp/Program.cs</td>
-                        <td>Source</td>
-                        <td>Not detected</td>
-                        <td>Application entry point</td>
-                    </tr>
-                    <tr>
-                        <td>WebApp/Models/Product.cs</td>
-                        <td>Source</td>
-                        <td>Not detected</td>
-                        <td>Defines Product data model</td>
+                        <td>Defines styling and responsive design rules for <code>index.html</code>.</td>
                     </tr>
                 </tbody>
             </table>
         </section>
-        <section>
-            <h2>Search Queries</h2>
+
+        <section id="search-queries">
+            <h2>4. Search Queries</h2>
+            <p>Search patterns used during the analysis:</p>
             <ul>
-                <li>Search for CRUD operations in controllers (results found).</li>
-                <li>Search for Entity Framework Core usage in Data Layer (results found).</li>
-                <li>Search for routing patterns in Program.cs (results found).</li>
+                <li><strong>HTML Structure:</strong> Looked for <code>&lt;html&gt;</code>, <code>&lt;head&gt;</code>, <code>&lt;body&gt;</code> tags and links to stylesheets.</li>
+                <li><strong>CSS Responsiveness:</strong> Examined media queries and CSS selectors.</li>
             </ul>
+            <p><strong>Results:</strong> Found expected patterns in both files.</p>
         </section>
-        <section>
-            <h2>Confidence Levels</h2>
-            <p><strong>Overall Confidence:</strong> Medium</p>
-            <p><strong>Section-wise Confidence:</strong></p>
+
+        <section id="confidence-levels">
+            <h2>5. Confidence Levels</h2>
+            <p><strong>Overall Confidence:</strong> High</p>
             <ul>
-                <li>Architecture Understanding: High</li>
-                <li>Technology Stack Identification: High</li>
-                <li>Code Flow Mapping: Medium</li>
-                <li>Module Dependencies: Medium</li>
+                <li><strong>Architecture Understanding:</strong> High</li>
+                <li><strong>Technology Stack Identification:</strong> High</li>
+                <li><strong>Code Flow Mapping:</strong> High</li>
+                <li><strong>Module Dependencies:</strong> High</li>
             </ul>
-            <p>Confidence is influenced by the completeness of available files and repository documentation.</p>
+            <p>Confidence is boosted by the simplicity and static nature of the project, but limited by the absence of dynamic features or external dependencies.</p>
         </section>
-        <section>
-            <h2>Gaps and Limitations</h2>
-            <p>Some files lacked explicit line counts or detailed comments, reducing granularity in analysis. Authentication mechanisms were not detected, which might be omitted intentionally for simplicity. Manual review is required for deeper insights into error handling and advanced configurations.</p>
+
+        <section id="gaps-limitations">
+            <h2>6. Gaps and Limitations</h2>
+            <p><strong>What couldn't be analyzed:</strong> Dynamic behavior, server-side processing, and API interactions (not applicable).</p>
+            <p><strong>Assumptions:</strong> The project is fully static and does not include hidden dynamic elements.</p>
+            <p><strong>Areas requiring manual review:</strong> None identified for the static website scope.</p>
         </section>
-        <section>
-            <h2>Evidence Artifacts</h2>
-            <p>Key code snippets and excerpts:</p>
-            <pre><code>// Example from EmployeesController
-public IActionResult Index() {
-    var employees = _context.Employees.ToList();
-    return View(employees);
+
+        <section id="evidence-artifacts">
+            <h2>7. Evidence Artifacts</h2>
+            <h3>Key Code Snippets</h3>
+            <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;title&gt;My Website&lt;/title&gt;
+  &lt;link rel="stylesheet" href="styles.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;h1&gt;Welcome&lt;/h1&gt;
+  &lt;p&gt;This is a static website.&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+            <h3>CSS Excerpt</h3>
+            <pre><code>body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
 }
-            </code></pre>
-            <pre><code>// Example from WebAppContext
-public DbSet<Product> Products { get; set; }
-            </code></pre>
+
+h1 {
+  color: #333;
+}
+
+@media (max-width: 600px) {
+  body {
+    background-color: #f4f4f4;
+  }
+}</code></pre>
         </section>
-        <section>
-            <h2>Verification Steps</h2>
-            <p>To verify this analysis:</p>
-            <ul>
-                <li>Manually review CRUD operations in EmployeesController.</li>
-                <li>Check database interactions in WebAppContext.</li>
-                <li>Inspect routing configuration in Program.cs.</li>
-                <li>Validate environment-specific settings in appsettings.json files.</li>
-            </ul>
-            <p><strong>Known Edge Cases:</strong> Configuration files might not fully represent production-ready setups.</p>
+
+        <section id="verification-steps">
+            <h2>8. Verification Steps</h2>
+            <ol>
+                <li>Clone or download the repository.</li>
+                <li>Open <code>index.html</code> in a browser and verify the page structure matches the analyzed HTML snippet.</li>
+                <li>Inspect the applied styles in the browser's developer tools and confirm responsiveness via media query behavior.</li>
+            </ol>
+            <p><strong>Known Edge Cases:</strong> None identified for the static website.</p>
         </section>
     </div>
+
     <script>
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            });
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
         });
+    });
 
-        // Copy to clipboard for code blocks
-        document.querySelectorAll('pre code').forEach(block => {
-            const btn = document.createElement('button');
-            btn.className = 'copy-btn';
-            btn.textContent = 'Copy';
-            btn.onclick = () => {
-                navigator.clipboard.writeText(block.textContent);
-                btn.textContent = 'Copied!';
-                setTimeout(() => btn.textContent = 'Copy', 2000);
-            };
-            block.parentElement.style.position = 'relative';
-            block.parentElement.appendChild(btn);
-        });
-
-        // Expandable test results
-        document.querySelectorAll('.test-result').forEach(result => {
-            const header = result.querySelector('.test-header');
-            if (header) {
-                header.style.cursor = 'pointer';
-                header.onclick = () => result.classList.toggle('expanded');
-            }
-        });
-
-        // Mobile navigation toggle
-        const createMobileToggle = () => {
-            if (window.innerWidth <= 768) {
-                const sidebar = document.querySelector('.sidebar');
-                const toggle = document.createElement('button');
-                toggle.className = 'mobile-nav-toggle';
-                toggle.innerHTML = '☰';
-                toggle.onclick = () => sidebar.classList.toggle('active');
-                document.body.insertBefore(toggle, document.body.firstChild);
-            }
+    // Copy to clipboard for code blocks
+    document.querySelectorAll('pre code').forEach(block => {
+        const btn = document.createElement('button');
+        btn.className = 'copy-btn';
+        btn.textContent = 'Copy';
+        btn.onclick = () => {
+            navigator.clipboard.writeText(block.textContent);
+            btn.textContent = 'Copied!';
+            setTimeout(() => btn.textContent = 'Copy', 2000);
         };
-        createMobileToggle();
+        block.parentElement.style.position = 'relative';
+        block.parentElement.appendChild(btn);
+    });
 
-        // Scroll to top button
-        const scrollBtn = document.createElement('button');
-        scrollBtn.className = 'scroll-to-top';
-        scrollBtn.innerHTML = '↑';
-        scrollBtn.onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
-        document.body.appendChild(scrollBtn);
-        window.addEventListener('scroll', () => {
-            scrollBtn.style.display = window.scrollY > 300 ? 'block' : 'none';
-        });
+    // Expandable test results
+    document.querySelectorAll('.test-result').forEach(result => {
+        const header = result.querySelector('.test-header');
+        if (header) {
+            header.style.cursor = 'pointer';
+            header.onclick = () => result.classList.toggle('expanded');
+        }
+    });
+
+    // Mobile navigation toggle
+    const createMobileToggle = () => {
+        if (window.innerWidth <= 768) {
+            const sidebar = document.querySelector('.sidebar');
+            const toggle = document.createElement('button');
+            toggle.className = 'mobile-nav-toggle';
+            toggle.innerHTML = '☰';
+            toggle.onclick = () => sidebar.classList.toggle('active');
+            document.body.insertBefore(toggle, document.body.firstChild);
+        }
+    };
+    createMobileToggle();
+
+    // Scroll to top button
+    const scrollBtn = document.createElement('button');
+    scrollBtn.className = 'scroll-to-top';
+    scrollBtn.innerHTML = '↑';
+    scrollBtn.onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
+    document.body.appendChild(scrollBtn);
+    window.addEventListener('scroll', () => {
+        scrollBtn.style.display = window.scrollY > 300 ? 'block' : 'none';
+    });
     </script>
+
     <!-- Langflow Embedded Chat Widget -->
     <script src="https://cdn.jsdelivr.net/gh/logspace-ai/langflow-embedded-chat@v1.0.7/dist/build/static/js/bundle.min.js"></script>
     <langflow-chat
@@ -205,6 +208,3 @@ public DbSet<Product> Products { get; set; }
         flow_id="fb98244a-f5df-4fb4-9195-913b0e331dad"
         host_url="https://agentstudio.servicesessentials.ibm.com"
         api_key="ak_uZRb2tG2eV-ylLTc-k_KpniRmNdy2nnjYaUg5N_p1p4">
-    </langflow-chat>
-</body>
-</html>
