@@ -3,118 +3,110 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="WebAppWithDatabaseDemo Architecture Page">
-    <title>Architecture - WebAppWithDatabaseDemo</title>
+    <meta name="description" content="Architecture details of the static website project iamenginerdsunio.github.io, including system components, design patterns, and scalability considerations.">
+    <title>Architecture | iamenginerdsunio.github.io</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="sidebar">
-        <h2>Documentation</h2>
         <nav>
             <ul>
-                <li><a href="index.html">Overview</a></li>
+                <li><a href="index.html">Home</a></li>
                 <li><a href="structure.html">Structure</a></li>
                 <li><a href="modules.html">Modules</a></li>
-                <li class="active"><a href="architecture.html">Architecture</a></li>
+                <li><a href="architecture.html" class="active">Architecture</a></li>
             </ul>
         </nav>
     </div>
     <div class="content">
-        <h1>Architecture</h1>
+        <header>
+            <h1>Architecture</h1>
+        </header>
         <section>
-            <h2>System Design Overview</h2>
-            <p>The WebAppWithDatabaseDemo application is designed using the ASP.NET Core MVC architectural style, which ensures modularity, scalability, and maintainability. By separating the application into three primary layers—Model, View, and Controller—the architecture adheres to the principle of separation of concerns. This allows developers to independently manage the presentation, business logic, and data persistence aspects of the application.</p>
-            <p>The Model layer defines data structures and facilitates seamless database interactions through Entity Framework Core. The View layer handles the user interface, rendering dynamic Razor views. The Controller layer manages HTTP requests, processes business logic, and coordinates responses. Additionally, environment-specific configuration files provide flexibility for deployment in different environments.</p>
+            <h2>System Overview</h2>
+            <p>The architecture of the project is designed around the concept of a static website. It consists of an `index.html` file that defines the structure and content of the website and a `styles.css` file responsible for styling. The project adheres to modern web standards and focuses on simplicity, responsiveness, and a clean separation between content and presentation.</p>
+            <p>As a lightweight static website, it eliminates the need for server-side dependencies, making it highly portable and easy to deploy. The architecture supports a straightforward design workflow, allowing developers to independently manage the HTML structure and CSS styling.</p>
         </section>
         <section>
             <h2>Architecture Diagram</h2>
-            <figure>
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" width="100%" height="auto">
-                    <!-- Presentation Layer -->
-                    <rect x="50" y="50" width="200" height="100" fill="#f0f8ff" stroke="#000" />
-                    <text x="150" y="90" font-size="14" text-anchor="middle">Presentation Layer</text>
-                    <text x="150" y="110" font-size="12" text-anchor="middle">(Razor Views)</text>
-                    <!-- API Layer -->
-                    <rect x="300" y="50" width="200" height="100" fill="#e6ffe6" stroke="#000" />
-                    <text x="400" y="90" font-size="14" text-anchor="middle">API Layer</text>
-                    <text x="400" y="110" font-size="12" text-anchor="middle">(Controllers)</text>
-                    <!-- Data Layer -->
-                    <rect x="550" y="50" width="200" height="100" fill="#fff5e6" stroke="#000" />
-                    <text x="650" y="90" font-size="14" text-anchor="middle">Data Layer</text>
-                    <text x="650" y="110" font-size="12" text-anchor="middle">(Entity Framework Core)</text>
-                    <!-- Data Flow Arrows -->
-                    <line x1="250" y1="100" x2="300" y2="100" stroke="#000" marker-end="url(#arrowhead)" />
-                    <line x1="500" y1="100" x2="550" y2="100" stroke="#000" marker-end="url(#arrowhead)" />
-                    <!-- Arrowhead Definition -->
-                    <defs>
-                        <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
-                            <polygon points="0 0, 10 3.5, 0 7" fill="#000" />
-                        </marker>
-                    </defs>
-                </svg>
-                <figcaption>A high-level view of the application's architecture showing the flow between layers.</figcaption>
-            </figure>
+            <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="300" viewBox="0 0 600 300">
+                <rect x="50" y="50" width="200" height="100" fill="#f4f4f4" stroke="#333" stroke-width="2"></rect>
+                <text x="150" y="100" text-anchor="middle" fill="#333" font-family="Arial" font-size="16">HTML Layer</text>
+                <rect x="350" y="50" width="200" height="100" fill="#e0e0e0" stroke="#333" stroke-width="2"></rect>
+                <text x="450" y="100" text-anchor="middle" fill="#333" font-family="Arial" font-size="16">CSS Layer</text>
+                <line x1="250" y1="100" x2="350" y2="100" stroke="#333" stroke-width="2" marker-end="url(#arrow)"></line>
+                <defs>
+                    <marker id="arrow" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto">
+                        <path d="M0,0 L10,5 L0,10 Z" fill="#333"></path>
+                    </marker>
+                </defs>
+                <text x="300" y="80" text-anchor="middle" fill="#333" font-family="Arial" font-size="14">Uses</text>
+            </svg>
         </section>
         <section>
             <h2>System Components</h2>
             <article>
-                <h3>Presentation Layer</h3>
-                <p>Responsible for managing the user interface using Razor Views. These views render dynamic HTML content based on data provided by controllers.</p>
-                <ul>
-                    <li><strong>Key Files:</strong> <code>WebApp/Views/*</code></li>
-                </ul>
+                <h3>HTML Layer</h3>
+                <p>Responsible for defining the structure and content of the website.</p>
+                <p><strong>Key Files:</strong> index.html</p>
+                <p><strong>Interaction:</strong> Connects to the CSS layer for styling.</p>
+                <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;title&gt;My Website&lt;/title&gt;
+  &lt;link rel="stylesheet" href="styles.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;h1&gt;Welcome&lt;/h1&gt;
+  &lt;p&gt;This is a static website.&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
             </article>
             <article>
-                <h3>API Layer</h3>
-                <p>Handles incoming HTTP requests, processes business logic, and manages responses. Implements CRUD operations for various entities.</p>
-                <ul>
-                    <li><strong>Key Files:</strong> <code>WebApp/Controllers/EmployeesController.cs</code>, <code>WebApp/Controllers/HomeController.cs</code></li>
-                    <li><strong>Code Example:</strong></li>
-                </ul>
-                <pre><code>public IActionResult Index() { 
-    var employees = _context.Employees.ToList(); 
-    return View(employees); 
+                <h3>CSS Layer</h3>
+                <p>Handles the visual presentation and styling of the website.</p>
+                <p><strong>Key Files:</strong> styles.css</p>
+                <p><strong>Interaction:</strong> Styles HTML elements defined in index.html.</p>
+                <pre><code>body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  color: #333;
+}
+
+@media (max-width: 600px) {
+  body {
+    background-color: #f4f4f4;
+  }
 }</code></pre>
-            </article>
-            <article>
-                <h3>Data Layer</h3>
-                <p>Provides database access and persistence using Entity Framework Core. Defines the database context and entities.</p>
-                <ul>
-                    <li><strong>Key Files:</strong> <code>WebApp/Data/WebAppContext.cs</code></li>
-                    <li><strong>Code Example:</strong></li>
-                </ul>
-                <pre><code>public DbSet&lt;Product&gt; Products { get; set; }</code></pre>
-            </article>
-            <article>
-                <h3>Configuration Layer</h3>
-                <p>Manages environment-specific settings such as database connection strings and logging preferences.</p>
-                <ul>
-                    <li><strong>Key Files:</strong> <code>WebApp/appsettings.Development.json</code>, <code>WebApp/appsettings.json</code></li>
-                </ul>
             </article>
         </section>
         <section>
             <h2>Design Patterns</h2>
-            <p>The project employs the Model-View-Controller (MVC) pattern to ensure separation of concerns. Dependency Injection is used for managing dependencies and promoting testability.</p>
+            <p><strong>Separation of Concerns:</strong> The project employs this pattern to clearly divide content (HTML) from styling (CSS), simplifying development and maintenance.</p>
         </section>
         <section>
             <h2>Data Flow</h2>
-            <p>Data flows from user input (View) to the controllers (API Layer), which process it and interact with the database through the Data Layer. The processed data is returned to the Views for rendering.</p>
+            <p>The project does not handle dynamic data flow. All content is pre-defined in the HTML file, and there are no request or response cycles beyond the browser fetching the static files.</p>
         </section>
         <section>
             <h2>Technology Choices</h2>
             <ul>
-                <li><strong>Framework:</strong> ASP.NET Core provides robust performance and security features.</li>
-                <li><strong>Database:</strong> Entity Framework Core simplifies database operations with object-relational mapping.</li>
+                <li><strong>HTML:</strong> Chosen for its simplicity and ubiquity in defining web structure.</li>
+                <li><strong>CSS:</strong> Used for styling and ensuring responsive design.</li>
+                <li><strong>No Frameworks:</strong> A deliberate choice to keep the project lightweight and fast.</li>
             </ul>
         </section>
         <section>
             <h2>Scalability Considerations</h2>
-            <p>The architecture is designed to support scalability by separating concerns into distinct layers. However, no specific optimizations for high traffic or parallel processing were detected.</p>
+            <p>As a static website, scalability is inherently supported by its lightweight nature. The project can be hosted on any platform that serves static files, such as GitHub Pages. However, it may face limitations if dynamic content or interactivity is required in the future.</p>
         </section>
         <section>
             <h2>Security Architecture</h2>
-            <p>No authentication or authorization mechanisms were detected, as this is a demo application. Future implementations could integrate ASP.NET Core Identity for user management and secure API endpoints.</p>
+            <p>Security considerations are minimal due to the static nature of the project. There is no authentication, data handling, or API integration that requires protection. The project avoids potential vulnerabilities by minimizing complexity and dependencies.</p>
         </section>
     </div>
     <script>
@@ -166,4 +158,22 @@
 
     // Highlight active section in navigation
     const sections = document.querySelectorAll('section[id]');
-    const
+    const navLinks = document.querySelectorAll('.sidebar a');
+    window.addEventListener('scroll', () => {
+        let current = '';
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            if (scrollY >= sectionTop - 60) current = section.getAttribute('id');
+        });
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === `#${current}`) link.classList.add('active');
+        });
+    });
+    </script>
+    <!-- Langflow Embedded Chat Widget -->
+    <script src="https://cdn.jsdelivr.net/gh/logspace-ai/langflow-embedded-chat@v1.0.7/dist/build/static/js/bundle.min.js"></script>
+    <langflow-chat
+        window_title="Code Wiki Assistant"
+        flow_id="fb98244a-f5df-4fb4-9195-913b0e331dad"
+        host_url="https://
