@@ -3,93 +3,119 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="WebAppWithDatabaseDemo: An ASP.NET Core MVC web application with a database backend.">
+    <meta name="description" content="A static website for showcasing content.">
+    <title>iamenginerdsunio.github.io - Overview</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="icon" href="favicon.ico">
-    <title>WebAppWithDatabaseDemo - Overview</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
 </head>
 <body>
     <aside class="sidebar">
-        <h1>WebAppWithDatabaseDemo</h1>
+        <div class="logo">
+            <h1>iamenginerdsunio.github.io</h1>
+        </div>
         <nav>
-            <a href="index.html" class="active">📄 Overview</a>
-            <a href="architecture.html">🏗️ Architecture</a>
-            <a href="structure.html">📁 Structure</a>
-            <a href="flows.html">🔄 Flows</a>
-            <a href="modules.html">📦 Modules</a>
-            <a href="evidence.html">✅ Evidence</a>
-            <a href="contributing.html">🤝 Contributing</a>
+            <ul>
+                <li><a href="index.html" class="active">📄 Overview</a></li>
+                <li><a href="architecture.html">🏗️ Architecture</a></li>
+                <li><a href="structure.html">📁 Structure</a></li>
+                <li><a href="flows.html">🔄 Flows</a></li>
+                <li><a href="modules.html">📦 Modules</a></li>
+                <li><a href="evidence.html">✅ Evidence</a></li>
+                <li><a href="contributing.html">🤝 Contributing</a></li>
+            </ul>
         </nav>
     </aside>
     <main class="content">
-        <header>
-            <h1>WebAppWithDatabaseDemo</h1>
-            <p>An ASP.NET Core MVC web application with a database backend.</p>
-            <p>
-                <span class="badge">Language: C#</span>
-                <span class="badge">Framework: ASP.NET Core</span>
-                <span class="badge">License: MIT</span>
-            </p>
+        <header class="hero">
+            <h1>iamenginerdsunio.github.io</h1>
+            <p>A static website for showcasing content.</p>
+            <div class="badges">
+                <span class="badge">🌐 HTML</span>
+                <span class="badge">🎨 CSS</span>
+                <span class="badge">🔓 License: Not specified</span>
+            </div>
         </header>
-
-        <section id="project-purpose">
+        <section id="purpose">
             <h2>Project Purpose</h2>
-            <p>WebAppWithDatabaseDemo is a demo application built using ASP.NET Core MVC framework. It showcases a typical web application architecture that includes a frontend for rendering views, a backend API layer for handling client requests, and a database layer for managing data persistence through Entity Framework Core.</p>
-            <p>The application serves as a foundational template for developers looking to understand and build ASP.NET Core applications with integrated database functionality. It emphasizes scalability, maintainability, and ease of configuration, making it ideal for both learning and real-world applications.</p>
+            <article>
+                <p>This project is a static website composed of an HTML file for structure and content and a CSS file for styling. The website is lightweight, with a clear separation of concerns between its structure and visual design.</p>
+                <p>It is designed as a simple landing page with no additional frameworks or dependencies. The primary components include a landing page defined in <code>index.html</code> and its corresponding styles defined in <code>styles.css</code>. The project is responsive and adheres to modern web standards, making it accessible across different devices.</p>
+            </article>
         </section>
-
-        <section id="key-features">
+        <section id="features">
             <h2>Key Features</h2>
             <ul>
-                <li><strong>ASP.NET Core MVC architecture:</strong> Robust and scalable web application structure.</li>
-                <li><strong>Entity Framework Core:</strong> Simplifies database interactions with ORM.</li>
-                <li><strong>CRUD operations:</strong> Controllers handle create, read, update, and delete requests.</li>
-                <li><strong>Environment-specific configurations:</strong> Adjust settings for development and production.</li>
-                <li><strong>Separation of concerns:</strong> Organized into Models, Views, and Controllers.</li>
+                <li>Static HTML structure for content and layout.</li>
+                <li>CSS-based styling for visual presentation.</li>
+                <li>Responsive design using media queries.</li>
+                <li>Lightweight and minimal dependencies.</li>
             </ul>
         </section>
-
         <section id="tech-stack">
             <h2>Tech Stack</h2>
-            <ul>
-                <li><strong>Language:</strong> C#</li>
-                <li><strong>Framework:</strong> ASP.NET Core</li>
-                <li><strong>Database:</strong> Entity Framework Core</li>
-                <li><strong>Configuration:</strong> JSON-based app settings</li>
-            </ul>
+            <article>
+                <h3>Languages</h3>
+                <ul>
+                    <li>HTML</li>
+                    <li>CSS</li>
+                </ul>
+                <h3>Frameworks</h3>
+                <p>Not detected</p>
+                <h3>Database/Storage</h3>
+                <p>Not detected</p>
+                <h3>Deployment Platform</h3>
+                <p>Not detected</p>
+            </article>
         </section>
-
-        <section id="architecture-overview">
+        <section id="architecture">
             <h2>Architecture Overview</h2>
-            <p>The WebAppWithDatabaseDemo follows the ASP.NET MVC architectural style, which separates the application into Model, View, and Controller layers. This modular structure ensures scalability and maintainability. The architecture is complemented by configuration files that manage settings for various deployment environments.</p>
-            <p><a href="architecture.html">Learn more about the architecture →</a></p>
+            <article>
+                <p>The architecture of the project is based on a static website model. It consists of an <code>index.html</code> file that serves as the entry point and defines the structure and content of the website. Styling is handled by a separate <code>styles.css</code> file, ensuring a clean separation between content and presentation.</p>
+                <p>The design emphasizes simplicity and responsiveness, with no additional libraries or frameworks.</p>
+                <p>For a detailed explanation, visit the <a href="architecture.html">Architecture</a> page.</p>
+            </article>
         </section>
-
         <section id="quick-start">
             <h2>Quick Start</h2>
-            <h3>Prerequisites</h3>
-            <ul>
-                <li>.NET Core SDK installed</li>
-                <li>SQL Server or compatible database</li>
-            </ul>
-            <h3>Installation</h3>
-            <pre><code class="language-bash">git clone https://github.com/HoussemDellai/WebAppWithDatabaseDemo.git
-cd WebAppWithDatabaseDemo
-dotnet restore
-dotnet build</code></pre>
-            <h3>Basic Usage</h3>
-            <pre><code class="language-bash">dotnet run</code></pre>
-            <p>Visit <a href="http://localhost:5000">http://localhost:5000</a> in your browser to see the application in action.</p>
-            <p><a href="contributing.html">Learn how to contribute →</a></p>
+            <article>
+                <h3>Prerequisites</h3>
+                <ul>
+                    <li>A modern web browser.</li>
+                </ul>
+                <h3>Installation Steps</h3>
+                <ol>
+                    <li>
+                        <code>Clone or download the repository.</code>
+                        <p>Get the project files onto your local machine.</p>
+                    </li>
+                    <li>
+                        <code>Open index.html in a web browser.</code>
+                        <p>View the website locally.</p>
+                    </li>
+                </ol>
+                <h3>Basic Usage Example</h3>
+                <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;title&gt;My Website&lt;/title&gt;
+  &lt;link rel="stylesheet" href="styles.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;h1&gt;Welcome&lt;/h1&gt;
+  &lt;p&gt;This is a static website.&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                <p>For contributing guidelines, visit the <a href="contributing.html">Contributing</a> page.</p>
+            </article>
         </section>
-
-        <section id="project-status">
+        <section id="status">
             <h2>Project Status</h2>
-            <p><strong>Status:</strong> Demo application for educational purposes.</p>
-            <p>This project is actively maintained as a learning resource. Updates may include improvements to code quality or additional features to enhance educational value.</p>
+            <article>
+                <p><strong>Status:</strong> Active</p>
+                <p>Recent activity: The repository is currently active as of the last analysis.</p>
+            </article>
         </section>
     </main>
-
     <script>
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -152,7 +178,6 @@ dotnet build</code></pre>
             });
         });
     </script>
-
     <!-- Langflow Embedded Chat Widget -->
     <script src="https://cdn.jsdelivr.net/gh/logspace-ai/langflow-embedded-chat@v1.0.7/dist/build/static/js/bundle.min.js"></script>
     <langflow-chat
