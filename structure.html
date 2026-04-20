@@ -3,141 +3,91 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Structure page for WebAppWithDatabaseDemo repository, analyzing directories, entry points, configurations, testing and build structure.">
-    <title>Structure - WebAppWithDatabaseDemo</title>
+    <title>Repository Structure</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="sidebar">
-        <h2>Navigation</h2>
-        <ul>
-            <li><a href="overview.html">Overview</a></li>
-            <li><a href="structure.html" class="active">Structure</a></li>
-            <li><a href="architecture.html">Architecture</a></li>
-            <li><a href="modules.html">Modules</a></li>
-            <li><a href="apis.html">APIs</a></li>
-        </ul>
+        <nav>
+            <ul>
+                <li><a href="overview.html">Overview</a></li>
+                <li><a href="structure.html" class="active">Structure</a></li>
+                <li><a href="architecture.html">Architecture</a></li>
+                <li><a href="setup.html">Setup</a></li>
+                <li><a href="testing.html">Testing</a></li>
+            </ul>
+        </nav>
     </div>
     <div class="content">
         <header>
             <h1>Repository Structure</h1>
-            <p>Detailed analysis of the directory structure, entry points, configurations, testing, and build/deployment mechanisms.</p>
         </header>
-        <section id="repository-overview">
-            <h2>Repository Overview</h2>
-            <p>Total Files: 7</p>
-            <p>Total Lines of Code: Not detected</p>
-            <p>Primary Directories:</p>
-            <ul>
-                <li>Controllers: API layer for handling requests</li>
-                <li>Data: Database interactions</li>
-                <li>Models: Application data structure definitions</li>
-                <li>Views: UI templates</li>
-                <li>wwwroot: Static assets</li>
-            </ul>
-        </section>
-        <section id="directory-tree">
-            <h2>Directory Tree</h2>
-            <pre class="file-tree">
-WebApp
-├── Controllers
-├── Data
-├── Models
-├── Views
-├── wwwroot
-├── appsettings.Development.json
-├── appsettings.json
-├── Program.cs
-├── WebApp.csproj
-            </pre>
-        </section>
-        <section id="key-directories">
-            <h2>Key Directories</h2>
-            <div>
-                <h3>Controllers</h3>
-                <p>Path: WebApp/Controllers</p>
-                <p>Purpose: API layer for handling requests</p>
-                <p>Key Files:</p>
-                <ul>
-                    <li>EmployeesController.cs</li>
-                    <li>HomeController.cs</li>
-                </ul>
-            </div>
-            <div>
-                <h3>Data</h3>
-                <p>Path: WebApp/Data</p>
-                <p>Purpose: Database interactions</p>
-                <p>Key Files:</p>
-                <ul>
-                    <li>WebAppContext.cs</li>
-                </ul>
-            </div>
-            <div>
-                <h3>Models</h3>
-                <p>Path: WebApp/Models</p>
-                <p>Purpose: Defines application data structures</p>
-                <p>Key Files: None detected</p>
-            </div>
-            <div>
-                <h3>Views</h3>
-                <p>Path: WebApp/Views</p>
-                <p>Purpose: UI templates for rendering views</p>
-                <p>Key Files: None detected</p>
-            </div>
-            <div>
-                <h3>wwwroot</h3>
-                <p>Path: WebApp/wwwroot</p>
-                <p>Purpose: Contains static assets</p>
-                <p>Key Files: None detected</p>
-            </div>
-        </section>
-        <section id="configuration-files">
-            <h2>Configuration Files</h2>
-            <p>The following configuration files were found:</p>
-            <ul>
-                <li>
-                    <strong>appsettings.Development.json</strong>: Configures settings specific to the development environment.
-                </li>
-                <li>
-                    <strong>appsettings.json</strong>: Contains default application settings including database connection strings.
-                </li>
-            </ul>
-        </section>
-        <section id="entry-points">
-            <h2>Entry Points</h2>
-            <p>Main entry point:</p>
-            <ul>
-                <li>Program.cs: Responsible for initializing and running the application.</li>
-            </ul>
-            <p>Bootstrap sequence:</p>
-            <pre><code>public static void Main(string[] args)
-{
-    var builder = WebApplication.CreateBuilder(args);
-    var app = builder.Build();
-    app.Run();
-}</code></pre>
-        </section>
-        <section id="build-deployment">
-            <h2>Build and Deployment</h2>
-            <p>Build configuration files:</p>
-            <ul>
-                <li>WebApp.csproj: Defines project dependencies and build settings.</li>
-            </ul>
-            <p>Deployment scripts: Not detected</p>
-            <p>CI/CD files: Not detected</p>
-        </section>
-        <section id="testing-structure">
-            <h2>Testing Structure</h2>
-            <p>Test directories: Not detected</p>
-            <p>Testing framework: Not detected</p>
-            <p>Test organization: Not detected</p>
-        </section>
-        <section id="documentation-structure">
-            <h2>Documentation Structure</h2>
-            <p>Documentation location: Not detected</p>
-            <p>Available documentation: Not detected</p>
-        </section>
+        <main>
+            <section id="repository-overview">
+                <h2>Repository Overview</h2>
+                <p><strong>Project Name:</strong> iamenginerdsunio.github.io</p>
+                <p><strong>Total Files:</strong> 2</p>
+                <p><strong>Primary Directories:</strong> The repository contains two primary files: <code>index.html</code> and <code>styles.css</code>.</p>
+            </section>
+
+            <section id="directory-tree">
+                <h2>Directory Tree</h2>
+                <pre class="file-tree">
+/
+├── index.html
+└── styles.css
+                </pre>
+            </section>
+
+            <section id="key-directories">
+                <h2>Key Directories</h2>
+                <article>
+                    <h3>index.html</h3>
+                    <p><strong>Path:</strong> index.html</p>
+                    <p><strong>Purpose:</strong> Main entry point for the website.</p>
+                    <p><strong>Contents:</strong> Defines the structure and content of the website.</p>
+                    <p><strong>Key Files:</strong> <code>index.html</code></p>
+                </article>
+                <article>
+                    <h3>styles.css</h3>
+                    <p><strong>Path:</strong> styles.css</p>
+                    <p><strong>Purpose:</strong> Styling for the website.</p>
+                    <p><strong>Contents:</strong> Defines the appearance and responsiveness of the website.</p>
+                    <p><strong>Key Files:</strong> <code>styles.css</code></p>
+                </article>
+            </section>
+
+            <section id="configuration-files">
+                <h2>Configuration Files</h2>
+                <p>Not detected</p>
+            </section>
+
+            <section id="entry-points">
+                <h2>Entry Points</h2>
+                <article>
+                    <h3>index.html</h3>
+                    <p><strong>Path:</strong> index.html</p>
+                    <p><strong>Description:</strong> Serves as the main landing page of the website.</p>
+                </article>
+            </section>
+
+            <section id="build-deployment">
+                <h2>Build and Deployment</h2>
+                <p>Not detected</p>
+            </section>
+
+            <section id="testing-structure">
+                <h2>Testing Structure</h2>
+                <p>Not detected</p>
+            </section>
+
+            <section id="documentation-structure">
+                <h2>Documentation Structure</h2>
+                <p>Not detected</p>
+            </section>
+        </main>
     </div>
+
     <script>
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -196,6 +146,7 @@ WebApp
             scrollBtn.style.display = window.scrollY > 300 ? 'block' : 'none';
         });
     </script>
+
     <!-- Langflow Embedded Chat Widget -->
     <script src="https://cdn.jsdelivr.net/gh/logspace-ai/langflow-embedded-chat@v1.0.7/dist/build/static/js/bundle.min.js"></script>
     <langflow-chat
