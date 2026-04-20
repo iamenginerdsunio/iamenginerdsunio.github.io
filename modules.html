@@ -3,233 +3,178 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Modules documentation for WebAppWithDatabaseDemo.">
+    <title>Modules - iamenginerdsunio.github.io</title>
     <link rel="stylesheet" href="styles.css">
-    <title>Modules - WebAppWithDatabaseDemo</title>
 </head>
 <body>
     <div class="sidebar">
         <nav>
             <ul>
-                <li><a href="/overview.html">Overview</a></li>
-                <li><a href="/architecture.html">Architecture</a></li>
-                <li class="active"><a href="/modules.html">Modules</a></li>
-                <li><a href="/flows.html">Flows</a></li>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Architecture</a></li>
+                <li><a href="#" class="active">Modules</a></li>
+                <li><a href="#">Flows</a></li>
             </ul>
         </nav>
     </div>
     <div class="content">
         <h1>Modules Documentation</h1>
-
-        <section id="module-overview">
+        <section>
             <h2>Module Overview</h2>
-            <p><strong>Total Modules:</strong> 2</p>
-            <p><strong>Organization Approach:</strong> Modules are organized based on their functionality, e.g., API handling, database interaction.</p>
-            <p><strong>Naming Conventions:</strong> Modules follow PascalCase naming convention.</p>
+            <p><strong>Total Module Count:</strong> 2</p>
+            <p><strong>Organization Approach:</strong> Static website model, separated into HTML for structure and CSS for styling.</p>
+            <p><strong>Naming Conventions:</strong> Not explicitly defined; files named descriptively based on their purpose (e.g., <code>index.html</code>, <code>styles.css</code>).</p>
         </section>
-
-        <section id="core-modules">
+        <section>
             <h2>Core Modules</h2>
-
-            <article class="module-item" id="module-program">
-                <h3>Program</h3>
-                <p><strong>Location:</strong> WebApp/Program.cs</p>
-                <p><strong>Purpose and Responsibilities:</strong> Serves as the application entry point and initializes the web application.</p>
-                <p><strong>Key Functions:</strong></p>
-                <ul>
-                    <li><code>Main(string[] args)</code>: Initializes and runs the application.</li>
-                </ul>
-                <p><strong>Dependencies:</strong> Microsoft.AspNetCore</p>
-                <p><strong>Used By:</strong> Not used by other modules.</p>
+            <article class="module-item">
+                <h3>Main HTML Structure</h3>
+                <p><strong>Location:</strong> <code>index.html</code></p>
+                <p><strong>Purpose:</strong> Defines the layout and content of the webpage.</p>
+                <p><strong>Key Classes/Functions:</strong> None</p>
+                <p><strong>Dependencies:</strong> <code>styles.css</code></p>
+                <p><strong>Used By:</strong> None</p>
                 <h4>Code Example</h4>
-                <pre><code>public static void Main(string[] args)
-{
-    var builder = WebApplication.CreateBuilder(args);
-    var app = builder.Build();
-    app.Run();
+                <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;title&gt;My Website&lt;/title&gt;
+  &lt;link rel="stylesheet" href="styles.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;h1&gt;Welcome&lt;/h1&gt;
+  &lt;p&gt;This is a static website.&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+            </article>
+            <article class="module-item">
+                <h3>Styling</h3>
+                <p><strong>Location:</strong> <code>styles.css</code></p>
+                <p><strong>Purpose:</strong> Provides the visual styling for the HTML elements.</p>
+                <p><strong>Key Classes/Functions:</strong> None</p>
+                <p><strong>Dependencies:</strong> None</p>
+                <p><strong>Used By:</strong> <code>index.html</code></p>
+                <h4>Code Example</h4>
+                <pre><code>body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  color: #333;
+}
+
+@media (max-width: 600px) {
+  body {
+    background-color: #f4f4f4;
+  }
 }</code></pre>
             </article>
-
-            <article class="module-item" id="module-webappcontext">
-                <h3>WebAppContext</h3>
-                <p><strong>Location:</strong> WebApp/Data/WebAppContext.cs</p>
-                <p><strong>Purpose and Responsibilities:</strong> Represents the database context for interacting with the database using Entity Framework Core.</p>
-                <p><strong>Key Classes:</strong></p>
-                <ul>
-                    <li><code>DbSet&lt;Product&gt;</code></li>
-                </ul>
-                <p><strong>Dependencies:</strong> Microsoft.EntityFrameworkCore</p>
-                <p><strong>Used By:</strong> EmployeesController</p>
-            </article>
         </section>
-
-        <section id="dependency-graph">
+        <section>
             <h2>Dependency Graph</h2>
-            <p>Not detected</p>
+            <p>This project has minimal dependencies. Below is the dependency structure:</p>
+            <ul>
+                <li><code>index.html</code> → imports <code>styles.css</code></li>
+            </ul>
+            <p><strong>Circular Dependencies:</strong> None detected.</p>
         </section>
-
-        <section id="third-party-dependencies">
-            <h2>Third-Party Dependencies</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Library</th>
-                        <th>Category</th>
-                        <th>Version Requirement</th>
-                        <th>Purpose</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Microsoft.AspNetCore</td>
-                        <td>Web Framework</td>
-                        <td>Not detected</td>
-                        <td>Used for building ASP.NET Core applications.</td>
-                    </tr>
-                    <tr>
-                        <td>Microsoft.EntityFrameworkCore</td>
-                        <td>Database ORM</td>
-                        <td>Not detected</td>
-                        <td>Used for database interactions with Entity Framework Core.</td>
-                    </tr>
-                </tbody>
-            </table>
+        <section>
+            <h2>Third-party Dependencies</h2>
+            <p><strong>Dependencies:</strong> None detected. This project relies solely on native HTML and CSS.</p>
         </section>
-
-        <section id="data-models">
+        <section>
             <h2>Data Models</h2>
-            <article class="module-item" id="model-product">
-                <h3>Product</h3>
-                <p><strong>Location:</strong> WebApp/Models/Product.cs</p>
-                <p><strong>Fields:</strong> Id, Name, Price</p>
-                <p><strong>Relationships:</strong> None</p>
-                <h4>Code Example</h4>
-                <pre><code>public class Product
-{
-    public int Id { get; set; }
-    public string Name { get; set; }
-    public decimal Price { get; set; }
-}</code></pre>
-            </article>
+            <p>Not detected.</p>
         </section>
-
-        <section id="utilities-helpers">
+        <section>
             <h2>Utilities and Helpers</h2>
-            <p>Not detected</p>
+            <p>Not detected.</p>
         </section>
-
-        <section id="api-interfaces">
+        <section>
             <h2>API Interfaces</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Path</th>
-                        <th>Method</th>
-                        <th>Handler</th>
-                        <th>Description</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>/Employees/Index</td>
-                        <td>GET</td>
-                        <td>EmployeesController.Index</td>
-                        <td>Retrieves a list of employees.</td>
-                    </tr>
-                    <tr>
-                        <td>/Employees/Create</td>
-                        <td>POST</td>
-                        <td>EmployeesController.Create</td>
-                        <td>Creates a new employee.</td>
-                    </tr>
-                    <tr>
-                        <td>/Home/Index</td>
-                        <td>GET</td>
-                        <td>HomeController.Index</td>
-                        <td>Displays the home page.</td>
-                    </tr>
-                </tbody>
-            </table>
+            <p>Not detected.</p>
         </section>
-
-        <section id="module-best-practices">
+        <section>
             <h2>Module Best Practices</h2>
-            <p><strong>Coding Patterns Observed:</strong> MVC Pattern</p>
-            <p><strong>Import Conventions:</strong> Not detected</p>
-            <p><strong>Testing Approach:</strong> Not detected</p>
+            <p><strong>Patterns Observed:</strong> The project adheres to the <em>Separation of Concerns</em> design principle, with distinct files for structure (<code>index.html</code>) and styling (<code>styles.css</code>).</p>
+            <p><strong>Import Conventions:</strong> CSS is linked in the HTML <code>&lt;head&gt;</code> section.</p>
+            <p><strong>Testing Approach:</strong> Not applicable; testing is not defined for static websites.</p>
         </section>
     </div>
-
     <script>
-    // Smooth scrolling for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        });
-    });
-
-    // Copy to clipboard for code blocks
-    document.querySelectorAll('pre code').forEach(block => {
-        const btn = document.createElement('button');
-        btn.className = 'copy-btn';
-        btn.textContent = 'Copy';
-        btn.onclick = () => {
-            navigator.clipboard.writeText(block.textContent);
-            btn.textContent = 'Copied!';
-            setTimeout(() => btn.textContent = 'Copy', 2000);
-        };
-        block.parentElement.style.position = 'relative';
-        block.parentElement.appendChild(btn);
-    });
-
-    // Module search/filter
-    const createModuleFilter = () => {
-        const filter = document.createElement('input');
-        filter.type = 'text';
-        filter.placeholder = 'Search modules...';
-        filter.className = 'module-search';
-        filter.oninput = (e) => {
-            const query = e.target.value.toLowerCase();
-            document.querySelectorAll('.module-item').forEach(item => {
-                const text = item.textContent.toLowerCase();
-                item.style.display = text.includes(query) ? '' : 'none';
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
             });
+        });
+
+        // Copy to clipboard for code blocks
+        document.querySelectorAll('pre code').forEach(block => {
+            const btn = document.createElement('button');
+            btn.className = 'copy-btn';
+            btn.textContent = 'Copy';
+            btn.onclick = () => {
+                navigator.clipboard.writeText(block.textContent);
+                btn.textContent = 'Copied!';
+                setTimeout(() => btn.textContent = 'Copy', 2000);
+            };
+            block.parentElement.style.position = 'relative';
+            block.parentElement.appendChild(btn);
+        });
+
+        // Module search/filter
+        const createModuleFilter = () => {
+            const filter = document.createElement('input');
+            filter.type = 'text';
+            filter.placeholder = 'Search modules...';
+            filter.className = 'module-search';
+            filter.oninput = (e) => {
+                const query = e.target.value.toLowerCase();
+                document.querySelectorAll('.module-item').forEach(item => {
+                    const text = item.textContent.toLowerCase();
+                    item.style.display = text.includes(query) ? '' : 'none';
+                });
+            };
+            const content = document.querySelector('.content');
+            if (content) content.insertBefore(filter, content.firstChild);
         };
-        const content = document.querySelector('.content');
-        if (content) content.insertBefore(filter, content.firstChild);
-    };
-    createModuleFilter();
+        createModuleFilter();
 
-    // Mobile navigation toggle
-    const createMobileToggle = () => {
-        if (window.innerWidth <= 768) {
-            const sidebar = document.querySelector('.sidebar');
-            const toggle = document.createElement('button');
-            toggle.className = 'mobile-nav-toggle';
-            toggle.innerHTML = '☰';
-            toggle.onclick = () => sidebar.classList.toggle('active');
-            document.body.insertBefore(toggle, document.body.firstChild);
-        }
-    };
-    createMobileToggle();
+        // Mobile navigation toggle
+        const createMobileToggle = () => {
+            if (window.innerWidth <= 768) {
+                const sidebar = document.querySelector('.sidebar');
+                const toggle = document.createElement('button');
+                toggle.className = 'mobile-nav-toggle';
+                toggle.innerHTML = '☰';
+                toggle.onclick = () => sidebar.classList.toggle('active');
+                document.body.insertBefore(toggle, document.body.firstChild);
+            }
+        };
+        createMobileToggle();
 
-    // Scroll to top button
-    const scrollBtn = document.createElement('button');
-    scrollBtn.className = 'scroll-to-top';
-    scrollBtn.innerHTML = '↑';
-    scrollBtn.onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
-    document.body.appendChild(scrollBtn);
-    window.addEventListener('scroll', () => {
-        scrollBtn.style.display = window.scrollY > 300 ? 'block' : 'none';
-    });
+        // Scroll to top button
+        const scrollBtn = document.createElement('button');
+        scrollBtn.className = 'scroll-to-top';
+        scrollBtn.innerHTML = '↑';
+        scrollBtn.onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
+        document.body.appendChild(scrollBtn);
+        window.addEventListener('scroll', () => {
+            scrollBtn.style.display = window.scrollY > 300 ? 'block' : 'none';
+        });
     </script>
-
     <!-- Langflow Embedded Chat Widget -->
     <script src="https://cdn.jsdelivr.net/gh/logspace-ai/langflow-embedded-chat@v1.0.7/dist/build/static/js/bundle.min.js"></script>
     <langflow-chat
         window_title="Code Wiki Assistant"
         flow_id="fb98244a-f5df-4fb4-9195-913b0e331dad"
         host_url="https://agentstudio.servicesessentials.ibm.com"
-        api_key
+        api_key="ak_uZRb2tG2eV-ylLTc-k_KpniRmNdy2nnjYaUg5N_p1p4">
+    </langflow-chat>
+</body>
+</html>
