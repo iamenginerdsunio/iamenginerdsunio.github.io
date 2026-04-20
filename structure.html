@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Repository Structure</title>
+    <title>Repository Structure - iamenginerdsunio.github.io</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -13,8 +13,7 @@
                 <li><a href="overview.html">Overview</a></li>
                 <li><a href="structure.html" class="active">Structure</a></li>
                 <li><a href="architecture.html">Architecture</a></li>
-                <li><a href="setup.html">Setup</a></li>
-                <li><a href="testing.html">Testing</a></li>
+                <li><a href="setup.html">Setup & Development</a></li>
             </ul>
         </nav>
     </div>
@@ -22,72 +21,69 @@
         <header>
             <h1>Repository Structure</h1>
         </header>
-        <main>
-            <section id="repository-overview">
-                <h2>Repository Overview</h2>
-                <p><strong>Project Name:</strong> iamenginerdsunio.github.io</p>
-                <p><strong>Total Files:</strong> 2</p>
-                <p><strong>Primary Directories:</strong> The repository contains two primary files: <code>index.html</code> and <code>styles.css</code>.</p>
-            </section>
-
-            <section id="directory-tree">
-                <h2>Directory Tree</h2>
-                <pre class="file-tree">
+        <section>
+            <h2>Repository Overview</h2>
+            <p>Total Files: 2</p>
+            <p>Lines of Code: Not detected</p>
+            <p>Primary Directories:</p>
+            <ul>
+                <li><strong>index.html</strong>: Main entry point for the website, defines the structure and content.</li>
+                <li><strong>styles.css</strong>: Defines the styling and layout for the website.</li>
+            </ul>
+        </section>
+        <section>
+            <h2>Directory Tree</h2>
+            <pre class="file-tree">
 /
 ├── index.html
 └── styles.css
-                </pre>
-            </section>
-
-            <section id="key-directories">
-                <h2>Key Directories</h2>
-                <article>
-                    <h3>index.html</h3>
-                    <p><strong>Path:</strong> index.html</p>
-                    <p><strong>Purpose:</strong> Main entry point for the website.</p>
-                    <p><strong>Contents:</strong> Defines the structure and content of the website.</p>
-                    <p><strong>Key Files:</strong> <code>index.html</code></p>
-                </article>
-                <article>
-                    <h3>styles.css</h3>
-                    <p><strong>Path:</strong> styles.css</p>
-                    <p><strong>Purpose:</strong> Styling for the website.</p>
-                    <p><strong>Contents:</strong> Defines the appearance and responsiveness of the website.</p>
-                    <p><strong>Key Files:</strong> <code>styles.css</code></p>
-                </article>
-            </section>
-
-            <section id="configuration-files">
-                <h2>Configuration Files</h2>
-                <p>Not detected</p>
-            </section>
-
-            <section id="entry-points">
-                <h2>Entry Points</h2>
-                <article>
-                    <h3>index.html</h3>
-                    <p><strong>Path:</strong> index.html</p>
-                    <p><strong>Description:</strong> Serves as the main landing page of the website.</p>
-                </article>
-            </section>
-
-            <section id="build-deployment">
-                <h2>Build and Deployment</h2>
-                <p>Not detected</p>
-            </section>
-
-            <section id="testing-structure">
-                <h2>Testing Structure</h2>
-                <p>Not detected</p>
-            </section>
-
-            <section id="documentation-structure">
-                <h2>Documentation Structure</h2>
-                <p>Not detected</p>
-            </section>
-        </main>
+            </pre>
+        </section>
+        <section>
+            <h2>Key Directories</h2>
+            <article>
+                <h3>index.html</h3>
+                <p><strong>Path:</strong> index.html</p>
+                <p><strong>Purpose:</strong> Main entry point for the website, defines the structure and content.</p>
+                <p><strong>Key Files:</strong> index.html</p>
+                <p><strong>Notable Patterns:</strong> <code>&lt;!DOCTYPE html&gt;</code>, <code>&lt;head&gt;</code>, <code>&lt;body&gt;</code></p>
+            </article>
+            <article>
+                <h3>styles.css</h3>
+                <p><strong>Path:</strong> styles.css</p>
+                <p><strong>Purpose:</strong> Defines the styling and layout for the website.</p>
+                <p><strong>Key Files:</strong> styles.css</p>
+                <p><strong>Notable Patterns:</strong> <code>body {</code>, <code>h1 {</code>, <code>.container {</code></p>
+            </article>
+        </section>
+        <section>
+            <h2>Configuration Files</h2>
+            <p>Not detected</p>
+        </section>
+        <section>
+            <h2>Entry Points</h2>
+            <ul>
+                <li><strong>index.html</strong>: The main entry point of the website, defining its structure and linking to the stylesheet.</li>
+            </ul>
+        </section>
+        <section>
+            <h2>Build and Deployment</h2>
+            <p>Build Configuration Files: Not detected</p>
+            <p>Deployment Scripts: Not detected</p>
+            <p>CI/CD Files: Not detected</p>
+        </section>
+        <section>
+            <h2>Testing Structure</h2>
+            <p>Test Directories: Not detected</p>
+            <p>Testing Framework: Manual testing</p>
+            <p>Test Organization Approach: Test the website by opening <code>index.html</code> in different browsers to ensure consistent rendering.</p>
+        </section>
+        <section>
+            <h2>Documentation Structure</h2>
+            <p>Where Docs Live: Not detected</p>
+            <p>What Documentation Exists: Not detected</p>
+        </section>
     </div>
-
     <script>
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -146,7 +142,6 @@
             scrollBtn.style.display = window.scrollY > 300 ? 'block' : 'none';
         });
     </script>
-
     <!-- Langflow Embedded Chat Widget -->
     <script src="https://cdn.jsdelivr.net/gh/logspace-ai/langflow-embedded-chat@v1.0.7/dist/build/static/js/bundle.min.js"></script>
     <langflow-chat
