@@ -1,178 +1,176 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Documentation for code flows in the WebAppWithDatabaseDemo project.">
-    <title>Code Flows | WebAppWithDatabaseDemo</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Documentation for code flows and architecture of the static website project.">
+  <meta name="author" content="iamenginerdsunio">
+  <title>Code Flows - Static Website</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="sidebar">
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="architecture.html">Architecture</a></li>
-                <li><a href="modules.html">Modules & APIs</a></li>
-                <li class="active"><a href="flows.html">Flows</a></li>
-                <li><a href="repository.html">Repository</a></li>
-            </ul>
-        </nav>
-    </div>
-    <div class="content">
-        <header>
-            <h1>Code Flows</h1>
-            <p>Detailed explanation of how the WebAppWithDatabaseDemo processes requests, events, and data.</p>
-        </header>
+  <div class="sidebar">
+    <nav>
+      <ul>
+        <li><a href="index.html">Overview</a></li>
+        <li class="active"><a href="flows.html">Flows</a></li>
+        <li><a href="setup.html">Setup</a></li>
+      </ul>
+    </nav>
+  </div>
+  <div class="content">
+    <header>
+      <h1>Code Flows</h1>
+      <p>Understand how the static website processes and organizes its code structure.</p>
+    </header>
+    
+    <section id="code-flow-overview">
+      <h2>1. Code Flow Overview</h2>
+      <p>The application operates as a static website. There is no dynamic request handling or event processing. The browser directly fetches the pre-defined HTML and CSS files, ensuring simplicity and speed.</p>
+    </section>
+    
+    <section id="request-lifecycle">
+      <h2>2. Request Lifecycle</h2>
+      <p>As a static website, there is no server-side request lifecycle. Instead, the browser's lifecycle involves:</p>
+      <ol>
+        <li>Sending an HTTP request for <code>index.html</code>.</li>
+        <li>The HTML file is fetched and rendered in the browser.</li>
+        <li>Additional requests for <code>styles.css</code> are made to apply styling.</li>
+        <li>The browser renders the fully styled page.</li>
+      </ol>
+      <p><strong>Note:</strong> No middleware or interceptors are present, as there is no server-side logic.</p>
+    </section>
+    
+    <section id="routing">
+      <h2>3. Routing</h2>
+      <p>There are no server-side routes or routing mechanisms in this project. Navigation is handled entirely through static hyperlinks within the HTML files.</p>
+      <p><strong>Example:</strong></p>
+      <pre><code>&lt;a href="setup.html"&gt;Setup&lt;/a&gt;</code></pre>
+    </section>
+    
+    <section id="data-flow">
+      <h2>4. Data Flow</h2>
+      <p>There is no dynamic data flow in this project. All content is statically defined within the <code>index.html</code> file:</p>
+      <pre><code>&lt;body&gt;
+  &lt;h1&gt;Welcome&lt;/h1&gt;
+  &lt;p&gt;This is a static website.&lt;/p&gt;
+&lt;/body&gt;</code></pre>
+    </section>
+    
+    <section id="business-logic">
+      <h2>5. Business Logic</h2>
+      <p>The project does not implement any business logic. Its sole purpose is to serve static content with predefined styling.</p>
+    </section>
+    
+    <section id="ui-frontend-flows">
+      <h2>6. UI/Frontend Flows</h2>
+      <p>As a static website, there are no JavaScript-driven components or state management flows. The user interface is entirely determined by the HTML structure and CSS styling.</p>
+    </section>
+    
+    <section id="background-jobs">
+      <h2>7. Background Jobs</h2>
+      <p>No asynchronous tasks, workers, or scheduled jobs are implemented in a static website.</p>
+    </section>
+    
+    <section id="error-handling">
+      <h2>8. Error Handling</h2>
+      <p>Error handling is not applicable, as the project does not involve any server-side or client-side logic that could raise errors.</p>
+    </section>
+    
+    <section id="flow-diagrams">
+      <h2>9. Flow Diagrams</h2>
+      <p>Below is a simple flow diagram representing the static website's request and rendering process:</p>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 300" style="max-width: 100%;" data-interactive>
+        <style>
+          .flow-box { fill: #f4f4f4; stroke: #333; stroke-width: 2; }
+          .flow-text { font-family: Arial, sans-serif; font-size: 14px; }
+        </style>
+        <rect x="50" y="50" width="150" height="50" class="flow-box" />
+        <text x="125" y="80" class="flow-text" text-anchor="middle">Browser</text>
         
-        <section id="code-flow-overview">
-            <h2>Code Flow Overview</h2>
-            <p>The application processes HTTP requests using the ASP.NET Core MVC framework. Requests are routed to the appropriate controllers, which interact with the database through Entity Framework Core. Responses are generated based on the processed data and returned to Razor Views for rendering.</p>
-        </section>
+        <line x1="200" y1="75" x2="350" y2="75" stroke="#333" stroke-width="2" marker-end="url(#arrow)" />
+        <rect x="350" y="50" width="200" height="50" class="flow-box" />
+        <text x="450" y="80" class="flow-text" text-anchor="middle">Fetch index.html</text>
         
-        <section id="request-lifecycle">
-            <h2>Request Lifecycle</h2>
-            <ul>
-                <li>Entry Point: <code>Program.cs</code> initializes the application and starts listening for requests.</li>
-                <li>Routing Middleware: Routes requests to the appropriate controllers based on the URL patterns.</li>
-                <li>Controller Logic: Processes the request and interacts with the database layer via <code>WebAppContext</code>.</li>
-                <li>Data Layer: Executes CRUD operations using Entity Framework Core.</li>
-                <li>View Rendering: Returns processed data to Razor Views for user interface rendering.</li>
-                <li>Response: The final HTML or JSON response is sent back to the client.</li>
-            </ul>
-            <p><strong>Example:</strong></p>
-            <pre><code>public IActionResult Index() {
-    var employees = _context.Employees.ToList();
-    return View(employees);
-}</code></pre>
-        </section>
+        <line x1="450" y1="100" x2="450" y2="150" stroke="#333" stroke-width="2" marker-end="url(#arrow)" />
+        <rect x="350" y="150" width="200" height="50" class="flow-box" />
+        <text x="450" y="180" class="flow-text" text-anchor="middle">Fetch styles.css</text>
+        
+        <defs>
+          <marker id="arrow" markerWidth="10" markerHeight="10" refX="6" refY="3" orient="auto">
+            <path d="M0,0 L0,6 L9,3 z" fill="#333" />
+          </marker>
+        </defs>
+      </svg>
+    </section>
+  </div>
 
-        <section id="routing">
-            <h2>Routing</h2>
-            <p>Routes are defined using ASP.NET Core's routing middleware. Controllers map to specific endpoints based on predefined patterns.</p>
-            <p><strong>Example Routes:</strong></p>
-            <ul>
-                <li><code>/Employees/Index</code> → <code>EmployeesController.Index</code></li>
-                <li><code>/Employees/Create</code> → <code>EmployeesController.Create</code></li>
-                <li><code>/Home/Index</code> → <code>HomeController.Index</code></li>
-            </ul>
-        </section>
+  <script>
+  // Smooth scrolling for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+  });
 
-        <section id="data-flow">
-            <h2>Data Flow</h2>
-            <p>Data flows through the application as follows:</p>
-            <ol>
-                <li><strong>Input:</strong> User submits data via forms or API calls.</li>
-                <li><strong>Controller:</strong> Processes the input and interacts with the database through <code>WebAppContext</code>.</li>
-                <li><strong>Database:</strong> CRUD operations are performed using Entity Framework Core.</li>
-                <li><strong>Output:</strong> Processed data is returned to the Views or APIs.</li>
-            </ol>
-            <p><strong>Example:</strong></p>
-            <pre><code>public DbSet<Product> Products { get; set; }</code></pre>
-        </section>
+  // Copy to clipboard for code blocks
+  document.querySelectorAll('pre code').forEach(block => {
+      const btn = document.createElement('button');
+      btn.className = 'copy-btn';
+      btn.textContent = 'Copy';
+      btn.onclick = () => {
+          navigator.clipboard.writeText(block.textContent);
+          btn.textContent = 'Copied!';
+          setTimeout(() => btn.textContent = 'Copy', 2000);
+      };
+      block.parentElement.style.position = 'relative';
+      block.parentElement.appendChild(btn);
+  });
 
-        <section id="business-logic">
-            <h2>Business Logic</h2>
-            <p>Core logic resides within the Controller layer. Each controller implements specific CRUD operations and interacts with the Entity Framework Core-based Data Layer.</p>
-        </section>
+  // Mobile navigation toggle
+  const createMobileToggle = () => {
+      if (window.innerWidth <= 768) {
+          const sidebar = document.querySelector('.sidebar');
+          const toggle = document.createElement('button');
+          toggle.className = 'mobile-nav-toggle';
+          toggle.innerHTML = '☰';
+          toggle.onclick = () => sidebar.classList.toggle('active');
+          document.body.insertBefore(toggle, document.body.firstChild);
+      }
+  };
+  createMobileToggle();
 
-        <section id="ui-frontend-flows">
-            <h2>UI/Frontend Flows</h2>
-            <p>Razor Views handle the presentation logic. The application does not include advanced frontend state management or component lifecycles.</p>
-        </section>
+  // Scroll to top button
+  const scrollBtn = document.createElement('button');
+  scrollBtn.className = 'scroll-to-top';
+  scrollBtn.innerHTML = '↑';
+  scrollBtn.onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
+  document.body.appendChild(scrollBtn);
+  window.addEventListener('scroll', () => {
+      scrollBtn.style.display = window.scrollY > 300 ? 'block' : 'none';
+  });
 
-        <section id="background-jobs">
-            <h2>Background Jobs</h2>
-            <p>Not detected.</p>
-        </section>
+  // Interactive flow diagrams (if using SVG)
+  document.querySelectorAll('svg[data-interactive]').forEach(svg => {
+      svg.querySelectorAll('[data-step]').forEach(step => {
+          step.style.cursor = 'pointer';
+          step.addEventListener('click', () => {
+              const info = step.getAttribute('data-info');
+              if (info) alert(info);
+          });
+      });
+  });
+  </script>
 
-        <section id="error-handling">
-            <h2>Error Handling</h2>
-            <p>Error handling is not explicitly implemented in the analyzed files. Basic error handling mechanisms can be integrated with middleware or try-catch blocks.</p>
-        </section>
-
-        <section id="flow-diagrams">
-            <h2>Flow Diagrams</h2>
-            <p><strong>Request Flow:</strong></p>
-            <svg width="600" height="300" data-interactive>
-                <rect x="50" y="50" width="100" height="50" fill="#4CAF50" data-step="entry" data-info="App initializes in Program.cs"></rect>
-                <text x="60" y="75" fill="#FFF">Program.cs</text>
-                <line x1="150" y1="75" x2="250" y2="75" stroke="black" stroke-width="2"></line>
-                <rect x="250" y="50" width="100" height="50" fill="#2196F3" data-step="routing" data-info="Request routed to controller"></rect>
-                <text x="260" y="75" fill="#FFF">Routing</text>
-                <line x1="350" y1="75" x2="450" y2="75" stroke="black" stroke-width="2"></line>
-                <rect x="450" y="50" width="100" height="50" fill="#FFC107" data-step="controller" data-info="Controller processes request"></rect>
-                <text x="460" y="75" fill="#FFF">Controller</text>
-            </svg>
-        </section>
-    </div>
-
-    <script>
-    // Smooth scrolling for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        });
-    });
-
-    // Copy to clipboard for code blocks
-    document.querySelectorAll('pre code').forEach(block => {
-        const btn = document.createElement('button');
-        btn.className = 'copy-btn';
-        btn.textContent = 'Copy';
-        btn.onclick = () => {
-            navigator.clipboard.writeText(block.textContent);
-            btn.textContent = 'Copied!';
-            setTimeout(() => btn.textContent = 'Copy', 2000);
-        };
-        block.parentElement.style.position = 'relative';
-        block.parentElement.appendChild(btn);
-    });
-
-    // Mobile navigation toggle
-    const createMobileToggle = () => {
-        if (window.innerWidth <= 768) {
-            const sidebar = document.querySelector('.sidebar');
-            const toggle = document.createElement('button');
-            toggle.className = 'mobile-nav-toggle';
-            toggle.innerHTML = '☰';
-            toggle.onclick = () => sidebar.classList.toggle('active');
-            document.body.insertBefore(toggle, document.body.firstChild);
-        }
-    };
-    createMobileToggle();
-
-    // Scroll to top button
-    const scrollBtn = document.createElement('button');
-    scrollBtn.className = 'scroll-to-top';
-    scrollBtn.innerHTML = '↑';
-    scrollBtn.onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
-    document.body.appendChild(scrollBtn);
-    window.addEventListener('scroll', () => {
-        scrollBtn.style.display = window.scrollY > 300 ? 'block' : 'none';
-    });
-
-    // Interactive flow diagrams (if using SVG)
-    document.querySelectorAll('svg[data-interactive]').forEach(svg => {
-        svg.querySelectorAll('[data-step]').forEach(step => {
-            step.style.cursor = 'pointer';
-            step.addEventListener('click', () => {
-                const info = step.getAttribute('data-info');
-                if (info) alert(info);
-            });
-        });
-    });
-    </script>
-
-    <!-- Langflow Embedded Chat Widget -->
-    <script src="https://cdn.jsdelivr.net/gh/logspace-ai/langflow-embedded-chat@v1.0.7/dist/build/static/js/bundle.min.js"></script>
-    <langflow-chat
-        window_title="Code Wiki Assistant"
-        flow_id="fb98244a-f5df-4fb4-9195-913b0e331dad"
-        host_url="https://agentstudio.servicesessentials.ibm.com"
-        api_key="ak_uZRb2tG2eV-ylLTc-k_KpniRmNdy2nnjYaUg5N_p1p4">
-    </langflow-chat>
+  <!-- Langflow Embedded Chat Widget -->
+  <script src="https://cdn.jsdelivr.net/gh/logspace-ai/langflow-embedded-chat@v1.0.7/dist/build/static/js/bundle.min.js"></script>
+  <langflow-chat
+      window_title="Code Wiki Assistant"
+      flow_id="fb98244a-f5df-4fb4-9195-913b0e331dad"
+      host_url="https://agentstudio.servicesessentials.ibm.com"
+      api_key="ak_uZRb2tG2eV-ylLTc-k_KpniRmNdy2nnjYaUg5N_p1p4">
+  </langflow-chat>
 </body>
 </html>
